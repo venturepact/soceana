@@ -37,7 +37,7 @@ class AppController extends Controller {
    
     
     public function beforeFilter(){
-        'echo <h1>Welcome to new Soceana Project</h1>';die;
+        'echo <h1>Welcome to new Soceana Project</h1>';die; 
         $this->Auth->authenticate = array('Form'=> array('fields' => array('username' => 'email_id')));     
         $this->Auth->allow('index','view');
     }  
