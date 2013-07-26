@@ -3,7 +3,7 @@
 <?php echo $this->Html->script('datepicker/jquery.datepick');?>
 <script type="text/javascript">
 $(function() {
-	$('#dob').datepick({dateFormat: 'yyyy-mm-dd',yearRange: "-80:+0",maxDate: '0'});	
+	$('#dob').datepick({dateFormat: 'yyyy-mm-dd',yearRange: "-80:+0", maxDate: '0'});	
 });
 </script>
           	<div class="profile_content_left">
