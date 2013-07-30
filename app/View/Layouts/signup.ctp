@@ -46,10 +46,10 @@
     <div id="inner_footer_main">
 	<div id="inner_footer_wrap">
             <div id="inner_footer_content_area"> <div class="footer_link_inner">
-                    <p><a href="management.html">Management</a></p>
-                    <p><a href="vision_tenets.html">Vision/Tenets</a></p>
-                    <p><a href="help.html">FAQ</a></p>
-                 <p><a href="login.html">Logout</a></p> 
+                    <p><a href="#">Management</a></p>
+                    <p><a href="#">Vision/Tenets</a></p>
+                    <p><a href="#">FAQ</a></p>
+                 <p><a href="#">Logout</a></p> 
                 </div>
                 <div class="inner_footer_logo">
                 	<img src="<?php echo $this->webroot;?>img/soceana_white_logo.png" width="397" height="113" />

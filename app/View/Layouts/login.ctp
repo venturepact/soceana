@@ -142,9 +142,9 @@ $('a[href=#top]').click(function(){
     	<div class="footer_shd">
         	<div class="footer_link">
                 <p>&copy; 2013 Soceana</p>
-                <p><a href="management.html">Management</a></p> 
-                <p><a href="vision_tenets.html">Vision/Tenets</a></p>
-                <p><a href="help.html">FAQ</a></p> 
+                <p><a href="#">Management</a></p> 
+                <p><a href="#">Vision/Tenets</a></p>
+                <p><a href="#">FAQ</a></p> 
             </div>
         </div>
         <div id="footer_content_area">
