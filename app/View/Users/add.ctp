@@ -316,5 +316,4 @@ $().ready(function() {
 </script>
 <?php
 }
-echo $this->element('sql_dump');
 ?>   

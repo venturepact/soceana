@@ -72,5 +72,4 @@ $().ready(function() {
         });                    
 });
 </script>
-	    
-            </div>
+</div>
