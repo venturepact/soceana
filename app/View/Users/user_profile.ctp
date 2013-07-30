@@ -67,7 +67,9 @@ $(function() {
                     <td align="left">&nbsp;</td>
                   </tr>
                   <tr>
-                    <td colspan="4" align="left"><input type="submit" class="submit_bnt" name="button2" id="button2" value="Update" /></td>
+                    <td colspan="4" align="left">
+			<?php echo $this->Form->input('Update',array('id'=>'button2','type'=>'submit','value'=>"Update",'label'=>false,'div'=>false,'class'=>'submit_bnt'));?>
+		    </td>
                   </tr>
                   <tr>
                     <td colspan="4" align="left">&nbsp;</td>
@@ -117,12 +119,24 @@ $().ready(function() {
 	    
             </div>
             <div class="profile_content_right">
-   	    	  <img src="<?php echo $this->webroot;?>img/profile_pic_main.jpg" width="171" height="170" />
-              <p><a href="#">Reposition</a><br />
-              <span><input name="" type="file" class="file" />Change your profile image</span></p>
+		 <?php
+	  	if(strlen($this->request->data['User']['thumb_image']) > 0 ){
+		    ?>
+		<img src="<?php echo $this->webroot;?>img/upload/<?php echo $this->request->data['User']['thumb_image'];?>" width="171" height="170" id='prof_image' />
+		<?php
+		}
+		else{
+		    ?>
+		<img src="<?php echo $this->webroot;?>img/organization_pic_large.jpg" width="171" height="170" />
+		<?php
+		}
+		?>
+   	    	  
+              <p><a href="<?php echo $this->webroot;?>users/reposition_pic">Reposition</a><br />
+              <span><a href='<?php echo $this->webroot;?>users/user_pic'>Change your profile image</a></span></p>
+              </p>
              	 <h3>About Me:</h3><h4><a href="#">Edit</a></h4>
                  <div class="about_me">
-                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</div>
-                  
-                 
+                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</div>                  
+
             </div>	

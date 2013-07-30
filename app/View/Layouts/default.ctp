@@ -5,6 +5,8 @@
 <title>Soceana</title>
     <?php echo $this->Html->css('style');?>
     <?php echo $this->Html->script('jquery-1.6.1.min');?>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
+    <script src="http://malsup.github.com/jquery.form.js"></script>
     <link rel="shortcut icon" href="<?php echo $this->webroot;?>img/favicon.ico"/>
 </head>
 

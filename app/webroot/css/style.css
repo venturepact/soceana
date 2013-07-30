@@ -1133,14 +1133,14 @@ h6{
 	position:relative;
 }
 .file{
-	opacity: 0;
+	/*opacity: 0;*/
     filter: alpha(opacity = 0);
     -ms-filter: "alpha(opacity=0)";
     cursor: pointer;
     _cursor: hand;
     margin: 0;
     padding:0;
-	position:absolute;
+	/*position:absolute;*/
 }
 .profile_content_right .about_me{
 	margin-top:5px;
@@ -1399,3 +1399,5 @@ width:300px;
 	cursor: pointer;	
 }
 .profile_content_main #flashMessage{color: #FF0000;margin: 10px 0 0;}
+div.file{margin:10px;padding:10px}
+div.file label{margin:10px;}

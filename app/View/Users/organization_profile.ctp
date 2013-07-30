@@ -32,24 +32,37 @@
                   </tr>
                   <tr>
                     <td align="left">Size:</td>
-                    <td colspan="3" align="left"><select name="select2" id="select2">
-                      <option value="Health &amp; Medicine">1000+</option>
-                    </select></td>
+                    <td colspan="3" align="left">
+		      <?php echo $this->Form->input('size',array(
+								   'type'=>'select',
+								   'div'=>false,
+								   'label'=>false,
+								   'options'=>array(
+										    '9'=>'Below 10',
+										    '10'=>'10 +',
+										    '50'=>'50 +',
+										    '100'=>'100 +',
+										    '1000'=>'1000+'
+										    ),
+								   'style'=>'width:200px;'
+			));?>
+		     </td>
                   </tr>
                   <tr>
                     <td align="left">Phone #:</td>
-                    <td colspan="3" align="left"><input name="textfield6" style="width:250px;" type="text" class="input" id="textfield7" /></td>
+                    <td colspan="3" align="left">
+		      <?php echo $this->Form->input('phone',array('type'=>'text','div'=>false,'label'=>false,'style'=>'width:250px;','class'=>'input'));?></td>
                   </tr>
                   <tr>
                     <td align="left">Mission and Vision:</td>
                     <td colspan="3" align="left"><label for="textfield5"></label>
-                      <input name="textfield2" style="width:250px;" type="text" class="input" id="textfield5" /></td>
+                      <?php echo $this->Form->input('mission',array('type'=>'text','div'=>false,'label'=>false,'style'=>'width:250px;','class'=>'input'));?></td>
                   </tr>
                   <tr>
                     <td align="left">Additional<br />
                     Notes</td>
                     <td colspan="3" align="left"><label for="textarea"></label>
-                    <textarea name="textarea" id="textarea" cols="45" rows="5"></textarea></td>
+                    <?php echo $this->Form->input('additional_notes',array('type'=>'textarea','div'=>false,'label'=>false,'style'=>'height:auto !important;width:250px','class'=>'input','rows'=>10,'cols'=>30));?></td>
                   </tr>
                   <tr>
                     <td align="left">&nbsp;</td>
@@ -64,7 +77,9 @@
                     <td align="left">&nbsp;</td>
                   </tr>
                   <tr>
-                    <td colspan="4" align="left"><input type="submit" class="submit_bnt" name="button2" id="button2" value="Submit" /></td>
+                    <td colspan="4" align="left">
+		      <?php echo $this->Form->input('Update',array('id'=>'button2','type'=>'submit','value'=>"Update",'label'=>false,'div'=>false,'class'=>'submit_bnt'));?>
+		    </td>
                   </tr>
                   <tr>
                     <td colspan="4" align="left">&nbsp;</td>
@@ -113,9 +128,21 @@ $().ready(function() {
 </script>
             </div>
            <div class="profile_content_right">
-   	    	  <img src="<?php echo $this->webroot;?>img/organization_pic_large.jpg" width="171" height="170" />
-              <p><a href="#">Reposition</a><br />
-             <span><input name="" type="file" class="file" />Change your profile image</span></p>
+	    <?php
+	  	if(strlen($this->request->data['User']['thumb_image']) > 0 ){
+		    ?>
+		<img src="<?php echo $this->webroot;?>img/upload/<?php echo $this->request->data['User']['thumb_image'];?>" width="171" height="170" id='prof_image' />
+		<?php
+		}
+		else{
+		    ?>
+		<img src="<?php echo $this->webroot;?>img/organization_pic_large.jpg" width="171" height="170" />
+		<?php
+		}
+		?>
+   	    	  
+             <p><a href="<?php echo $this->webroot;?>users/reposition_pic">Reposition</a><br />
+              <span><a href='<?php echo $this->webroot;?>users/user_pic'>Change your profile image</a></span></p>
              	 <h3>About:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3><h4><a href="#">Edit</a></h4>
                  <div class="about_me">
                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</div>
