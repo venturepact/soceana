@@ -16,7 +16,7 @@ class LogHoursController extends AppController {
             
             //email code pending
             $this->Session->setFlash('Log hours have been saved successfully');
-            $this->redirect(array('action'=>'index'));
+            $this->redirect('/');
             
             }else{
             $this->loadModel('User');
@@ -54,7 +54,7 @@ class LogHoursController extends AppController {
             $this->LogHour->save($this->request->data);
             //email code pending
             $this->Session->setFlash('Log hours have been saved successfully');
-            $this->redirect(array('action'=>'organization_index'));
+            $this->redirect('/');
             }else{
                 //function to get the array of volunteer names with ids of volunteers
                 $this->set('users',$this->_getFullName());           
@@ -81,6 +81,20 @@ class LogHoursController extends AppController {
         $this->User->recursive = 0;
         $user = $this->User->find('first',array('conditions'=>$conditions,'fields'=>$fields));
         $this->request->data['LogHour']['volunteer_email'] = $user['User']['email_id'];
+    }
+    
+    public function volunteerPieData(){        
+        $this->layout = '';        
+        $array = $this->LogHour->query('select distinct(l.category_id)as cat_id ,c.category_name,(select sum(hours) from log_hours where category_id = cat_id and user_id = '.$this->Session->read('User.id').' and status = 1)as total_hours from log_hours l,categories c where l.user_id = '.$this->Session->read('User.id').' and c.id = l.category_id and l.status = 1');
+        $string = '<chart caption="Log Hours for different Categories" palette="2" animation="1" numberSuffix=" Hrs." formatNumberScale="0" pieSliceDepth="30" startingAngle="200">';
+        
+        foreach($array as $arr){
+            $string.= '<set label="'.$arr['c']['category_name'].'" value="'.$arr['0']['total_hours'].'" isSliced="0" />';
+        }
+        $string.='<styles><definition><style type="font" name="CaptionFont" size="15" color="666666" /><style type="font" name="SubCaptionFont" bold="0" /></definition><application><apply toObject="caption" styles="CaptionFont" /><apply toObject="SubCaption" styles="SubCaptionFont" /></application></styles></chart>';
+        //$string = "'".$string."'";
+        echo $string;       
+        $this->autoRender = false;
     }
     
 }

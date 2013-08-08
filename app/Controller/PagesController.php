@@ -28,6 +28,7 @@ class PagesController extends AppController {
  * @return void
  */
 	public function display() {
+		//echo 'select distinct(l.category_id)as cat_id ,c.category_name,(select sum(hours) from log_hours where category_id = cat_id and user_id = '.$this->Session->read('User.id').' and status = 1)as total_hours from log_hours l,categories c where l.user_id = '.$this->Session->read('User.id').' and c.id = l.category_id and l.status = 1';
 		//pr($this->Session->read('User'))	;
 	}
 }

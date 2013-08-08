@@ -12,10 +12,11 @@ $(function() {
 		alert('Please select volunteer first');		
 	}
 	else{
+		var new_url = "<?php echo $this->webroot;?>" + "loghours/getVolunteerEmail/" + volunteer_id;
 		$('#volunteer_select').html('<img src="<?php echo $this->webroot;?>img/loading.gif">');
 		$.ajax({
 			type: "POST",
-			url: <?php echo $this->webroot;?> + 'loghours/getVolunteerEmail/' + volunteer_id,
+			url: new_url,
 			data: volunteer_id,
 			success: function(data) {//alert('here');
 				$('#volunteer_email').html(data);

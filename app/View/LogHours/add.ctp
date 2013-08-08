@@ -13,10 +13,11 @@ $(function() {
 		
 	}
 	else{
+		var new_url = "<?php echo $this->webroot;?>" + "loghours/getOrganizationEmail/" + organization_id;
 		$('#org_select').html('<img src="<?php echo $this->webroot;?>img/loading.gif">');
 		$.ajax({
 			type: "POST",
-			url: <?php echo $this->webroot;?> + 'loghours/getOrganizationEmail/' + organization_id,
+			url: new_url,
 			data: organization_id,
 			success: function(data) {//alert('here');
 				$('#organisation_email').html(data);

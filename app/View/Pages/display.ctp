@@ -139,6 +139,11 @@
     <?php
     }else{
     ?>
+   
+    <script type="text/javascript" src="<?php echo $this->webroot;?>Charts/FusionCharts.js"></script>
+    <script type="text/javascript" src="<?php echo $this->webroot;?>assets/prettify/prettify.js"></script>
+    <script type="text/javascript" src="<?php echo $this->webroot;?>assets/ui/js/json2.js"></script>
+    <script type="text/javascript" src="<?php echo $this->webroot;?>assets/ui/js/lib.js" ></script>
     <div class="mid_right">
                 <div class="mid_sub_left">
                     <div class="main_heading">VOLUNTEER ANALYTICS</div>
@@ -259,15 +264,31 @@
                             </section>
                         </div>
                   </div>
-                  <h5>SOCIAL TIDES CREATED - ANALYTICS</h5>
-                  <div class="work_graph">
-                    <img src="<?php echo $this->webroot;?>img/work_graph.jpg" width="512" height="255" />
-                  </div>
+                  <h5>SOCIAL TIDES CREATED - ANALYTICS</h5>                 
+                    <div id="chartdiv" align="center">Chart will load here</div>
+                    <script type="text/javascript">
+                        var data_string = '';                        
+                         $.ajax({
+                                 type: "POST",
+                                 url: '<?php echo $this->webroot;?>' + 'loghours/volunteerPieData',
+                                 data: '',
+                                 success: function(data) {                                   
+                                     displaychart1(data);                                     
+                                 }
+                         });
+                         function displaychart1(data_string) {
+                            if (GALLERY_RENDERER && GALLERY_RENDERER.search(/javascript|flash/i)==0)  FusionCharts.setCurrentRenderer(GALLERY_RENDERER); 
+                            var chart = new FusionCharts("<?php echo $this->webroot;?>Charts/Pie3D.swf", "ChartId", "560", "400", "0", "0");
+                            chart.setXMLData(data_string);		   
+                            chart.render('chartdiv');         
+                         }
+                          
+                     </script>                  
                   <div class="work_graph2">
                   <img src="<?php echo $this->webroot;?>img/work_graph3.png" width="700" height="385" />
                   </div>
                 </div>  
-              </div>
+              </div>     
     <?php      
     }
 ?>
