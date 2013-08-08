@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>
-	<?php echo $title_for_layout; ?>
+	<?php echo $title_for_layout;?>
     </title>
     <link rel="shortcut icon" href="<?php echo $this->webroot;?>img/favicon.ico"/>
     <?php echo $this->Html->css('style');?>
@@ -59,7 +59,7 @@ $('a[href=#top]').click(function(){
 <div id="main_page"> 
 	<div id="wrap">
     	<div id="content_area">
-        	<div class="logo"><img src="<?php echo $this->webroot;?>img/logo.png"/></div>
+            <div class="logo"><img src="<?php echo $this->webroot;?>img/logo.png"/></div>
             <div class="login_main">
                 <?php echo $this->Session->flash(); ?>
                 <?php echo $this->Session->flash('auth'); ?>
@@ -82,12 +82,12 @@ $('a[href=#top]').click(function(){
                         </form>
                         </div>
               	</div>
-                <div class="login_right"><h1>or scroll <span>down</span> to sign up</h1></div>
+                <div class="login_right"><h1>or scroll <span><a href='#down'>down</a></span> to sign up</h1></div>
             </div>
             
             
             <div class="separators"><img src="<?php echo $this->webroot;?>img/separators.png" width="998" height="105" /></div>
-            <div class="category_text">select your category to sign up</div>
+            <div class="category_text" id='down'>select your category to sign up</div>
             <div class="graph_bg">
             	<div class="graph_text">
                     <div class="rslides" id="slider1">
@@ -119,13 +119,13 @@ $('a[href=#top]').click(function(){
                 </div>
                 <div class="com_box_green">
                 	<p>
-                    	<a href="<?php echo $this->webroot;?>users/add/organizations">Organizations</a>
+                    	<a href="<?php echo $this->webroot;?>users/add/organizations">New <br />Organizations</a>
                     	<a class="com_box_anchorgreen" href="<?php echo $this->webroot;?>users/add/organisations/"></a>
                     </p>
                 </div>
                 <div class="com_box_orange">
                 	<p>
-                    	<a href="<?php echo $this->webroot;?>users/add/user">New/<br />
+                    	<a href="<?php echo $this->webroot;?>users/add/user">New<br />
 				   		Volunteers</a>
                         <a class="com_box_anchororange" href="<?php echo $this->webroot;?>users/add/user"></a>
                     </p>

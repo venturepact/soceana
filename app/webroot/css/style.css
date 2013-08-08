@@ -243,6 +243,12 @@ h1 span{
 	color:#ff7500;
 	font-weight:100;
 }
+h1 span a,h1 span a:hover,h1 span a:visited{
+	font-family: 'Conv_FuturaLT';
+	font-size:32px;
+	color:#ff7500;
+	font-weight:100;
+}
 .separators{
 	float:left;
 	text-align:center;
@@ -343,7 +349,7 @@ h1 span{
 	color:#fff;
 	font-size:20px;
 	line-height:20px;
-	margin-top:24px;
+	margin-top:10px;
 }
 .com_box_green p a{
 	color:#fff;

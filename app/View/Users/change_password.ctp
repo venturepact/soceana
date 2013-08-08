@@ -40,15 +40,18 @@ $().ready(function() {
             rules: {
                        "data[User][old_password]": {
                             required: true,
-                            minlength: 5
+                            minlength: 5,
+			    maxlength:15
                          },
                         "data[User][password]": {
                             required: true,
-                            minlength: 5
+                            minlength: 5,
+			    maxlength:15
                          },
                          "data[User][confirm_password]": {
                             required: true,
                             minlength: 5,
+			    maxlength:15,
                             equalTo: "#pwd" 
                          },                
                         
@@ -57,15 +60,18 @@ $().ready(function() {
                 messages:{
                         "data[User][old_password]": {
                             required: 'Please enter current password',
-			    minlength: 'Your password must be at least 5 characters long'
+			     minlength: 'Your password must be at least 5 characters long',
+                            maxlength:'Please enter maximum 15 characters'
 			},                         
 	                "data[User][password]": {
                             required: 'Please enter new password',
-                            minlength: 'Your password must be at least 5 characters long'
+                            minlength: 'Your password must be at least 5 characters long',
+                            maxlength:'Please enter maximum 15 characters'
                         },
                          "data[User][confirm_password]": {
                             required: 'Please enter confirm password',
                             minlength: 'Your password must be at least 5 characters long',
+                            maxlength:'Please enter maximum 15 characters',
                             equalTo: 'Please enter the same password for confirmation'
                         },                        
             }                                        

@@ -5,11 +5,11 @@
           <div class="mid_left_nav">
            	  <ul>
                 <li>
-                <a href="<?php echo $this->webroot;?>users/user_profile"><img src="<?php echo $this->webroot;?>img/user_profile.png" width="18" height="18" /><p>User Profile</p></a>
+                <a href="<?php echo $this->webroot;?>users/user_profile"><img src="<?php echo $this->webroot;?>img/user_profile.png" width="18" height="18" /><p>Volunteer Profile</p></a>
                 <span><a href="<?php echo $this->webroot;?>users/change_password">Change your password</a></span>
                 </li>
                 <li><a href="#" class="mid_left_nav_fade"><img src="<?php echo $this->webroot;?>img/volunteer.png" width="18" height="18" /><p>Volunteer</p></a></li>
-                <li><a href="#"><img src="<?php echo $this->webroot;?>img/log_hours.png" width="18" height="18" /><p>Log Hours</p></a></li>
+                <li><a href="<?php echo $this->webroot;?>loghours/add"><img src="<?php echo $this->webroot;?>img/log_hours.png" width="18" height="18" /><p>Log Hours</p></a></li>
            	  </ul>
           </div>
           <div class="left_profile_nav">

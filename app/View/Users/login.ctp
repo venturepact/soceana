@@ -7,37 +7,46 @@
         <input type="checkbox" name="remember_me" id="remember_me">Remember me on this computer
     </label>    
 </p>
-<p class="forget-password"><a href="#" id="pop">Forget Password</a></p>
-<p class="submit"><?php echo $this->Form->input('Login',array('id'=>'sbmt','type'=>'submit','value'=>"Login",'style'=>"margin-left:9px; margin-top:0px",'label'=>false,'div'=>false));?></p>
+<p class="forget-password"><a href="#" id="pop">Forgot Password</a></p>
+<p class="submit"><input type="submit" style="margin-left:9px; margin-top:0px" value="Login" id="sbmt"><?php // echo $this->Form->input('Login',array('id'=>'sbmt','type'=>'submit','value'=>"Login",'style'=>"margin-left:9px; margin-top:0px",'label'=>false,'div'=>false));?></p>
 <?php echo $this->Form->end(); ?>
 <script>
 $().ready(function() {
 
+//validation rule for valid email
+    $.validator.addMethod("valid_email_id", function(value) {
+        return value = value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);               
+    }, 'Please enter a valid email id');
+    
+    
 	// validate signup form on keyup and submit
 	$("#login_form").validate({
 		rules: {
 			"data[User][email_id]": {
 				required: true,
-				email: true
+				'valid_email_id': true
 			},
 			"data[User][password]": {
 				required: true,
-				minlength: 5
+				minlength: 5,
+                                maxlength:15
 			},
 			
 		},
                 messages:{
                     "data[User][email_id]": {
-				required: 'Please enter your login id',
-				email: 'Please provide a valid login id'
+				required: 'Please enter your email id'				
 			},
 			"data[User][password]": {
 				required: 'Please provide a password',
-				minlength: 'Your password must be at least 5 characters long'
+				 minlength: 'Your password must be at least 5 characters long',
+                                maxlength:'Please enter maximum 15 characters'
 			},
                 }
 		
 	});
+        
+       // $('submit').unwrap();
         
     });
 </script>

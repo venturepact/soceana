@@ -45,7 +45,7 @@ $(function() {
                       <?php echo $this->Form->input('phone',array('type'=>'text','div'=>false,'label'=>false,'style'=>'width:250px;','class'=>'input'));?></td>
                   </tr>
                   <tr>
-                    <td align="left" valign="top">Volunteer Tyle:</td>
+                    <td align="left" valign="top">Volunteer Type:</td>
                     <td colspan="3" align="left"> <?php echo $this->Form->input('ServiceType',array(
                             'type' => 'select',
                             'multiple' => 'checkbox',

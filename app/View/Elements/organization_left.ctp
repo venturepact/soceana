@@ -8,7 +8,7 @@
                 <a href="<?php echo $this->webroot;?>users/organization_profile"><img src="<?php echo $this->webroot;?>img/user_profile.png" width="18" height="18" /><p>ORGANIZATION PROFILE</p></a>
                 <span><a href="<?php echo $this->webroot;?>users/change_password">Change your password</a></span>
                 </li>
-                <li><a href="#"><img src="<?php echo $this->webroot;?>img/volunteer.png" width="18" height="18" /><p>HOURS LOG</p>
+                <li><a href="<?php echo $this->webroot;?>loghours/organization_add"><img src="<?php echo $this->webroot;?>img/volunteer.png" width="18" height="18" /><p>HOURS LOG</p>
                 </a></li>
            	  </ul>
           </div>

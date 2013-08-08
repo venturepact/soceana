@@ -2,7 +2,8 @@
 /*
 * @ Soceana Project 
 * @ Users Controller class
-* @ created on : 19th July 2013
+* @ Created on : 19th July 2013
+* @ Created by : Inderjit Singh
 */
 class UsersController extends AppController{
 
