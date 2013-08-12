@@ -97,4 +97,100 @@ class LogHoursController extends AppController {
         $this->autoRender = false;
     }
     
+    public function volunteerChartData(){
+        $this->layout = '';
+        $string = '<chart caption="Hourly Report" subcaption="" lineThickness="2" showValues="0" formatNumberScale="0" anchorRadius="5"   divLineAlpha="20" divLineColor="CC3300" divLineIsDashed="1" showAlternateHGridColor="1" alternateHGridColor="CC3300" shadowAlpha="40" labelStep="2" numvdivlines="10" chartRightMargin="35" bgColor="FFFFFF,CC3300" bgAngle="270" bgAlpha="10,10" alternateHGridAlpha="5"  legendPosition ="RIGHT ">';
+        $string.= '<categories >';
+        $k = 0;
+        for($i=5;$i>=0;$i--){
+            $array = $this->_get_Month($i);
+            $month_name = $this->_getMonthName($array[0]);
+            $string.= '<category label="'.$month_name.'" />';
+            $temp[$k] = $array;
+            $k++;
+        }
+        $string.='</categories>';
+        $this->loadModel('Category');        
+        $cateories = $this->Category->find('all');
+       // pr($temp);
+        foreach($cateories as $category){
+            
+            $string.='<dataset seriesName="'.$category['Category']['category_name'].'" color="'.$category['Category']['color_code'].'" anchorBorderColor="'.$category['Category']['color_code'].'" anchorBgColor="'.$category['Category']['color_code'].'">';
+            foreach($temp as $tem){
+                //echo $tem[0].'<br>';
+                $data_array = $this->LogHour->find('first',array('fields'=>'sum(hours) as count_of_hours',
+                                                   'conditions'=>array(
+                                                                     'user_id' => $this->Session->read('User.id'),
+                                                                     'category_id' => $category['Category']['id'],
+                                                                     'status' => 1,
+                                                                     'month(job_date)' => $tem[0],
+                                                                     'year(job_date)' => $tem[1]
+                                                   )));
+                if($data_array[0]['count_of_hours']==null){
+                    $string.='<set value="0" />';
+                }
+                else{
+                     $string.='<set value="'.$data_array[0]['count_of_hours'].'" />';
+                }                
+            }
+            $string.='</dataset>';
+            
+        }
+        
+        $string.='<styles><definition><style name="CaptionFont" type="font" size="12"/></definition><application><apply toObject="CAPTION" styles="CaptionFont" /><apply toObject="SUBCAPTION" styles="CaptionFont" /></application></styles></chart>';
+        //pr($temp);
+        echo $string;
+        $this->autoRender = false;
+    }
+    
+    public function _get_Month($month_no){
+        return explode('-',date('m-Y', strtotime("-$month_no months"))); 
+    }
+    
+    public function _getMonthName($monthNum){        
+        return date("F", mktime(0, 0, 0, $monthNum, 10));    
+    }
+    
+    public function OrganizationChartData(){
+      
+        $this->layout = '';
+        $string = '<chart caption="Hourly Report - '.$this->Session->read('User.organization_name').'" subcaption="" lineThickness="2" showValues="0" formatNumberScale="0" anchorRadius="5"   divLineAlpha="20" divLineColor="CC3300" divLineIsDashed="1" showAlternateHGridColor="1" alternateHGridColor="CC3300" shadowAlpha="40" labelStep="2" numvdivlines="10" chartRightMargin="35" bgColor="FFFFFF,CC3300" bgAngle="270" bgAlpha="10,10" alternateHGridAlpha="5"  legendPosition ="RIGHT ">';
+        $string.= '<categories >';
+        $k = 0;
+        for($i=5;$i>=0;$i--){
+            $array = $this->_get_Month($i);
+            $month_name = $this->_getMonthName($array[0]);
+            $string.= '<category label="'.$month_name.'" />';
+            $temp[$k] = $array;
+            $k++;
+        }
+        $string.='</categories>';   
+      
+            
+            $string.='<dataset seriesName="'.$category['Category']['category_name'].'" color="F2796B" anchorBorderColor="F2796B" anchorBgColor="F2796B">';
+            foreach($temp as $tem){
+              
+                $data_array = $this->LogHour->find('first',array('fields'=>'sum(hours) as count_of_hours',
+                                                   'conditions'=>array(                                                                    
+                                                                     'organization' => $this->Session->read('User.id'),
+                                                                     'status' => 1,
+                                                                     'month(job_date)' => $tem[0],
+                                                                     'year(job_date)' => $tem[1]
+                                                   )));
+                if($data_array[0]['count_of_hours']==null){
+                    $string.='<set value="0" />';
+                }
+                else{
+                     $string.='<set value="'.$data_array[0]['count_of_hours'].'" />';
+                }                
+            }
+            $string.='</dataset>';     
+       
+        
+        $string.='<styles><definition><style name="CaptionFont" type="font" size="12"/></definition><application><apply toObject="CAPTION" styles="CaptionFont" /><apply toObject="SUBCAPTION" styles="CaptionFont" /></application></styles></chart>';
+        
+        echo $string;
+        $this->autoRender = false;
+    }
+    
 }

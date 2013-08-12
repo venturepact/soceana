@@ -19,7 +19,7 @@ class PagesController extends AppController {
  *
  * @var array
  */
-	public $uses = array();
+	public $uses = array('LogHour');
 
 /**
  * Displays a view
@@ -28,7 +28,66 @@ class PagesController extends AppController {
  * @return void
  */
 	public function display() {
-		//echo 'select distinct(l.category_id)as cat_id ,c.category_name,(select sum(hours) from log_hours where category_id = cat_id and user_id = '.$this->Session->read('User.id').' and status = 1)as total_hours from log_hours l,categories c where l.user_id = '.$this->Session->read('User.id').' and c.id = l.category_id and l.status = 1';
-		//pr($this->Session->read('User'))	;
+		
+		if($this->request->is('post')){
+			 $this->Session->write('page_limit',$this->request->data['Pages']['limit']);  
+		}
+		
+		if($this->Session->read('page_limit') != null){
+			$limit = $this->Session->read('page_limit');			
+		}
+		else $limit = 5;
+		
+		if($this->Session->read('User.role') == 'organizations'){
+			$this->set('loghours',$this->_organizationGridData($limit));	
+		}
+		else{
+			$this->set('loghours',$this->_volunteerGridData($limit));	
+		}		
+		
+	}
+	
+	public function _volunteerGridData($limit = 5){
+		$fields = array('LogHour.id','LogHour.hours','LogHour.job_date','LogHour.status','Category.category_name','ServiceType.name','User.organization_name');
+		
+		 $this->paginate = array(
+				'limit'       => $limit,
+				'order'       => 'LogHour.job_date DESC',
+				'fields'      => $fields,
+				'conditions'  => array( 'user_id' => $this->Session->read('User.id'))
+			);
+		
+		 $this->LogHour->bindModel(
+			array('belongsTo' => array(
+					'Category'    =>  array('className' => 'Category','joinTable' => 'categories','foreignKey' => 'category_id','fields'=>array('category_name')),
+					'ServiceType' =>  array('className' => 'ServiceType','joinTable' => 'service_types','foreignKey' => 'service_type_id','fields'=>array('name')),
+					'User'        =>  array('className' => 'User','joinTable' => 'users','foreignKey' => 'organization','fields'=>array('organization_name'))
+				)
+			),false
+		);
+		 
+		return $this->paginate('LogHour');
+	}
+	
+	public function _organizationGridData($limit = 5){
+		$fields = array('LogHour.id','LogHour.hours','LogHour.job_date','LogHour.status','Category.category_name','ServiceType.name','User.first_name','User.last_name');
+		
+		 $this->paginate = array(
+				'limit'       => $limit,
+				'order'       => 'LogHour.job_date DESC',
+				'fields'      => $fields,
+				'conditions'  => array( 'organization' => $this->Session->read('User.id'))
+			);
+		
+		 $this->LogHour->bindModel(
+			array('belongsTo' => array(
+					'Category'    =>  array('className' => 'Category','joinTable' => 'categories','foreignKey' => 'category_id','fields'=>array('category_name')),
+					'ServiceType' =>  array('className' => 'ServiceType','joinTable' => 'service_types','foreignKey' => 'service_type_id','fields'=>array('name')),
+					'User'        =>  array('className' => 'User','joinTable' => 'users','foreignKey' => 'user_id','fields'=>array('first_name','last_name'))
+				)
+			),false
+		);
+		 
+		return $this->paginate('LogHour');
 	}
 }

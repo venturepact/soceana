@@ -31,6 +31,7 @@ class UsersController extends AppController{
     
     public function logout(){
         $this->Session->delete('User');
+        $this->Session->delete('page_limit');
         $this->Auth->logout();
         $this->redirect(array('controller'=>'users','action'=>'login'));
     }   

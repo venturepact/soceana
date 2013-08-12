@@ -1,3 +1,7 @@
+<script type="text/javascript" src="<?php echo $this->webroot;?>Charts/FusionCharts.js"></script>
+<script type="text/javascript" src="<?php echo $this->webroot;?>assets/prettify/prettify.js"></script>
+<script type="text/javascript" src="<?php echo $this->webroot;?>assets/ui/js/json2.js"></script>
+<script type="text/javascript" src="<?php echo $this->webroot;?>assets/ui/js/lib.js" ></script>
 <?php
 /* @ check if the role of current logged in user is organzation or normal volunteer
  *  @ set dashboard accordingly
@@ -21,15 +25,29 @@
                   <div class="records_perpage_main">
                         <div class="records_perpage_left">
                           <label for="select"></label>
-                          <select name="select" id="select">
-                            <option value="10">10</option>
-                          </select> 
-                      Records Per Page</div>
-                        <div class="records_perpage_right">
+                         <?php echo $this->Form->create('Pages');?>
+                          <?php
+                          if($this->Session->read('page_limit') != null){
+                                    $limit = $this->Session->read('page_limit');			
+                            }
+                          else $limit = 5;
+                          echo $this->Form->input('limit',array(
+							       'type' => 'select',
+							       'div' => false,
+							       'label' => false,							       
+							       'options' => array('5'=>'5','10'=>'10','15'=>'15','20'=>'20','25'=>'25','30'=>'30'),
+							       'default' => $limit,
+							       'id' => 'select',
+                                                               'onChange'=>'this.form.submit();'
+							       ));?>
+                         
+                        <?php echo $this->Form->end();?> 
+                        Records Per Page</div>
+                        <!--<div class="records_perpage_right">
                         Search : 
                           <label for="textfield"></label>
                           <input type="text" name="textfield" id="textfield" />
-                        </div>
+                        </div>-->
                   </div>
                    <table width="100%" border="0" cellspacing="0" cellpadding="0" id="main_table">
                       <tr>
@@ -39,69 +57,21 @@
                         <td width="9%" align="center" class="sub_category_heading"><a href="#">Hours</a></td>
                         <td width="13%" align="center" class="sub_category_heading"><a href="#">Date</a></td>
                       </tr>
-                      <tr>
-                        <td align="center" class="tabel_grid_gray"><a href="#">Hospital</a></td>
-                        <td align="center" class="tabel_grid_gray"><a href="#">Emergency Room</a></td>
-                        <td align="center" class="tabel_grid_gray"><a href="#">HUP</a></td>
-                        <td align="center" class="tabel_grid_gray"><a href="#">7</a></td>
-                        <td align="center" class="tabel_grid_gray"><a href="#">5/27/2013</a></td>
+                     <?php                      
+                      $i = 0;                     
+                      foreach($loghours as $log_hour){
+                        ?>
+                        <tr>
+                        <td align="center" class="<?php if($i==0) echo 'tabel_grid_white';else echo 'tabel_grid_gray';?>"><a href="#"><?php echo $log_hour['Category']['category_name'];?></a></td>
+                        <td align="center" class="<?php if($i==0) echo 'tabel_grid_white';else echo 'tabel_grid_gray';?>"><a href="#"><?php echo $log_hour['ServiceType']['name'];?></a></td>
+                        <td align="center" class="<?php if($i==0) echo 'tabel_grid_white';else echo 'tabel_grid_gray';?>"><a href="#"><?php echo $log_hour['User']['first_name'].' '.$log_hour['User']['last_name'];?></a></td>
+                        <td align="center" class="<?php if($i==0) echo 'tabel_grid_white';else echo 'tabel_grid_gray';?>"><a href="#"><?php echo $log_hour['LogHour']['hours'];?></a></td>
+                        <td align="center" class="<?php if($i==0) echo 'tabel_grid_white';else echo 'tabel_grid_gray';?>"><a href="#"><?php echo $log_hour['LogHour']['job_date'];?></a></td>
                      </tr>
-                      <tr>
-                        <td align="center" class="tabel_grid_white"><a href="#">NGO</a></td>
-                        <td align="center" class="tabel_grid_white"><a href="#">Suicide Hotline</a></td>
-                        <td align="center" class="tabel_grid_white"><a href="#">Drug Prevention</a></td>
-                        <td align="center" class="tabel_grid_white"><a href="#">4</a></td>
-                        <td align="center" class="tabel_grid_white"><a href="#">5/20/2013</a></td>
-                      </tr>
-                      <tr>
-                        <td align="center" class="tabel_grid_gray"><a href="#">School</a></td>
-                        <td align="center" class="tabel_grid_gray"><a href="#">Working with Intercity Youth</a></td>
-                        <td align="center" class="tabel_grid_gray"><a href="#">Philadelphia</a></td>
-                        <td align="center" class="tabel_grid_gray"><a href="#">3</a></td>
-                        <td align="center" class="tabel_grid_gray"><a href="#">5/2/2013</a></td>
-                      </tr>
-                      <tr>
-                        <td align="center" class="tabel_grid_white"><a href="#">Community Service</a></td>
-                        <td align="center" class="tabel_grid_white"><a href="#">Manna on Main Street</a></td>
-                        <td align="center" class="tabel_grid_white"><a href="#">Manna on Main Street</a></td>
-                        <td align="center" class="tabel_grid_white"><a href="#">2</a></td>
-                        <td align="center" class="tabel_grid_white"><a href="#">4/13/2013</a></td>
-                      </tr>
-                      <tr>
-                        <td align="center" class="tabel_grid_gray"><a href="#">Hospital</a></td>
-                        <td align="center" class="tabel_grid_gray"><a href="#">Doctor Shadowing</a></td>
-                        <td align="center" class="tabel_grid_gray"><a href="#">VA </a></td>
-                        <td align="center" class="tabel_grid_gray"><a href="#">5</a></td>
-                        <td align="center" class="tabel_grid_gray"><a href="#">4/12/2013</a></td>
-                      </tr>
-                      <tr>
-                        <td align="center" class="tabel_grid_white"><a href="#">Community Service</a></td>
-                        <td align="center" class="tabel_grid_white"><a href="#">Cleaning up Clark Park</a></td>
-                        <td align="center" class="tabel_grid_white"><a href="#">Bureau of Community Affairs</a></td>
-                        <td align="center" class="tabel_grid_white"><a href="#">5</a></td>
-                        <td align="center" class="tabel_grid_white"><a href="#">3/27/2013</a></td>
-                      </tr>
-                      <tr>
-                        <td align="center" class="tabel_grid_gray"><a href="#">Community Service</a></td>
-                        <td align="center" class="tabel_grid_gray"><a href="#">5K Run or Dye</a></td>
-                        <td align="center" class="tabel_grid_gray"><a href="#">Philly Run or Dye</a></td>
-                        <td align="center" class="tabel_grid_gray"><a href="#">6.5</a></td>
-                        <td align="center" class="tabel_grid_gray"><a href="#">3/25/2013</a></td>
-                      </tr>
-                      <tr>
-                        <td align="center" class="tabel_grid_white"><a href="#">Hospital</a></td>
-                        <td align="center" class="tabel_grid_white"><a href="#">Emergency Room</a></td>
-                        <td align="center" class="tabel_grid_white"><a href="#">HUP</a></td>
-                        <td align="center" class="tabel_grid_white"><a href="#">2</a></td>
-                        <td align="center" class="tabel_grid_white"><a href="#">2/20/2013</a></td>
-                      </tr>
-                      <tr>
-                        <td align="center" class="tabel_grid_gray"><a href="#">Hospital</a></td>
-                        <td align="center" class="tabel_grid_gray"><a href="#">Filing</a></td>
-                        <td align="center" class="tabel_grid_gray"><a href="#">HUP</a></td>
-                        <td align="center" class="tabel_grid_gray"><a href="#">3</a></td>
-                        <td align="center" class="tabel_grid_gray"><a href="#">1/31/2013</a></td>
-                      </tr>
+                        <?php
+                        if($i == 1)$i=0;else $i=1;                        
+                      }
+                      ?>
                       <tr>
                         <td align="center"></td>
                         <td align="center"></td>
@@ -112,24 +82,37 @@
                     </table>
                     <div class="pagination_main">
                         <div class="pagination_left">
-                          <p class="dark_gray">Showing 1 to 10 of 57 entries</p>
+                          <p class="dark_gray"><?php echo $this->Paginator->counter('Showing {:start} to {:end} of {:count} entries');?></p>
                       </div>
                       <div class="pagination_right">
                         <section class="container" id="pagination">
                             <nav class="pagination" id="pagination">
-                              <a href="#" class="prev">< Previous</a>
-                              <a href="#">1</a>
-                              <a href="#">2</a>
-                              <a href="#">3</a>
-                              <span>4</span>
-                              <a href="#">5</a>
-                              <a href="#" class="next">Next ></a>
+                               <?php echo $this->Paginator->prev(' << ' . __('previous'), array(), null, array('class' => ''));?>
+                               <?php echo $this->Paginator->next( __('Next') .' >> '  , array(), null, array('class' => ''));?>
                             </nav>
                             </section>
                         </div>
                   </div>
                   <h5>SOCIAL TIDES CREATED - ANALYTICS</h5>
-                  <div class="work_graph"><span class="work_graph"><img src="<?php echo $this->webroot;?>img/work_graph3.1.jpg" width="700" height="385" /></span></div>
+                   <div id="chartdiv2" align="center">Chart will load here</div>
+                        <script type="text/javascript">
+                        var data_string2 = '';                        
+                                    $.ajax({
+                                            type: "POST",
+                                            url: '<?php echo $this->webroot;?>' + 'loghours/OrganizationChartData',
+                                            data: '',
+                                            success: function(data) {                                   
+                                                displaychart2(data);                                     
+                                            }
+                                    });
+                       function displaychart2(data_string2) {
+                                   if (GALLERY_RENDERER && GALLERY_RENDERER.search(/javascript|flash/i)==0)  FusionCharts.setCurrentRenderer(GALLERY_RENDERER); 
+                                   var chart2 = new FusionCharts("<?php echo $this->webroot;?>Charts/MSLine.swf", "ChartId", "560", "400", "0", "0");
+                                   chart2.setXMLData( data_string2 );		   
+                                   chart2.render("chartdiv2");                      
+                       }             
+		       </script>   
+                  
                   <div class="work_graph2">
                   <img src="<?php echo $this->webroot;?>img/work_graph4.jpg" width="700" height="344" /><br />
                   <br />
@@ -139,11 +122,6 @@
     <?php
     }else{
     ?>
-   
-    <script type="text/javascript" src="<?php echo $this->webroot;?>Charts/FusionCharts.js"></script>
-    <script type="text/javascript" src="<?php echo $this->webroot;?>assets/prettify/prettify.js"></script>
-    <script type="text/javascript" src="<?php echo $this->webroot;?>assets/ui/js/json2.js"></script>
-    <script type="text/javascript" src="<?php echo $this->webroot;?>assets/ui/js/lib.js" ></script>
     <div class="mid_right">
                 <div class="mid_sub_left">
                     <div class="main_heading">VOLUNTEER ANALYTICS</div>
@@ -161,15 +139,29 @@
                   <div class="records_perpage_main">
                         <div class="records_perpage_left">
                           <label for="select"></label>
-                          <select name="select" id="select">
-                            <option value="10">10</option>
-                          </select> 
+                          <?php echo $this->Form->create('Pages');?>
+                          <?php
+                          if($this->Session->read('page_limit') != null){
+                                    $limit = $this->Session->read('page_limit');			
+                            }
+                          else $limit = 5;
+                          echo $this->Form->input('limit',array(
+							       'type' => 'select',
+							       'div' => false,
+							       'label' => false,							       
+							       'options' => array('5'=>'5','10'=>'10','15'=>'15','20'=>'20','25'=>'25','30'=>'30'),
+							       'default' => $limit,
+							       'id' => 'select',
+                                                               'onChange'=>'this.form.submit();'
+							       ));?>
+                         
+                          <?php echo $this->Form->end();?>
                       Records Per Page</div>
-                        <div class="records_perpage_right">
+                        <!--<div class="records_perpage_right">
                         Search : 
                           <label for="textfield"></label>
                           <input type="text" name="textfield" id="textfield" />
-                        </div>
+                        </div>-->
                   </div>
                    <table width="100%" border="0" cellspacing="0" cellpadding="0" id="main_table">
                       <tr>
@@ -179,87 +171,34 @@
                         <td width="9%" align="center" class="sub_category_heading"><a href="#">Hours</a></td>
                         <td width="13%" align="center" class="sub_category_heading"><a href="#">Date</a></td>
                       </tr>
-                      <tr>
-                        <td align="center" class="tabel_grid_gray"><a href="#">Hospital</a></td>
-                        <td align="center" class="tabel_grid_gray"><a href="#">Emergency Room</a></td>
-                        <td align="center" class="tabel_grid_gray"><a href="#">HUP</a></td>
-                        <td align="center" class="tabel_grid_gray"><a href="#">7</a></td>
-                        <td align="center" class="tabel_grid_gray"><a href="#">5/27/2013</a></td>
+                      <?php                      
+                      $i = 0;
+                      foreach($loghours as $log_hour){
+                        ?>
+                        <tr>
+                        <td align="center" class="<?php if($i==0) echo 'tabel_grid_white';else echo 'tabel_grid_gray';?>"><a href="#"><?php echo $log_hour['Category']['category_name'];?></a></td>
+                        <td align="center" class="<?php if($i==0) echo 'tabel_grid_white';else echo 'tabel_grid_gray';?>"><a href="#"><?php echo $log_hour['ServiceType']['name'];?></a></td>
+                        <td align="center" class="<?php if($i==0) echo 'tabel_grid_white';else echo 'tabel_grid_gray';?>"><a href="#"><?php echo $log_hour['User']['organization_name'];?></a></td>
+                        <td align="center" class="<?php if($i==0) echo 'tabel_grid_white';else echo 'tabel_grid_gray';?>"><a href="#"><?php echo $log_hour['LogHour']['hours'];?></a></td>
+                        <td align="center" class="<?php if($i==0) echo 'tabel_grid_white';else echo 'tabel_grid_gray';?>"><a href="#"><?php echo $log_hour['LogHour']['job_date'];?></a></td>
                      </tr>
-                      <tr>
-                        <td align="center" class="tabel_grid_white"><a href="#">NGO</a></td>
-                        <td align="center" class="tabel_grid_white"><a href="#">Suicide Hotline</a></td>
-                        <td align="center" class="tabel_grid_white"><a href="#">Drug Prevention Organization</a></td>
-                        <td align="center" class="tabel_grid_white"><a href="#">4</a></td>
-                        <td align="center" class="tabel_grid_white"><a href="#">5/20/2013</a></td>
-                      </tr>
-                      <tr>
-                        <td align="center" class="tabel_grid_gray"><a href="#">School</a></td>
-                        <td align="center" class="tabel_grid_gray"><a href="#">Working with Intercity Youth</a></td>
-                        <td align="center" class="tabel_grid_gray"><a href="#">Philadelphia School</a></td>
-                        <td align="center" class="tabel_grid_gray"><a href="#">3</a></td>
-                        <td align="center" class="tabel_grid_gray"><a href="#">5/2/2013</a></td>
-                      </tr>
-                      <tr>
-                        <td align="center" class="tabel_grid_white"><a href="#">Community Service</a></td>
-                        <td align="center" class="tabel_grid_white"><a href="#">Manna on Main Street</a></td>
-                        <td align="center" class="tabel_grid_white"><a href="#">Manna on Main Street</a></td>
-                        <td align="center" class="tabel_grid_white"><a href="#">2</a></td>
-                        <td align="center" class="tabel_grid_white"><a href="#">4/13/2013</a></td>
-                      </tr>
-                      <tr>
-                        <td align="center" class="tabel_grid_gray"><a href="#">Hospital</a></td>
-                        <td align="center" class="tabel_grid_gray"><a href="#">Doctor Shadowing</a></td>
-                        <td align="center" class="tabel_grid_gray"><a href="#">VA Hospital</a></td>
-                        <td align="center" class="tabel_grid_gray"><a href="#">5</a></td>
-                        <td align="center" class="tabel_grid_gray"><a href="#">4/12/2013</a></td>
-                      </tr>
-                      <tr>
-                        <td align="center" class="tabel_grid_white"><a href="#">Community Service</a></td>
-                        <td align="center" class="tabel_grid_white"><a href="#">Cleaning up Clark Park</a></td>
-                        <td align="center" class="tabel_grid_white"><a href="#">Bureau of Community Affairs</a></td>
-                        <td align="center" class="tabel_grid_white"><a href="#">5</a></td>
-                        <td align="center" class="tabel_grid_white"><a href="#">3/27/2013</a></td>
-                      </tr>
-                      <tr>
-                        <td align="center" class="tabel_grid_gray"><a href="#">Community Service</a></td>
-                        <td align="center" class="tabel_grid_gray"><a href="#">5K Run or Dye</a></td>
-                        <td align="center" class="tabel_grid_gray"><a href="#">Philly Run or Dye</a></td>
-                        <td align="center" class="tabel_grid_gray"><a href="#">6.5</a></td>
-                        <td align="center" class="tabel_grid_gray"><a href="#">3/25/2013</a></td>
-                      </tr>
-                      <tr>
-                        <td align="center" class="tabel_grid_white"><a href="#">Hospital</a></td>
-                        <td align="center" class="tabel_grid_white"><a href="#">Emergency Room</a></td>
-                        <td align="center" class="tabel_grid_white"><a href="#">HUP</a></td>
-                        <td align="center" class="tabel_grid_white"><a href="#">2</a></td>
-                        <td align="center" class="tabel_grid_white"><a href="#">2/20/2013</a></td>
-                      </tr>
-                      <tr>
-                        <td align="center" class="tabel_grid_gray"><a href="#">Hospital</a></td>
-                        <td align="center" class="tabel_grid_gray"><a href="#">Filing</a></td>
-                        <td align="center" class="tabel_grid_gray"><a href="#">HUP</a></td>
-                        <td align="center" class="tabel_grid_gray"><a href="#">3</a></td>
-                        <td align="center" class="tabel_grid_gray"><a href="#">1/31/2013</a></td>
-                      </tr>
+                        <?php
+                        if($i == 1)$i=0;else $i=1;                        
+                      }
+                      ?>  
                       <tr>
                         <td colspan="5" align="center" class="social_good"><a href="#">Add New Social Good</a></td>
                       </tr>
                     </table>
                     <div class="pagination_main">
                         <div class="pagination_left">
-                          <p class="dark_gray">Showing 1 to 10 of 57 entries</p>
+                          <p class="dark_gray"><?php echo $this->Paginator->counter('Showing {:start} to {:end} of {:count} entries');?></p>
                       </div>
                       <div class="pagination_right">
                         <section class="container" id="pagination">
                             <nav class="pagination" id="pagination">
-                              <a href="#" class="prev">< Previous</a>
-                              <a href="#">1</a>
-                              <a href="#">2</a>
-                              <a href="#">3</a>
-                              <span>4</span>
-                              <a href="#">5</a>
-                              <a href="#" class="next">Next ></a>
+                               <?php echo $this->Paginator->prev(' << ' . __('previous'), array(), null, array('class' => ''));?>
+                               <?php echo $this->Paginator->next( __('Next') .' >> '  , array(), null, array('class' => ''));?>
                             </nav>
                             </section>
                         </div>
@@ -283,10 +222,27 @@
                             chart.render('chartdiv');         
                          }
                           
-                     </script>                  
-                  <div class="work_graph2">
-                  <img src="<?php echo $this->webroot;?>img/work_graph3.png" width="700" height="385" />
-                  </div>
+                     </script>
+                    
+                     <div id="chartdiv2" align="center">Chart will load here</div>
+        <script type="text/javascript">
+             var data_string2 = '';                        
+                         $.ajax({
+                                 type: "POST",
+                                 url: '<?php echo $this->webroot;?>' + 'loghours/volunteerChartData',
+                                 data: '',
+                                 success: function(data) {                                   
+                                     displaychart2(data);                                     
+                                 }
+                         });
+            function displaychart2(data_string2) {
+                        if (GALLERY_RENDERER && GALLERY_RENDERER.search(/javascript|flash/i)==0)  FusionCharts.setCurrentRenderer(GALLERY_RENDERER); 
+                        var chart2 = new FusionCharts("<?php echo $this->webroot;?>Charts/MSLine.swf", "ChartId", "560", "400", "0", "0");
+		        chart2.setXMLData( data_string2 );		   
+		        chart2.render("chartdiv2");                      
+            }          
+            
+		</script>                  
                 </div>  
               </div>     
     <?php      
