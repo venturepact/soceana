@@ -111,10 +111,27 @@
                                    chart2.setXMLData( data_string2 );		   
                                    chart2.render("chartdiv2");                      
                        }             
-		       </script>   
-                  
-                  <div class="work_graph2">
-                  <img src="<?php echo $this->webroot;?>img/work_graph4.jpg" width="700" height="344" /><br />
+		       </script>
+                        <br /><br />
+                  <div id="chartdiv" align="center">Chart will load here</div>
+                        <script type="text/javascript">
+                        var data_string = '';                        
+                                    $.ajax({
+                                            type: "POST",
+                                            url: '<?php echo $this->webroot;?>' + 'loghours/OrganizationAgeChartData',
+                                            data: '',
+                                            success: function(data) {                                   
+                                                displaychart(data);                                     
+                                            }
+                                    });
+                       function displaychart(data_string) {
+                                   if (GALLERY_RENDERER && GALLERY_RENDERER.search(/javascript|flash/i)==0)  FusionCharts.setCurrentRenderer(GALLERY_RENDERER); 
+                                   var chart = new FusionCharts("<?php echo $this->webroot;?>Charts/Column2D.swf", "ChartId", "560", "400", "0", "0");
+                                   chart.setXMLData( data_string );		   
+                                   chart.render("chartdiv");                      
+                       }             
+		       </script>
+                  <div class="work_graph2">                  
                   <br />
                   <img src="<?php echo $this->webroot;?>img/org_analytics_adv.jpg" width="669" height="130" /></div>
                 </div>  

@@ -21,12 +21,19 @@ class PagesController extends AppController {
  */
 	public $uses = array('LogHour');
 
+	
+	public $components = array('Session','Auth');    
 /**
  * Displays a view
  *
  * @param mixed What page to display
  * @return void
  */
+	public function beforeFilter() {		
+		parent::beforeFilter();
+		$this->Auth->allow('vision','management','faq');
+	}
+    
 	public function display() {
 		
 		if($this->request->is('post')){
@@ -89,5 +96,16 @@ class PagesController extends AppController {
 		);
 		 
 		return $this->paginate('LogHour');
+	}
+	
+	public function vision(){
+		
+	}
+	
+	public function management(){
+		
+	}
+	public function faq(){
+		
 	}
 }

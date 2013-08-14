@@ -36,8 +36,7 @@ class UsersController extends AppController{
         $this->redirect(array('controller'=>'users','action'=>'login'));
     }   
     
-    public function add($type = 'user'){
-        $this->layout = 'signup';
+    public function add($type = 'user'){        
         $this->loadModel('ServiceType');
         if($this->request->is('post')){
             

@@ -29,8 +29,10 @@
 	  /* @ check if the role of current logged in user is organzation or normal volunteer
 	  *  @ we use that element according to required profile
 	  */
+	  if($this->Session->read('User.role')!=''){
 	  if($this->Session->read('User.role') == 'organizations') echo $this->element('organization_left');
 	  else echo $this->element('user_left');
+	  }else{ echo '&nbsp;';}
 	  ?>
           </div>
           	<div class="profile_content_main">
@@ -43,10 +45,20 @@
     <div id="inner_footer_main">
 	<div id="inner_footer_wrap">
             <div id="inner_footer_content_area"> <div class="footer_link_inner">
-                    <p><a href="#">Management</a></p>
-                    <p><a href="#">Vision/Tenets</a></p>
-                    <p><a href="#">FAQ</a></p>
-                 <p><a href="<?php echo $this->webroot;?>users/logout">Logout</a></p> 
+                    <p><a href="<?php echo $this->webroot;?>pages/management">Management</a></p>
+                    <p><a href="<?php echo $this->webroot;?>pages/vision">Vision/Tenets</a></p>
+                    <p><a href="<?php echo $this->webroot;?>pages/faq">FAQ</a></p>
+                <?php if($this->Session->read('User.role')!='')
+		{
+		?>
+		<p><a href="<?php echo $this->webroot;?>users/logout">Logout</a></p>
+		<?php
+		}else{
+		?>
+		<p><a href="<?php echo $this->webroot;?>users/login">Login</a></p>
+		<?php	
+		}
+		?>
                 </div>
                 <div class="inner_footer_logo">
                 	<img src="<?php echo $this->webroot;?>img/soceana_white_logo.png" width="397" height="113" />

@@ -193,4 +193,40 @@ class LogHoursController extends AppController {
         $this->autoRender = false;
     }
     
+    function OrganizationAgeChartData(){        
+        
+         $this->layout = '';
+        
+        $array = array( 0 => array('label'=>'0-12' ,'from'=>$this->_getDate(12),'to'=> $this->_getDate(0) ),
+                        1 => array('label'=>'13-17','from'=>$this->_getDate(17),'to'=> $this->_getDate(13)),
+                        2 => array('label'=>'18-24','from'=>$this->_getDate(24),'to'=> $this->_getDate(18)),
+                        3 => array('label'=>'25-44','from'=>$this->_getDate(44),'to'=> $this->_getDate(25)),
+                        4 => array('label'=>'45-65','from'=>$this->_getDate(65),'to'=> $this->_getDate(45)),
+                        5 => array('label'=>'65+'  ,'from'=>$this->_getDate(100),'to'=> $this->_getDate(65)),
+                       );
+        
+        $this->LogHour->bindModel(
+			array('belongsTo' => array(					
+					'User'        =>  array('className' => 'User','joinTable' => 'users','foreignKey' => 'user_id','fields'=>array('first_name','last_name'))
+				)
+			),false
+		);
+        $string ='<chart palette="2" caption="AGE DISTRIBUTION" xAxisName="AGE" yAxisName="HRS." labelDisplay="Rotate" showValues="0" decimals="0" formatNumberScale="0">';
+        foreach($array as $arr){
+        $loghours = $this->LogHour->find('first',array(				
+				'fields'      => 'sum( LogHour.hours ) AS total_hours',
+				'conditions'  => array("birth_date between '".$arr['from']."' and '".$arr['to']."'",
+                                                       'status'=> 1,
+                                                       'organization' => $this->Session->read('User.id'))
+			));
+        $string.='<set label="'.$arr['label'].'" value="'.$loghours[0]['total_hours'].'" />';
+        }
+        $string.='<styles><definition><style name="myAnim" type="animation" param="_yScale" start="0" duration="1"/></definition><application><apply toObject="VLINES" styles="myAnim" /></application></styles></chart>';
+        echo $string;
+        $this->autoRender = false;
+    }
+    
+    function _getDate($years){
+        return date('Y-m-d', strtotime("-$years years")); 
+    }    
 }
