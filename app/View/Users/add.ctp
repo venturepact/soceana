@@ -160,7 +160,7 @@
                   </tr>
                   <tr>
                     <td colspan="4" align="left" style="padding-left:45px;">
-                    <?php echo $this->Form->input('',array('id'=>'sbmt','type'=>'submit','label'=>false,'div'=>false,'class'=>'sign'));?>                    
+                        <?php echo $this->Form->input('',array('id'=>'sbmt','type'=>'submit','label'=>false,'div'=>false,'class'=>'sign'));?>                    
                     </td>
                   </tr>
                   <tr>

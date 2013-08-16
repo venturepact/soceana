@@ -1,6 +1,7 @@
 <style>
 .radio label.error {margin: 124px -13px 0;position: absolute;}
 .td_hour label.error {float:left;}
+label.error{width:auto;}
 </style>
 <link type="text/css" href="<?php echo $this->webroot;?>js/datepicker/jquery.datepick.css" rel="stylesheet">
 <?php echo $this->Html->script('jquery.validate');?>
@@ -82,13 +83,27 @@ $(function() {
       </tr>
       <tr>
         <td align="left">Hours:</td>
-        <td align="left" class='td_hour'><?php echo $this->Form->input('hours',array('type'=>'text','div'=>false,'label'=>false,'class'=>'input','id' => 'email_id','maxlength'=>'50'));?></td>
+        <td align="left" class='td_hour'><?php echo $this->Form->input('hours',array('type'=>'text','div'=>false,'label'=>false,'class'=>'input','id' => 'email_id','maxlength'=>'2'));?></td>
         <td align="left">Date:</td>
         <td align="left"><?php echo $this->Form->input('job_date',array('type'=>'text','div'=>false,'label'=>false,'class'=>'input','placeholder'=>'YYYY-MM-DD','id'=>'job_date'));?>
         </td>
       </tr>
+       <tr>
+	<td>Category</td>
+	<td><?php echo $this->Form->input('category_id',array(
+							       'type' => 'select',
+							       'div' => false,
+							       'label' => false,
+							       'style' => 'width:250px;',
+							       'options' => $categories,
+							       'empty' => 'Select Category',
+							       'default' => 'empty',							       
+							       ));?>
+	</td>
+	
+      </tr>
       <tr>
-        <td align="left" valign="top" class='radio_list'>Volunteer Tyle:</td>
+        <td align="left" valign="top" class='radio_list'>Volunteer Type:</td>
         <td colspan="3" align="left" class='radio_list'>
         <?php echo $this->Form->input('service_type_id',array(
                 'type' => 'radio',
@@ -160,7 +175,8 @@ $().ready(function() {
                          },                         
                          "data[LogHour][hours]": {
                          required: true,
-                         digits: true,                        
+                         digits: true,
+			 range: [1 , 23]
                          },
                         "data[LogHour][job_date]": {
 			required: true,
@@ -168,7 +184,10 @@ $().ready(function() {
                         },
                         "data[LogHour][service_type_id]": {
                         required: true,
-                        }                        
+                        },
+			"data[LogHour][category_id]":{
+			required:true,	
+			}			
                     }
                     ,
                 messages:{
@@ -196,7 +215,10 @@ $().ready(function() {
                         },
                         "data[LogHour][service_type_id]": {
                             required: 'Please select atleast one volunteer type',
-                        }
+                        },
+			"data[LogHour][category_id]":{
+			    required:'Please select category',	
+			}
                 }                                        
         });                    
 });

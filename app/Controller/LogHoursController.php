@@ -8,10 +8,12 @@
 class LogHoursController extends AppController {
     
     public function add(){
-         $this->loadModel('ServiceType');    
+         $this->loadModel('ServiceType');
+         $this->loadModel('Category');
          if($this->request->is('post')){
             
             $this->request->data['LogHour']['user_id'] = $this->Session->read('User.id');
+            $this->request->data['LogHour']['status'] = 1;
             $this->LogHour->save($this->request->data);
             
             //email code pending
@@ -26,7 +28,8 @@ class LogHoursController extends AppController {
             $this->request->data['LogHour']['email'] = $this->Session->read('User.email_id');
             $this->request->data['LogHour']['location'] = $this->Session->read('User.location');
             }
-        $this->set('service_type',$this->ServiceType->find('list',array('order'=>'id')));      
+        $this->set('service_type',$this->ServiceType->find('list',array('order'=>'id')));
+        $this->set('categories',$this->Category->find('list',array('order'=>'id','fields'=>array('id','category_name'))));      
     }
 
     public function index() {
@@ -47,7 +50,8 @@ class LogHoursController extends AppController {
     }
     
     public function organization_add(){
-         $this->loadModel('ServiceType');    
+         $this->loadModel('ServiceType');
+         $this->loadModel('Category');
          if($this->request->is('post')){
             $this->request->data['LogHour']['organization'] = $this->Session->read('User.id');
             $this->request->data['LogHour']['status'] = 1;
@@ -59,7 +63,8 @@ class LogHoursController extends AppController {
                 //function to get the array of volunteer names with ids of volunteers
                 $this->set('users',$this->_getFullName());           
             }
-        $this->set('service_type',$this->ServiceType->find('list',array('order'=>'id')));      
+        $this->set('service_type',$this->ServiceType->find('list',array('order'=>'id')));
+        $this->set('categories',$this->Category->find('list',array('order'=>'id','fields'=>array('id','category_name'))));      
     }
     public function _getFullName(){
         $this->loadModel('User');

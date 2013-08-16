@@ -31,7 +31,7 @@ class PagesController extends AppController {
  */
 	public function beforeFilter() {		
 		parent::beforeFilter();
-		$this->Auth->allow('vision','management','faq');
+		$this->Auth->allow('vision','management','faq','contact');
 	}
     
 	public function display() {
@@ -105,7 +105,12 @@ class PagesController extends AppController {
 	public function management(){
 		
 	}
+	
 	public function faq(){
 		
+	}
+	
+	public function contact(){
+	    
 	}
 }
