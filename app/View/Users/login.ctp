@@ -7,7 +7,7 @@
         <input type="checkbox" name="remember_me" id="remember_me">Remember me on this computer
     </label>    
 </p>
-<p class="forget-password"><a href="#" id="pop">Forgot Password</a></p>
+<p class="forget-password"><a href="javascript:void(0);" id="pop">Forgot Password</a></p>
 <p class="submit"><input type="submit" style="margin-left:9px; margin-top:0px" value="Login" id="sbmt"><?php // echo $this->Form->input('Login',array('id'=>'sbmt','type'=>'submit','value'=>"Login",'style'=>"margin-left:9px; margin-top:0px",'label'=>false,'div'=>false));?></p>
 <?php echo $this->Form->end(); ?>
 <script>

@@ -54,6 +54,40 @@ $('a[href=#top]').click(function(){
 	return false;
 });
 </script>
+<script type="text/javascript">
+$(function() {  
+    $('#forgot_submit').click(function(){
+	$('#forgot_message').html('<img src="<?php echo $this->webroot;?>img/loading.gif">');	
+	var forgot_email_id = $('#forgot_email_id').val();
+	
+	if (forgot_email_id == '') {
+		$('#forgot_message').html('Please enter your email id first');	
+	}
+	else{
+	    
+	    var reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+	    if (reg.test(forgot_email_id) == false) 
+	    {
+		$('#forgot_message').html('Please enter a valid email id');
+	    }
+	    else{
+		var new_url = "<?php echo $this->webroot;?>" + "users/forgot_password/" + forgot_email_id;
+		
+		$.ajax({
+			type: "POST",
+			url: new_url,
+			data: forgot_email_id,
+			success: function(data) {//alert('here');
+				$('#forgot_message').html(data);				
+			}
+		});		
+	    }	
+	    	
+	}
+    });	
+});
+</script>
 </head>
 <body class="login_page">
 <div id="main_page"> 
@@ -72,13 +106,17 @@ $('a[href=#top]').click(function(){
                        <div class="popup">
                         <form id="overlay_form" style="display:none">
                             <h2 class="popup_heading">Forget Password</h2>
-                            <p class="popup_text">That's Okey! Everone Forgets<br />
-							Just tell us the email address you used to create your account and we'll send you a new one!</p>
+                            <p class="popup_text">
+				That's Okey! Everone Forgets<br />
+				Just tell us the email address you used to create your account and we'll send you a new one!
+				<div id='forgot_message' style="float:left;width:100%;color:#ff0000;margin:5px 1px"></div>
+			    </p>
                             <label class="popup_text">Email: </label>
-                            <input type="text" name="username" style="width:435px;"/><br /><br />
-                            <input type="image" src="<?php echo $this->webroot;?>img/password_reset.png" name="button" id="button" value="Submit" /><br /><br />
+			    <?php echo $this->Form->input('User.email_id',array('type'=>'text','div'=>false,'label'=>false,'style'=>'width:435px;','id' => 'forgot_email_id','maxlength'=>'50'));?>
+                            <!--<input type="text" name="username" style="width:435px;"/>--><br /><br />
+                            <img src="<?php echo $this->webroot;?>img/password_reset.png" id="forgot_submit" /><br /><br />
                             <p><a href="#" style="color:#666" ></a></p>
-                            <a href="#" id="close" class="popup_text">Close</a>
+                            <a href="javascript:void(0);" id="close" class="popup_text">Close</a>
                         </form>
                         </div>
               	</div>

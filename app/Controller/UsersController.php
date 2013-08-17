@@ -5,7 +5,8 @@
 * @ Created on : 19th July 2013
 * @ Created by : Inderjit Singh
 */
-class UsersController extends AppController{
+class UsersController extends AppController{ 
+    
 
     var $helpers = array('Cropimage');
     
@@ -13,7 +14,7 @@ class UsersController extends AppController{
     
     public function beforeFilter(){
         parent::beforeFilter();
-        $this->Auth->allow('add');
+        $this->Auth->allow('add','forgot_password','reset_password');
     }
     
     public function login(){
@@ -163,5 +164,62 @@ class UsersController extends AppController{
         $uploaded['imageHeight'] = $height;           
         $this->set('uploaded',$uploaded);         
     }
+    
+    public function forgot_password($email_id = null){
+       $this->layout = 'ajax';
+       if($email_id == null){
+            echo 'Please fill your email id';
+       }
+       else{
+            $this->User->recursive = 0;
+            
+            $user = $this->User->find('first',array('fields'=>array('User.id','first_name','last_name'),'conditions'=>array('User.email_id'=>$email_id)));
+            
+            if(isset($user['User'])){
+                $this->loadModel('FpRequest');              
+                $data['FpRequest']['user_id'] = $user['User']['id'];
+                $this->FpRequest->save($data);             
+                $fpid = $this->FpRequest->id;
+                $fpid = urlencode(base64_encode($fpid));              
+                $mail_url = 'http://localhost'.$this->webroot.'users/reset_password/'.$fpid;
+                $message = '<div style="float:left;background:#e7e7e7;min-height:200px;width:800px;font-family:Verdana, Geneva, sans-serif"><p>&nbsp;</p><div style="margin:0px 10px">Hello, <strong style="font-size:15px">'.$user['User']['first_name'].' '.$user['User']['last_name'].'</strong></div><p style="margin:15px 10px">You have requested for new password , Please click on following link to reset your password.</p><p style="margin:15px 10px"><a href="'.$mail_url.'">Click Here</a></p><p>&nbsp;</p><div style="margin:0px 10px">Thanks,<br /><h2 style="margin:0px">Soceana</h2>Generating Social Good</div><p>&nbsp;</p></div>';
+                $subject = 'Soceana - Request for Forgot Password';
+                // Email code
+                App::uses('CakeEmail', 'Network/Email');        
+                $email = new CakeEmail('gmail');
+                $email->from('soceana@venturepact.com');
+                $email->to($email_id);
+                $email->subject($subject);
+                $email->emailFormat('both');
+                $email->send($message);
+                echo 'Please check your email for reseting of password';                
+            }
+            else echo "Email id doesn't exists in our database";
+       }
+       $this->autoRender = false;
+    }
+    
+    public function reset_password($id = null){
+        if($id == null){
+            $this->Session->setFlash('You are not authorized to reset the password');
+        }
+        else{
+            // echo urldecode(base64_decode($id));
+            }
+    }
+    
+    /*public function send_email(){
+        App::uses('CakeEmail', 'Network/Email');
+        $message='<div style="float:left;background:#e7e7e7;min-height:200px;width:800px;font-family:Verdana, Geneva, sans-serif"><p>&nbsp;</p><div style="margin:0px 10px">Hello, <strong style="font-size:22px">Inderjit Singh</strong></div><p style="margin:15px 10px">You have requested for new password , Please click on following link to reset your password.</p><p style="margin:15px 10px"><a href="#">Click Here</a></p><p>&nbsp;</p><div style="margin:0px 10px">Thanks,<br /><h2 style="margin:0px">Soceana</h2>Generating Social Good</div><p>&nbsp;</p></div>';
+        $email = new CakeEmail('gmail');
+        $email->from('inderjit.singh@venturepact.com');
+        $email->to('inderjit.singh@venturepact.com');
+        $email->subject('Test email');
+        $email->emailFormat('both');
+        $email->send($message);            
+        echo 'email sent';die;
+    }*/
+    
+    //soceana123@gmail.com #### soceana_2013
 }
 ?>
