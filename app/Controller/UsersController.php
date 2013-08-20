@@ -17,6 +17,7 @@ class UsersController extends AppController{
         $this->Auth->allow('add','forgot_password','reset_password');
     }
     
+    /* @ function for login of Volunteer / Organization ( automatically picking the role of user ) */
     public function login(){
         $this->layout = 'login';
         if($this->request->is('post')){            
@@ -30,6 +31,7 @@ class UsersController extends AppController{
         }        
     }
     
+    /* @ function for logout */
     public function logout(){
         $this->Session->delete('User');
         $this->Session->delete('page_limit');
@@ -37,6 +39,7 @@ class UsersController extends AppController{
         $this->redirect(array('controller'=>'users','action'=>'login'));
     }   
     
+    /* @ function for user registration i.e adding user to our database */
     public function add($type = 'user'){        
         $this->loadModel('ServiceType');
         if($this->request->is('post')){
@@ -68,6 +71,7 @@ class UsersController extends AppController{
         $this->set('type',$type);
     }
     
+    /* @ function for update profile of a Volunteer */
     public function user_profile(){
         $this->loadModel('ServiceType');
         $this->User->id = $this->Session->read('User.id');
@@ -89,6 +93,8 @@ class UsersController extends AppController{
             unset($this->request->data['User']['Password']);
         }
     }
+    
+    /* @ function for update profile of an Organization */
     public function organization_profile(){
         $this->loadModel('ServiceType');
         $this->User->id = $this->Session->read('User.id');
@@ -112,6 +118,7 @@ class UsersController extends AppController{
         }
     }
     
+    /* @ function for change password  of Volunteer / Organization */
     public function change_password(){
         if($this->request->is('post') || $this->request->is('put')){
             $count = $this->User->find('count', array( 'conditions' => array('id' => $this->Session->read('User.id'),'password' => AuthComponent::password($this->request->data['User']['old_password']))));
@@ -127,10 +134,12 @@ class UsersController extends AppController{
         }        
     }
     
+    /* @ function for updating user picture */
     public function user_pic(){       
         
     }
     
+    /* @ function for updating user picture */
     public function user_pic2(){        
         if($this->request->is('post') || $this->request->is('put')){
             $imageName = 'img_'.$this->Session->read('User.id');
@@ -139,6 +148,7 @@ class UsersController extends AppController{
         }
     }
     
+    /* @ function for updating user picture */
     public function user_pic3(){       
         $data = $this->JqImgcrop->cropImage(170, $this->request->data['User']['x1'], $this->request->data['User']['y1'], $this->request->data['User']['x2'], $this->request->data['User']['y2'], $this->request->data['User']['w'], $this->request->data['User']['h'], $this->request->data['User']['imagePath'], $this->request->data['User']['imagePath']);
         $this->User->id = $this->Session->read('User.id');
@@ -152,6 +162,7 @@ class UsersController extends AppController{
         }        
     }
     
+    /* @ function for reposition of picture */
     public function reposition_pic(){        
           
         $user = $this->User->read(null,$this->Session->read('User.id'));        
@@ -165,10 +176,12 @@ class UsersController extends AppController{
         $this->set('uploaded',$uploaded);         
     }
     
+    /* @ function for request of forgot password */
     public function forgot_password($email_id = null){
+       
        $this->layout = 'ajax';
        if($email_id == null){
-            echo 'Please fill your email id';
+            echo '<div id="fp_message">Please fill your email id</div>';
        }
        else{
             $this->User->recursive = 0;
@@ -181,45 +194,61 @@ class UsersController extends AppController{
                 $this->FpRequest->save($data);             
                 $fpid = $this->FpRequest->id;
                 $fpid = urlencode(base64_encode($fpid));              
-                $mail_url = 'http://localhost'.$this->webroot.'users/reset_password/'.$fpid;
+                $mail_url = 'http://'.$_SERVER['SERVER_NAME'].$this->webroot.'users/reset_password/'.$fpid;                
                 $message = '<div style="float:left;background:#e7e7e7;min-height:200px;width:800px;font-family:Verdana, Geneva, sans-serif"><p>&nbsp;</p><div style="margin:0px 10px">Hello, <strong style="font-size:15px">'.$user['User']['first_name'].' '.$user['User']['last_name'].'</strong></div><p style="margin:15px 10px">You have requested for new password , Please click on following link to reset your password.</p><p style="margin:15px 10px"><a href="'.$mail_url.'">Click Here</a></p><p>&nbsp;</p><div style="margin:0px 10px">Thanks,<br /><h2 style="margin:0px">Soceana</h2>Generating Social Good</div><p>&nbsp;</p></div>';
                 $subject = 'Soceana - Request for Forgot Password';
-                // Email code
+                // Email sending code
                 App::uses('CakeEmail', 'Network/Email');        
                 $email = new CakeEmail('gmail');
-                $email->from('soceana@venturepact.com');
+                $email->from('yourfriends.soceana@venturepact.com');
                 $email->to($email_id);
                 $email->subject($subject);
                 $email->emailFormat('both');
                 $email->send($message);
-                echo 'Please check your email for reseting of password';                
+                echo '<div id="fp_message">Please check your email for reseting of password</div>';                
             }
-            else echo "Email id doesn't exists in our database";
+            else echo '<div id="fp_message">Email id doesn\'t exists in our database</div>';
        }
        $this->autoRender = false;
     }
     
+    /* @ function for reseting the password */
     public function reset_password($id = null){
         if($id == null){
             $this->Session->setFlash('You are not authorized to reset the password');
         }
         else{
-            // echo urldecode(base64_decode($id));
+            $id  = urldecode(base64_decode($id));
+            $this->loadModel('FpRequest');
+            $fp_data = $this->FpRequest->find('first',array('conditions'=>array('id'=>$id),'order'=>'id desc'));
+
+            switch(count($fp_data['FpRequest']['id'])){
+                case  0:
+                    $this->Session->setFlash('You reset password link is not a valid link');
+                    $this->redirect('/');
+                break;
+                case 1:
+                    //echo 'test';
+                    if($fp_data['FpRequest']['status']== 1){
+                        $this->Session->setFlash('You have already reset your password');
+                        $this->redirect('/');
+                    }
+                    else{                        
+                        if($this->request->is('post') || $this->request->is('put')){                           
+                                $this->User->id = $fp_data['FpRequest']['user_id'];
+                                $this->User->save($this->request->data);
+                                $fpData['FpRequest']['id'] = $id;                                
+                                $fpData['FpRequest']['status'] = 1;
+                                $this->FpRequest->save($fpData);                                
+                                unset($this->request->data);
+                                $this->Session->setFlash(__('Your password have been reseted successfully'));
+                                $this->redirect('/');                                
+                        }
+                    }
+                break;
             }
-    }
-    
-    /*public function send_email(){
-        App::uses('CakeEmail', 'Network/Email');
-        $message='<div style="float:left;background:#e7e7e7;min-height:200px;width:800px;font-family:Verdana, Geneva, sans-serif"><p>&nbsp;</p><div style="margin:0px 10px">Hello, <strong style="font-size:22px">Inderjit Singh</strong></div><p style="margin:15px 10px">You have requested for new password , Please click on following link to reset your password.</p><p style="margin:15px 10px"><a href="#">Click Here</a></p><p>&nbsp;</p><div style="margin:0px 10px">Thanks,<br /><h2 style="margin:0px">Soceana</h2>Generating Social Good</div><p>&nbsp;</p></div>';
-        $email = new CakeEmail('gmail');
-        $email->from('inderjit.singh@venturepact.com');
-        $email->to('inderjit.singh@venturepact.com');
-        $email->subject('Test email');
-        $email->emailFormat('both');
-        $email->send($message);            
-        echo 'email sent';die;
-    }*/
-    
-    //soceana123@gmail.com #### soceana_2013
+        }
+    }    
+
 }
 ?>

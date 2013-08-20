@@ -79,7 +79,10 @@ $(function() {
 			url: new_url,
 			data: forgot_email_id,
 			success: function(data) {//alert('here');
-				$('#forgot_message').html(data);				
+				$('#forgot_email_id').val("");
+				$('#forgot_message').html(data);
+				$('#fp_message').fadeOut(10000);
+				
 			}
 		});		
 	    }	

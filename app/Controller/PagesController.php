@@ -34,6 +34,7 @@ class PagesController extends AppController {
 		$this->Auth->allow('vision','management','faq','contact');
 	}
     
+	/* @ function to display the dashboard of the logged user */
 	public function display() {
 		
 		if($this->request->is('post')){
@@ -54,6 +55,7 @@ class PagesController extends AppController {
 		
 	}
 	
+	/* @ function to show the Volunteer Grid Data */
 	public function _volunteerGridData($limit = 5){
 		$fields = array('LogHour.id','LogHour.hours','LogHour.job_date','LogHour.status','Category.category_name','ServiceType.name','User.organization_name');
 		
@@ -76,6 +78,7 @@ class PagesController extends AppController {
 		return $this->paginate('LogHour');
 	}
 	
+	/* @ function to show the Organization Grid Data */
 	public function _organizationGridData($limit = 5){
 		$fields = array('LogHour.id','LogHour.hours','LogHour.job_date','LogHour.status','Category.category_name','ServiceType.name','User.first_name','User.last_name');
 		
@@ -98,18 +101,22 @@ class PagesController extends AppController {
 		return $this->paginate('LogHour');
 	}
 	
+	/* @ function for vision page */
 	public function vision(){
 		
 	}
 	
+	/* @ function for management page */
 	public function management(){
 		
 	}
 	
+	/* @ function for faq page */
 	public function faq(){
 		
 	}
 	
+	/* @ function for contact page */
 	public function contact(){
 	    
 	}

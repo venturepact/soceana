@@ -92,7 +92,7 @@ class EmailConfig {
 	public $gmail = array(
 		'host' => 'ssl://smtp.gmail.com',
 		'port' => 465,
-		'username' => 'inderjit.singh@venturepact.com',
+		'username' => 'yourfriends.soceana@venturepact.com',
 		'password' => 'lpu@12345',
 		'transport' => 'Smtp'
 	);

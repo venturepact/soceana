@@ -7,6 +7,7 @@
 */
 class LogHoursController extends AppController {
     
+    /* @ function to add log hour for Volunteer */
     public function add(){
          $this->loadModel('ServiceType');
          $this->loadModel('Category');
@@ -32,13 +33,8 @@ class LogHoursController extends AppController {
         $this->set('categories',$this->Category->find('list',array('order'=>'id','fields'=>array('id','category_name'))));      
     }
 
-    public function index() {
-            $this->LogHour->find('all',array());
-    }
-    public function organization_index() {
-            $this->LogHour->find('all',array());
-    }
-    
+
+    /* @ function to return Organization email on choosing of a particular Organization */
     public function getOrganizationEmail($id = null){
         $this->layout = 'ajax';
         $this->loadModel('User');
@@ -49,6 +45,8 @@ class LogHoursController extends AppController {
         $this->request->data['LogHour']['organization_email'] = $user['User']['email_id'];
     }
     
+    
+    /* @ function to add log hour for organization */
     public function organization_add(){
          $this->loadModel('ServiceType');
          $this->loadModel('Category');
@@ -60,12 +58,14 @@ class LogHoursController extends AppController {
             $this->Session->setFlash('Log hours have been saved successfully');
             $this->redirect('/');
             }else{
-                //function to get the array of volunteer names with ids of volunteers
+                //function to get the array of volunteer names with ids of Volunteers
                 $this->set('users',$this->_getFullName());           
             }
         $this->set('service_type',$this->ServiceType->find('list',array('order'=>'id')));
         $this->set('categories',$this->Category->find('list',array('order'=>'id','fields'=>array('id','category_name'))));      
-    }
+    }    
+    
+    /* @ function to get full name of the Volunteer for drop down of Organization */
     public function _getFullName(){
         $this->loadModel('User');
         $conditions = array('role'=>'user');
@@ -78,6 +78,7 @@ class LogHoursController extends AppController {
         return $temp;
     }
     
+    /* @ function to get Volunteer */
     public function getVolunteerEmail($id = null){
         $this->layout = 'ajax';
         $this->loadModel('User');
@@ -88,6 +89,7 @@ class LogHoursController extends AppController {
         $this->request->data['LogHour']['volunteer_email'] = $user['User']['email_id'];
     }
     
+    /* @ function to get Volunteer Pie chart data */
     public function volunteerPieData(){        
         $this->layout = '';        
         $array = $this->LogHour->query('select distinct(l.category_id)as cat_id ,c.category_name,(select sum(hours) from log_hours where category_id = cat_id and user_id = '.$this->Session->read('User.id').' and status = 1)as total_hours from log_hours l,categories c where l.user_id = '.$this->Session->read('User.id').' and c.id = l.category_id and l.status = 1');
@@ -102,6 +104,7 @@ class LogHoursController extends AppController {
         $this->autoRender = false;
     }
     
+    /* @ function to get Volunteer Chart data */
     public function volunteerChartData(){
         $this->layout = '';
         $string = '<chart caption="Hourly Report" subcaption="" lineThickness="2" showValues="0" formatNumberScale="0" anchorRadius="5"   divLineAlpha="20" divLineColor="CC3300" divLineIsDashed="1" showAlternateHGridColor="1" alternateHGridColor="CC3300" shadowAlpha="40" labelStep="2" numvdivlines="10" chartRightMargin="35" bgColor="FFFFFF,CC3300" bgAngle="270" bgAlpha="10,10" alternateHGridAlpha="5"  legendPosition ="RIGHT ">';
@@ -148,14 +151,17 @@ class LogHoursController extends AppController {
         $this->autoRender = false;
     }
     
+    /* @ function to get Month and Year */
     public function _get_Month($month_no){
         return explode('-',date('m-Y', strtotime("-$month_no months"))); 
     }
     
+    /* @ function to get Month Name */
     public function _getMonthName($monthNum){        
         return date("F", mktime(0, 0, 0, $monthNum, 10));    
     }
     
+    /* @ function to get Organization chart data */
     public function OrganizationChartData(){
       
         $this->layout = '';
@@ -198,6 +204,7 @@ class LogHoursController extends AppController {
         $this->autoRender = false;
     }
     
+    /* @ function to get Organization chart data comparison of Age*/
     function OrganizationAgeChartData(){        
         
          $this->layout = '';
@@ -231,6 +238,7 @@ class LogHoursController extends AppController {
         $this->autoRender = false;
     }
     
+    /* @ function to get the date from last years */
     function _getDate($years){
         return date('Y-m-d', strtotime("-$years years")); 
     }    
