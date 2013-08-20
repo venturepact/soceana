@@ -57,9 +57,20 @@ class UsersController extends AppController{
                // $this->redirect(array('action'=>'add',$this->request->data['User']['role'])); 
             }
             else{
+                $password = $this->request->data['User']['password'];
                 $this->User->create();
                 if($this->User->save($this->request->data)){
+                    
+                    // Sending email for registration with us.                    
+                    
+                    $message = '<div style="float:left;background:#e7e7e7;min-height:200px;width:800px;font-family:Verdana, Geneva, sans-serif"><p>&nbsp;</p><div style="margin:0px 10px">Hello, <strong style="font-size:15px">'.$this->request->data['User']['first_name'].' '.$this->request->data['User']['last_name'].'</strong></div><p style="margin:15px 10px">Thanks for registering with us.Now you can use our services after logging in.Your login credentials are :</p><p style="margin:15px 10px">Login id : '.$this->request->data['User']['email_id'].'</p><p style="margin:15px 10px">Password : '.$password.'</p><p>&nbsp;</p><div style="margin:0px 10px">Thanks,<br /><h2 style="margin:0px">Soceana</h2>Generating Social Good</div><p>&nbsp;</p></div>';
+                
+                    $subject = 'Soceana - Thanks for registration';
+                
+                    $this->_sendMail('yourfriends.soceana@venturepact.com',$this->request->data['User']['email_id'],$subject,$message);
+                    
                     $this->Session->setFlash(__('User details has been saved successfully'));
+                    
                     $this->redirect(array('action'=>'login'));
                 }
                 else{
@@ -193,18 +204,16 @@ class UsersController extends AppController{
                 $data['FpRequest']['user_id'] = $user['User']['id'];
                 $this->FpRequest->save($data);             
                 $fpid = $this->FpRequest->id;
-                $fpid = urlencode(base64_encode($fpid));              
+                $fpid = urlencode(base64_encode($fpid));
+                
                 $mail_url = 'http://'.$_SERVER['SERVER_NAME'].$this->webroot.'users/reset_password/'.$fpid;                
+                
                 $message = '<div style="float:left;background:#e7e7e7;min-height:200px;width:800px;font-family:Verdana, Geneva, sans-serif"><p>&nbsp;</p><div style="margin:0px 10px">Hello, <strong style="font-size:15px">'.$user['User']['first_name'].' '.$user['User']['last_name'].'</strong></div><p style="margin:15px 10px">You have requested for new password , Please click on following link to reset your password.</p><p style="margin:15px 10px"><a href="'.$mail_url.'">Click Here</a></p><p>&nbsp;</p><div style="margin:0px 10px">Thanks,<br /><h2 style="margin:0px">Soceana</h2>Generating Social Good</div><p>&nbsp;</p></div>';
+                
                 $subject = 'Soceana - Request for Forgot Password';
-                // Email sending code
-                App::uses('CakeEmail', 'Network/Email');        
-                $email = new CakeEmail('gmail');
-                $email->from('yourfriends.soceana@venturepact.com');
-                $email->to($email_id);
-                $email->subject($subject);
-                $email->emailFormat('both');
-                $email->send($message);
+                
+                $this->_sendMail('yourfriends.soceana@venturepact.com',$email_id,$subject,$message);
+                
                 echo '<div id="fp_message">Please check your email for reseting of password</div>';                
             }
             else echo '<div id="fp_message">Email id doesn\'t exists in our database</div>';
@@ -227,8 +236,7 @@ class UsersController extends AppController{
                     $this->Session->setFlash('You reset password link is not a valid link');
                     $this->redirect('/');
                 break;
-                case 1:
-                    //echo 'test';
+                case 1:                    
                     if($fp_data['FpRequest']['status']== 1){
                         $this->Session->setFlash('You have already reset your password');
                         $this->redirect('/');
@@ -248,7 +256,17 @@ class UsersController extends AppController{
                 break;
             }
         }
-    }    
-
+    }
+    
+    /* @ function for sending Email */
+    function _sendMail( $from , $to , $subject , $message ){
+        App::uses('CakeEmail', 'Network/Email');        
+        $email = new CakeEmail('gmail');
+        $email->from($from);
+        $email->to($to);
+        $email->subject($subject);
+        $email->emailFormat('both');
+        $email->send($message);
+    }
 }
 ?>
