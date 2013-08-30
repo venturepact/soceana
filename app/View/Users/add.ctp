@@ -1,179 +1,106 @@
-<style>
-#user_signup input{outline: none;}
-</style>
 <?php echo $this->Html->script('jquery.validate');?>
 <?php echo $this->Form->create('User',array('id'=>'user_signup'));?>
 <?php echo $this->Form->input('role',array('type'=>'hidden','value'=>$type));?>
-<div class="profile_content_left">    
-        <div class="main_heading_gray">Sign Up for Soceana</div>
-              <div class="sub_heading">
-                <?php
-                if($type == 'organizations') echo 'New Organization'; else echo 'New Volunteer';
-                ?>
-                </div>
-            <?php
-            if($type == 'organizations') {
-               ?>
-               <table width="100%" border="0" cellspacing="5" cellpadding="0">
-              <tr>
-                <td align="left">&nbsp;</td>
-                <td colspan="3" align="left">&nbsp;</td>
-              </tr>
-              <tr>
-                    <td width="26%" align="left">Email:</td>
-                    <td colspan="3" align="left"><label for="textfield"></label>
-                        <?php echo $this->Form->input('email_id',array('type'=>'text','div'=>false,'label'=>false,'style'=>'width:250px;','class'=>'input','id' => 'email_id','maxlength'=>'50'));?>
-                    </td>
-                </tr>
-                <tr>
-                    <td width="26%" align="left">Confirm Email:</td>
-                    <td colspan="3" align="left"><label for="textfield"></label>
-                        <?php echo $this->Form->input('confirm_email',array('type'=>'text','div'=>false,'label'=>false,'style'=>'width:250px;','class'=>'input','maxlength'=>'50'));?>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="left">First Name:</td>
-                    <td colspan="3" align="left"><label for="textfield2"></label>
-                        <?php echo $this->Form->input('first_name',array('type'=>'text','div'=>false,'label'=>false,'style'=>'width:250px;','class'=>'input','maxlength'=>'50'));?>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td align="left">Last Name:</td>
-                    <td colspan="3" align="left"><label for="textfield2"></label>
-                        <?php echo $this->Form->input('last_name',array('type'=>'text','div'=>false,'label'=>false,'style'=>'width:250px;','class'=>'input','maxlength'=>'50'));?>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td align="left">Organization Name:</td>
-                    <td colspan="3" align="left"><label for="textfield3"></label>
-                        <?php echo $this->Form->input('organization_name',array('type'=>'text','div'=>false,'label'=>false,'style'=>'width:250px;','class'=>'input','maxlength'=>'60'));?>
-                    </td>
-                  </tr>
-                    <tr>
-                    <td align="left">Position:</td>
-                    <td colspan="3" align="left"><label for="textfield3"></label>
-                        <?php echo $this->Form->input('position',array('type'=>'text','div'=>false,'label'=>false,'style'=>'width:250px;','class'=>'input','maxlength'=>'60'));?>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td align="left">Password:</td>
-                    <td colspan="3" align="left">
-                        <?php echo $this->Form->input('password',array('type'=>'password','div'=>false,'label'=>false,'style'=>'width:250px;','class'=>'input','id'=>'pwd','maxlength'=>'15'));?>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td align="left">Confirm Password:</td>
-                    <td colspan="3" align="left">
-                        <?php echo $this->Form->input('confirm_password',array('type'=>'password','div'=>false,'label'=>false,'style'=>'width:250px;','class'=>'input','maxlength'=>'15'));?>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td align="left" valign="top">Organization Type</td>
-                    <td colspan="3" align="left"><label for="textarea"></label>                     
-                       <?php  echo $this->Form->input('ServiceType',array(
-                            'type' => 'select',
-                            'multiple' => 'checkbox',
-                            'options' => $service_type,
-                            'div'=>false,
-                            'label'=>false
-                        ));           
-                    ?>
-                   </td> 
-                  </tr>
-                  <tr>
-                    <td align="left">&nbsp;</td>
-                    <td width="26%" align="left">&nbsp;</td>
-                    <td width="10%" align="left">&nbsp;</td>
-                    <td width="38%" align="left">&nbsp;</td>
-                  </tr>
-                  <tr>
-                    <td colspan="4" align="left" style="padding-left:45px;">
-                  <?php echo $this->Form->input('',array('id'=>'sbmt','type'=>'submit','label'=>false,'div'=>false,'class'=>'sign'));?>                    
-                    </td>
-                  </tr>
-                  <tr>
-                    <td colspan="4" align="left">&nbsp;</td>
-                  </tr>
-              </table>
-            <?php
-            }
-            else{
-             ?>
-           <table width="100%" border="0" cellspacing="5" cellpadding="0">
-              <tr>
-                <td align="left">&nbsp;</td>
-                <td colspan="3" align="left">&nbsp;</td>
-              </tr>
-              <tr>
-                    <td width="26%" align="left">Email:</td>
-                    <td colspan="3" align="left"><label for="textfield"></label>
-                        <?php echo $this->Form->input('email_id',array('type'=>'text','div'=>false,'label'=>false,'style'=>'width:250px;','class'=>'input','maxlength'=>'50'));?>
-                    </td>
-                </tr>
-                  <tr>
-                    <td align="left">First Name:</td>
-                    <td colspan="3" align="left"><label for="textfield2"></label>
-                        <?php echo $this->Form->input('first_name',array('type'=>'text','div'=>false,'label'=>false,'style'=>'width:250px;','class'=>'input','maxlength'=>'50'));?>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td align="left">Last Name:</td>
-                    <td colspan="3" align="left"><label for="textfield2"></label>
-                        <?php echo $this->Form->input('last_name',array('type'=>'text','div'=>false,'label'=>false,'style'=>'width:250px;','class'=>'input','maxlength'=>'50'));?>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td align="left">Location:</td>
-                    <td colspan="3" align="left"><label for="textfield3"></label>
-                        <?php echo $this->Form->input('location',array('type'=>'text','div'=>false,'label'=>false,'style'=>'width:250px;','class'=>'input','maxlength'=>'60'));?>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td align="left">Password:</td>
-                    <td colspan="3" align="left">
-                        <?php echo $this->Form->input('password',array('type'=>'password','div'=>false,'label'=>false,'style'=>'width:250px;','class'=>'input','id'=>'pwd','maxlength'=>'15'));?>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td align="left">Confirm Password:</td>
-                    <td colspan="3" align="left">
-                        <?php echo $this->Form->input('confirm_password',array('type'=>'password','div'=>false,'label'=>false,'style'=>'width:250px;','class'=>'input','maxlength'=>'15'));?>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td align="left" valign="top">Volunteer Type</td>
-                    <td colspan="3" align="left"><label for="textarea"></label>                     
-                       <?php  echo $this->Form->input('ServiceType',array(
-                            'type' => 'select',
-                            'multiple' => 'checkbox',
-                            'options' => $service_type,
-                            'div'=>false,
-                            'label'=>false
-                        ));?>
-                   </td>
-                  </tr>
-                  <tr>
-                    <td align="left">&nbsp;</td>
-                    <td width="26%" align="left">&nbsp;</td>
-                    <td width="10%" align="left">&nbsp;</td>
-                    <td width="38%" align="left">&nbsp;</td>
-                  </tr>
-                  <tr>
-                    <td colspan="4" align="left" style="padding-left:45px;">
-                        <?php echo $this->Form->input('',array('id'=>'sbmt','type'=>'submit','label'=>false,'div'=>false,'class'=>'sign'));?>                    
-                    </td>
-                  </tr>
-                  <tr>
-                    <td colspan="4" align="left">&nbsp;</td>
-                  </tr>
-              </table>
-            <?php    
-            }
-            ?></div>
-<?php echo $this->Form->end();?>
 <?php
-    if($type == 'organizations') {
+ if($type == 'organizations') {
 ?>
+<style>
+    label.error{ color: #FF0000;font-size: 12px;margin: -3px 0 5px 190px;text-align: left;text-transform: none;width: 100%;}
+    ul label.error{left: -175px;position: absolute;top: 308px;width: 500px;}
+    #flashMessage{color: #FF0000;float: left;margin: 20px 0 0 236px;}
+    </style>
+<div class="container">
+        	<div class="section">
+				<h1>REGISTER YOUR ORGANIZATION WITH SOCEANA</h1>
+                <p>Soceana offers organizations with features to connect with portential volunteers and to network with their specific region. Registering an organization with Soceana is a cinch, and will always be free.</p>
+                <?php echo $this->Session->flash(); ?>
+            </div>
+			<div class="mt50"></div>
+			<div class="section">
+            	<form action="" method="post">
+                	<div class="contact_form">
+                    	<label name="name">Email</label>
+                        <?php echo $this->Form->input('email_id',array('type'=>'text','div'=>false,'label'=>false,'id' => 'email_id','maxlength'=>'50'));?>
+                    </div>
+                    <div class="contact_form">
+                    	<label name="name">CONFIRM Email</label>
+                        <?php echo $this->Form->input('confirm_email',array('type'=>'text','div'=>false,'label'=>false,'maxlength'=>'50'));?>
+                    </div>
+                    <div class="contact_form">
+                    	<label name="name">FIRST NAME</label>
+                       <?php echo $this->Form->input('first_name',array('type'=>'text','div'=>false,'label'=>false,'maxlength'=>'50'));?>
+                    </div>
+                   <div class="contact_form">
+                    	<label name="name">LAST NAME</label>
+                         <?php echo $this->Form->input('last_name',array('type'=>'text','div'=>false,'label'=>false,'maxlength'=>'50'));?>
+                    </div>
+                   <div class="contact_form">
+                    	<label name="name">ORGANIZATION NAME</label>
+                        <?php echo $this->Form->input('organization_name',array('type'=>'text','div'=>false,'label'=>false,'maxlength'=>'60'));?>
+                    </div>
+                   <div class="contact_form">
+                    	<label name="name">POSITION</label>
+                        <?php echo $this->Form->input('position',array('type'=>'text','div'=>false,'label'=>false,'maxlength'=>'60'));?>
+                    </div>
+                   <div class="contact_form">
+                    	<label name="name">PASSWORD:</label>
+                        <?php echo $this->Form->input('password',array('type'=>'password','div'=>false,'label'=>false,'id'=>'pwd','maxlength'=>'15'));?>
+                    </div>
+                   <div class="contact_form">
+                    	<label name="name">CONFIRM PASSWORD:</label>
+                        <?php echo $this->Form->input('confirm_password',array('type'=>'password','div'=>false,'label'=>false,'maxlength'=>'15'));?>
+                    </div>
+                   <div class="signup_form">
+                   	<div class="remeber">                   	
+                     <input type="checkbox" id="c0" name="remeber" checked="checked" />
+                     <label for="c0" class="checkbox-label"><span></span></label>
+                     <label class="intern">Remember my password for 2 weeks</label>
+                    </div> 
+                   </div> 
+                    <div class="clr"></div>
+                    <div class="signup_form">
+                    	<label name="name">ORGANIZATION TYPE:<br />
+                        <span>(choose as many as you like)</span></label>
+                        <ul>
+                        	<?php
+                            $i = 1;
+                            foreach($service_types as $service_type):?>
+                            <li>
+                            	<input type="checkbox" id="c<?php echo $i;?>" name="data[ServiceType][ServiceType][]" value="<?php echo $service_type['ServiceType']['id'];?>" />
+                                <label for="c<?php echo $i;?>" class="checkbox-label"><span><img alt="<?php echo $service_type['ServiceType']['name'];?>" src="<?php echo $this->webroot;?>img/<?php echo $service_type['ServiceType']['picture_url'];?>" /></span></label>
+                            </li>                            
+                            <?php
+                            $i++;
+                            endforeach;
+                            ?>
+                            <li>
+                            	<div class="grey">
+                                	<label>Other ( Please Describe )</label>
+                                	<textarea></textarea>
+                                    <div class="input">
+                                    <input type="button" name="cancel" class="cancel"/>
+                                    </div>
+                                    <div>
+                                    <input type="button" name="submit" class="submit" />
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="clr"></div>
+                    <div class="contact_form">
+                    	<div class="submit_button">
+                        <input type="submit" class="join_button" value='' />
+						<div class="clr"></div>
+                        <a href="<?php echo $this->webroot;?>">or Go Back</a>
+                        </div>
+                    </div>
+                    
+                </form>
+            </div>            
+            <div class="mt50"></div>           
+</div>
+<?php echo $this->Form->end();?>
 <script type='text/javascript' language='javascript'>
 $().ready(function() {
     
@@ -288,17 +215,147 @@ $().ready(function() {
                         "data[ServiceType][ServiceType][]": {
                             required: 'Please select atleast one organization type ',
                         }
-            }  
+            },
+            errorElement: 'label',
+            errorClass: 'error help-block',
+            errorPlacement: function(error, element){
+                if(element.is('input[type="checkbox"]')){
+                    error.insertAfter(element.parent());
+                } else {
+                    error.insertAfter(element);
+                }
+            },
                                    
         });                    
 });
 </script>
- <?php           
+<?php
+ }
+ else{
+?>
+<style>ul li label.error{left:54px;position: absolute; top: 574px;width: 500px;}</style>
+<style>
+    label.error{ color: #FF0000;font-size: 12px;margin: -3px 0 5px 190px;text-align: left;text-transform: none;width: 100%;}
+    ul label.error{left: -175px;position: absolute;top: 209px;width: 500px;}
+    #flashMessage{color: #FF0000;float: left;margin: 20px 0 0 236px;}
+    </style>
+<div class="container">
+        	<div class="section">
+				<h1>CREATE YOUR FREE SOCEANA ACCOUNT</h1>
+                <p>Soceana allows you to connect with organizations around the nation so you can do good, wherever and whenever. Registering with Soceana takes under five minutes and is ( and always will be)free.</p>
+                
+            </div><?php echo $this->Session->flash(); ?>
+			<div class="mt50"></div>
+			<div class="section">
+            	<form action="" method="post">
+                	<div class="contact_form">
+                    	<label name="name">Email</label>
+                         <?php echo $this->Form->input('email_id',array('type'=>'text','div'=>false,'label'=>false,'maxlength'=>'50'));?>
+                    </div>
+                    <div class="contact_form">
+                    	<label name="name">FIRST NAME</label>
+                         <?php echo $this->Form->input('first_name',array('type'=>'text','div'=>false,'label'=>false,'maxlength'=>'50'));?>
+                    </div>                  
+                    <div class="contact_form">
+                    	<label name="name">LAST NAME</label>
+                        <?php echo $this->Form->input('last_name',array('type'=>'text','div'=>false,'label'=>false,'maxlength'=>'50'));?>
+                    </div>
+                    <div class="contact_form">
+                    	<label name="name">Location</label>
+                        <?php echo $this->Form->input('location',array('type'=>'text','div'=>false,'label'=>false,'maxlength'=>'60'));?>
+                    </div>                  
+                   <div class="contact_form">
+                    	<label name="name">PASSWORD:</label>
+                         <?php echo $this->Form->input('password',array('type'=>'password','div'=>false,'label'=>false,'id'=>'pwd','maxlength'=>'15'));?>
+                    </div>
+                   <div class="contact_form">
+                    	<label name="name">CONFIRM PASSWORD:</label>
+                        <?php echo $this->Form->input('confirm_password',array('type'=>'password','div'=>false,'label'=>false,'maxlength'=>'15'));?>
+                    </div>
+                   <div class="volunteer_signup_form">
+                   	<div class="remeber">                   	
+                     <input type="checkbox" id="c0" name="remeber" checked="checked" />
+                     <label for="c0" class="checkbox-label"><span></span></label>
+                     <label class="intern">Remember my password for 2 weeks</label>
+                    </div> 
+                   </div> 
+                   <div class="clr"></div>
+                   <div class="mt20"></div>
+                   <div class="volunteer_signup_form">
+                    	<label name="name">ORGANIZATION TYPE:<br />
+                        <span>(choose as many as you like)</span></label>
+                        <ul>
+                            <?php
+                            $i = 1;
+                           // pr($this->request->data);
+                            foreach($service_types as $service_type):?>
+                            <li>
+                                <input type="checkbox" id="c<?php echo $i;?>" name="data[ServiceType][ServiceType][]" value="<?php echo $service_type['ServiceType']['id'];?>" <?php
+                                if(isset($this->request->data['ServiceType']['ServiceType'])){
+                                     if(in_array($service_type['ServiceType']['id'], $this->request->data['ServiceType']['ServiceType'])) {
+                                        echo "checked='checked'";
+                                    } 
+                                }
+                               ?>/>
+                                <label for="c<?php echo $i;?>" class="checkbox-label"><span><img alt="<?php echo $service_type['ServiceType']['name'];?>" src="<?php echo $this->webroot;?>img/<?php echo $service_type['ServiceType']['picture_url'];?>" /></span></label>
+                            </li>                            
+                            <?php
+                            $i++;
+                            endforeach;
+                            ?>
+                            <li>
+                            	<div class="grey">
+                                	<label>Other ( Please Describe )</label>
+                                	<textarea></textarea>
+                                    <div class="input">
+                                    <input type="button" name="cancel" class="cancel"/>
+                                    </div>
+                                    <div>
+                                    <input type="button" name="submit" class="submit2" />
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div id='checkbox_error'></div>
+                    </div>
+                    <div class="clr"></div>
+                    <div class="contact_form">
+                    	<div class="submit_button">
+                        <!--<input type="submit" class="join_button2" value='' onclick='return check_typecount();' />-->
+                        <input type="submit" class="join_button2" value='' />
+						<div class="clr"></div>
+                        <a href="<?php echo $this->webroot;?>">or Go Back</a>
+                        </div>
+                    </div>
+                    
+                </form>
+            </div>            
+            <div class="mt50"></div>           
+</div> 
+ <?php echo $this->Form->end();?>
+ <script type='text/javascript' language='javascript'>
+/*$('.join_button2').click(function(){
+    var len = $("input[name='data[ServiceType][ServiceType][]']:checked").length;
+    if(len > 0) {
+        $("#checkbox_error").css("display", "none");
+        return true;
+    }else {
+        $("#checkbox_error").text('Please select at least one volunteer type');
+        $("#checkbox_error").css("display", "block");
+        return false;
     }
-    else
-    {
-  ?>
-<script type='text/javascript' language='javascript'>
+});*/
+function checkboxcount_check() {
+    var len = $("input[name='data[ServiceType][ServiceType][]']:checked").length;
+    if(len > 0) {
+        $("#checkbox_error").css("display", "none");
+        return true;
+    }else {
+        $("#checkbox_error").text('Please select at least one volunteer type');
+        $("#checkbox_error").css("display", "block");
+        return false;
+    }  
+}
 $().ready(function() {
     
     //validation rule for only alphabets
@@ -309,7 +366,9 @@ $().ready(function() {
     //validation rule for valid email
     $.validator.addMethod("valid_email_id", function(value) {
         return value = value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);               
-    }, 'Please enter a valid email id');
+    }, 'Please enter a valid email id'); 
+    
+    
     
         // validate signup form on keyup and submit
         $("#user_signup").validate({
@@ -348,8 +407,10 @@ $().ready(function() {
                         },
                         "data[ServiceType][ServiceType][]": {
                         required: true,
-                        }                        
+                        minlength:1,
+                        },
                     }
+                    
                     ,
                 messages:{
                     "data[User][email_id]": {
@@ -381,13 +442,23 @@ $().ready(function() {
                             maxlength:'Please enter maximum 15 characters',
                             equalTo: "Please enter the same password for confirmation",                                            
                         },
-                        "data[ServiceType][ServiceType][]": {
-                            required: 'Please select atleast one volunteer type',
+                        "data[ServiceType][ServiceType][]":{
+                            required:'Please select atleast 1 service type',
                         }
-                }                                        
+                },
+            errorElement: 'label',
+            errorClass: 'error help-block',
+            errorPlacement: function(error, element){
+                if(element.is('input[type="checkbox"]')){
+                    error.insertAfter(element.parent());
+                } else {
+                    error.insertAfter(element);
+                }
+            },
+               
         });                    
 });
 </script>
 <?php
-}
-?>   
+ }
+ ?>

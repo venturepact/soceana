@@ -17,19 +17,39 @@ class UsersController extends AppController{
         $this->Auth->allow('add','forgot_password','reset_password');
     }
     
-    /* @ function for login of Volunteer / Organization ( automatically picking the role of user ) */
-    public function login(){
+    /* @ function for login of Volunteer / Organization */
+    public function login(){        
         $this->layout = 'login';
+        $this->set('title_for_layout','Soceana - User Login');
         if($this->request->is('post')){            
             if($this->Auth->login()){
-                $this->Session->write('User',$this->Auth->user());                
-                $this->redirect(array('controller'=>'pages','action'=>'display'));
+                // allowing specific user type from specific form
+                if($this->request->data['User']['role'] != $this->Auth->user('role'))
+                {
+                    if($this->request->data['User']['role']=='organizations')
+                    {
+                        $message = ' an organization';
+                    }
+                    else $message = ' a volunteer';
+                    unset($this->request->data);                   
+                    $this->Auth->logout();
+                    $this->Session->setFlash(__('You are not allowed to access system as'.$message));
+                }
+                else
+                {
+                    $this->Session->write('User',$this->Auth->user());                
+                    $this->redirect(array('controller'=>'pages','action'=>'display'));
+                    //$this->redirect('/');
+                }
+                
             }
             else{
-                $this->Session->setFlash(__('Invalid username or password, try again'));
+                unset($this->request->data);
+                $this->Session->setFlash(__('Invalid username or password, Try again'));
             }
         }        
-    }
+    }  
+    
     
     /* @ function for logout */
     public function logout(){
@@ -40,10 +60,12 @@ class UsersController extends AppController{
     }   
     
     /* @ function for user registration i.e adding user to our database */
-    public function add($type = 'user'){        
+    public function add($type = 'user'){
+        $this->layout = 'default2';
         $this->loadModel('ServiceType');
         if($this->request->is('post')){
             
+            pr($this->request->data);die;
             /* @ check for the email id (login id) if already exists with the same id then
              * @ prompt the user with error message and give the message that user is already in database
              */
@@ -78,7 +100,8 @@ class UsersController extends AppController{
                 }
             }
         }
-        $this->set('service_type',$this->ServiceType->find('list',array('order'=>'id')));
+        $this->set('service_types',$this->ServiceType->find('all',array('order'=>'id','fields'=>array('id','name','picture_url'))));
+        //$this->set('service_type',$this->ServiceType->find('list',array('order'=>'id')));
         $this->set('type',$type);
     }
     
@@ -90,6 +113,7 @@ class UsersController extends AppController{
             throw new NotFoundException(__('Invalid User'));       
         }
         if($this->request->is('post') || $this->request->is('put')){
+            pr($this->request->data);die;
             if($this->User->save($this->request->data)){
                 $this->Session->setFlash(__('User details has been updated successfully'));
                 $this->redirect('/');
@@ -100,7 +124,23 @@ class UsersController extends AppController{
         }
         else{
             $this->request->data = $this->User->read(null,$this->User->id);
-            $this->set('service_type',$this->ServiceType->find('list',array('order'=>'id')));
+            // code for new array of volunteer type selection from database
+            $i = 0;
+            $temp = array();
+            if(count($this->request->data['ServiceType'])>0)
+            {
+                foreach($this->request->data['ServiceType'] as $sel_options){
+                    $temp[$i] = $sel_options['id'] ;
+                    $i++;
+                }               
+            }
+            else
+            {
+                $temp[$i] = 0;
+            }
+            
+            $this->set('temp_types',$temp);
+            $this->set('service_types',$this->ServiceType->find('all',array('order'=>'id','fields'=>array('id','name','picture_url'))));
             unset($this->request->data['User']['Password']);
         }
     }
@@ -124,7 +164,23 @@ class UsersController extends AppController{
         }
         else{
             $this->request->data = $this->User->read(null,$this->User->id);
-            $this->set('service_type',$this->ServiceType->find('list',array('order'=>'id')));
+            // code for new array of volunteer type selection from database
+            $i = 0;
+            $temp = array();
+            if(count($this->request->data['ServiceType'])>0)
+            {
+                foreach($this->request->data['ServiceType'] as $sel_options){
+                    $temp[$i] = $sel_options['id'] ;
+                    $i++;
+                }               
+            }
+            else
+            {
+                $temp[$i] = 0;
+            }
+            
+            $this->set('temp_types',$temp);
+            $this->set('service_types',$this->ServiceType->find('all',array('order'=>'id','fields'=>array('id','name','picture_url'))));
             unset($this->request->data['User']['Password']);
         }
     }
@@ -223,6 +279,7 @@ class UsersController extends AppController{
     
     /* @ function for reseting the password */
     public function reset_password($id = null){
+        $this->layout = 'default2';
         if($id == null){
             $this->Session->setFlash('You are not authorized to reset the password');
         }

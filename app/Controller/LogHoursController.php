@@ -29,7 +29,8 @@ class LogHoursController extends AppController {
             $this->request->data['LogHour']['email'] = $this->Session->read('User.email_id');
             $this->request->data['LogHour']['location'] = $this->Session->read('User.location');
             }
-        $this->set('service_type',$this->ServiceType->find('list',array('order'=>'id')));
+           
+        $this->set('service_types',$this->ServiceType->find('all',array('order'=>'id','fields'=>array('id','name','picture_url'))));
         $this->set('categories',$this->Category->find('list',array('order'=>'id','fields'=>array('id','category_name'))));      
     }
 
@@ -61,7 +62,7 @@ class LogHoursController extends AppController {
                 //function to get the array of volunteer names with ids of Volunteers
                 $this->set('users',$this->_getFullName());           
             }
-        $this->set('service_type',$this->ServiceType->find('list',array('order'=>'id')));
+        $this->set('service_types',$this->ServiceType->find('all',array('order'=>'id','fields'=>array('id','name','picture_url'))));
         $this->set('categories',$this->Category->find('list',array('order'=>'id','fields'=>array('id','category_name'))));      
     }    
     

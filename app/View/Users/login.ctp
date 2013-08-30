@@ -1,15 +1,22 @@
-<?php echo $this->Html->script('jquery.validate');?>
-<?php echo $this->Form->create('User',array('id'=>'login_form')); ?>
-<p><?php echo $this->Form->input('email_id',array('type'=>'text','placeholder'=>"Email id",'label'=>false,'div'=>false,'id'=>'email_id'));?></p>
-<p><?php echo $this->Form->input('password',array('type'=>'password','placeholder'=>"Password",'label'=>false,'div'=>false,'id'=>'pass'));?></p>
-<p class='remember_me'>
-    <label>
-        <input type="checkbox" name="remember_me" id="remember_me">Remember me on this computer
-    </label>    
-</p>
-<p class="forget-password"><a href="javascript:void(0);" id="pop">Forgot Password</a></p>
-<p class="submit"><input type="submit" style="margin-left:9px; margin-top:0px" value="Login" id="sbmt"><?php // echo $this->Form->input('Login',array('id'=>'sbmt','type'=>'submit','value'=>"Login",'style'=>"margin-left:9px; margin-top:0px",'label'=>false,'div'=>false));?></p>
-<?php echo $this->Form->end(); ?>
+<?php echo $this->Form->create('User',array('id'=>'login_form'));?>
+<?php echo $this->Form->input('role',array('type'=>'hidden','value'=>'user'));?>
+<div class="user_name"><?php echo $this->Form->input('email_id',array('type'=>'text','placeholder'=>"Email id",'label'=>false,'div'=>false,'id'=>'email_id'));?></div>
+<div class="clr"></div>
+<div class="password"><?php echo $this->Form->input('password',array('type'=>'password','placeholder'=>"Password",'label'=>false,'div'=>false,'id'=>'pass'));?></div>
+<div class="clr"></div>
+                        <div class="login_buttons">
+			    <input type="submit" name="login" value="" class="login_now" />
+                    	    <input type="button" name="signup" value="" class="sign_up" onclick="document.location.href='<?php echo $this->webroot;?>users/add/user';" />
+                		</div>
+                		<div class="clr"></div>
+                        <div class="remember">
+                			 <input type="checkbox" id="c2" name="remeber" checked="checked" />
+                             <label for="c2" class="checkbox-label"><span></span></label>
+                             <label class="intern">Remember my password</label>                             
+                    		<a href="javascript:void(0);" class="forget_password">Forget Password?</a>
+                        </div>
+                        <div class="clr"></div>
+<?php echo $this->Form->end();?>
 <script>
 $().ready(function() {
 

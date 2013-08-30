@@ -31,7 +31,7 @@ class PagesController extends AppController {
  */
 	public function beforeFilter() {		
 		parent::beforeFilter();
-		$this->Auth->allow('vision','management','faq','contact');
+		$this->Auth->allow('vision','management','faq','contact','about');
 	}
     
 	/* @ function to display the dashboard of the logged user */
@@ -103,21 +103,26 @@ class PagesController extends AppController {
 	
 	/* @ function for vision page */
 	public function vision(){
-		
+	     $this->layout = 'default2';
 	}
 	
 	/* @ function for management page */
 	public function management(){
-		
+	     $this->layout = 'default2';
 	}
 	
 	/* @ function for faq page */
 	public function faq(){
-		
+	     $this->layout = 'default2';
 	}
 	
 	/* @ function for contact page */
 	public function contact(){
-	    
+	    $this->layout = 'default2';
+	}
+	
+	/* @ function for aboutus page */
+	public function about(){
+	    $this->layout = 'default2';
 	}
 }

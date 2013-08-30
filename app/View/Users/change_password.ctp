@@ -1,38 +1,36 @@
-<style>
-    #change_pwd label.error{float:left;}
-    #change_pwd input{outline: none;}
-</style>
 <?php echo $this->Html->script('jquery.validate');?>
-<div class="profile_content_left">
-    <div class="main_heading_gray">CHANGE PASSWORD</div>
-	<?php echo $this->Form->create('User',array('id'=>'change_pwd'));?>
-            <table width="100%" border="0" cellspacing="5" cellpadding="0">
-                <tr>
-                    <td width="15%" align="left">Current Password :</td>
-                    <td colspan="3" align="left"><label for="textfield"></label>
-                        <?php echo $this->Form->input('old_password',array('type'=>'password','div'=>false,'label'=>false,'style'=>'width:250px;','class'=>'input'));?>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="left">New Password :</td>
-                    <td width="39%" align="left">
-                        <?php echo $this->Form->input('password',array('type'=>'password','div'=>false,'label'=>false,'style'=>'width:250px;','class'=>'input','id'=>'pwd'));?>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="left">Confirm Password :</td>
-                    <td width="39%" align="left">
-                        <?php echo $this->Form->input('confirm_password',array('type'=>'password','div'=>false,'label'=>false,'style'=>'width:250px;','class'=>'input'));?>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="4" align="left">
-			<?php echo $this->Form->input('Change Password',array('id'=>'button2','type'=>'submit','value'=>"Update",'label'=>false,'div'=>false,'class'=>'submit_bnt'));?>
-		    </td>
-                </tr>                 
-              </table>
-	    <?php echo $this->Form->end();?>
-	    <script type='text/javascript' language='javascript'>
+<style>
+.submit{margin: 2px 190px;float: left;}
+label.error{color: #FF0000;float: none;font-size: 12px;margin-left: 5px;text-transform: none;width: 100%;}
+</style>
+<div class="container">
+        	<div class="section">
+				<h1>Change Password</h1>
+                <p>Change Password for keeping the security of your account</p>
+            </div>
+			<div class="mt50"></div>
+			<div class="section">
+            	<?php echo $this->Form->create('User',array('id'=>'change_pwd'));?>
+                	<div class="contact_form">
+                    	<label name="name">Current Password</label>
+                         <?php echo $this->Form->input('old_password',array('type'=>'password','div'=>false,'label'=>false));?>
+                    </div>
+                    <div class="contact_form">
+                    	<label name="name">New Password</label>
+                      <?php echo $this->Form->input('password',array('type'=>'password','div'=>false,'label'=>false,'id'=>'pwd'));?>
+                    </div>
+                    <div class="contact_form">
+                    	<label name="name">Confirm Password</label>
+                         <?php echo $this->Form->input('confirm_password',array('type'=>'password','div'=>false,'label'=>false));?>
+                    </div>                  
+                     <div class="contact_form">
+                    	<input type="submit" class="submit" value='' />
+                    </div>
+                    
+                  <?php echo $this->Form->end();?>
+            </div>
+</div>
+  <script type='text/javascript' language='javascript'>
 $().ready(function() {            
         // validate signup form on keyup and submit
         $("#change_pwd").validate({
@@ -78,4 +76,3 @@ $().ready(function() {
         });                    
 });
 </script>
-</div>
