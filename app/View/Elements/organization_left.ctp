@@ -1,4 +1,8 @@
 <div class="tab_outer">
+	<div class="text_tab">
+		<input type="text" class="search_field text_style" placeholder="SEARCH" />
+		<a href="#" class="search_icon_outer" > </a>
+	</div> 
 	<a href="<?php echo $this->webroot;?>" class="text_tab"><h2>ANALYTICS</h2></a>
 	<a href="<?php echo $this->webroot;?>loghours/organization_add" class="text_tab"><h2>LOG HRS.</h2></a>
 	<a href="#" class="text_tab"><h2>MESSAGES</h2></a>

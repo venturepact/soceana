@@ -1,3 +1,4 @@
+<div class='inner_wrapper'>
 <script type="text/javascript" src="<?php echo $this->webroot;?>Charts/FusionCharts.js"></script>
 <script type="text/javascript" src="<?php echo $this->webroot;?>assets/prettify/prettify.js"></script>
 <script type="text/javascript" src="<?php echo $this->webroot;?>assets/ui/js/json2.js"></script>
@@ -7,79 +8,9 @@
  *  @ set dashboard accordingly
  */
     if($this->Session->read('User.role') == 'organizations') {
-    ?>
-     <!--Upper Box-->
-   <div class="upper_box">
-       <div class="left_section_upper">
-          <div class="icon_list">
-             <ul>
-               <li><a href="#" ><img src="<?php echo $this->webroot;?>img/icon5.png" alt="" border="0"  /></a></li>
-               <li><a href="#" ><img src="<?php echo $this->webroot;?>img/icon4.png" alt="" border="0"  /></a></li>
-                 <li><a href="#" ><img src="<?php echo $this->webroot;?>img/icon1.png" alt="" border="0"  /></a></li>
-                   <li><a href="#" ><img src="<?php echo $this->webroot;?>img/icon2.png" alt="" border="0"  /></a></li>
-                  </ul>
-                </div>
-           </div>
-     <div class="right_section_upper">
-     <!--Single Client Outer-->
-        <div class="client_outer">
-        <div class="status_sign"><img src="<?php echo $this->webroot;?>img/busy.png" alt="" /></div>
-               <div class="client_img_outer"><img src="<?php echo $this->webroot;?>img/client_img.png" alt="" /></div>
-                  
-                     <div class="client_detail"><h3>Karri Raman</h3>
-                       <div class="light_gray">
-                           Lorem Ipsum is simply dummy text of the printing .
-                             </div>
-                        
-                          </div>
-                  </div>
-                   <!--Single Client Outer End-->
-                   
-                   <!--Single Client Outer-->
-        <div class="client_outer">
-        <div class="status_sign"><img src="<?php echo $this->webroot;?>img/active.png" alt="" /></div>
-               <div class="client_img_outer"><img src="<?php echo $this->webroot;?>img/client_img.png" alt="" /></div>
-                  
-                     <div class="client_detail"><h3>Karri Raman</h3>
-                       <div class="light_gray">
-                           Lorem Ipsum is simply dummy text of the printing .
-                             </div>
-                        
-                          </div>
-                  </div>
-                   <!--Single Client Outer End-->
-                    <!--Single Client Outer-->
-        <div class="client_outer">
-        <div class="status_sign"><img src="<?php echo $this->webroot;?>img/active.png" alt="" /></div>
-               <div class="client_img_outer"><img src="<?php echo $this->webroot;?>img/client_img.png" alt="" /></div>
-                  
-                     <div class="client_detail"><h3>Karri Raman</h3>
-                       <div class="light_gray">
-                           Lorem Ipsum is simply dummy text of the printing .
-                             </div>
-                        
-                          </div>
-                  </div>
-                   <!--Single Client Outer End-->
-                    <!--Single Client Outer-->
-        <div class="client_outer">
-        <div class="status_sign"><img src="<?php echo $this->webroot;?>img/active.png" alt="" /></div>
-               <div class="client_img_outer"><img src="<?php echo $this->webroot;?>img/client_img.png" alt="" /></div>
-                  
-                     <div class="client_detail"><h3>Karri Raman</h3>
-                       <div class="light_gray">
-                           Lorem Ipsum is simply dummy text of the printing .
-                             </div>
-                        
-                          </div>
-                  </div>
-                   <!--Single Client Outer End--> 
-           </div>        
-        </div>
-          <!--Upper Box End-->
+    ?>  
        <div class="top_heading">
-         <h1>ANALYTICS DASHBOARD</h1>
-          <h3>View metrics and data for the social good you have done through Soceana.</h3>
+         <h1>ANALYTICS DASHBOARD</h1>h3>View metrics and data for the social good you have done through Soceana.</h3>
             
            </div>
        
@@ -96,7 +27,7 @@
                                          
              </div>
    <div class="top_heading_second">
-     <h1>SOCIAL TIDES CHART</h1>
+     <h1>SOCIAL TIDES</h1>
         </div>     
         
        <div class="table_head">
@@ -229,7 +160,7 @@
                        
              </div>
            <div class="right_section_inner">  
-             <h1>ANALYTICS</h1>
+             <h1>SPONSORS</h1>
                <div class="sponser_outer">
                   <div class="sponser_inner"><h7> Sed ultricies volutpat tempor. Cras non lacus at enim venenatis hendrerit. Morbi lacus arcu, luctus sollicitudin molestie vulputate, sagittis eget quam. Praesent eget massa purus. Mauris fermentum ante quis mauris pretium, eu interdum metus fringilla. Curabitur lacinia vulputate tincidunt.</h7></div>
                      <div class="tip"></div>
@@ -272,11 +203,8 @@ OF PHILADELPHIA
                      
              </div>
              <a href="#" class="add_text">Advertise with Soceana</a></div>
-    <?php
-    }
-    else{
-    ?>
-       <div class="upper_box">
+                <!--Upper Box-->
+   <div class="upper_box">
        <div class="left_section_upper">
           <div class="icon_list">
              <ul>
@@ -310,9 +238,9 @@ OF PHILADELPHIA
                      <div class="client_detail"><h3>Karri Raman</h3>
                        <div class="light_gray">
                            Lorem Ipsum is simply dummy text of the printing .
-                       </div>
+                             </div>
                         
-                    </div>
+                          </div>
                   </div>
                    <!--Single Client Outer End-->
                     <!--Single Client Outer-->
@@ -344,6 +272,10 @@ OF PHILADELPHIA
            </div>        
         </div>
           <!--Upper Box End-->
+    <?php
+    }
+    else{
+    ?>       
        <div class="top_heading">
          <h1>ANALYTICS DASHBOARD</h1>
           <h3>View metrics and data for the social good you have done through Soceana.</h3>
@@ -363,7 +295,7 @@ OF PHILADELPHIA
                                          
              </div>
    <div class="top_heading_second">
-     <h1>SOCIAL TIDES CHART</h1>
+     <h1>SOCIAL TIDES</h1>
         </div>     
         
        <div class="table_head">
@@ -392,8 +324,8 @@ OF PHILADELPHIA
  <div class="vol_table">                        
              <div class="table_head_dark">
                 <div class="t_col_1 right_border"><h6>CATEGORY</h6></div>
-                  <div class="t_col_2 right_border"><h6>TYPE</h6></div>
-                    <div class="t_col_3 right_border"><h6>VOLUNTEER</h6></div>
+                  <div class="t_col_2 right_border"><h6>VOLUNTEER TYPE</h6></div>
+                    <div class="t_col_3 right_border"><h6>ORGANIZATION</h6></div>
                       <div class="t_col_4 right_border"><h6>HRS.</h6></div>
                         <div class="t_col_5"><h6>DATE</h6></div>
                         <div class="t_col_6"><img src="<?php echo $this->webroot;?>img/logo_cert_white.png" /></div>
@@ -486,7 +418,7 @@ OF PHILADELPHIA
                        
              </div>
            <div class="right_section_inner">  
-             <h1>ANALYTICS</h1>
+             <h1>SPONSORS</h1>
                <div class="sponser_outer">
                   <div class="sponser_inner"><h7> Sed ultricies volutpat tempor. Cras non lacus at enim venenatis hendrerit. Morbi lacus arcu, luctus sollicitudin molestie vulputate, sagittis eget quam. Praesent eget massa purus. Mauris fermentum ante quis mauris pretium, eu interdum metus fringilla. Curabitur lacinia vulputate tincidunt.</h7></div>
                      <div class="tip"></div>
@@ -532,7 +464,76 @@ OF PHILADELPHIA
                
          <div class="clr"></div>
                
-         </div>      
+         </div>   
+         <div class="upper_box">
+       <div class="left_section_upper">
+          <div class="icon_list">
+             <ul>
+               <li><a href="#" ><img src="<?php echo $this->webroot;?>img/icon5.png" alt="" border="0"  /></a></li>
+               <li><a href="#" ><img src="<?php echo $this->webroot;?>img/icon4.png" alt="" border="0"  /></a></li>
+                 <li><a href="#" ><img src="<?php echo $this->webroot;?>img/icon1.png" alt="" border="0"  /></a></li>
+                   <li><a href="#" ><img src="<?php echo $this->webroot;?>img/icon2.png" alt="" border="0"  /></a></li>
+                  </ul>
+                </div>
+           </div>
+     <div class="right_section_upper">
+     <!--Single Client Outer-->
+        <div class="client_outer">
+        <div class="status_sign"><img src="<?php echo $this->webroot;?>img/busy.png" alt="" /></div>
+               <div class="client_img_outer"><img src="<?php echo $this->webroot;?>img/client_img.png" alt="" /></div>
+                  
+                     <div class="client_detail"><h3>Karri Raman</h3>
+                       <div class="light_gray">
+                           Lorem Ipsum is simply dummy text of the printing .
+                             </div>
+                        
+                          </div>
+                  </div>
+                   <!--Single Client Outer End-->
+                   
+                   <!--Single Client Outer-->
+        <div class="client_outer">
+        <div class="status_sign"><img src="<?php echo $this->webroot;?>img/active.png" alt="" /></div>
+               <div class="client_img_outer"><img src="<?php echo $this->webroot;?>img/client_img.png" alt="" /></div>
+                  
+                     <div class="client_detail"><h3>Karri Raman</h3>
+                       <div class="light_gray">
+                           Lorem Ipsum is simply dummy text of the printing .
+                       </div>
+                        
+                    </div>
+                  </div>
+                   <!--Single Client Outer End-->
+                    <!--Single Client Outer-->
+        <div class="client_outer">
+        <div class="status_sign"><img src="<?php echo $this->webroot;?>img/active.png" alt="" /></div>
+               <div class="client_img_outer"><img src="<?php echo $this->webroot;?>img/client_img.png" alt="" /></div>
+                  
+                     <div class="client_detail"><h3>Karri Raman</h3>
+                       <div class="light_gray">
+                           Lorem Ipsum is simply dummy text of the printing .
+                             </div>
+                        
+                          </div>
+                  </div>
+                   <!--Single Client Outer End-->
+                    <!--Single Client Outer-->
+        <div class="client_outer">
+        <div class="status_sign"><img src="<?php echo $this->webroot;?>img/active.png" alt="" /></div>
+               <div class="client_img_outer"><img src="<?php echo $this->webroot;?>img/client_img.png" alt="" /></div>
+                  
+                     <div class="client_detail"><h3>Karri Raman</h3>
+                       <div class="light_gray">
+                           Lorem Ipsum is simply dummy text of the printing .
+                             </div>
+                        
+                          </div>
+                  </div>
+                   <!--Single Client Outer End--> 
+           </div>        
+        </div>
+          <!--Upper Box End-->   
     <?php
     }
     ?>       
+</div>

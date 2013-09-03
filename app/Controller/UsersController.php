@@ -65,7 +65,7 @@ class UsersController extends AppController{
         $this->loadModel('ServiceType');
         if($this->request->is('post')){
             
-            pr($this->request->data);die;
+            //pr($this->request->data);die;
             /* @ check for the email id (login id) if already exists with the same id then
              * @ prompt the user with error message and give the message that user is already in database
              */
@@ -113,7 +113,7 @@ class UsersController extends AppController{
             throw new NotFoundException(__('Invalid User'));       
         }
         if($this->request->is('post') || $this->request->is('put')){
-            pr($this->request->data);die;
+            //pr($this->request->data);die;
             if($this->User->save($this->request->data)){
                 $this->Session->setFlash(__('User details has been updated successfully'));
                 $this->redirect('/');

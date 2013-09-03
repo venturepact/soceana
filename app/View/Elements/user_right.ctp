@@ -1,6 +1,6 @@
 <?php
 // checking the controller and action for displaying of gallery
-if($this->request->params['controller'] == 'pages' && $this->request->params['action'] == 'display'){
+//if($this->request->params['controller'] == 'pages' && $this->request->params['action'] == 'display'){
 ?>
 <div class="tab_outer_right">
                 <div class="right_text_tab tab_font"><?php echo $this->Session->read('User.first_name');?></div>
@@ -21,5 +21,5 @@ if($this->request->params['controller'] == 'pages' && $this->request->params['ac
                 </div>
 </div>
 <?php
-}
+//}
 ?>

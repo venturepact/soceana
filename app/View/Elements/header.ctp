@@ -15,7 +15,12 @@ if($this->Session->read('User.role')!=''){
                                 }
                                 else echo 'loghours/add';
                                 ?>">LOG HOURS</a></li>
-                                <li><a href="#">RED CROSS PA</a></li>
+                                <li><a href="#"><?php
+                                if($this->Session->read('User.role') == 'organizations'){
+                                    echo strtoupper($this->Session->read('User.organization_name'));
+                                }
+                                else echo strtoupper($this->Session->read('User.first_name'));
+                                ?></a></li>
                                 <li><a href="<?php echo $this->webroot;?>users/logout">LOGOUT</a></li>
                                 <li><a href="<?php echo $this->webroot;?><?php
                                 if($this->Session->read('User.role') == 'organizations'){

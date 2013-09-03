@@ -5,6 +5,7 @@
 <title><?php echo $title_for_layout;?></title>
 <link rel="shortcut icon" href="<?php echo $this->webroot;?>img/favicon.ico"/>
 <?php echo $this->Html->css('style');?>
+<?php echo $this->Html->css('responsive');?>
 <?php echo $this->Html->script('jquery-1.6.1.min');?>
 <?php echo $this->Html->script('responsiveslides.min');?>
 <?php echo $this->Html->script('jquery.validate');?>

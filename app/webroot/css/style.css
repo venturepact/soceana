@@ -79,8 +79,7 @@ font-size:1.5em; color:#efefef; line-height:100%;   }
 	font-family: 'FuturaLT', Sans-Serif;
 	font-size: 0.8em;
 	 color:#858585; font-weight:normal;
-	 
-	font-weight:bolder ;}
+	 }
 .gray_text1{ float:left; width:75%; margin-top:10px;margin-bottom:5px;
 	font-family: 'FuturaLT', Sans-Serif;
 	font-size: 1em;
@@ -776,3 +775,8 @@ input{ width:200px;height:25px;background-color:#EBF6FC; border:none; margin-lef
 .w60{width:60%;}
 .submit_button4{background:url(../img/campain.png) no-repeat;height:45px;width:207px;}
 #flashMessage{text-align: center;color:#ff0000;}
+.search_field{ float:left; width:77%; padding-left:1px; background:#f4f4f4; height:29px;}
+.text_tab input{ margin-left:0px; }
+.search_icon_outer{float:left; width:30px; height:30px; background:url(../img/search_icon.jpg) no-repeat; margin-left:2px;} 
+.text_style{ font-family: 'Futura_LT_Book',Sans-Serif;color:#7D7D7D; }
+.inner_wrapper{ min-height: 1710px;}

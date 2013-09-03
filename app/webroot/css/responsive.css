@@ -1,0 +1,1747 @@
+@charset "utf-8";
+/* CSS Document */
+/*I-pad ladasca*/
+@media only screen and (min-width: 1024px) and (max-width: 767px)
+{
+.logo {height: auto; left: 60px; margin: 0; top: 0px; width: 37%;}
+.logo img{	max-width:100%;}
+.top_nav li a { font-size: 14px; padding: 9px 5px;}
+.c_profile {  margin-right: 15%;}
+.link_text{	font-size:9px;}
+/*main section start {SAhil}*/
+#main_section {  margin-top: 10px;}
+.top_heading{padding-left:0px;}
+.top_heading h1{font-size: 2em;}
+.top_heading h3{font-size: 16px;line-height:28px;}
+.top_section h4{ font-size: 1.2em; line-height: 19px;}
+.large_font{font-size:2.8em;}
+.main_text p { font-size: 1.7em; line-height: 38px;}
+.news_text span{font-size:11px;}
+.fields { margin-left: 0; width: 100%;}
+.top_heading_second { margin: 20px 10px;}
+.list { float: left; width: 19%;}
+.t_col_2{width:29%;}
+.t_col_2 h6{ display: inline-table; font-size: 8px; line-height: 16px; vertical-align: middle;}
+.t_col_1.right_border > h6{font-size: 10px;}
+.t_col_2.right_border > h6 
+{
+    font-size: 10px;
+}
+.t_col_3.right_border > h6 
+{
+    font-size: 10px;
+}
+.t_col_4.right_border > h6 
+{
+    font-size: 10px;
+}
+.t_col_5.right_border > h6 
+{
+    font-size: 10px;
+}
+.t_col_6 > h6 
+{
+    font-size: 10px;
+}
+
+.gray_text 
+{
+    font-size: 9px;
+    line-height: 13px;
+}
+.text_tab h2
+{
+	font-size:13px;
+}
+.icon_tab_small 
+{
+    background: none repeat scroll 0 0 #FF7E00;
+    float: right;
+    padding: 7px 8px 7px 3px;
+    width: 10%;
+}
+.text_tab_small h2
+{
+	font-size:13px;	
+}
+.right_text_tab
+{
+	font-size:18px;
+}
+.tab_font 
+{
+    font-size: 13px;
+    line-height: 17px;
+}
+.small_font
+{
+	font-size:12px;
+}
+.black_text 
+{
+    font-size: 0.9em;
+    line-height: 13px;
+}
+.black_text_thin 
+{
+    font-size: 10px;
+    line-height: 14px;
+}
+.orange_butt
+{
+	line-height:14px;
+	font-size:0.8em;
+}
+.sponser_inner h6
+{
+    font-size: 11px;
+    line-height: 15px;
+}
+.upper_box
+{
+	width:65%;
+}
+.upper_box .left_section_upper
+{
+	width:19% !important ; padding-top:2%;  
+}
+.upper_box .right_section_upper 
+{
+    float: left;
+    margin-left: 15px;
+    margin-top: 15px;
+    width: 72%;
+}
+.client_img_outer 
+{
+    float: left;
+    width: 26%;
+}
+.client_detail 
+{
+    float: left;
+    margin-left: 3%;
+    width: 70%;
+}
+.client_detail h3
+{
+    font-size: 16px;
+    line-height: 24px;
+	margin-top:5px;
+}
+.light_gray 
+{
+    font-size: 13px;
+}
+
+.footer_first_block .footer_block_heading { font-size:14px; font-weight:bold; padding-left:0;}
+.footer_first_block .footer_block_heading span{ font-size:10px;}
+.footer_first_block ul{ margin-top:20px;}
+.footer_first_block ul li{ font-size:12px; }
+.footer_second_block{ margin-left:4%; width:23%;}
+.footer_block2nd_heading{ font-size:14px; font-weight:bold;}
+.footer_image_outer .img_outer{ max-height:60px; max-width:60px;}
+.footer_second_block ul 
+{
+width: 25%;	
+	 }
+
+.footer_2last_block{ padding-left:3px; width:10.5%;}	 
+.footer_2last_block ul li img{width:100%;}	
+.footer_block_heading, .footer_2last_block ul li h3{ font-size:12px;}
+.footer_third_block{width:8%;} 
+.tweet_text{ font-size:0.7em}
+
+/*main section end {SAhil}*/
+/*Login page Css*/
+.section_login_left 
+{
+       width: 61%;
+	   padding-bottom:8px; margin-left: 9px;
+}
+
+.section_login_right {
+    margin-left: 84px;
+    width: 274px;
+}
+/*Login page Css End*/
+.section1 .img {   
+    margin-top:2px;
+  
+}
+.contact_form label { font-size: 9px; line-height: 15px;}
+.volunteer_signup_form .remeber label.intern,.signup_form .remeber label.intern {font-size: 9px;}
+.volunteer_signup_form label,.signup_form label { width: 72%;}
+.volunteer_signup_form .grey label,.signup_form .grey label { width: 100%;}
+.volunteer_signup_form ul,.signup_form ul { margin-left: 5px; width: 100%;}
+.volunteer_signup_form label span,.signup_form label span {  width: 100%;}
+.volunteer_signup_form ul li.first,.signup_form ul li.first { margin-left: 15px;}
+.volunteer_signup_form ul li.last,.signup_form ul li.last { width: 28%;}
+.contact_form .submit_button1 { width: 45%;}
+.grey .input { width: 37%;}
+
+.label_size {text-align: center !important;width: 100% !important;}
+.volunteer_signup_form ul li.last, .signup_form ul li.last {width: 56%;}
+.vol_table .signup_form label span {text-align: center;width: 100% ;}
+.vol_table .signup_form ul { margin-left: 43px; width: 99%;}
+.w35{ width:40% !important ;}
+
+
+/*I-pad portrait End*/
+}
+/*I-pad portrait*/
+@media only screen and (min-width: 800px) and (max-width: 599px) 
+{
+.t_col_1.right_border > h6 
+{
+    font-size: 8px;
+}
+.t_col_2.right_border > h6 
+{
+    font-size: 8px;
+}
+.t_col_3.right_border > h6 
+{
+    font-size: 8px;
+}
+.t_col_4.right_border > h6 
+{
+    font-size: 8px;
+}
+.t_col_5.right_border > h6 
+{
+    font-size: 8px;
+}
+/*Login page Css*/
+
+.top_form .user_name input, .top_form .password input {
+    width: 54%;
+}
+.login_slider {
+    height: 64px;
+    margin-top:25px;
+}
+.top_form .login_buttons {
+    margin-left: 94px;
+    margin-top: 13px;
+}
+.top_form .login_now {  
+    margin-bottom: -3px;
+    margin-left: 5px;
+    margin-top: 0px;
+    width: 100%;
+}
+.top_form .sign_up {  
+     margin-left: 3px;
+    margin-top: 6px;
+    width: 100%;
+}
+.top_form .remember .intern {
+       margin-left: 21px;
+    margin-top: -1px;
+}
+
+.top_form .remember .forget_password {  
+    margin-top: 3px;margin-right: 183px;
+  
+}
+
+.section_login_left {
+       width: 100%;
+	    padding-bottom:8px; margin-left: 9px;
+}
+
+.section_login_right {
+    margin-left: 82px;
+    width: 274px;
+}
+/*Login page Css End*/
+/*Contact page css End*/
+.form_butt_outer {
+    width: 27% ;
+}
+/*Contact page css End*/
+.section1 .img {   
+    margin-top: 7px;
+  
+}
+.contact_form label { font-size: 9px; line-height: 15px;}
+.volunteer_signup_form .remeber label.intern,.signup_form .remeber label.intern {font-size: 9px;}
+.volunteer_signup_form label,.signup_form label { width: 72%;}
+.volunteer_signup_form .grey label,.signup_form .grey label { width: 100%;}
+.volunteer_signup_form ul,.signup_form ul { margin-left: 5px; width: 100%;}
+.volunteer_signup_form label span,.signup_form label span {  width: 100%;}
+.volunteer_signup_form ul li.first,.signup_form ul li.first { margin-left: 15px;}
+.volunteer_signup_form ul li.last,.signup_form ul li.last { width: 28%;}
+.contact_form .submit_button1 { width: 45%;}
+.grey .input { width: 37%;}
+
+.label_size {text-align: center !important;width: 100% !important;}
+.volunteer_signup_form ul li.last, .signup_form ul li.last {width: 56%;}
+.vol_table .signup_form label span {text-align: center;width: 100% ;}
+.vol_table .signup_form ul { margin-left: 43px; width: 99%;}
+.w35{ width:52% !important ;}
+
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) 
+{
+.logo 
+{
+    height: auto;
+    left: 60px;
+    margin: 0;
+    top: 0px;
+    width: 37%;
+}
+.logo img
+{
+	max-width:100%;
+}
+.top_nav li a 
+{
+    font-size: 14px;
+    padding: 9px 5px;
+}
+.c_profile {
+    margin-right: 15%;
+}
+.link_text
+{
+	font-size:9px;
+}
+/*main section start {SAhil}*/
+#main_section 
+{
+    margin-top: 10px;
+}
+.top_heading
+{
+	padding-left:0px;
+}
+.top_heading h1
+{
+	font-size: 2em;
+}
+.top_heading h3
+{
+	font-size: 16px;
+	line-height:28px;
+}
+.top_section h4
+{
+    font-size: 1.2em;
+    line-height: 19px;
+}
+.large_font
+{
+	font-size:2.8em;
+}
+.main_text p 
+{
+    font-size: 1.7em;
+	line-height: 38px;
+}
+.news_text span
+{
+	font-size:11px;
+}
+.fields 
+{
+    margin-left: 0;
+    width: 100%;
+}
+.top_heading_second 
+{
+    margin: 20px 10px;
+}
+.list 
+{
+    float: left;
+    width: 19%;
+}
+.t_col_2
+{
+	width:29%;
+}
+.t_col_2 h6
+{
+    display: inline-table;
+    font-size: 8px;
+    line-height: 16px;
+    vertical-align: middle;
+}
+.t_col_1.right_border > h6 
+{
+    font-size: 8px;
+}
+.t_col_2.right_border > h6 
+{
+    font-size: 8px;
+}
+.t_col_3.right_border > h6 
+{
+    font-size: 8px;
+}
+.t_col_4.right_border > h6 
+{
+    font-size: 8px;
+}
+.t_col_5.right_border > h6 
+{
+    font-size: 8px;
+}
+.t_col_6 > h6 
+{
+    font-size: 8px;
+}
+
+.gray_text 
+{
+    font-size: 9px;
+    line-height: 13px;
+}
+.text_tab h2
+{
+	font-size:13px;
+}
+.icon_tab_small 
+{
+    background: none repeat scroll 0 0 #FF7E00;
+    float: right;
+    padding: 7px 8px 7px 3px;
+    width: 10%;
+}
+.text_tab_small h2
+{
+	font-size:13px;	
+}
+.right_text_tab
+{
+	font-size:18px;
+}
+.tab_font 
+{
+    font-size: 13px;
+    line-height: 17px;
+}
+.small_font
+{
+	font-size:12px;
+}
+.black_text 
+{
+    font-size: 0.9em;
+    line-height: 13px;
+}
+.black_text_thin 
+{
+    font-size: 10px;
+    line-height: 14px;
+}
+.orange_butt
+{
+	line-height:14px;
+	font-size:0.8em;
+}
+.sponser_inner h6
+{
+    font-size: 11px;
+    line-height: 15px;
+}
+.upper_box
+{
+	width:65%;
+}
+.upper_box .left_section_upper
+{
+	width:19% !important ; padding-top:2%;  
+}
+.upper_box .right_section_upper 
+{
+    float: left;
+    margin-left: 15px;
+    margin-top: 15px;
+    width: 72%;
+}
+.client_img_outer 
+{
+    float: left;
+    width: 26%;
+}
+.client_detail 
+{
+    float: left;
+    margin-left: 3%;
+    width: 70%;
+}
+.client_detail h3
+{
+    font-size: 16px;
+    line-height: 24px;
+	margin-top:5px;
+}
+.light_gray 
+{
+    font-size: 13px;
+}
+
+.footer_first_block .footer_block_heading { font-size:14px; font-weight:bold; padding-left:0;}
+.footer_first_block .footer_block_heading span{ font-size:10px;}
+.footer_first_block ul{ margin-top:20px;}
+.footer_first_block ul li{ font-size:12px; }
+.footer_second_block{ margin-left:4%; width:23%;}
+.footer_block2nd_heading{ font-size:14px; font-weight:bold;}
+.footer_image_outer .img_outer{ max-height:60px; max-width:60px;}
+.footer_second_block ul 
+{
+width: 25%;	
+	 }
+
+.footer_2last_block{ padding-left:3px; width:10.5%;}	 
+.footer_2last_block ul li img{width:100%; }	
+.footer_block_heading, .footer_2last_block ul li h3{ font-size:12px;}
+.footer_third_block{width:8%;} 
+.tweet_text{ font-size:0.7em}
+
+/*Login page Css*/
+
+.top_form .user_name input, .top_form .password input {
+    width: 54%;
+}
+.login_slider {
+    height: 96px;
+    margin-top: 25px;
+}
+.top_form .login_buttons {
+    margin-left: 94px;
+    margin-top: 13px;
+}
+.top_form .login_now {  
+    margin-bottom: -3px;
+    margin-left: 5px;
+    margin-top: 0px;
+    width: 100%;
+}
+.top_form .sign_up {  
+     margin-left: 3px;
+    margin-top: 6px;
+    width: 100%;
+}
+.top_form .remember .intern {
+       margin-left: 21px;
+    margin-top: -1px;
+}
+
+.top_form .remember .forget_password {  
+    margin-top: 3px;margin-right: 183px;
+  
+}
+
+.section_login_left {
+       width: 47% !important;
+	    padding-bottom:8px; margin-left: 9px;
+}
+
+.section_login_right {
+    margin-left: 0px !important;
+    width: 274px;
+}
+/*Login page Css End*/
+.section1 .img {   
+    margin-top:2px;
+  
+}
+
+/*main section end {SAhil}*/
+.contact_form label { font-size: 9px; line-height: 15px;}
+.volunteer_signup_form .remeber label.intern,.signup_form .remeber label.intern {font-size: 9px;}
+.volunteer_signup_form label,.signup_form label { width: 72%;}
+.volunteer_signup_form .grey label,.signup_form .grey label { width: 100%;}
+.volunteer_signup_form ul,.signup_form ul { margin-left: 5px; width: 100%;}
+.volunteer_signup_form label span,.signup_form label span {  width: 100%;}
+.volunteer_signup_form ul li.first,.signup_form ul li.first { margin-left: 15px;}
+.volunteer_signup_form ul li.last,.signup_form ul li.last { width: 28%;}
+.contact_form .submit_button1 { width: 45%;}
+.grey .input { width: 37%;}
+
+.label_size {text-align: center !important;width: 100% !important;}
+.volunteer_signup_form ul li.last, .signup_form ul li.last {width: 56%;}
+.vol_table .signup_form label span {text-align: center;width: 100% ;}
+.vol_table .signup_form ul { margin-left: 43px; width: 99%;}
+.contact_form .w35{ width:55% !important;}
+
+/*I-pad portrait End*/
+}
+/*600*800 portrait*/
+
+@media only screen and (min-width: 600px) and (max-width: 799px) 
+{
+.logo 
+{
+    height: auto;
+    left: 40px;
+    margin: 0;
+    top: 0px;
+    width: 37%;
+}
+.logo img
+{
+	max-width:100%;
+}
+.top_nav li a 
+{
+    font-size: 11px;
+    padding: 8px 5px;
+}
+.c_profile {
+    margin-right: 12%;
+}
+.link_text
+{
+	font-size:8px;
+}
+/*main section start {SAhil}*/
+#main_section 
+{
+    margin-top: 10px;
+}
+.top_heading
+{
+	padding-left:0px;
+}
+.table_head{ margin:0px 10px; }
+.top_heading h1
+{
+	font-size: 2em;
+}
+.top_heading h3
+{
+	font-size: 12px;
+	line-height:26px;
+}
+
+#wrapper{ width:70%;}
+.wrapper_left_section{ width:94%;}
+.left_top_section{ width:100%;}
+.wrapper_mid_border{ display:none;}
+.wrapper_right_section{ width:94%;}
+.top_section h4
+{
+    font-size: 1.2em;
+    line-height: 19px;
+}
+.large_font
+{
+	font-size:2.8em;
+}
+.main_text p 
+{
+    font-size: 1.7em;
+	line-height: 38px;
+}
+.news_text span
+{
+	font-size:11px;
+}
+.fields 
+{
+    margin-left: 0;
+    width: 100%;
+}
+.top_heading_second 
+{
+    margin: 20px 10px;
+}
+
+.top_heading_second h1{ font-size:2em;  line-height: 9px;   margin-left: -1px;}
+.list 
+{
+    float: left;
+    width: 19%;
+}
+.t_col_2
+{
+	width:29%;
+}
+.t_col_2 h6
+{
+    display: inline-table;
+    font-size: 8px;
+    line-height: 16px;
+    vertical-align: middle;
+}
+.t_col_1.right_border > h6 
+{
+    font-size: 8px;
+}
+.t_col_2.right_border > h6 
+{
+    font-size: 8px;
+}
+.t_col_3.right_border > h6 
+{
+    font-size: 8px;
+}
+.t_col_4.right_border > h6 
+{
+    font-size: 8px;
+}
+.t_col_5.right_border > h6 
+{
+    font-size: 8px;
+}
+.t_col_6 > h6 
+{
+    font-size: 8px;
+}
+.gray_text 
+{
+    font-size: 9px;
+    line-height: 13px;
+}
+.text_tab h2
+{
+	font-size:10px;
+}
+.icon_tab_small 
+{
+    background: none repeat scroll 0 0 #FF7E00;
+    float: right;
+    padding: 5px 6px 7px 3px;
+    width: 10%;
+}
+.text_tab_small h2
+{
+	font-size:10px;	
+}
+.right_text_tab
+{
+	font-size:18px;
+}
+.tab_font 
+{
+    font-size: 13px;
+    line-height: 17px;
+}
+.small_font
+{
+	font-size:12px;
+}
+.black_text 
+{
+    font-size: 0.9em;
+    line-height: 13px;
+}
+.black_text_thin 
+{
+    font-size: 10px;
+    line-height: 14px;
+}
+.orange_butt
+{
+	line-height:14px;
+	font-size:0.8em;
+}
+.sponser_inner h6
+{
+    font-size: 11px;
+    line-height: 15px;
+}
+.upper_box
+{
+width:65%; height: 373px;
+    right: -66px;
+    top: 1437px; 
+}
+.upper_box .left_section_upper
+{
+	width:18%;
+}
+.upper_box .right_section_upper 
+{
+    float: left;
+    margin-left: 1px;
+    margin-top: 15px;
+    width: 77%;
+}
+
+.icon_list li {
+   
+   
+    margin-bottom: 20px;
+    padding-left: 9px;
+}
+.client_outer {   
+    margin-bottom: 0;
+    padding: 3px;   
+}
+
+.vol_table .signup_form_blue ul li img {
+    width: 90px;
+}
+
+.signup_form_blue ul li input[type="checkbox"] + label span {
+    cursor: pointer;
+}
+.vol_table .signup_form_blue label span {
+    color: #333333;
+    font-size: 11px;
+    text-align: right;
+    text-transform: capitalize;
+}
+.vol_table .signup_form_blue label {
+    color: #333333;
+    font-size: 0.9em;
+    text-align: right;
+    text-transform: uppercase;
+}
+.vol_table .signup_form_blue ul li {
+    list-style: none outside none;
+}
+.section, .profile_content_main {
+    font-family: 'Futura_LT_Book',Sans-Serif;
+    font-size: 1em;
+    line-height: 25px;
+}
+
+.time_outer{ margin-top:10%;}
+.client_img_outer 
+{
+    float: left;
+    width: 26%;
+}
+.client_detail 
+{
+    float: left;
+    margin-left: 5%;
+    width: 65%;
+}
+.client_detail h3
+{
+    font-size: 16px;
+    line-height: 24px;
+	margin-top:5px;
+}
+.light_gray 
+{
+    font-size: 12px;
+}
+
+.footer_first_block .footer_block_heading { font-size:12px; font-weight:bold; padding-left:0;}
+.footer_first_block .footer_block_heading span{ font-size:10px;}
+.footer_first_block ul{ margin-top:20px;}
+.footer_first_block ul li{ font-size: 10px;
+    margin-top: -3px; }
+.footer_second_block{ margin-left:3%; width:23%;}
+.footer_block2nd_heading{ font-size:12px; font-weight:bold;}
+.footer_image_outer .img_outer{ max-height:50px; max-width:50px;}
+.footer_second_block ul 
+{
+width: 25%;	
+	 }
+	 
+
+.footer_2last_block{ padding-left:3px; width:10.5%;}	 
+.footer_2last_block ul li img{width:100%;}	
+.footer_block_heading, .footer_2last_block ul li h3{ font-size:10px;}
+.footer_third_block{width:8%;} 
+.tweet_text{ font-size: 7px;
+    padding-top: 0;}
+.footer_last_head{ font-size:12px; font-weight:bold;}
+
+/*Login page Css*/
+
+.top_form .user_name input, .top_form .password input {
+    width: 54%;
+}
+.login_slider {
+    height: 80px;
+    margin-top:25px;
+}
+.top_form .login_buttons {
+    margin-left: 94px;
+    margin-top: 13px;
+}
+.top_form .login_now {  
+    margin-bottom: -3px;
+    margin-left: 5px;
+    margin-top: 0px;
+    width: 100%;
+}
+.top_form .sign_up {  
+     margin-left: 3px;
+    margin-top: 6px;
+    width: 100%;
+}
+.top_form .remember .intern {
+       margin-left: 21px;
+    margin-top: -1px;
+}
+
+.top_form .remember .forget_password {  
+    margin-top: 3px;margin-right: 183px;
+  
+}
+
+.section_login_left {
+       width: 100%;
+	    padding-bottom:8px; margin-left: 9px;
+}
+
+.section_login_right {
+  
+    margin-left: 23%;
+    width: 274px;
+
+}
+/*Login page Css End*/
+
+/*About page css*/ 
+
+.butt_outer {
+      width: 30%; }
+.green_butt {  
+    width: 80%;
+}
+.oran_butt {  
+    width: 80%;
+}
+.blue_butt {  
+    width: 80%;
+}
+.section h1{ font-size:1.8em;}
+.section p { text-align:justify; line-height:20px;}
+/*About page css End*/
+/*Contact page css End*/
+.form_butt_outer {
+    width: 37% ;
+}
+/*Contact page css End*/
+.section1 .img {   
+    margin-top: 0px;
+  
+}
+
+/*main section end {SAhil}*/
+.contact_form label { font-size: 9px; line-height: 15px;}
+.volunteer_signup_form .remeber label.intern,.signup_form .remeber label.intern {font-size: 9px;}
+.volunteer_signup_form label,.signup_form label { width: 72%;}
+.volunteer_signup_form .grey label,.signup_form .grey label { width: 100%;}
+.volunteer_signup_form ul,.signup_form ul { margin-left: 5px; width: 100%;}
+.volunteer_signup_form label span,.signup_form label span {  width: 100%;}
+.volunteer_signup_form ul li.first,.signup_form ul li.first { margin-left: 15px;}
+.volunteer_signup_form ul li.last,.signup_form ul li.last { width: 28%;}
+.contact_form .submit_button1 { width: 45%;}
+.grey .input { width: 37%;}
+
+.label_size {text-align: center !important;width: 100% !important;}
+.volunteer_signup_form ul li.last, .signup_form ul li.last {width: 56%;}
+.vol_table .signup_form label span {text-align: center;width: 100% ;}
+.vol_table .signup_form ul { margin-left: 21%; width: 70%;}
+.w35{ width:54% !important;}
+
+/*600*800 portrait End*/
+
+}
+/*480*320 portrait*/
+
+/*320*480 portrait*/
+@media only screen and (min-width: 320px) and (max-width: 479px) 
+{
+.logo 
+{
+    height: auto;
+    left: 40px;
+    margin: 0;
+    top: 0px;
+    width: 37%;
+}
+.logo img
+{
+	max-width:100%;
+}
+.top_nav_outer .top_nav li
+{
+	width:auto;
+}
+.top_nav_outer .top_nav li a 
+{
+   font-size: 11px;
+   padding: 4px;
+}
+.c_profile {
+    margin-right: 20%;
+}
+.link_text
+{
+	font-size:8px;
+}
+/*main section start {SAhil}*/
+#main_section 
+{
+    margin-top: 10px;
+}
+.top_heading
+{
+	padding-left:0px;
+}
+.table_head{ margin:0px 10px; }
+.top_heading h1
+{
+	font-size: 1.5em;
+}
+.top_heading h3
+{
+	font-size: 9px;
+    line-height: 15px;
+}
+.main_text {
+    border-bottom: 1px solid #4EACC9; border-right:none;
+    height: 24px;
+    width: 34%; padding-bottom:3px;
+}
+.main_text p{ line-height:26px; }
+.news_text{ width:100%;}
+
+#wrapper{ width:70%;}
+.wrapper_left_section{ width:94%;}
+.left_top_section{ width:100%;}
+.wrapper_mid_border{ display:none;}
+.wrapper_right_section{ width:94%;}
+.top_section h4
+{
+    font-size: 1.2em;
+    line-height: 19px;
+}
+.large_font
+{
+	font-size:2.8em;
+}
+.main_text p 
+{
+    font-size: 1.7em;
+	line-height: 38px;
+}
+.news_text span
+{
+	font-size:11px;
+}
+.fields 
+{
+    margin-left: 0;
+    width: 100%;
+}
+.top_heading_second 
+{
+    margin: 20px 10px;
+}
+
+.top_heading_second h1{ font-size:1.5em;  line-height: 9px;   margin-left: -1px;}
+.list 
+{
+    float: left;
+    width: 19%;
+}
+.list select{width:37px;}
+.upper_box{display:none;}
+.t_col_2
+{
+	width:29%;
+}
+.t_col_2 h6
+{
+    display: inline-table;
+    font-size: 8px;
+    line-height: 16px;
+    vertical-align: middle;
+}
+.gray_text 
+{
+    font-size: 9px;
+    line-height: 13px;
+}
+.text_tab h2
+{
+	font-size:10px;
+}
+.icon_tab_small 
+{
+    background: none repeat scroll 0 0 #FF7E00;
+    float: right;
+    padding: 5px 6px 7px 3px;
+    width: 10%;
+}
+.text_tab_small h2
+{
+	font-size:10px;	
+}
+.right_text_tab
+{
+	font-size:18px;
+}
+.tab_font 
+{
+    font-size: 13px;
+    line-height: 17px;
+}
+.small_font
+{
+	font-size:12px;
+}
+.black_text 
+{
+    font-size: 0.9em;
+    line-height: 13px;
+}
+.black_text_thin 
+{
+    font-size: 10px;
+    line-height: 14px;
+}
+.orange_butt
+{
+	line-height:14px;
+	font-size:0.8em;
+}
+.sponser_inner h6
+{
+    font-size: 11px;
+    line-height: 15px;
+}
+.upper_box
+{
+width:65%; height: 373px;
+    right: -66px;
+    top: 1437px; 
+}
+.upper_box .left_section_upper
+{
+	width:21%;
+}
+.upper_box .right_section_upper 
+{
+    float: left;
+    margin-left: 15px;
+    margin-top: 15px;
+    width: 73%;
+}
+.client_outer {   
+    margin-bottom: 0;
+    padding: 3px;   
+}
+
+.vol_table .signup_form_blue ul li img {
+    width: 90px;
+}
+
+.signup_form_blue ul li input[type="checkbox"] + label span {
+    cursor: pointer;
+}
+.vol_table .signup_form_blue label span {
+    color: #333333;
+    font-size: 11px;
+    text-align: right;
+    text-transform: capitalize;
+}
+.vol_table .signup_form_blue label {
+    color: #333333;
+    font-size: 0.9em;
+    text-align: right;
+    text-transform: uppercase;
+}
+.vol_table .signup_form_blue ul li {
+    list-style: none outside none;
+}
+.section, .profile_content_main {
+    font-family: 'Futura_LT_Book',Sans-Serif;
+    font-size: 1em;
+    line-height: 25px;
+}
+
+.time_outer{ margin-top:10%;}
+.client_img_outer 
+{
+    float: left;
+    width: 26%;
+}
+.client_detail 
+{
+    float: left;
+    margin-left: 5%;
+    width: 65%;
+}
+.client_detail h3
+{
+    font-size: 16px;
+    line-height: 24px;
+	margin-top:5px;
+}
+.light_gray 
+{
+    font-size: 12px;
+}
+
+.footer_first_block .footer_block_heading { font-size:12px; font-weight:bold; padding-left:0;}
+.footer_first_block .footer_block_heading span{ font-size:10px;}
+.footer_first_block ul{ margin-top:20px;}
+.footer_first_block ul li{ font-size: 10px;
+    margin-top: -3px; }
+.footer_second_block{ margin-left:3%; width:23%;}
+.footer_block2nd_heading{ font-size:12px; font-weight:bold;}
+.footer_image_outer .img_outer{ max-height:50px; max-width:50px;}
+.footer_second_block ul 
+{
+width: 25%;	
+	 }
+.footer_2last_block{ padding-left:3px; width:10.5%;}	 
+.footer_2last_block ul li img{width:100%;}	
+.footer_block_heading, .footer_2last_block ul li h3{ font-size:10px;}
+.footer_third_block{width:8%;} 
+.tweet_text{ font-size: 7px;
+    padding-top: 0;}
+.footer_last_head{ font-size:12px; font-weight:bold;}
+/*Login page Css*/
+
+.top_form .user_name input, .top_form .password input {
+    width: 54%;
+}
+.login_slider {
+    height: 32px;
+
+}
+.top_form .login_buttons {
+    margin-left: 94px;
+    margin-top: 13px;
+}
+.top_form .login_now {  
+    margin-bottom: -3px;
+    margin-left: 5px;
+    margin-top: 0px;
+    width: 100%;
+}
+.top_form .sign_up {  
+     margin-left: 3px;
+    margin-top: 6px;
+    width: 100%;
+}
+.top_form .remember .intern {
+       margin-left: 21px;
+    margin-top: -1px;
+}
+
+.top_form .remember .forget_password {  
+    margin-top: 3px;margin-right: 183px;
+  
+}
+
+.section_login_left {
+       width: 100%;
+	    padding-bottom:8px; margin-left: 9px;
+}
+
+.section_login_right {    
+    width: 294px !important; margin-left:0px !important;
+}
+/*Login page Css End*/
+/*About page css*/ 
+
+.butt_outer {
+      width: 100%; margin-top:0px; margin-bottom:15px;
+}
+
+.green_butt {  
+    width: 95%;
+}
+.oran_butt {  
+    width: 95%;
+}
+.blue_butt {  
+    width: 95%; 
+}
+.section h1{ font-size:32px;}
+.section1 h3{ font-size:18px;}
+.section1 h1{ font-size:32px;}
+.section p { text-align:justify; line-height:20px; font-size:13px;}
+.section1 .img {margin-top: 12px;}
+/*About page css End*/
+/*Contact page css End*/
+.form_butt_outer {
+    width: 57% !important;
+}
+/*Contact page css End*/
+.contact_form label { font-size: 9px; line-height: 15px;}
+.volunteer_signup_form .remeber label.intern,.signup_form .remeber label.intern {font-size: 9px;}
+.volunteer_signup_form label,.signup_form label { width: 72%;}
+.volunteer_signup_form ul,.signup_form ul { margin-left: 5px; width: 100%;}
+.volunteer_signup_form label span,.signup_form label span {  width: 100%;}
+.volunteer_signup_form ul li.first,.signup_form ul li.first { margin-left: 15px;}
+.volunteer_signup_form ul li.last,.signup_form ul li.last { width: 86% !important;}
+.contact_form .submit_button1 { width: 45%;}
+/*main section end {SAhil}*/
+
+.vol_table .t_col_1 {width: 17%;}
+.contact_form .submit_button2 {margin-left: 34%;width: 50% !important;}
+.vol_table .signup_form ul {
+    width: 100%;
+}
+
+.vol_table .signup_form ul li.first {
+    margin-left: 16px;
+}
+.label_size {text-align: center !important;width: 100% !important;}
+.volunteer_signup_form ul li.last, .signup_form ul li.last {width: 56%;}
+.vol_table .signup_form label span {text-align: center;width: 100%;}
+.vol_table .signup_form ul {
+    margin-left: 8px !important;
+    width: 99%;
+}
+.w35{ width:52% !important;}
+
+
+}
+/*320*480 portrait*/
+
+/*480*320 portrait End*/
+
+@media only screen and (max-width: 568px) and (min-width: 319px)
+{
+.logo 
+{
+    height: auto;
+    left: 47px;
+    margin: 0;
+    top: 0px;
+    width: 79%;
+}
+.logo img
+{
+	max-width:100%;
+}
+.top_nav_outer{ margin-top:95px; }
+.top_nav li{ background:none;}
+
+.top_nav li a 
+{
+   font-size: 16px;
+    padding: 4px 6.5px;
+}
+.c_profile {
+    margin-right: 20%;
+	
+}
+.link_text
+{
+	font-size:10px;
+}
+
+#left_nav_section { display:none;}
+
+#right_img_section{  display:none;}
+/*main section start {SAhil}*/
+#main_section 
+{
+    margin-top: 10px;
+}
+.top_heading
+{
+	padding-left:0px;
+}
+.table_head{ margin:0px 10px; }
+.top_heading h1
+{
+	font-size: 1.9em;
+}
+.top_heading h3
+{
+	font-size: 13px;
+    line-height: 15px;
+}
+.main_text {
+    border-bottom: 1px solid #4EACC9; border-right:none;
+    height: 24px;
+    width: 97%; padding-bottom:3px;
+}
+.main_text p{ font-size: 1.9em !important;
+    line-height: 19px !important; }
+.news_text{ width:100%;}
+.news_text span{font-size: 13px;
+    line-height: 21px;}
+
+#wrapper{ margin: 2%;
+    width: 92%;}
+.wrapper_left_section{margin-left: -1px;
+    width: 96%;}
+.left_top_section{ width:100%;}
+.wrapper_mid_border{ display:none;}
+.wrapper_right_section{ width:94%;}
+.top_section h4
+{
+    font-size: 1.2em;
+    line-height: 19px;
+}
+.large_font
+{
+	font-size:2.8em;
+}
+.main_text p 
+{
+    font-size: 1.7em;
+	line-height: 38px;
+}
+.graph_text {   
+    font-size: 16px;line-height: 28px;
+ 
+}
+.news_text span
+{
+	font-size:11px;
+}
+.fields 
+{
+    margin-left: 0;
+    width: 100%;
+}
+.top_heading_second 
+{
+    margin: 20px 10px;
+}
+
+.top_heading_second h1{ font-size:2em;  line-height: 9px;   margin-left: -1px;}
+.list 
+{
+    float: left;
+    width: 19%;
+}
+.list select{width:37px;}
+
+.t_col_2
+{
+	width:29%;
+}
+.t_col_2 h6
+{
+    display: inline-table;
+    font-size: 8px;
+    line-height: 16px;
+    vertical-align: middle;
+}
+.t_col_1 h6
+{
+    display: inline-table;
+    font-size: 8px;
+    line-height: 16px;
+    vertical-align: middle;
+}
+.t_col_3 h6
+{
+    display: inline-table;
+    font-size: 8px;
+    line-height: 16px;
+    vertical-align: middle;
+}
+.t_col_4 h6
+{
+    display: inline-table;
+    font-size: 8px;
+    line-height: 16px;
+    vertical-align: middle;
+}
+.t_col_5 h6
+{
+    display: inline-table;
+    font-size: 8px;
+    line-height: 16px;
+    vertical-align: middle;
+}
+.t_col_6 h6
+{
+    display: inline-table;
+    font-size: 8px;
+    line-height: 16px;
+    vertical-align: middle;
+}
+.gray_text 
+{
+    font-size: 9px;
+    line-height: 13px;
+}
+.text_tab h2
+{
+	font-size:10px;
+}
+.icon_tab_small 
+{
+    background: none repeat scroll 0 0 #FF7E00;
+    float: right;
+    padding: 5px 6px 7px 3px;
+    width: 10%;
+}
+.text_tab_small h2
+{
+	font-size:10px;	
+}
+.right_text_tab
+{
+	font-size:18px;
+}
+.tab_font 
+{
+    font-size: 13px;
+    line-height: 17px;
+}
+.small_font
+{
+	font-size:12px;
+}
+.black_text 
+{
+    font-size: 0.9em;
+    line-height: 13px;
+}
+.black_text_thin 
+{
+    font-size: 10px;
+    line-height: 14px;
+}
+.orange_butt
+{
+	line-height:14px;
+	font-size:0.8em;
+}
+.sponser_inner h6
+{
+    font-size: 11px;
+    line-height: 15px;
+}
+.upper_box
+{
+ height: 388px;
+    right: -12px;
+    top: 1424px;
+    width: 65%;
+}
+.upper_box .left_section_upper
+{
+	width:21%;
+}
+
+.upper_box .right_section_upper {
+    float: left;
+    margin-left: 9px;
+    margin-top: 15px;
+    width: 73%;
+}
+.client_outer {   
+    margin-bottom: 0;
+    padding: 3px;   
+}
+
+.vol_table .signup_form_blue ul li img {
+    width: 90px;
+}
+
+.signup_form_blue ul li input[type="checkbox"] + label span {
+    cursor: pointer;
+}
+.vol_table .signup_form_blue label span {
+    color: #333333;
+    font-size: 11px;
+    text-align: right;
+    text-transform: capitalize;
+}
+.vol_table .signup_form_blue label {
+    color: #333333;
+    font-size: 0.9em;
+    text-align: right;
+    text-transform: uppercase;
+}
+.vol_table .signup_form_blue ul li {
+    list-style: none outside none;
+}
+.section, .profile_content_main {
+    font-family: 'Futura_LT_Book',Sans-Serif;
+    font-size: 1em;
+    line-height: 25px;
+}
+
+.time_outer{ margin-top:10%;}
+.client_img_outer 
+{
+    float: left;
+    width: 26%;
+}
+.client_detail 
+{
+    float: left;
+    margin-left: 5%;
+    width: 65%;
+}
+.client_detail h3
+{
+    font-size: 16px;
+    line-height: 24px;
+	margin-top:5px;
+}
+.light_gray 
+{
+    font-size: 12px;
+}
+
+#footer_outer {
+       margin: -161px auto 0;
+   
+}
+
+.footer_inner {
+    margin: 163px auto 0;
+    padding-left: 6%;
+    width: 82%;
+}
+.footer_first_block {
+       margin-left: -2%;
+    margin-top: 0;
+    width: 100%;
+}
+.footer_first_block ul {
+    margin-top: 2px;
+}
+.footer_nav li {display:inline}
+/*.footer_first_block ul li {   
+   
+    margin-left: 10px;  width:20%;
+     
+}*/
+
+.footer_first_block ul {margin-top:10px;}
+.footer_first_block ul li{ float:left; display:inline; list-style:none;font-family: 'FuturaLT', Sans-Serif;font-weight:bold;font-size:1em; width:auto; margin-left:8px; margin-right:8px; }
+.footer_first_block ul li.active{color:#ff8000;}
+.footer_second_block {
+    margin-left: 0;
+    width: 100%;margin-top: 2%;
+}
+
+.footer_image_outer {
+    float: left;
+    margin-top: 1%;
+}
+
+.footer_first_block .footer_block_heading { font-size:12px; font-weight:bold; padding-left:0;}
+.footer_first_block .footer_block_heading span{ font-size:10px;}
+.footer_second_block{ width:100%;}
+.footer_block2nd_heading{ font-size:12px; font-weight:bold; padding-left:0;}
+.footer_image_outer .img_outer{ max-height:50px; max-width:50px;}
+.footer_second_block ul 
+{
+width: 25%;	
+	 }
+.footer_2last_block{display:none;}	 
+.footer_2last_block ul li img{width:100%; }	
+.footer_block_heading, .footer_2last_block ul li h3{ font-size:10px;}
+.footer_third_block{ display:none;} 
+.tweet_text{ font-size: 7px;
+    padding-top: 0;}
+ 
+.footer_last_head {
+    float: left;
+    
+}
+
+.tweet_tip {   
+    margin-left: 48.8%;
+  
+}
+
+.tweet_img_outer {
+    float: left;
+    margin-left: 72%;
+   
+}
+
+.footer_last_block { display:none;}
+/*Login page Css*/
+
+.top_form .user_name input, .top_form .password input {
+    width: 54%;
+}
+.login_slider {
+    height: 56px;
+    margin-top:25px;
+}
+.top_form .login_buttons {
+    margin-left: 94px;
+    margin-top: 13px;
+}
+.top_form .login_now {  
+    margin-bottom: -3px;
+    margin-left: 5px;
+    margin-top: 0px;
+    width: 100%;
+}
+.top_form .sign_up {  
+     margin-left: 3px;
+    margin-top: 6px;
+    width: 100%;
+}
+.top_form .remember .intern {
+       margin-left: 21px;
+    margin-top: -1px;
+}
+
+.top_form .remember .forget_password {  
+    margin-top: 3px;margin-right: 183px;
+  
+}
+
+.section_login_left {
+       width: 100%;
+	    padding-bottom:8px; margin-left: 9px;
+}
+
+.section_login_right {
+    margin-left: 82px;
+    width: 274px;
+}
+/*Login page Css End*/
+/*Contact page css End*/
+.form_butt_outer {
+    width: 36%;
+}
+
+
+/*Contact page css End*/
+.section1 .img {   
+    margin-top: 5px;
+  
+}
+
+.contact_form label { font-size: 9px; line-height: 15px;}
+.volunteer_signup_form .remeber label.intern,.signup_form .remeber label.intern {font-size: 9px;}
+.volunteer_signup_form label,.signup_form label { width: 72%;}
+.volunteer_signup_form .grey label,.signup_form .grey label { width: 100%;}
+.volunteer_signup_form ul,.signup_form ul { margin-left: 5px; width: 100%;}
+.volunteer_signup_form label span,.signup_form label span {  width: 100%;}
+.volunteer_signup_form ul li.first,.signup_form ul li.first { margin-left: 15px;}
+.volunteer_signup_form ul li.last,.signup_form ul li.last { width: 28%;}
+.contact_form .submit_button1 { width: 45%;}
+.grey .input { width: 37%;}
+
+.contact_form .submit_button2 {margin-left: 34%;width: 35%;}
+.label_size {text-align: center !important;width: 100% !important;}
+.volunteer_signup_form ul li.last, .signup_form ul li.last {width: 56%;}
+.vol_table .signup_form label span {text-align: center;width: 100% ;}
+.vol_table .signup_form ul { margin-left: 16%; width: 80%;}
+.w35{ width:54% !important;}
+
+
+}
+/*main section end {SAhil}*/
+/*480*320 portrait End*/
+
+
+
+
+
+
+

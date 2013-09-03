@@ -1,8 +1,8 @@
 <?php echo $this->Form->create('User',array('id'=>'login_form'));?>
 <?php echo $this->Form->input('role',array('type'=>'hidden','value'=>'user'));?>
-<div class="user_name"><?php echo $this->Form->input('email_id',array('type'=>'text','placeholder'=>"Email id",'label'=>false,'div'=>false,'id'=>'email_id'));?></div>
+<div class="user_name"><?php echo $this->Form->input('email_id',array('type'=>'text','placeholder'=>"Email id",'label'=>false,'div'=>false,'id'=>'email_id','class'=>'text_style'));?></div>
 <div class="clr"></div>
-<div class="password"><?php echo $this->Form->input('password',array('type'=>'password','placeholder'=>"Password",'label'=>false,'div'=>false,'id'=>'pass'));?></div>
+<div class="password"><?php echo $this->Form->input('password',array('type'=>'password','placeholder'=>"Password",'label'=>false,'div'=>false,'id'=>'pass','class'=>'text_style'));?></div>
 <div class="clr"></div>
                         <div class="login_buttons">
 			    <input type="submit" name="login" value="" class="login_now" />

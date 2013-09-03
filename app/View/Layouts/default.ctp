@@ -4,6 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Soceana</title>
  <?php echo $this->Html->css('style');?>
+ <?php echo $this->Html->css('responsive');?>
  <?php echo $this->Html->script('jquery-1.6.1.min');?>
  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
  <script src="http://malsup.github.com/jquery.form.js"></script>
