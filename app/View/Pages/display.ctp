@@ -27,7 +27,7 @@
                                          
              </div>
    <div class="top_heading_second">
-     <h1>SOCIAL TIDES</h1>
+     <h1>SOCIAL TIDES CREATED</h1>
         </div>     
         
        <div class="table_head">
@@ -295,7 +295,7 @@ OF PHILADELPHIA
                                          
              </div>
    <div class="top_heading_second">
-     <h1>SOCIAL TIDES</h1>
+     <h1>SOCIAL TIDES CREATED</h1>
         </div>     
         
        <div class="table_head">
