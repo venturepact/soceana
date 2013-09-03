@@ -20,35 +20,36 @@
             	<form action="" method="post">
                 	<div class="contact_form">
                     	<label name="name">Email</label>
-                        <?php echo $this->Form->input('email_id',array('type'=>'text','div'=>false,'label'=>false,'id' => 'email_id','maxlength'=>'50'));?>
+                        <?php echo $this->Form->input('email_id',array('type'=>'text','div'=>false,'label'=>false,'id' => 'email_id','maxlength'=>'50','class'=>'text_style'));?>
                     </div>
                     <div class="contact_form">
                     	<label name="name">CONFIRM Email</label>
-                        <?php echo $this->Form->input('confirm_email',array('type'=>'text','div'=>false,'label'=>false,'maxlength'=>'50'));?>
+                        <?php echo $this->Form->input('confirm_email',array('type'=>'text','div'=>false,'label'=>false,'maxlength'=>'50','class'=>'text_style'));?>
                     </div>
                     <div class="contact_form">
                     	<label name="name">FIRST NAME</label>
-                       <?php echo $this->Form->input('first_name',array('type'=>'text','div'=>false,'label'=>false,'maxlength'=>'50'));?>
+                       <?php echo $this->Form->input('first_name',array('type'=>'text','div'=>false,'label'=>false,'maxlength'=>'50','class'=>'text_style'));?>
                     </div>
                    <div class="contact_form">
                     	<label name="name">LAST NAME</label>
-                         <?php echo $this->Form->input('last_name',array('type'=>'text','div'=>false,'label'=>false,'maxlength'=>'50'));?>
+                         <?php echo $this->Form->input('last_name',array('type'=>'text','div'=>false,'label'=>false,'maxlength'=>'50','class'=>'text_style'));?>
                     </div>
                    <div class="contact_form">
                     	<label name="name">ORGANIZATION NAME</label>
-                        <?php echo $this->Form->input('organization_name',array('type'=>'text','div'=>false,'label'=>false,'maxlength'=>'60'));?>
+                        <?php echo $this->Form->input('organization_name',array('type'=>'text','div'=>false,'label'=>false,'maxlength'=>'60','class'=>'text_style'));?>
                     </div>
                    <div class="contact_form">
                     	<label name="name">POSITION</label>
-                        <?php echo $this->Form->input('position',array('type'=>'text','div'=>false,'label'=>false,'maxlength'=>'60'));?>
+                        <?php echo $this->Form->input('position',array('type'=>'text','div'=>false,'label'=>false,'maxlength'=>'60','class'=>'text_style'));?>
                     </div>
                    <div class="contact_form">
                     	<label name="name">PASSWORD:</label>
-                        <?php echo $this->Form->input('password',array('type'=>'password','div'=>false,'label'=>false,'id'=>'pwd','maxlength'=>'15'));?>
+                        <?php echo $this->Form->input('password',array('type'=>'password','div'=>false,'label'=>false,'id'=>'pwd','maxlength'=>'15','class'=>'text_style'));?>
                     </div>
                    <div class="contact_form">
                     	<label name="name">CONFIRM PASSWORD:</label>
-                        <?php echo $this->Form->input('confirm_password',array('type'=>'password','div'=>false,'label'=>false,'maxlength'=>'15'));?>
+                        <?php echo $this->Form->input('confirm_password',
+						array('type'=>'password','div'=>false,'label'=>false,'maxlength'=>'15','class'=>'text_style'));?>
                     </div>
                    <div class="signup_form">
                    	<div class="remeber">                   	
@@ -250,27 +251,28 @@ $().ready(function() {
             	<form action="" method="post">
                 	<div class="contact_form">
                     	<label name="name">Email</label>
-                         <?php echo $this->Form->input('email_id',array('type'=>'text','div'=>false,'label'=>false,'maxlength'=>'50'));?>
+                         <?php echo $this->Form->input('email_id',array('type'=>'text','div'=>false,'label'=>false,'maxlength'=>'50','class'=>'text_style'));?>
                     </div>
                     <div class="contact_form">
                     	<label name="name">FIRST NAME</label>
-                         <?php echo $this->Form->input('first_name',array('type'=>'text','div'=>false,'label'=>false,'maxlength'=>'50'));?>
+                         <?php echo $this->Form->input('first_name',array('type'=>'text','div'=>false,'label'=>false,'maxlength'=>'50','class'=>'text_style'));?>
                     </div>                  
                     <div class="contact_form">
                     	<label name="name">LAST NAME</label>
-                        <?php echo $this->Form->input('last_name',array('type'=>'text','div'=>false,'label'=>false,'maxlength'=>'50'));?>
+                        <?php echo $this->Form->input('last_name',array('type'=>'text','div'=>false,'label'=>false,'maxlength'=>'50','class'=>'text_style'));?>
                     </div>
                     <div class="contact_form">
                     	<label name="name">Location</label>
-                        <?php echo $this->Form->input('location',array('type'=>'text','div'=>false,'label'=>false,'maxlength'=>'60'));?>
+                        <?php echo $this->Form->input('location',array('type'=>'text','div'=>false,'label'=>false,'maxlength'=>'60','class'=>'text_style'));?>
                     </div>                  
                    <div class="contact_form">
                     	<label name="name">PASSWORD:</label>
-                         <?php echo $this->Form->input('password',array('type'=>'password','div'=>false,'label'=>false,'id'=>'pwd','maxlength'=>'15'));?>
+                         <?php echo $this->Form->input('password',array('type'=>'password','div'=>false,'label'=>false,'id'=>'pwd','maxlength'=>'15','class'=>'text_style'));?>
                     </div>
                    <div class="contact_form">
                     	<label name="name">CONFIRM PASSWORD:</label>
-                        <?php echo $this->Form->input('confirm_password',array('type'=>'password','div'=>false,'label'=>false,'maxlength'=>'15'));?>
+                        <?php echo $this->Form->input('confirm_password',
+						array('type'=>'password','div'=>false,'label'=>false,'maxlength'=>'15','class'=>'text_style'));?>
                     </div>
                    <div class="volunteer_signup_form">
                    	<div class="remeber">                   	

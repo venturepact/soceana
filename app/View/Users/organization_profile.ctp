@@ -19,16 +19,16 @@
             <?php echo $this->Form->create('User',array('id'=>'organization_profile_update'));?>
                <div class="signup_form">
                  <label name="name">Organization Name</label>
-                 <?php echo $this->Form->input('organization_name',array('type'=>'text','div'=>false,'label'=>false));?>
+                 <?php echo $this->Form->input('organization_name',array('type'=>'text','div'=>false,'label'=>false,'class'=>'text_style'));?>
                </div>               
                <div class="mt20"></div>
                <div class="signup_form">
                  <label name="name">Email</label>
-                  <?php echo $this->Form->input('email_id',array('type'=>'text','div'=>false,'label'=>false));?>
+                  <?php echo $this->Form->input('email_id',array('type'=>'text','div'=>false,'label'=>false,'class'=>'text_style'));?>
                  </div>
                <div class="signup_form">
                  <label name="name">Location</label>
-                 <?php echo $this->Form->input('location',array('type'=>'text','div'=>false,'label'=>false));?>
+                 <?php echo $this->Form->input('location',array('type'=>'text','div'=>false,'label'=>false,'class'=>'text_style'));?>
                  </div>
                <div class="mt20"></div>
                <div class="signup_form">
@@ -37,6 +37,7 @@
 								   'type'=>'select',
 								   'div'=>false,
 								   'label'=>false,
+							       'class'=>'text_style',
 								   'options'=>array(
 										    '9'=>'Below 10',
 										    '10'=>'10 +',
@@ -49,18 +50,19 @@
                </div>
                <div class="signup_form">
                  <label name="name">Phone #</label>
-                <?php echo $this->Form->input('phone',array('type'=>'text','div'=>false,'label'=>false));?>
+                <?php echo $this->Form->input('phone',array('type'=>'text','div'=>false,'label'=>false,'class'=>'text_style'));?>
                </div>
                <div class="signup_form">
                  <label name="name">Mission and Vision</label>
-                 <?php echo $this->Form->input('mission',array('type'=>'text','div'=>false,'label'=>false));?>
+                 <?php echo $this->Form->input('mission',array('type'=>'text','div'=>false,'label'=>false,'class'=>'text_style'));?>
                </div>
                
                <div class="clr"></div>
                <div class="mt20"></div>
                <div class="signup_form">
                  <label name="name">Additional</label>
-                  <?php echo $this->Form->input('additional_notes',array('type'=>'textarea','div'=>false,'label'=>false,'rows'=>10,'cols'=>30));?>
+                  <?php echo $this->Form->input('additional_notes'
+				  ,array('type'=>'textarea','div'=>false,'label'=>false,'rows'=>10,'cols'=>30,'class'=>'text_style'));?>
                </div>             
                <div class="clr"></div>
                <div class="mt20"></div>              

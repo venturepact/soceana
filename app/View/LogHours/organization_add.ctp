@@ -57,7 +57,8 @@ $(function() {
 							       'empty' => 'Select Volunteer',
 							       'default' => 'empty',
 							       'id' => 'volunteer',
-							       'style'=>'float:left;margin: 0 0 11px;'
+							       'style'=>'float:left;margin: 0 0 11px;',
+								   'class'=>'text_style'
 							       ));?>
                <span id='volunteer_select' style='float: left;'></span> 
 	       </div>
@@ -68,12 +69,12 @@ $(function() {
 	       
                <div class="signup_form" >
                  <label name="name">Position</label>
-                 <?php echo $this->Form->input('position',array('type'=>'text','div'=>false,'label'=>false,'maxlength'=>'70'));?>
+                 <?php echo $this->Form->input('position',array('type'=>'text','div'=>false,'label'=>false,'maxlength'=>'70','class'=>'text_style'));?>
                  </div>             
              
                <div class="signup_form">
                  <label name="name">Location</label>
-                 <?php echo $this->Form->input('location',array('type'=>'text','div'=>false,'label'=>false,'maxlength'=>'100'));?>
+                 <?php echo $this->Form->input('location',array('type'=>'text','div'=>false,'label'=>false,'maxlength'=>'100','class'=>'text_style'));?>
                </div>              
                <div class="clr"></div>
                <div class="mt20"></div>
@@ -84,12 +85,12 @@ $(function() {
               
                <div class="signup_form">
                  <label name="name">Hours</label>
-                 <?php echo $this->Form->input('hours',array('type'=>'text','div'=>false,'label'=>false,'id' => 'email_id','maxlength'=>'2'));?>
+                 <?php echo $this->Form->input('hours',array('type'=>'text','div'=>false,'label'=>false,'id' => 'email_id','maxlength'=>'2','class'=>'text_style'));?>
                </div>
                <div class="clr"></div>
                <div class="signup_form">
                  <label name="name">Date</label>
-                 <?php echo $this->Form->input('job_date',array('type'=>'text','div'=>false,'label'=>false,'placeholder'=>'YYYY-MM-DD','id'=>'job_date'));?>
+                 <?php echo $this->Form->input('job_date',array('type'=>'text','div'=>false,'label'=>false,'placeholder'=>'YYYY-MM-DD','id'=>'job_date','class'=>'text_style'));?>
                </div>
                <div class="clr"></div>
                <div class="signup_form">
@@ -100,7 +101,8 @@ $(function() {
 							       'label' => false,
 							       'options' => $categories,
 							       'empty' => 'Select Category',
-							       'default' => 'empty',							       
+							       'default' => 'empty',
+								   'class'=>'text_style'						       
 		 ));?>
                </div>
                
@@ -108,7 +110,7 @@ $(function() {
                <div class="clr"></div>
 	       <div class="signup_form">
                  <label name="name">Additional</label>                 
-		<?php echo $this->Form->input('additional_notes',array('type'=>'textarea','div'=>false,'label'=>false,'rows' => '5','cols'=>'45'));?>
+		<?php echo $this->Form->input('additional_notes',array('type'=>'textarea','div'=>false,'label'=>false,'rows' => '5','cols'=>'45','class'=>'text_style'));?>
                </div>
                
                

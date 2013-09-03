@@ -28,29 +28,29 @@ $(function() {
             	<?php echo $this->Form->create('User',array('id'=>'user_profile_update'));?>
                 	<div class="signup_form">
                     	<label name="name">Email</label>
-                         <?php echo $this->Form->input('email_id',array('type'=>'text','div'=>false,'label'=>false,'style'=>'width:250px;','class'=>'input'));?>
+                         <?php echo $this->Form->input('email_id',array('type'=>'text','div'=>false,'label'=>false,'style'=>'width:250px;','class'=>'text_style'));?>
                     </div>                  
                     <div class="mt20"></div>
                     <div class="signup_form">
                     	<label name="name">FIRST NAME</label>
-                        <?php echo $this->Form->input('first_name',array('type'=>'text','div'=>false,'label'=>false,'class'=>'input'));?>
+                        <?php echo $this->Form->input('first_name',array('type'=>'text','div'=>false,'label'=>false,'class'=>'text_style'));?>
                     </div>
                    <div class="signup_form">
                     	<label name="name">LAST NAME</label>
-                       <?php echo $this->Form->input('last_name',array('type'=>'text','div'=>false,'label'=>false,'class'=>'input'));?>
+                       <?php echo $this->Form->input('last_name',array('type'=>'text','div'=>false,'label'=>false,'class'=>'text_style'));?>
                     </div>
                   
                   <div class="mt20"></div>
                   <div class="signup_form">
                     	<label name="name">Employer:</label>
-                       <?php echo $this->Form->input('employer',array('type'=>'text','div'=>false,'label'=>false,'style'=>'width:250px;','class'=>'input'));?>
+                       <?php echo $this->Form->input('employer',array('type'=>'text','div'=>false,'label'=>false,'class'=>'text_style'));?>
                   </div>
                   <div class="clr"></div>
                   <div class="mt20"></div>
                   
                   <div class="signup_form">
                     	<label name="name">Location:</label>
-                         <?php echo $this->Form->input('location',array('type'=>'text','div'=>false,'label'=>false,'style'=>'width:250px;','class'=>'input'));?>
+                         <?php echo $this->Form->input('location',array('type'=>'text','div'=>false,'label'=>false,'class'=>'text_style'));?>
                   </div>
                   <div class="clr"></div>
                   <div class="mt20"></div>                  
@@ -80,9 +80,14 @@ $(function() {
                   <div class="mt20"></div>
                   <div class="signup_form">
                     	<label name="name">Phone number:</label>
-                        <?php echo $this->Form->input('phone',array('type'=>'text','div'=>false,'label'=>false,'style'=>'width:250px;','class'=>'input'));?>
+                        <?php echo $this->Form->input('phone',array('type'=>'text','div'=>false,'label'=>false,'class'=>'text_style'));?>
                   </div>
-                  
+                   <div class="clr"></div>
+                  <div class="mt20"></div>
+                  <div class="signup_form">
+                    	<label name="dob">Date of Birth:</label>
+                       <?php echo $this->Form->input('birth_date',array('type'=>'text','div'=>false,'label'=>false,'class'=>'text_style','placeholder'=>'YYYY-MM-DD','id'=>'dob'));?>
+                  </div>
                   
                    <div class="clr"></div>
                    <div class="mt20"></div>

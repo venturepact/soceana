@@ -13,15 +13,15 @@ label.error{color: #FF0000;float: none;font-size: 12px;margin-left: 5px;text-tra
             	<?php echo $this->Form->create('User',array('id'=>'change_pwd'));?>
                 	<div class="contact_form">
                     	<label name="name">Current Password</label>
-                         <?php echo $this->Form->input('old_password',array('type'=>'password','div'=>false,'label'=>false));?>
+                         <?php echo $this->Form->input('old_password',array('type'=>'password','div'=>false,'label'=>false,'class'=>'text_style'));?>
                     </div>
                     <div class="contact_form">
                     	<label name="name">New Password</label>
-                      <?php echo $this->Form->input('password',array('type'=>'password','div'=>false,'label'=>false,'id'=>'pwd'));?>
+                      <?php echo $this->Form->input('password',array('type'=>'password','div'=>false,'label'=>false,'id'=>'pwd','class'=>'text_style'));?>
                     </div>
                     <div class="contact_form">
                     	<label name="name">Confirm Password</label>
-                         <?php echo $this->Form->input('confirm_password',array('type'=>'password','div'=>false,'label'=>false));?>
+                         <?php echo $this->Form->input('confirm_password',array('type'=>'password','div'=>false,'label'=>false,'class'=>'text_style'));?>
                     </div>                  
                      <div class="contact_form">
                     	<input type="submit" class="submit" value='' />
