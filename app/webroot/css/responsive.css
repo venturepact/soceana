@@ -1,5 +1,139 @@
 @charset "utf-8";
 /* CSS Document */
+@media only screen and (min-width:1824px) 
+{
+.login_container {
+    background:url("../img/img_large.jpg") no-repeat; width: 100%;}	
+.login_slider img{width:100%; margin-bottom:5%;}
+
+.login_container .top_section {
+    height: 570px;
+    width: 100%;
+}
+.login_container .top_section .top_form {   
+    top: 290px;
+	left: 90px;
+	width: 500px;
+ 
+}
+.top_section .top_form .user_name {
+    background-image: url("../img/login_top_icon_big.png");
+    background-repeat: no-repeat;
+    height: 56px;
+	width: 60px;
+}		
+.top_form .user_name input, .top_form .password input {
+    height: 55px;
+    margin-left: 75px;
+    width: 410px;
+	font-size: 20px;
+}
+.top_form .password {
+    background-image: url("../img/pass_top_icon_big.png");
+    background-repeat: no-repeat;
+    height: 56px;
+	width: 60px;
+}
+.top_form .login_buttons {
+}
+.top_form .login_now {
+    background: url("../img/login_top_button_big.png") no-repeat scroll 0 0 transparent;
+    height: 70px;
+    margin-bottom: 10px;
+    margin-left: 0;
+    margin-top: 10px;
+    width: 247px;
+}
+.top_form .sign_up {
+    background: url("../img/sign_top_up_big.png") no-repeat scroll 0 0 transparent;
+    height: 70px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
+    width: 235px;
+}
+.top_form .remember .intern {
+    font-size: 18px;
+}
+
+.top_form .remember .forget_password {
+    float: right;
+    font-size: 18px;
+    padding-right: 10px;
+}
+.top_form .remember {
+}
+.top_form h3 {
+    font-size: 30px;
+    padding-top: 5px;
+}
+.section_login_left {
+    line-height: 54px;
+    width: 65%;
+}
+.section_login_left p {   
+    font-size: 18px;
+    line-height: 26px;
+
+}
+.section_login_right {
+    width: 500px;
+}
+
+.section_login_right h2 {
+    font-size: 38px;
+    padding: 30px 0;
+}
+.section_login_right .user_name {
+    background-image: url("../img/login_icon_big.png");
+    background-repeat: no-repeat;
+    height: 60px;
+    width: 65px;
+}	
+.section_login_right .password {
+    background-image: url("../img/pass_icon_big.png");
+    background-repeat: no-repeat;
+    height: 60px;
+    margin-top: 5px;
+    width: 65px;
+}
+.section_login_right .user_name input, .section_login_right .password input {
+    height: 55px;
+    margin-left: 80px;
+    width: 370px;
+	font-size: 20px;
+}
+.section_login_right .mt20 .remember {
+    font-size: 18px;
+}
+.section_login_right .remember .forget_password {
+    font-size: 18px;
+}
+.section_login_right .login_now {
+    background-image: url("../img/login_button_big.png");
+    background-repeat: no-repeat;
+    height: 62px;
+    width: 205px;
+}
+.section_login_right .sign_up {
+    background-image: url("../img/sign_up_big.png");
+    background-repeat: no-repeat;
+    height: 62px;
+    width: 200px;
+}
+
+.section_login_left h1 {
+    font-size: 40px;
+}
+
+
+
+
+
+}
+
+
+
 /*I-pad ladasca*/
 @media only screen and (min-width: 1024px) and (max-width: 767px)
 {

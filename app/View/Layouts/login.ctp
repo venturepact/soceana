@@ -14,6 +14,84 @@
 	#login_form2 label.error{color: #FF0000;float: left;margin: 0 -1px -3px 35px;}
 	#main_section{margin-top: 60px !important;}
 </style>
+ <script type="text/javascript">
+
+$(document).ready(function(){
+	
+	$('.bxslider').bxSlider({
+                 mode: 'horizontal',
+                 slideMargin: 3,
+                 auto:true
+   });             
+  
+//open popup
+$(".pop").click(function(){
+$(".popup_outer").fadeIn(1000);
+  positionPopup();
+  
+});
+
+//close popup
+$("#close").click(function(){
+	$(".popup_outer").fadeOut(500);
+});
+});
+
+//position the popup at the center of the page
+function positionPopup(){
+  if(!$(".popup_outer").is(':visible')){
+    return;
+  }
+   
+   /* position of scroll of screen from top to 500px*/
+   $("html, body").animate({ scrollTop: 0 }, 600);
+    return false;
+	/* 
+  $(".popup_outer").css({
+      //left: ($(window).width() - $('#overlay_form').width()) / 2,
+      //top: ($(window).width() - $('#overlay_form').width()) / 7,
+      //position:'absolute'
+  });
+  */
+}
+</script>
+<script type="text/javascript">
+$(function() {  
+    $('#forgot_submit').click(function(){
+	$('#forgot_message').html('<img src="<?php echo $this->webroot;?>img/loading.gif">');	
+	var forgot_email_id = $('#forgot_email_id').val();
+	
+	if (forgot_email_id == '') {
+		$('#forgot_message').html('Please enter your email id first');	
+	}
+	else{
+	    
+	    var reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+	    if (reg.test(forgot_email_id) == false) 
+	    {
+		$('#forgot_message').html('Please enter a valid email id');
+	    }
+	    else{
+		var new_url = "<?php echo $this->webroot;?>" + "users/forgot_password/" + forgot_email_id;
+		
+		$.ajax({
+			type: "POST",
+			url: new_url,
+			data: forgot_email_id,
+			success: function(data) {//alert('here');
+				$('#forgot_email_id').val("");
+				$('#forgot_message').html(data);
+				$('#fp_message').fadeOut(10000);
+				
+			}
+		});		
+	    }	
+	    	
+	}
+    });	
+});
+</script>
 </head>
 <body>
 <!--Header Section Start -->
@@ -46,9 +124,45 @@
             
             
         </div>
-		<div class="login_slider">
-        	<img alt="login box" src="<?php echo $this->webroot;?>img/img2.jpg" width="970" />
-        </div>
+        <!-- forgot password popup box-->
+        <div class="popup_outer">
+                        <form id="overlay_form">
+                            <h2 class="popup_heading">Forget Password</h2>
+                            <p class="popup_text">
+				That's Okey! Everone Forgets<br />
+				Just tell us the email address you used to create your account and we'll send you a new one!
+				<div id='forgot_message'></div>
+			    </p>
+                            <label class="popup_text lb_email">Email: </label>
+			    <?php echo $this->Form->input('User.email_id',array('type'=>'text','div'=>false,'label'=>false,'class'=>'text_outer_border','id' => 'forgot_email_id','maxlength'=>'50'));?>
+                            <!--<input type="text" name="username" style="width:435px;"/>--><br /><br />
+                            <img src="<?php echo $this->webroot;?>img/password_reset.png" id="forgot_submit" /><br /><br />
+                            <p><a href="#" style="color:#666" ></a></p>
+                            <a href="javascript:void(0);" id="close" class="popup_text">Close</a>
+                        </form>
+                        </div>
+         <!-- /forgot password popup box ends here-->
+         <!-- slider div -->
+		<!--Testimonials Start-->
+    <script src="<?php echo $this->webroot;?>rotating-testimonial/jquery-1.8.2.min.js" type="text/javascript"></script>
+	<script src="<?php echo $this->webroot;?>rotating-testimonial/jquery.bxslider.min.js" type="text/javascript"></script>
+	
+	<div>
+		<ul class="bxslider">
+			<li>
+				<blockquote>To See In The World Be The Change You Wish To See In The World 
+				<p style="text-align:right;margin-right:20px;">- Mahatma Gandhi</p>	
+				</blockquote>
+				</li>
+		    <li>
+             	<blockquote>In a gentle way you can shake the world
+				<p style="text-align:right;margin-right:20px;">- Mahatma Gandhi</p>
+				</blockquote>
+			</li>		
+		</ul>
+	</div>
+	<!--Testimonials End-->
+        <!--/ slider div-->
         
         <section class="mt50">
         	<div class="section_login_left">

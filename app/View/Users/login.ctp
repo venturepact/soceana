@@ -13,7 +13,7 @@
                 			 <input type="checkbox" id="c2" name="remeber" checked="checked" />
                              <label for="c2" class="checkbox-label"><span></span></label>
                              <label class="intern">Remember my password</label>                             
-                    		<a href="javascript:void(0);" class="forget_password">Forget Password?</a>
+                    		<a href="javascript:void(0);" class="forget_password pop">Forget Password?</a>
                         </div>
                         <div class="clr"></div>
 <?php echo $this->Form->end();?>
