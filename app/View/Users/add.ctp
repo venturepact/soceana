@@ -91,7 +91,7 @@
                     <div class="clr"></div>
                     <div class="contact_form">
                     	<div class="submit_button">
-                        <input type="submit" class="join_button" value='' />
+                        <input type="submit" class="join_button cursor_grid" value='' />
 						<div class="clr"></div>
                         <a href="<?php echo $this->webroot;?>">or Go Back</a>
                         </div>
@@ -324,7 +324,7 @@ $().ready(function() {
                     <div class="contact_form">
                     	<div class="submit_button">
                         <!--<input type="submit" class="join_button2" value='' onclick='return check_typecount();' />-->
-                        <input type="submit" class="join_button2" value='' />
+                        <input type="submit" class="join_button2 cursor_grid" value='' />
 						<div class="clr"></div>
                         <a href="<?php echo $this->webroot;?>">or Go Back</a>
                         </div>

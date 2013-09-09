@@ -142,7 +142,7 @@ $(function() {
                     <div class="clr"></div>
                     <div class="contact_form" style='margin: 20px !important;'>
                     	<div class="submit_button">
-                        <input type="submit" class="submit_button3" value='' />
+                        <input type="submit" class="submit_button3 cursor_grid" value='' />
 						<div class="clr"></div>
                         or <a href="#">Cancel</a>
                         </div>

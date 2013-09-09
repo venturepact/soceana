@@ -24,7 +24,7 @@ label.error{color: #FF0000;float: none;font-size: 12px;margin-left: 5px;text-tra
                          <?php echo $this->Form->input('confirm_password',array('type'=>'password','div'=>false,'label'=>false,'class'=>'text_style'));?>
                     </div>                  
                      <div class="contact_form">
-                    	<input type="submit" class="submit" value='' />
+                    	<input type="submit" class="submit cursor_grid" value='' />
                     </div>
                     
                   <?php echo $this->Form->end();?>
