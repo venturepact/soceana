@@ -144,7 +144,6 @@ $(function() {
          <!-- /forgot password popup box ends here-->
          <!-- slider div -->
 		<!--Testimonials Start-->
-    <script src="<?php echo $this->webroot;?>rotating-testimonial/jquery-1.8.2.min.js" type="text/javascript"></script>
 	<script src="<?php echo $this->webroot;?>rotating-testimonial/jquery.bxslider.min.js" type="text/javascript"></script>
 	
 	<div>

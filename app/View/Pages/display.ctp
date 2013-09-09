@@ -1,4 +1,3 @@
-<div class='inner_wrapper'>
 <script type="text/javascript" src="<?php echo $this->webroot;?>Charts/FusionCharts.js"></script>
 <script type="text/javascript" src="<?php echo $this->webroot;?>assets/prettify/prettify.js"></script>
 <script type="text/javascript" src="<?php echo $this->webroot;?>assets/ui/js/json2.js"></script>
@@ -60,7 +59,7 @@
                     <div class="t_col_3 right_border"><h6>VOLUNTEER</h6></div>
                       <div class="t_col_4 right_border"><h6>HRS.</h6></div>
                         <div class="t_col_5 right_border"><h6>DATE</h6></div>
-                          <div class="t_col_6 "><h6>STATUS</h6></div>
+                          <div class="t_col_6 "><img src="<?php echo $this->webroot;?>img/logo_cert_white.png" /></div>
                  </div>
         <?php 
 		foreach($loghours as $log_hour){
@@ -71,7 +70,23 @@
                     <div class="t_col_3 box_border"><span class="gray_text"><?php echo $log_hour['User']['first_name'].' '.$log_hour['User']['last_name'];?></span></div>
                       <div class="t_col_4 box_border"><span class="gray_text"><?php echo $log_hour['LogHour']['hours'];?></span></div>
                         <div class="t_col_5 box_border"><span class="gray_text"><?php echo date("m-d-Y", strtotime($log_hour['LogHour']['job_date']));?></span></div>
-                          <div class="t_col_6 box_border_right"><a href="#" ><img src="<?php echo $this->webroot;?>img/tick.png" alt="" /></a></div>
+                          <div class="t_col_6 box_border_right"><?php
+            switch($log_hour['LogHour']['status']){               
+                case 0:
+                  $icon = 'img/logo_cert.png';
+                  $title = 'Pending for Approval';
+                break;                
+                case 1:
+                  $icon = 'img/green_icon.png';
+                  $title = 'Approved Hours';
+                break;            
+                case 2:
+                  $icon = 'img/orange_icon.png';
+                  $title = 'Rejected Hours';
+                break;           
+            }                           
+            ?>
+            <img width="22" src="<?php echo $this->webroot.$icon;?>" title='<?php echo $title;?>'></div>
                  </div> 
     <?php
      }
@@ -204,22 +219,27 @@ OF PHILADELPHIA
              </div>
              <a href="#" class="add_text">Advertise with Soceana</a></div>
                 <!--Upper Box-->
-   <div class="upper_box">
-       <div class="left_section_upper">
-          <div class="icon_list">
-             <ul>
-               <li><a href="#" ><img src="<?php echo $this->webroot;?>img/icon5.png" alt="" border="0"  /></a></li>
-               <li><a href="#" ><img src="<?php echo $this->webroot;?>img/icon4.png" alt="" border="0"  /></a></li>
-                 <li><a href="#" ><img src="<?php echo $this->webroot;?>img/icon1.png" alt="" border="0"  /></a></li>
-                   <li><a href="#" ><img src="<?php echo $this->webroot;?>img/icon2.png" alt="" border="0"  /></a></li>
-                  </ul>
-                </div>
-           </div>
-     <div class="right_section_upper">
-     <!--Single Client Outer-->
+   <div class="upper_box_wrapper" >
+       <div class="box_wrap_inner" ><a href="#" onclick="show()"><img src="<?php echo $this->webroot;?>img/chat1.png" /> </a></div>
+       <div class="upper_box" id="upper_box" style="display:none;">
+         <div class="bott_margin"><img src="<?php echo $this->webroot;?>img/chat1.png" /></div>
+         <div class="left_section_upper">
+            <div class="icon_list">
+               <ul>
+               <li><a href="#" onclick="show()" ><img src="<?php echo $this->webroot;?>img/icon5.png" alt="" border="0"  /></a></li>
+                 <li><a href="#" ><img src="<?php echo $this->webroot;?>img/icon4.png" alt="" border="0"  /></a></li>
+                   <li><a href="#" ><img src="<?php echo $this->webroot;?>img/icon1.png" alt="" border="0"  /></a></li>
+                     <li><a href="#" ><img src="<?php echo $this->webroot;?>img/icon2.png" alt="" border="0"  /></a></li>
+                    </ul>
+                  </div>
+             </div>
+         <div class="right_section_upper">
+         <div class="client_section">
+            <!--Single Client Outer-->
         <div class="client_outer">
         <div class="status_sign"><img src="<?php echo $this->webroot;?>img/busy.png" alt="" /></div>
-               <div class="client_img_outer"><img src="<?php echo $this->webroot;?>img/client_img.png" alt="" /></div>
+        <div class="client_img_outer_f"><img src="<?php echo $this->webroot;?>img/client_img_outer_b.png" alt="" /></div>
+        <div class="client_img_outer"><img src="<?php echo $this->webroot;?>img/client_img.png" alt="" /></div>
                   
                      <div class="client_detail"><h3>Karri Raman</h3>
                        <div class="light_gray">
@@ -227,50 +247,103 @@ OF PHILADELPHIA
                              </div>
                         
                           </div>
+                  <p>
+                    <input id="demo_box_1" class="css-checkbox" type="checkbox" />
+					<label for="demo_box_1" name="demo_lbl_1" class="css-label"></label>
+			   	  </p>
                   </div>
                    <!--Single Client Outer End-->
                    
                    <!--Single Client Outer-->
         <div class="client_outer">
         <div class="status_sign"><img src="<?php echo $this->webroot;?>img/active.png" alt="" /></div>
+         <div class="client_img_outer_f"><img src="<?php echo $this->webroot;?>img/client_img_outer_b.png" alt="" /></div>
                <div class="client_img_outer"><img src="<?php echo $this->webroot;?>img/client_img.png" alt="" /></div>
                   
                      <div class="client_detail"><h3>Karri Raman</h3>
                        <div class="light_gray">
                            Lorem Ipsum is simply dummy text of the printing .
-                             </div>
-                        
+                             </div>                        
                           </div>
+                          <p>
+                    <input id="demo_box_2" class="css-checkbox" type="checkbox" />
+					<label for="demo_box_2" name="demo_lbl_1" class="css-label"></label>
+			   	  </p>
                   </div>
                    <!--Single Client Outer End-->
                     <!--Single Client Outer-->
         <div class="client_outer">
         <div class="status_sign"><img src="<?php echo $this->webroot;?>img/active.png" alt="" /></div>
+         <div class="client_img_outer_f"><img src="<?php echo $this->webroot;?>img/client_img_outer_b.png" alt="" /></div>
                <div class="client_img_outer"><img src="<?php echo $this->webroot;?>img/client_img.png" alt="" /></div>
                   
                      <div class="client_detail"><h3>Karri Raman</h3>
                        <div class="light_gray">
                            Lorem Ipsum is simply dummy text of the printing .
-                             </div>
-                        
+                             </div>                        
                           </div>
+                          <p>
+                    <input id="demo_box_3" class="css-checkbox" type="checkbox" />
+					<label for="demo_box_3" name="demo_lbl_1" class="css-label"></label>
+			   	  </p>
                   </div>
                    <!--Single Client Outer End-->
                     <!--Single Client Outer-->
         <div class="client_outer">
         <div class="status_sign"><img src="<?php echo $this->webroot;?>img/active.png" alt="" /></div>
+         <div class="client_img_outer_f"><img src="<?php echo $this->webroot;?>img/client_img_outer_b.png" alt="" /></div>
                <div class="client_img_outer"><img src="<?php echo $this->webroot;?>img/client_img.png" alt="" /></div>
                   
                      <div class="client_detail"><h3>Karri Raman</h3>
                        <div class="light_gray">
                            Lorem Ipsum is simply dummy text of the printing .
-                             </div>
-                        
+                             </div>                        
                           </div>
+                          <p>
+                    <input id="demo_box_4" class="css-checkbox" type="checkbox" />
+					<label for="demo_box_4" name="demo_lbl_1" class="css-label"></label>
+			   	  </p>
+                  </div>
+              </div>
+         
+         <!--Message section-->
+           <div class="message_section" style="display:none;">
+                        <!--Single Client Outer-->
+        <div class="client_outer">
+        <div class="status_sign"><img src="<?php echo $this->webroot;?>img/active.png" alt="" /></div>
+         <div class="client_img_outer_f"><img src="<?php echo $this->webroot;?>img/client_img_outer_b.png" alt="" /></div>
+               <div class="client_img_outer"><img src="<?php echo $this->webroot;?>img/client_img.png" alt="" /></div>
+                  
+                     <div class="client_detail"><h3>Karri Raman</h3>
+                       <div class="light_gray">
+                           Lorem Ipsum is simply dummy text of the printing .
+                             </div>                        
+                          </div>
+                          <p>
+                    <input id="demo_box_4" class="css-checkbox" type="checkbox" />
+					<label for="demo_box_4" name="demo_lbl_1" class="css-label"></label>
+			   	  </p>
                   </div>
                    <!--Single Client Outer End--> 
-           </div>        
-        </div>
+                       <div class="message_outer">
+                       
+                         <p><span class="name">Name Here:</span> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p><br/>
+                        
+                         <p><span class="name">Name Here:</span> when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                        
+                     </div>
+                     <h3>Respond</h3>
+                      <textarea name="message" cols="1" rows="2"></textarea>
+                       <input type="button" value="Submit" class="submit_butt" />
+                   
+           </div>
+              <!--Message section End -->
+               
+             </div>        
+             
+             
+       </div>
+     </div>
           <!--Upper Box End-->
     <?php
     }
@@ -339,7 +412,25 @@ OF PHILADELPHIA
          <div class="t_col_3 box_border"><span class="gray_text"><?php echo $log_hour['User']['organization_name'];?></span></div>
          <div class="t_col_4 box_border"><span class="gray_text"><?php echo $log_hour['LogHour']['hours'];?></span></div>
          <div class="t_col_5 box_border"><span class="gray_text"><?php echo date("m-d-Y", strtotime($log_hour['LogHour']['job_date']));?></span></div>
-         <div class="t_col_6 box_border_right"><img width="22" src="<?php echo $this->webroot;?>img/logo_cert.png"></div>
+         <div class="t_col_6 box_border_right">
+            <?php
+            switch($log_hour['LogHour']['status']){               
+                case 0:
+                  $icon = 'img/logo_cert.png';
+                  $title = 'Pending for Approval';
+                break;                
+                case 1:
+                  $icon = 'img/green_icon.png';
+                  $title = 'Approved Hours';
+                break;            
+                case 2:
+                  $icon = 'img/orange_icon.png';
+                  $title = 'Rejected Hours';
+                break;           
+            }                           
+            ?>
+            <img width="22" src="<?php echo $this->webroot.$icon;?>" title='<?php echo $title;?>'>            
+         </div>
       </div> 
     <?php
    }
@@ -465,21 +556,27 @@ OF PHILADELPHIA
          <div class="clr"></div>
                
          </div>   
-         <div class="upper_box">
-       <div class="left_section_upper">
-          <div class="icon_list">
-             <ul>
-               <li><a href="#" ><img src="<?php echo $this->webroot;?>img/icon5.png" alt="" border="0"  /></a></li>
-               <li><a href="#" ><img src="<?php echo $this->webroot;?>img/icon4.png" alt="" border="0"  /></a></li>
-                 <li><a href="#" ><img src="<?php echo $this->webroot;?>img/icon1.png" alt="" border="0"  /></a></li>
-                   <li><a href="#" ><img src="<?php echo $this->webroot;?>img/icon2.png" alt="" border="0"  /></a></li>
-                  </ul>
-                </div>
-           </div>
-     <div class="right_section_upper">
-     <!--Single Client Outer-->
+         
+         <div class="upper_box_wrapper" >
+       <div class="box_wrap_inner" ><a href="#" onclick="show()"><img src="<?php echo $this->webroot;?>img/chat1.png" /> </a></div>
+       <div class="upper_box" id="upper_box" style="display:none;">
+         <div class="bott_margin"><img src="<?php echo $this->webroot;?>img/chat1.png" /></div>
+         <div class="left_section_upper">
+            <div class="icon_list">
+               <ul>
+               <li><a href="#" onclick="show()" ><img src="<?php echo $this->webroot;?>img/icon5.png" alt="" border="0"  /></a></li>
+                 <li><a href="#" ><img src="<?php echo $this->webroot;?>img/icon4.png" alt="" border="0"  /></a></li>
+                   <li><a href="#" ><img src="<?php echo $this->webroot;?>img/icon1.png" alt="" border="0"  /></a></li>
+                     <li><a href="#" ><img src="<?php echo $this->webroot;?>img/icon2.png" alt="" border="0"  /></a></li>
+                    </ul>
+                  </div>
+             </div>
+         <div class="right_section_upper">
+         <div class="client_section">
+            <!--Single Client Outer-->
         <div class="client_outer">
         <div class="status_sign"><img src="<?php echo $this->webroot;?>img/busy.png" alt="" /></div>
+         <div class="client_img_outer_f"><img src="<?php echo $this->webroot;?>img/client_img_outer_b.png" alt="" /></div>
                <div class="client_img_outer"><img src="<?php echo $this->webroot;?>img/client_img.png" alt="" /></div>
                   
                      <div class="client_detail"><h3>Karri Raman</h3>
@@ -488,52 +585,103 @@ OF PHILADELPHIA
                              </div>
                         
                           </div>
+                  <p>
+                    <input id="demo_box_1" class="css-checkbox" type="checkbox" />
+					<label for="demo_box_1" name="demo_lbl_1" class="css-label"></label>
+			   	  </p>
                   </div>
                    <!--Single Client Outer End-->
                    
                    <!--Single Client Outer-->
         <div class="client_outer">
         <div class="status_sign"><img src="<?php echo $this->webroot;?>img/active.png" alt="" /></div>
+         <div class="client_img_outer_f"><img src="<?php echo $this->webroot;?>img/client_img_outer_b.png" alt="" /></div>
                <div class="client_img_outer"><img src="<?php echo $this->webroot;?>img/client_img.png" alt="" /></div>
                   
                      <div class="client_detail"><h3>Karri Raman</h3>
                        <div class="light_gray">
                            Lorem Ipsum is simply dummy text of the printing .
-                       </div>
-                        
-                    </div>
+                             </div>                        
+                          </div>
+                          <p>
+                    <input id="demo_box_2" class="css-checkbox" type="checkbox" />
+					<label for="demo_box_2" name="demo_lbl_1" class="css-label"></label>
+			   	  </p>
                   </div>
                    <!--Single Client Outer End-->
                     <!--Single Client Outer-->
         <div class="client_outer">
         <div class="status_sign"><img src="<?php echo $this->webroot;?>img/active.png" alt="" /></div>
+         <div class="client_img_outer_f"><img src="<?php echo $this->webroot;?>img/client_img_outer_b.png" alt="" /></div>
                <div class="client_img_outer"><img src="<?php echo $this->webroot;?>img/client_img.png" alt="" /></div>
                   
                      <div class="client_detail"><h3>Karri Raman</h3>
                        <div class="light_gray">
                            Lorem Ipsum is simply dummy text of the printing .
-                             </div>
-                        
+                             </div>                        
                           </div>
+                          <p>
+                    <input id="demo_box_3" class="css-checkbox" type="checkbox" />
+					<label for="demo_box_3" name="demo_lbl_1" class="css-label"></label>
+			   	  </p>
                   </div>
                    <!--Single Client Outer End-->
                     <!--Single Client Outer-->
         <div class="client_outer">
         <div class="status_sign"><img src="<?php echo $this->webroot;?>img/active.png" alt="" /></div>
-               <div class="client_img_outer"><img src="<?php echo $this->webroot;?>img/client_img.png" alt="" /></div>
+         <div class="client_img_outer_f"><img src="<?php echo $this->webroot;?>img/client_img_outer_b.png" alt="" /></div>
+               <div class="client_img_outer"><img src="<?php echo $this->webroot;?>img/client_img_sq.png" alt="" /></div>
                   
                      <div class="client_detail"><h3>Karri Raman</h3>
                        <div class="light_gray">
                            Lorem Ipsum is simply dummy text of the printing .
-                             </div>
-                        
+                             </div>                        
                           </div>
+                          <p>
+                    <input id="demo_box_4" class="css-checkbox" type="checkbox" />
+					<label for="demo_box_4" name="demo_lbl_1" class="css-label"></label>
+			   	  </p>
+                  </div>
+              </div>
+         
+         <!--Message section-->
+           <div class="message_section" style="display:none;">
+                        <!--Single Client Outer-->
+        <div class="client_outer">
+        <div class="status_sign"><img src="<?php echo $this->webroot;?>img/active.png" alt="" /></div>
+         <div class="client_img_outer_f"><img src="<?php echo $this->webroot;?>img/client_img_outer_b.png" alt="" /></div>
+               <div class="client_img_outer"><img src="<?php echo $this->webroot;?>img/client_img_sq.png" alt="" /></div>
+                  
+                     <div class="client_detail"><h3>Karri Raman</h3>
+                       <div class="light_gray">
+                           Lorem Ipsum is simply dummy text of the printing .
+                             </div>                        
+                          </div>
+                          <p>
+                    <input id="demo_box_4" class="css-checkbox" type="checkbox" />
+					<label for="demo_box_4" name="demo_lbl_1" class="css-label"></label>
+			   	  </p>
                   </div>
                    <!--Single Client Outer End--> 
-           </div>        
-        </div>
-          <!--Upper Box End-->   
+                       <div class="message_outer">
+                       
+                         <p><span class="name">Name Here:</span> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p><br/>
+                        
+                         <p><span class="name">Name Here:</span> when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                        
+                     </div>
+                     <h3>Respond</h3>
+                      <textarea name="message" cols="1" rows="2"></textarea>
+                       <input type="button" value="Submit" class="submit_butt" />
+                   
+           </div>
+              <!--Message section End -->
+               
+             </div>        
+             
+             
+       </div>
+     </div>
     <?php
     }
-    ?>       
-</div>
+    ?>

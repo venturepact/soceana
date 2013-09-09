@@ -14,7 +14,7 @@ class LogHoursController extends AppController {
          if($this->request->is('post')){
             
             $this->request->data['LogHour']['user_id'] = $this->Session->read('User.id');
-            $this->request->data['LogHour']['status'] = 1;
+           // $this->request->data['LogHour']['status'] = 1;
             $this->LogHour->save($this->request->data);
             
             //email code pending
@@ -48,7 +48,7 @@ class LogHoursController extends AppController {
     
     
     /* @ function to add log hour for organization */
-    public function organization_add(){
+    /*public function organization_add(){
          $this->loadModel('ServiceType');
          $this->loadModel('Category');
          if($this->request->is('post')){
@@ -64,7 +64,7 @@ class LogHoursController extends AppController {
             }
         $this->set('service_types',$this->ServiceType->find('all',array('order'=>'id','fields'=>array('id','name','picture_url'))));
         $this->set('categories',$this->Category->find('list',array('order'=>'id','fields'=>array('id','category_name'))));      
-    }    
+    } */   
     
     /* @ function to get full name of the Volunteer for drop down of Organization */
     public function _getFullName(){
@@ -242,5 +242,105 @@ class LogHoursController extends AppController {
     /* @ function to get the date from last years */
     function _getDate($years){
         return date('Y-m-d', strtotime("-$years years")); 
-    }    
+    }
+    
+    function review_hours(){
+        if($this->request->is('post')){
+            $this->Session->write('page_limit',$this->request->data['Pages']['limit']);  
+	}
+		
+	if($this->Session->read('page_limit') != null){
+	    $limit = $this->Session->read('page_limit');			
+	}
+	else $limit = 5;	
+       
+	if($this->Session->read('User.role') == 'organizations'){
+	    $this->set('loghours',$this->_organizationGridData($limit));	
+	}
+    }
+    
+    /* @ function to show the Organization Grid Data */
+    public function _organizationGridData($limit = 5){
+	
+        $fields = array('LogHour.id','LogHour.hours','LogHour.job_date','LogHour.status','Category.category_name','ServiceType.name','User.first_name','User.last_name');
+		
+	$this->paginate = array(
+				'limit'       => $limit,
+				'order'       => 'LogHour.job_date DESC',
+				'fields'      => $fields,
+				'conditions'  => array( 'organization' => $this->Session->read('User.id'))
+			);
+		
+	$this->LogHour->bindModel(
+                                array('belongsTo' => array(
+		                        'Category'    =>  array('className' => 'Category','joinTable' => 'categories','foreignKey' => 'category_id','fields'=>array('category_name')),
+                    	                'ServiceType' =>  array('className' => 'ServiceType','joinTable' => 'service_types','foreignKey' => 'service_type_id','fields'=>array('name')),
+					'User'        =>  array('className' => 'User','joinTable' => 'users','foreignKey' => 'user_id','fields'=>array('first_name','last_name'))
+                                        )
+                                    ),false
+	);
+		 
+	return $this->paginate('LogHour');
+    }
+    
+    
+    public function confirm_hours($id = null)
+    {
+        if($id == null ){
+            $this->redirect(array('action' => 'review_hours'));
+        }
+        
+        $this->LogHour->bindModel(
+                                array('belongsTo' => array(
+		                        'Category'    =>  array('className' => 'Category','joinTable' => 'categories','foreignKey' => 'category_id','fields'=>array('category_name')),
+                    	                'ServiceType' =>  array('className' => 'ServiceType','joinTable' => 'service_types','foreignKey' => 'service_type_id','fields'=>array('name')),
+					'User'        =>  array('className' => 'User','joinTable' => 'users','foreignKey' => 'user_id','fields'=>array('first_name','last_name','email_id')),
+                                        'Organization'        =>  array('className' => 'User','joinTable' => 'users','foreignKey' => 'organization','fields'=>array('organization_name')),
+                                        )
+                                    ),false
+	);
+        $record = $this->LogHour->find('first',array('conditions'=>array('LogHour.id'=>$id)));
+        
+        $this->request->data['LogHour']['id'] = $record['LogHour']['id'];
+        $this->request->data['LogHour']['email'] = $record['User']['email_id'];
+        $this->request->data['LogHour']['full_name'] = $record['User']['first_name'] . ' '. $record['User']['last_name'];
+        $this->request->data['LogHour']['position'] = $record['LogHour']['position'];
+        $this->request->data['LogHour']['organization'] = $record['Organization']['organization_name'];
+        $this->request->data['LogHour']['location'] = $record['LogHour']['location'];
+        $this->request->data['LogHour']['hours'] = $record['LogHour']['hours'];
+        $this->request->data['LogHour']['job_date'] = $record['LogHour']['job_date'];
+        $this->request->data['LogHour']['service_type_id'] = $record['LogHour']['service_type_id'];
+        $this->request->data['LogHour']['status'] = $record['LogHour']['status'];
+        
+        $this->loadModel('ServiceType');
+        $this->set('service_types',$this->ServiceType->find('all',array('order'=>'id','fields'=>array('id','name','picture_url'))));        
+        
+    }
+    
+    public function approve_hours($id = null)
+    {
+        if($id == null ){
+            $this->redirect(array('action' => 'review_hours'));
+        }
+        
+        $data['LogHour']['id'] = $id;
+        $data['LogHour']['status'] = 1;
+        $this->LogHour->save($data);
+        $this->Session->setFlash('Log hours confirmed successfully');
+        $this->redirect(array('action' => 'review_hours'));       
+    }
+    
+    public function reject_hours($id = null)
+    {
+        if($id == null ){
+            $this->redirect(array('action' => 'review_hours'));
+        }
+        
+        $data['LogHour']['id'] = $id;
+        $data['LogHour']['status'] = 2;
+        $this->LogHour->save($data);
+        $this->Session->setFlash('Log hours rejected successfully');
+        $this->redirect(array('action' => 'review_hours'));       
+    }
+    
 }

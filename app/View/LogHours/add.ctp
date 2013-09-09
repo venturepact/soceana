@@ -132,14 +132,17 @@ $(function() {
                  <ul>
                    <?php
                             $i = 1;
+			    $k = 0;
 			  //  pr($service_types);die;
                             foreach($service_types as $service_type):?>
-                            <li>
+                            <li <?php if($k==0)echo 'class="first"';?>>
                             	<input type="checkbox" id="c<?php echo $i;?>" name="data[LogHour][service_type_id]" value="<?php echo $service_type['ServiceType']['id'];?>" />
                                 <label for="c<?php echo $i;?>" class="checkbox-label"><span><img alt="<?php echo $service_type['ServiceType']['name'];?>" src="<?php echo $this->webroot;?>img/<?php echo $service_type['ServiceType']['picture_url'];?>" /></span></label>
                             </li>                            
                             <?php
                             $i++;
+			    $k++;
+			    if($k==3)$k=0;
                             endforeach;
                             ?>                            
                    <li>

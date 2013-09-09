@@ -11,6 +11,11 @@
 <link rel="shortcut icon" href="<?php echo $this->webroot;?>img/favicon.ico"/>
 </head>
 <body>
+<script>
+function show(){
+	$('#upper_box').toggle('show');
+}
+</script>
 <!--Header Section Start -->
 <?php echo $this->element('header');?>
 <!--Header Section End-->

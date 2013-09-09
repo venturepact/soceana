@@ -1,13 +1,17 @@
 @charset "utf-8";
 /* CSS Document */
+
 @media only screen and (min-width:1824px) 
 {
+/*#wrapper{
+	padding: 30px;
+}*/
 .login_container {
     background:url("../img/img_large.jpg") no-repeat; width: 100%;}	
-.login_slider img{width:100%; margin-bottom:5%;}
+.login_slider img{width:100%; margin-bottom:0px;}
 
 .login_container .top_section {
-    height: 570px;
+    height: 630px;
     width: 100%;
 }
 .login_container .top_section .top_form {   
@@ -15,6 +19,18 @@
 	left: 90px;
 	width: 500px;
  
+}
+#login_form label.error {
+    float: left !important;
+    font-size: 17px;
+    margin: 5px 0 2px 80px !important;
+    width: 500px !important;
+}
+#login_form2 label.error {
+   float: left !important;
+    font-size: 17px;
+    margin: 5px 0 2px 80px !important;
+    width: 500px !important;
 }
 .top_section .top_form .user_name {
     background-image: url("../img/login_top_icon_big.png");
@@ -35,6 +51,7 @@
 	width: 60px;
 }
 .top_form .login_buttons {
+	width: 500px;
 }
 .top_form .login_now {
     background: url("../img/login_top_button_big.png") no-repeat scroll 0 0 transparent;
@@ -62,6 +79,8 @@
     padding-right: 10px;
 }
 .top_form .remember {
+    float: left;
+    width: 500px;
 }
 .top_form h3 {
     font-size: 30px;
@@ -69,20 +88,22 @@
 }
 .section_login_left {
     line-height: 54px;
-    width: 65%;
+    margin-right: 20px;
+    width: 59%;
 }
-.section_login_left p {   
-    font-size: 18px;
-    line-height: 26px;
 
+.section_login_left p {
+    font-size: 20px;
+    line-height: 26px;
+    margin-top: 20px;
 }
 .section_login_right {
-    width: 500px;
+    width: 525px;
 }
 
 .section_login_right h2 {
-    font-size: 38px;
-    padding: 30px 0;
+    font-size: 32px;
+    padding: 24px 0;
 }
 .section_login_right .user_name {
     background-image: url("../img/login_icon_big.png");
@@ -100,7 +121,7 @@
 .section_login_right .user_name input, .section_login_right .password input {
     height: 55px;
     margin-left: 80px;
-    width: 370px;
+    width: 398px;
 	font-size: 20px;
 }
 .section_login_right .mt20 .remember {
@@ -125,12 +146,34 @@
 .section_login_left h1 {
     font-size: 40px;
 }
-
-
-
-
-
+.section_login_right .login_buttons {
+    width: 480px;
 }
+.footer_first_block {
+    color: #FFFFFF;
+    float: left;
+    margin-left: -7%;
+    margin-top: 30px;
+    width: 20%;
+}
+
+.footer_first_block .footer_block_heading {
+    font-size: 34px;
+    line-height: 28px;
+}
+.footer_first_block .footer_block_heading span {
+    font-size: 22px;
+}
+
+.mt20 {
+    margin: 20px 20px 0;
+}
+.footer_first_block ul li {
+    font-size: 14px;
+}
+
+
+} 
 
 
 
