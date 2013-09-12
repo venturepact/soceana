@@ -1,6 +1,6 @@
 <?php
 /*
-* @ User Model class
+* @ ServiceType Model class
 * 
 */
 class ServiceType extends AppModel{

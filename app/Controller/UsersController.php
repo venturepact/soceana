@@ -325,5 +325,39 @@ class UsersController extends AppController{
         $email->emailFormat('both');
         $email->send($message);
     }
+    
+    function getusers()
+    {
+        $this->layout = 'ajax';
+        $q = strtolower($_GET["q"]);
+        if (!$q) return;
+        $users = $this->User->find('all');
+        //$this->Session->read('User.id')
+        foreach($users as $user){
+                $items[$user['User']['first_name'].' '.$user['User']['last_name']] = $user['User']['id'] ; 	
+        }
+      
+        foreach ($items as $key=>$value) {
+            if (strpos(strtolower($key), $q) !== false) {
+                    echo "$key|$value\n";
+            }
+        }
+        $this->autoRender = false;
+    }
+    
+    function getuser_image(){
+         $this->layout = 'ajax';
+        $id = $this->request->data['user_id'] ;
+        
+        $user_image = $this->User->find('first',array('fields'=>array('thumb_image'),'conditions'=>array('id'=>$id)));
+        
+        if(strlen($user_image['User']['thumb_image'])>0){
+            $image = $this->webroot.'img/upload/'.$user_image['User']['thumb_image'];
+        }else{
+            $image = $this->webroot.'img/no_image.png';
+        }
+        echo $image;
+        $this->autoRender = false;
+    }
 }
 ?>

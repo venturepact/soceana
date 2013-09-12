@@ -244,6 +244,7 @@ class LogHoursController extends AppController {
         return date('Y-m-d', strtotime("-$years years")); 
     }
     
+    /* @ function to show the review hours section grid showing the complete data  */
     function review_hours(){
         if($this->request->is('post')){
             $this->Session->write('page_limit',$this->request->data['Pages']['limit']);  
@@ -283,7 +284,7 @@ class LogHoursController extends AppController {
 	return $this->paginate('LogHour');
     }
     
-    
+    /* @ function to show individual log hour data in the form for view/update of status */
     public function confirm_hours($id = null)
     {
         if($id == null ){
@@ -317,6 +318,7 @@ class LogHoursController extends AppController {
         
     }
     
+    /* @ function to approve hours data */
     public function approve_hours($id = null)
     {
         if($id == null ){
@@ -330,6 +332,7 @@ class LogHoursController extends AppController {
         $this->redirect(array('action' => 'review_hours'));       
     }
     
+    /* @ function to reject hours data */
     public function reject_hours($id = null)
     {
         if($id == null ){

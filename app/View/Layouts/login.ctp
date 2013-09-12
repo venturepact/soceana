@@ -82,8 +82,7 @@ $(function() {
 			success: function(data) {//alert('here');
 				$('#forgot_email_id').val("");
 				$('#forgot_message').html(data);
-				$('#fp_message').fadeOut(10000);
-				
+				$('#fp_message').fadeOut(10000);				
 			}
 		});		
 	    }	
