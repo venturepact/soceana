@@ -39,7 +39,7 @@ function show(){
    		<?php echo $this->fetch('content');?>
 	</div>         
 	<div class="index"></div>
-	</div>
+	
     <div id="right_img_section">
 		<?php
 		/* @ check if the role of current logged in user is organzation or normal volunteer
@@ -51,7 +51,7 @@ function show(){
 		}else{ echo '&nbsp;';}
 		?>
 	</div>
-        
+        </div>
   <?php echo $this->element('footer');?>
 </body>
 </html>

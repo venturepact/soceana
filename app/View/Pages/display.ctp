@@ -8,11 +8,13 @@
 /* @ check if the role of current logged in user is organzation or normal volunteer
  *  @ set dashboard accordingly
  */
-    if($this->Session->read('User.role') == 'organizations') {
-    ?>  
-       <div class="top_heading">
-         <h1>ANALYTICS DASHBOARD</h1><h3>View metrics and data for the social good you have done through Soceana.</h3>            
-           </div>      
+if($this->Session->read('User.role') == 'organizations') {
+?>
+<div class="top_heading">
+   <h1>ANALYTICS DASHBOARD</h1>
+   <h3>View metrics and data for the social good you have done through Soceana.</h3>            
+</div>   
+          
      <div class="wrapper_left_section">
          <div class="left_top_section">
              <div class="main_text">                  
@@ -197,15 +199,15 @@ OF PHILADELPHIA
                    </div>                   
              </div>
              <a href="#" class="add_text">Advertise with Soceana</a></div>
-    <?php
-    }
-    else{
-    ?>
-    <div class="top_heading">
-         <h1>ANALYTICS DASHBOARD</h1>
-          <h3>View metrics and data for the social good you have done through Soceana.</h3>
-          </div>
-        <div class="wrapper_left_section">
+<?php
+}
+else{
+?>
+<div class="top_heading">
+   <h1>ANALYTICS DASHBOARD</h1>
+   <h3>View metrics and data for the social good you have done through Soceana.</h3>
+</div>
+<div class="wrapper_left_section">
         <div class="left_top_section">
              <div class="main_text">                  
                  <p>NEWS</p></div>
@@ -282,6 +284,8 @@ OF PHILADELPHIA
     ?>    
    <div class="table_footer_white "  >
      <div class="gray_text1"><?php echo $this->Paginator->counter('Showing {:start} to {:end} of {:count} entries');?></div>
+
+
       <div class="next_preview_butt">
        <?php echo $this->Paginator->prev(' << ', array(), null, array('class' => 'prev'));?>
        <?php echo $this->Paginator->next(' >> '  , array(), null, array('class' => 'next'));?>        
@@ -330,9 +334,9 @@ OF PHILADELPHIA
                      </script>
             </div>   
     </div>          
-         </div>                    
-          <div class="wrapper_mid_border"></div>              
-     <div class="wrapper_right_section">
+         </div>
+         <div class="wrapper_mid_border"></div>
+         <div class="wrapper_right_section">
         <div class="time_outer2">
             <div class="top_section"><h4>TOTAL HOURS VOLUNTEERED</h4></div>
               <div class="mid_section"><span class="large_font">115:21:24</span></div>
@@ -376,7 +380,7 @@ OF PHILADELPHIA
               </div></div>
              <a href="#" class="add_text">Advertise with Soceana</a>               
          <div class="clr"></div>               
-         </div>         
+         </div>
 <?php
 }
 ?>
@@ -430,6 +434,7 @@ OF PHILADELPHIA
              
              
        </div>
+     </div>
      </div>
 <!-- /end of message box functionality-->
 <script>
