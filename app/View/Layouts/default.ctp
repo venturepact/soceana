@@ -3,12 +3,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Soceana</title>
- <?php echo $this->Html->css('style');?>
- <?php echo $this->Html->css('responsive');?>
- <?php echo $this->Html->script('jquery-1.6.1.min');?>
- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
- <script src="http://malsup.github.com/jquery.form.js"></script>
+<?php echo $this->Html->css('style');?>
+<?php echo $this->Html->css('responsive');?>
+<?php echo $this->Html->script('jquery-1.6.1.min');?>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
+<script src="http://malsup.github.com/jquery.form.js"></script>
 <link rel="shortcut icon" href="<?php echo $this->webroot;?>img/favicon.ico"/>
+<?php echo $this->Html->css('jquery.autocomplete');?>
+<?php echo $this->Html->script('jquery.autocomplete');?>
 </head>
 <body>
 <script>
@@ -37,6 +39,9 @@ function show(){
 	<div id="wrapper">
 		<?php echo $this->Session->flash(); ?>
    		<?php echo $this->fetch('content');?>
+        <!-- messages div starts-->
+        <?php echo $this->element('messages');?>
+        <!-- / of messages div-->
 	</div>         
 	<div class="index"></div>
 	
@@ -51,7 +56,7 @@ function show(){
 		}else{ echo '&nbsp;';}
 		?>
 	</div>
-        </div>
+</div>
   <?php echo $this->element('footer');?>
 </body>
 </html>

@@ -5,8 +5,7 @@
 */
 class User extends AppModel{
     
-    public $name = 'User';    
-  
+    public $name = 'User';   
     
     var $hasAndBelongsToMany = array(
         'ServiceType' => array(
@@ -15,6 +14,12 @@ class User extends AppModel{
             'foreignKey' => 'user_id',
             'associationForeignKey' => 'service_type_id',
         ),
+        'SkillSet' => array(
+            'className' => 'SkillSet',
+            'joinTable' => 'user_skill_sets',
+            'foreignKey' => 'user_id',
+            'associationForeignKey' => 'skill_set_id',
+        )
     );  
     
     

@@ -40,7 +40,7 @@ foreach($mess as $mes)
 <!--Single Client Outer End-->
 <?php echo $this->Form->input('Message.reply_to',array('type'=>'hidden','id' => 'reply_to','value' => $message_from));?>
 <?php echo $this->Form->input('Message.reference',array('type'=>'hidden','id' => 'reference','value' => $reference_id));?>
-<h3>Respond</h3>
+<h3>Respond <span class='required'>*</span></h3>
 <?php echo $this->Form->input('Message.message',array('type'=>'textarea','div'=>false,'label'=>false,'id' => 'reply_message','cols'=>"1" ,'rows'=>"6"));?>
 <input type="button" value="Submit" class="submit_butt" id='sbmt_butt' /><br><br>
 
@@ -48,8 +48,10 @@ foreach($mess as $mes)
 <script>
     //reply message submit function
 $('#sbmt_butt').click(function(){
-   $('#message_status').html('<div id="info" style="background-color:#FFFFFF;float: left;height: 27px;position: fixed;width: 299px;z-index: 500000;"><img src="<?php echo $this->webroot;?>img/loading.gif">&nbsp;Message Sent Successfully</div>');	
-  $.ajax({
+       var text_length = $('#reply_message').val().length;
+       if(text_length > 0){ 
+	$('#message_status').html('<div id="info" style="background-color:#FFFFFF;float: left;height: 27px;position: fixed;width: 299px;z-index: 500000;"><img src="<?php echo $this->webroot;?>img/loading.gif">&nbsp;Message Sent Successfully</div>');	
+        $.ajax({
                    type: "POST",
                    url: '<?php echo $this->webroot;?>' + 'pages/send_message2',
                    data:{
@@ -70,9 +72,10 @@ $('#sbmt_butt').click(function(){
 			    }
 			}); 
                    }
- });
-  $('#info').fadeOut(10000);
-  $('.message_section').hide();
-  $('#messages').show(); 
+	    });
+	     $('#info').fadeOut(10000);
+	     $('.message_section').hide();
+	     $('#messages').show();
+       }
 });
 </script>

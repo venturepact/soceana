@@ -7,10 +7,11 @@
 */
 class UsersController extends AppController{ 
     
-
+    var $name = 'Users';
+    
     var $helpers = array('Cropimage');
     
-    var $components = array('JqImgcrop');
+    var $components = array('JqImgcrop');  
     
     public function beforeFilter(){
         parent::beforeFilter();
@@ -148,13 +149,24 @@ class UsersController extends AppController{
     /* @ function for update profile of an Organization */
     public function organization_profile(){
         $this->loadModel('ServiceType');
+	$this->loadModel('SkillSet');
         $this->User->id = $this->Session->read('User.id');
         
         if(!$this->User->exists()){
             throw new NotFoundException(__('Invalid User'));       
         }
-        if($this->request->is('post') || $this->request->is('put')){
+        if($this->request->is('post') || $this->request->is('put')){          
+          
             if($this->User->save($this->request->data)){
+                /*for saving star rating according to Skill Set*/
+                if(count($this->request->data['SkillSet']['SkillSet']) > 0)
+                {
+                    foreach($this->request->data['SkillSet']['SkillSet'] as $skilset){
+                        $rate = $this->request->data['skilset'.$skilset];
+                        $this->User->query("update user_skill_sets set rate ='$rate' where user_id='".$this->Session->read('User.id')."' and skill_set_id='".$skilset."'");
+                    }
+                }
+                
                 $this->Session->setFlash(__('Your details has been updated successfully'));
                 $this->redirect('/');
             }
@@ -164,6 +176,7 @@ class UsersController extends AppController{
         }
         else{
             $this->request->data = $this->User->read(null,$this->User->id);
+            
             // code for new array of volunteer type selection from database
             $i = 0;
             $temp = array();
@@ -177,10 +190,27 @@ class UsersController extends AppController{
             else
             {
                 $temp[$i] = 0;
-            }
+            }           
             
+            // code for new array of service type selection from database
+            $i = 0;
+            $temp2 = array();
+            if(count($this->request->data['SkillSet'])>0)
+            {
+                foreach($this->request->data['SkillSet'] as $skl_options){
+                    $temp2[$i] = $skl_options['id'];
+                    $this->request->data['skilset'.$skl_options['UserSkillSet']['skill_set_id']] = $skl_options['UserSkillSet']['rate'];
+                    $i++;
+                }               
+            }
+            else
+            {
+                $temp2[$i] = 0;
+            }          
             $this->set('temp_types',$temp);
+            $this->set('temp_skills',$temp2);
             $this->set('service_types',$this->ServiceType->find('all',array('order'=>'id','fields'=>array('id','name','picture_url'))));
+	    $this->set('skill_sets',$this->SkillSet->find('all',array('order'=>'id','fields'=>array('id','name','picture_url'))));
             unset($this->request->data['User']['Password']);
         }
     }
@@ -346,7 +376,7 @@ class UsersController extends AppController{
     }
     
     function getuser_image(){
-         $this->layout = 'ajax';
+        $this->layout = 'ajax';
         $id = $this->request->data['user_id'] ;
         
         $user_image = $this->User->find('first',array('fields'=>array('thumb_image'),'conditions'=>array('id'=>$id)));
@@ -359,5 +389,86 @@ class UsersController extends AppController{
         echo $image;
         $this->autoRender = false;
     }
+    
+    /*function get_name(){
+        $this->layout = 'ajax';
+        $id = $this->request->data['user_id'] ;
+        $this->User->recursive = -1;
+        $user_data = $this->User->find('first',array('fields'=>array('first_name','last_name'),'conditions'=>array('id'=>$id)));
+        
+        echo $user_data['User']['first_name'].' '.$user_data['User']['last_name'];
+        
+        $this->autoRender = false;
+    }*/
+    
+    function getdetails(){
+        $this->layout = 'ajax';
+        $id = $this->request->data['user_id'] ;
+        $this->User->recursive = -1;
+        $user_data = $this->User->find('first',array('fields'=>array('first_name','last_name','thumb_image'),'conditions'=>array('id'=>$id)));
+        
+        $temp['name'] = ucfirst($user_data['User']['first_name']).' '.ucfirst($user_data['User']['last_name']);
+        
+        if(strlen($user_data['User']['thumb_image'])>0){
+            $image = $this->webroot.'img/upload/'.$user_data['User']['thumb_image'];
+        }else{
+            $image = $this->webroot.'img/no_image.png';
+        }
+        $temp['image'] = $image;
+        
+        echo json_encode($temp);
+        
+        $this->autoRender = false;
+    }
+    
+    public function personalize(){
+        $this->loadModel('SkillSet');
+         if($this->request->is('post') || $this->request->is('put')){
+           $skillset = implode('-',$this->request->data['SkillSet']['SkillSet']);
+           $this->redirect(array('action'=>'personalize_results',$skillset));
+         }        
+        $this->set('skill_sets',$this->SkillSet->find('all',array('order'=>'id','fields'=>array('id','name','picture_url'))));
+    }
+    public function personalize_results($skillset){
+        
+        $this->loadModel('SkillSet');
+        
+        $skillset = explode('-',$skillset);
+        
+        $limit = 6;
+        
+        $i = 0;
+        
+        foreach($skillset as $sk_set){
+            $or[$i] = array('UserSkillSet.skill_set_id' => $sk_set);
+            $i++;
+        }
+      
+        
+        $this->User->unBindModel(array('hasAndBelongsToMany' => array('ServiceType')));
+        
+        $this->User->bindModel(
+                               array(
+                                     'hasOne' => array('UserSkillSet'),                                    
+                                     ),false
+                               );
+
+        $this->paginate = array(
+            'limit' => $limit,           
+            'conditions' => array(
+                'Or'=>$or,
+                'User.role'=>'organizations'
+            ),            
+            'contain' => 'UserSkillSet',
+            'group'=>'User.id',
+            'order'=>'SUM( UserSkillSet.rate ) DESC',
+        );       
+       
+        $this->set('skillset',$skillset);
+        $this->set('skillset_results',$this->paginate());
+        $this->set('skill_sets',$this->SkillSet->find('all',array('order'=>'id','fields'=>array('id','name','picture_url'))));
+    }
+    
+    
 }
 ?>

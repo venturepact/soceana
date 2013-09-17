@@ -1,4 +1,23 @@
 <?php echo $this->Html->script('jquery.validate');?>
+<?php echo $this->Html->script('jquery.raty');?>
+<script type="text/javascript">
+    $(function() {
+      $.fn.raty.defaults.path = '<?php echo $this->webroot;?>img';
+      <?php       
+	  for($i=1;$i<=9;$i++){	    
+	     if(isset($this->request->data['skilset'.$i]) && strlen($this->request->data['skilset'.$i])>0){
+	      ?>
+	        $('#rate<?php echo $i;?>').raty({score:<?php echo $this->request->data['skilset'.$i];?>});
+	      <?php
+	     }else{
+	      ?>
+	      $('#rate<?php echo $i;?>').raty();
+	      <?php
+	     }
+	  }       
+      ?>
+    });
+</script>
 <style>
     label.error{ color: #FF0000;font-size: 12px;margin: -3px 0 5px 190px;text-align: left;text-transform: none;width: 100%;}
     ul label.error{color: #FF0000 !important;left: -378px !important;position: absolute !important;text-transform: none !important;top: 831px !important;width: 100% !important;}
@@ -11,24 +30,46 @@
            </div>       
      <div class="wrapper_left_section">
          
-         
+         <div class="left_top_section_p">
+               <div class="main_text">                  
+                   <p>COMPLETE YOUR PROFILE</p></div>
+                      <div class="news_text">
+                        <span>You profile is 75% complete add your<strong> Location, Company Size & Location</strong> #</span>               
+                           </div>                                          
+               </div>
        <!--table-->
        <div class="vol_table">                        
            
          <div class="section">
-            <?php echo $this->Form->create('User',array('id'=>'organization_profile_update'));?>
+            <?php echo $this->Form->create('User',array('id'=>'organization_profile_update','name'=>'org_profile'));?>              
+               <div class="signup_form">
+                    <label name="name">Email</label>
+                    <?php echo $this->Form->input('email_id',array('type'=>'text','div'=>false,'label'=>false,'class'=>'text_style'));?>
+                    <img src="<?php echo $this->webroot;?>img/glob_icon.png" alt="" class="glob" />
+                </div>
+               <div class="mt20"></div>
+               <div class="signup_form">
+                   	<label name="name">FIRST NAME</label>
+                        <?php echo $this->Form->input('first_name',array('type'=>'text','div'=>false,'label'=>false,'class'=>'text_style'));?>
+                       <img src="<?php echo $this->webroot;?>img/glob_icon.png" alt="" class="glob" />
+               </div>
+               <div class="mt20"></div>
+               <div class="signup_form">
+               		<label name="name">LAST NAME</label>
+                       <?php echo $this->Form->input('last_name',array('type'=>'text','div'=>false,'label'=>false,'class'=>'text_style'));?>
+                       <img src="<?php echo $this->webroot;?>img/glob_icon.png" alt="" class="glob" />
+               </div>
+               <div class="mt20"></div>
                <div class="signup_form">
                  <label name="name">Organization Name</label>
                  <?php echo $this->Form->input('organization_name',array('type'=>'text','div'=>false,'label'=>false,'class'=>'text_style'));?>
+                 <img src="<?php echo $this->webroot;?>img/glob_icon.png" alt="" class="glob" />
                </div>               
                <div class="mt20"></div>
                <div class="signup_form">
-                 <label name="name">Email</label>
-                  <?php echo $this->Form->input('email_id',array('type'=>'text','div'=>false,'label'=>false,'class'=>'text_style'));?>
-                 </div>
-               <div class="signup_form">
                  <label name="name">Location</label>
                  <?php echo $this->Form->input('location',array('type'=>'text','div'=>false,'label'=>false,'class'=>'text_style'));?>
+                 <img src="<?php echo $this->webroot;?>img/glob_icon.png" alt="" class="glob" />
                  </div>
                <div class="mt20"></div>
                <div class="signup_form">
@@ -46,15 +87,17 @@
 										    '1000'=>'1000+'
 										    ),
 								  
-			));?>
+			));?><img src="<?php echo $this->webroot;?>img/glob_icon.png" alt="" class="glob" />
                </div>
                <div class="signup_form">
                  <label name="name">Phone #</label>
                 <?php echo $this->Form->input('phone',array('type'=>'text','div'=>false,'label'=>false,'class'=>'text_style'));?>
+                <img src="<?php echo $this->webroot;?>img/glob_icon.png" alt="" class="glob" />
                </div>
                <div class="signup_form">
                  <label name="name">Mission and Vision</label>
                  <?php echo $this->Form->input('mission',array('type'=>'text','div'=>false,'label'=>false,'class'=>'text_style'));?>
+                 <img src="<?php echo $this->webroot;?>img/glob_icon.png" alt="" class="glob" />
                </div>
                
                <div class="clr"></div>
@@ -63,6 +106,7 @@
                  <label name="name">Additional</label>
                   <?php echo $this->Form->input('additional_notes'
 				  ,array('type'=>'textarea','div'=>false,'label'=>false,'rows'=>10,'cols'=>30,'class'=>'text_style'));?>
+                  
                </div>             
                <div class="clr"></div>
                <div class="mt20"></div>              
@@ -92,7 +136,8 @@
 				    }
 			       }			        
                                ?>/>
-                                <label for="c<?php echo $i;?>" class="checkbox-label"><span><img alt="<?php echo $service_type['ServiceType']['name'];?>" src="<?php echo $this->webroot;?>img/<?php echo $service_type['ServiceType']['picture_url'];?>" /></span></label>
+                                <label for="c<?php echo $i;?>" class="checkbox-label"><span><img alt="<?php echo $service_type['ServiceType']['name'];?>" src="<?php echo $this->webroot;?>img/<?php echo $service_type['ServiceType']['picture_url'];?>" /></span></label>                   
+                                  
                             </li>                            
                             <?php
 			    if($k == 3) $k = 0;
@@ -115,8 +160,55 @@
                         </ul>
                     </div>
                <div class="clr"></div>
+               <div class="signup_form_blue">
+                    	<label name="name">SKILL SET REQUIRED:<br />
+                        <span>(choose at maximum 5, and rate in order of necessily)</span></label>
+                        <ul id='skill_set_select'>
+                        <?php
+			//pr($temp_skills);die;
+                            $i = 1;
+			    $k = 1;
+                            foreach($skill_sets as $skill_set):
+			    $rate_status = false;
+			   			 ?>
+                        	<li <?php if($k == 1) echo 'class="first"';?>>
+                            	<input type="checkbox" id="a<?php echo $i;?>" name="data[SkillSet][SkillSet][]" onclick="validate('<?php echo $skill_set['SkillSet']['id'];?>')" value="<?php echo $skill_set['SkillSet']['id'];?>"
+				<?php
+                                if($this->request->is('post') || $this->request->is('put')){
+				    if(isset($this->request->data['SkillSet']['SkillSet'])){
+					if(in_array($skill_set['SkillSet']['id'], $this->request->data['SkillSet']['SkillSet'])) {
+					   echo "checked='checked'";
+					   $rate_status = true;
+				        } 
+				    }
+			        }
+			        else{
+				    if(isset($this->request->data['SkillSet'])){
+					if(in_array($skill_set['SkillSet']['id'], $temp_skills)) {
+					   echo "checked='checked'";
+					   $rate_status = true;
+				        } 
+				    }
+			       }		        			        
+                               ?>/>
+                                <label for="a<?php echo $i;?>" class="checkbox-label"><span><img alt="<?php echo $skill_set['SkillSet']['name'];?>" src="<?php echo $this->webroot;?>img/<?php echo $skill_set['SkillSet']['picture_url'];?>" /></span></label>
+                                 <div class="rating_icon" <?php				
+                                if($rate_status)echo "style='display: block'";
+			        else  echo "style='display:none'";				       		        			        
+                               ?> id='skil_rate_<?php echo $skill_set['SkillSet']['id'];?>'>
+           							 <div id="rate<?php echo $i;?>"></div>
+         						</div>
+                                </li>
+                            <?php
+			    			if($k == 3) $k = 0;
+			   				$k++;
+                            $i++;
+                            endforeach;
+                            ?>
+                            </ul>                           
+                    </div>
                <div class="contact_form">
-                 <div class="submit_button">
+                 <div class="submit_button" id='update_profile'>
                    <input type="submit" class="submit_button5 cursor_grid" value='' />
                    <div class="clr"></div>
                    or <a href="#">Cancel</a>
@@ -141,6 +233,10 @@ $().ready(function() {
                          },                        
                         "data[ServiceType][ServiceType][]": {
                         required: true,
+                        },
+			"data[SkillSet][SkillSet][]": {
+                        required: true,
+			maxlength:5
                         }
                         
                     }
@@ -158,6 +254,10 @@ $().ready(function() {
                          },          
                         "data[ServiceType][ServiceType][]": {
                             required: 'Please select atleast one volunteer type',
+                        },
+			"data[SkillSet][SkillSet][]": {
+                            required: 'Please select atleast one Skill set',
+			    maxlength: 'Please select maximum three skills'
                         }
             },
 	    errorElement: 'label',
@@ -229,12 +329,12 @@ OF PHILADELPHIA
 (215) 590-1000</div> 
 <a href="#" class="orange_butt">VOLUNTEER THROUGH SOCEANA</a> 
                  </div>
-              <div class="section2"><img src="images/ch_image.png" alt="" /></div>
+              <div class="section2"><img src="<?php echo $this->webroot;?>img/ch_image.png" alt="" /></div>
               </div>   
                      
            
                    </div>
-                   <div class="add_img_outer"><img src="images/volunteer.png" width="350" alt="" />
+                   <div class="add_img_outer"><img src="<?php echo $this->webroot;?>img/volunteer.png" width="350" alt="" />
                   
                  </div>
                    
@@ -250,7 +350,7 @@ OF PHILADELPHIA
 (215) 855-5454</div> 
 <a href="#" class="orange_butt">VOLUNTEER THROUGH SOCEANA</a> 
                  </div>
-              <div class="section2"><img src="images/main_steel_img.png" alt="" /></div>
+              <div class="section2"><img src="<?php echo $this->webroot;?>img/main_steel_img.png" alt="" /></div>
               </div>   
                      
            
@@ -262,3 +362,12 @@ OF PHILADELPHIA
          <div class="clr"></div>
                
 </div>
+     <script>      
+     function validate(skill_value) {
+      var skil_rate = 'skil_rate_' + skill_value;
+	if(document.getElementById(skil_rate).style.display == 'block'){
+	  document.getElementById(skil_rate).style.display = 'none';
+	}
+	else document.getElementById(skil_rate).style.display = 'block';
+     }      
+     </script>

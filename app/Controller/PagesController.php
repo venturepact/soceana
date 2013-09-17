@@ -132,15 +132,30 @@ class PagesController extends AppController {
 		
 		$this->loadModel('Message');
 		
-		$this->Message->bindModel(
+		/*$this->Message->bindModel(
 			array('belongsTo' => array(					
-					'User'        =>  array('className' => 'User','joinTable' => 'users','foreignKey' => 'message_from','fields'=>array('first_name','last_name','thumb_image'))
+					'User'        =>  array('className' => 'User',
+								'joinTable' => 'users',
+								'foreignKey' => 'message_from',
+								'fields'=>array('first_name','last_name','thumb_image'),
+								)
 				)
 			),false
 		);
 		
-		$conditions = array('message_to'=>$this->Session->read('User.id'));
-		$records = $this->Message->find('all',array('conditions'=>$conditions));
+		$conditions = array('message_to'=>$this->Session->read('User.id'),
+				    'Message.id'=>'MAX(Message.id)'
+				    );
+		
+		
+		$records = $this->Message->find('all',array('conditions'=>$conditions,							    
+							    'order'=>'Message.id DESC',
+							    'Message.id'=>
+							    'group'=>'reference_id'));
+		*/
+		
+		$records = $this->Message->query('SELECT Message.* , User.first_name, User.last_name,User.thumb_image FROM messages AS Message, users User WHERE Message.id IN ( SELECT max( id ) FROM messages WHERE message_to ='.$this->Session->read('User.id').' GROUP BY reference_id ) AND Message.message_from = User.id and Message.from_deleted = 0 order by Message.id desc');
+
 		$this->set('messages',$records);		
 	}
 	
@@ -149,7 +164,9 @@ class PagesController extends AppController {
 		$ids = $this->request->data['ids'];
 		$this->loadModel('Message');
 		foreach($ids as $id){
-		  $this->Message->delete($id);
+		   $data['Message']['from_deleted'] = 1;
+		   $data['Message']['id']= $id;
+		   $this->Message->save($data);
 		}		
 		$this->autoRender = false;
 	}
