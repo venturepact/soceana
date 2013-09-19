@@ -2,6 +2,7 @@
 <script type="text/javascript" src="<?php echo $this->webroot;?>assets/prettify/prettify.js"></script>
 <script type="text/javascript" src="<?php echo $this->webroot;?>assets/ui/js/json2.js"></script>
 <script type="text/javascript" src="<?php echo $this->webroot;?>assets/ui/js/lib.js" ></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>  
 <?php
 /* @ check if the role of current logged in user is organzation or normal volunteer
  *  @ set dashboard accordingly
@@ -95,47 +96,13 @@ if($this->Session->read('User.role') == 'organizations') {
     <div class="graph_section">
       <h1>ANALYTICS</h1>
       <div class="graph_text">TIME PLOT: TOTAL VOLUNTEER HOURS VS. OTHER BRANCHES.</div>
-       <div class="graph_1_outer" id="chartdiv2">Chart will load here</div>
-         <script type="text/javascript">
-                        var data_string2 = '';                        
-                                    $.ajax({
-                                            type: "POST",
-                                            url: '<?php echo $this->webroot;?>' + 'loghours/OrganizationChartData',
-                                            data: '',
-                                            success: function(data) {                                   
-                                                displaychart2(data);                                     
-                                            }
-                                    });
-                       function displaychart2(data_string2) {
-                                   if (GALLERY_RENDERER && GALLERY_RENDERER.search(/javascript|flash/i)==0)  FusionCharts.setCurrentRenderer(GALLERY_RENDERER); 
-                                   var chart2 = new FusionCharts("<?php echo $this->webroot;?>Charts/MSLine.swf", "ChartId", "560", "400", "0", "0");
-                                   chart2.setXMLData( data_string2 );		   
-                                   chart2.render("chartdiv2");                      
-                       }             
-		       </script>
+      <?php echo $this->element('org_linechart');?>
          <div class="graph_main_section">
             <div class="left_side">
               <div class="graph_text1">TRENDS & STATISTICS</div>
                     <div class="graph_2_outer"><img src="<?php echo $this->webroot;?>img/graph_2.png" alt="graph" width="100%" height="100%" /></div>
               <div class="graph_text2">AGE DISTRIBUTION</div>
-                           <div class="graph_3_outer" id="chartdiv">Chart will load here</div>
-                           <script type="text/javascript">
-                        var data_string = '';                        
-                                    $.ajax({
-                                            type: "POST",
-                                            url: '<?php echo $this->webroot;?>' + 'loghours/OrganizationAgeChartData',
-                                            data: '',
-                                            success: function(data) {                                   
-                                                displaychart(data);                                     
-                                            }
-                                    });
-                       function displaychart(data_string) {
-                                   if (GALLERY_RENDERER && GALLERY_RENDERER.search(/javascript|flash/i)==0)  FusionCharts.setCurrentRenderer(GALLERY_RENDERER); 
-                                   var chart = new FusionCharts("<?php echo $this->webroot;?>Charts/Column2D.swf", "ChartId", "325", "250", "0", "0");
-                                   chart.setXMLData( data_string );		   
-                                   chart.render("chartdiv");                      
-                       }             
-		       </script>
+                           <?php echo $this->element('org_barchart');?>
            </div>             
                <div class="right_side">
                  <div class="small_graph_text">Pageclicks from Advertisements</div>
@@ -290,47 +257,12 @@ else{
         </div>
     </div>
     <div class="graph_section">
-      <h1>ANALYTICS</h1>
-      <div class="graph_text">TIME PLOT: TOTAL VOLUNTEER HOURS VS. OTHER BRANCHES.</div>
-       <div class="graph_1_outer" id="chartdiv2">Chart will load here</div>
-       <script type="text/javascript">
-             var data_string2 = '';                        
-                         $.ajax({
-                                 type: "POST",
-                                 url: '<?php echo $this->webroot;?>' + 'loghours/volunteerChartData',
-                                 data: '',
-                                 success: function(data) {                                   
-                                     displaychart2(data);                                     
-                                 }
-                         });
-            function displaychart2(data_string2) {
-                        if (GALLERY_RENDERER && GALLERY_RENDERER.search(/javascript|flash/i)==0)  FusionCharts.setCurrentRenderer(GALLERY_RENDERER); 
-                        var chart2 = new FusionCharts("<?php echo $this->webroot;?>Charts/MSLine.swf", "ChartId", "560", "400", "0", "0");
-		        chart2.setXMLData( data_string2 );		   
-		        chart2.render("chartdiv2");                      
-            }           
-		</script>       
+      <h1>ANALYTICS</h1>    
+       <?php echo $this->element('vol_linechart');?>      
        <div class="clr"></div>
        <div class="mt50"></div>
-       <div class="graph_main_section" id="chartdiv">Chart will load here</div>
-       <script type="text/javascript">
-                        var data_string = '';                        
-                         $.ajax({
-                                 type: "POST",
-                                 url: '<?php echo $this->webroot;?>' + 'loghours/volunteerPieData',
-                                 data: '',
-                                 success: function(data) {                                   
-                                     displaychart1(data);                                     
-                                 }
-                         });
-                         function displaychart1(data_string) {
-                            if (GALLERY_RENDERER && GALLERY_RENDERER.search(/javascript|flash/i)==0)  FusionCharts.setCurrentRenderer(GALLERY_RENDERER); 
-                            var chart = new FusionCharts("<?php echo $this->webroot;?>Charts/Pie3D.swf", "ChartId", "560", "400", "0", "0");
-                            chart.setXMLData(data_string);		   
-                            chart.render('chartdiv');         
-                         }                          
-                     </script>
-            </div>   
+       <?php echo $this->element('vol_piechart');?>      
+       </div>   
     </div>          
          </div>
          <div class="wrapper_mid_border"></div>

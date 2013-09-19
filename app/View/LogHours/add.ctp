@@ -288,42 +288,11 @@ $().ready(function() {
           
           
           <div class="profile_top">                        
-               <div class="table_head_dark">
-                  <div class="t_col_1 right_border"><h6>CATEGORY</h6></div>
-                    <div class="t_col_2 right_border"><h6>TYPE </h6></div>
-                      <div class="t_col_3 right_border"><h6>VOLUNTEER</h6></div>
-                        <div class="t_col_4"><h6>HRS.</h6></div>
-                        
-                   </div>
-                     
-    <div class="table_head_light">
-                <div class="t_col_1 box_border"><span class="gray_text">Hospital</span></div>
-                  <div class="t_col_2 box_border"><span class="gray_text">Emergency</span></div>
-                    <div class="t_col_3 box_border"><span class="gray_text">Andrew </span></div>
-                      <div class="t_col_4 box_border"><span class="gray_text">7</span></div>
-                        
-                 </div> 
-     <div class="table_head_light">
-               <div class="t_col_1 box_border"><span class="gray_text">Hospital</span></div>
-                  <div class="t_col_2 box_border"><span class="gray_text">Emergency</span></div>
-                    <div class="t_col_3 box_border"><span class="gray_text">Andrew </span></div>
-                      <div class="t_col_4 box_border"><span class="gray_text">7</span></div>
-                        
-                 </div>   
-        <div class="table_head_light">
-               <div class="t_col_1 box_border"><span class="gray_text">Hospital</span></div>
-                  <div class="t_col_2 box_border"><span class="gray_text">Emergency </span></div>
-                    <div class="t_col_3 box_border"><span class="gray_text">Andrew </span></div>
-                      <div class="t_col_4 box_border"><span class="gray_text">7</span></div>
-                         
-                 </div>  
-       <div class="table_head_light">
-               <div class="t_col_1 box_border"><span class="gray_text">Hospital</span></div>
-                  <div class="t_col_2 box_border"><span class="gray_text">Emergency </span></div>
-                    <div class="t_col_3 box_border"><span class="gray_text">Andrew </span></div>
-                      <div class="t_col_4 box_border"><span class="gray_text">7</span></div>
-                         
-                 </div>                                                                                           
+               
+  
+    
+       
+                                                                                             
               
               
    
@@ -335,8 +304,7 @@ $().ready(function() {
                        
                        
              </div>
-             <div class="clr"></div>
-             <div class="mt50"></div>
+             
              <h1>SPONSORS</h1>
                <div class="sponser_outer">
                   <div class="sponser_inner"><h7> Sed ultricies volutpat tempor. Cras non lacus at enim venenatis hendrerit. Morbi lacus arcu, luctus sollicitudin molestie vulputate, sagittis eget quam. Praesent eget massa purus. Mauris fermentum ante quis mauris pretium, eu interdum metus fringilla. Curabitur lacinia vulputate tincidunt.</h7></div>

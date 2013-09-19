@@ -51,13 +51,13 @@
                         <?php echo $this->Form->input('confirm_password',
 						array('type'=>'password','div'=>false,'label'=>false,'maxlength'=>'15','class'=>'text_style'));?>
                     </div>
-                   <div class="signup_form">
+                   <!--<div class="signup_form">
                    	<div class="remeber">                   	
                      <input type="checkbox" id="c0" name="remeber" checked="checked" />
                      <label for="c0" class="checkbox-label"><span></span></label>
                      <label class="intern">Remember my password for 2 weeks</label>
                     </div> 
-                   </div> 
+                   </div> -->
                     <div class="clr"></div>
                     <div class="signup_form">
                     	<label name="name">ORGANIZATION TYPE:<br />
@@ -274,13 +274,13 @@ $().ready(function() {
                         <?php echo $this->Form->input('confirm_password',
 						array('type'=>'password','div'=>false,'label'=>false,'maxlength'=>'15','class'=>'text_style'));?>
                     </div>
-                   <div class="volunteer_signup_form">
+                  <!-- <div class="volunteer_signup_form">
                    	<div class="remeber">                   	
                      <input type="checkbox" id="c0" name="remeber" checked="checked" />
                      <label for="c0" class="checkbox-label"><span></span></label>
                      <label class="intern">Remember my password for 2 weeks</label>
                     </div> 
-                   </div> 
+                   </div> -->
                    <div class="clr"></div>
                    <div class="mt20"></div>
                    <div class="volunteer_signup_form">
