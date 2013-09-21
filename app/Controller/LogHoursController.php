@@ -12,18 +12,24 @@ class LogHoursController extends AppController {
          $this->loadModel('ServiceType');
          $this->loadModel('Category');
          if($this->request->is('post')){
-            
+          //  pr($this->request->data);die;
             $this->request->data['LogHour']['user_id'] = $this->Session->read('User.id');
-           // $this->request->data['LogHour']['status'] = 1;
-            $this->LogHour->save($this->request->data);
-            
-            //email code pending
+          
+            if($this->LogHour->save($this->request->data)){
+                $this->loadModel('LogHourImage');
+                $id = $this->LogHour->id;
+                foreach($this->request->data['LogHourImage']['id'] as $image_id){
+                    $data['LogHourImage']['id'] = $image_id;
+                    $data['LogHourImage']['log_hour_id'] = $id;
+                    $data['LogHourImage']['temp_session'] = '';
+                    $this->LogHourImage->save($data);
+                }
+            }                        
             $this->Session->setFlash('Log hours have been saved successfully');
-            $this->redirect('/');
-            
+            $this->redirect('/');            
             }else{
             $this->loadModel('User');
-            $conditions = array('role'=>'organizations');
+            $conditions = array('role'=>'organizations');            
             $this->set('organizations',$this->User->find('list',array('conditions'=>$conditions,'fields'=>array('id','organization_name'))));
             $this->request->data['LogHour']['full_name'] = $this->Session->read('User.first_name') . ' '. $this->Session->read('User.last_name');
             $this->request->data['LogHour']['email'] = $this->Session->read('User.email_id');
@@ -32,6 +38,41 @@ class LogHoursController extends AppController {
            
         $this->set('service_types',$this->ServiceType->find('all',array('order'=>'id','fields'=>array('id','name','picture_url'))));
         $this->set('categories',$this->Category->find('list',array('order'=>'id','fields'=>array('id','category_name'))));      
+    }
+    
+    public function add_images(){
+        $this->layout = '';
+        $upload_dir = WWW_ROOT.str_replace("/", DS, '/img/log_hours/');
+        $upload_path = $upload_dir.DS;
+        $i = 0;
+        $temp = array();       
+        $this->loadModel('LogHourImage');
+        $data = array();
+        foreach ($_FILES["images"]["error"] as $key => $error) {
+            if ($error == 0) {
+                $name = $_FILES["images"]["name"][$key];
+                $file_ext = substr($name, strrpos($name, ".") + 1);
+                $new_name = time()."_".$this->Session->read('User.id')."_$key.".$file_ext;
+                if(move_uploaded_file( $_FILES["images"]["tmp_name"][$key], $upload_path.$new_name)){
+                    if(isset($_REQUEST['caption_'.$key]))
+                    $caption = $_REQUEST['caption_'.$key];
+                    else $caption = '';
+                       
+                        $data['LogHourImage']['picture_url'] =  $new_name;
+                        $data['LogHourImage']['temp_session'] =  $this->Session->read('User.id');
+                        $data['LogHourImage']['caption'] =  $caption;
+                        if($this->LogHourImage->save($data)){
+                        $id = $this->LogHourImage->id;
+                        unset($this->LogHourImage->id);
+                        $temp[$i]['id'] = $id;
+                        $temp[$i]['image'] = $new_name;                       
+                        $i++;
+                        }
+                }
+            }
+        }
+        echo json_encode($temp);
+        $this->autoRender = false;        
     }
 
 

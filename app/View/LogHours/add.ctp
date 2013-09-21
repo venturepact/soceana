@@ -3,7 +3,10 @@
     ul label.error{left: -175px;position: absolute;top: 406px;width: 500px;}
     .vol_table .signup_form ul{position: relative;}
     #flashMessage{color: #FF0000;float: left;margin: 20px 0 0 236px;}
-    </style>
+    .form_input{margin:10px;}
+    .form_input label{float: left; width: 111px;}
+    #response{color: #FF0000;margin:0 0 6px -31px;;text-align: center;}
+</style>
 <link type="text/css" href="<?php echo $this->webroot;?>js/datepicker/jquery.datepick.css" rel="stylesheet">
 <?php echo $this->Html->script('jquery.validate');?>
 <?php echo $this->Html->script('datepicker/jquery.datepick');?>
@@ -48,7 +51,7 @@ $(function() {
        <div class="vol_table">                        
            
          <div class="section">
-            <?php echo $this->Form->create('LogHour',array('id'=>'add_loghour'));?>
+            <?php echo $this->Form->create('LogHour',array('id'=>'add_loghour','enctype'=>"multipart/form-data"));?>
                <div class="signup_form">
                  <label name="name">Organization Name</label>
                  <?php echo $this->Form->input('organization',array(
@@ -112,7 +115,7 @@ $(function() {
 							       'options' => $categories,
 							       'empty' => 'Select Category',
 							       'default' => 'empty',	
-								   'class'=>'text_style'						       
+							       'class'=>'text_style'						       
 		 ));?>
                </div>
                
@@ -165,19 +168,47 @@ $(function() {
                    <span>(choose only one)</span></label>
                  <ul>
                    <li class="first">
-                     <span><img src="<?php echo $this->webroot;?>img/hands.png" /></span>
+                     <span id='image_1'><img src="<?php echo $this->webroot;?>img/add.png" /></span>
                      </li>
-                   <li><span><img src="<?php echo $this->webroot;?>img/add.png" /></span>
+                   <li><span id='image_2'><img src="<?php echo $this->webroot;?>img/add.png" /></span>
                      </li>
-                   <li><span><img src="<?php echo $this->webroot;?>img/add.png" /></span>
+                   <li><span id='image_3'><img src="<?php echo $this->webroot;?>img/add.png" /></span>
                      </li>
                    </ul>
                  </div>
                <div class="clr"></div>
+	       <div id='response'></div><div id='response2'></div>
+	       <div style='background-color: #e7e7e7;' id='upl_pics'>
+		<h3 style='font-size: 27px;font-weight: 400;margin: 13px;'>Upload Photos</h3>
+		<div class='form_input'>
+			<label>File</label>
+			<input type="file" name="images" id="images" />
+		</div><div class='form_input'>
+			<label>Caption</label>
+			<input type="text" name="caption" id="img_caption_0" class="capti" />
+		</div>
+		<div class='form_input'>
+			<label>File</label>
+			<input type="file" name="images" id="images1" />
+		</div><div class='form_input'>
+			<label>Caption</label>
+			<input type="text" name="caption" id="img_caption_1" class="capti" />
+		</div>
+		<div class='form_input'>
+			<label>File</label>
+			  <input type="file" name="images" id="images2" />
+		</div><div class='form_input'>
+			<label>Caption</label>
+			<input type="type" name="caption" id="img_caption_2" class="capti" />
+		</div>
+		<div class='form_input'><input type="button" id="btn" value="Upload Files"></div>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+	       </div>
                
                
                <div class="contact_form">
-                 <div class="submit_button">
+                 <div class="submit_button">		  
                    <input type="submit" class="submit_button3 cursor_grid" value='' />
                    <div class="clr"></div>
                    or <a href="#">Cancel</a>
@@ -351,4 +382,70 @@ OF PHILADELPHIA
                
          <div class="clr"></div>
                
-        </div>     
+        </div>
+<script>
+(function () {
+	var input = [document.getElementById("images"),document.getElementById("images1"),document.getElementById("images2")],formdata = false,imgcount = 0, caption = '' ;
+
+	if (window.FormData) {
+  		formdata = new FormData();  		
+	}
+	
+ 	
+	
+	$('#btn').click(function(){
+		$('#response').text('Uploading . . .'); 		
+		
+		var leng=input.length;
+		
+		for(l=0;l<leng;l++){
+			
+			var i = 0, len = input[l].files.length, img, reader, file;   		   
+			for ( ; i < len; i++ ) {
+				
+				file = input[l].files[i];
+		       if(file.name != ''){
+					if (!!file.type.match(/image.*/)) {
+						
+						if (formdata) {
+							formdata.append("images[]", file);
+							imgcount++;
+						}
+					}
+			   }
+			}
+		  caption = $('#img_caption_'+l).val();
+		  formdata.append('caption_' + l,caption);
+		}
+		
+	
+		
+	
+		if (imgcount > 0) {
+			$.ajax({
+				url: <?php echo $this->webroot;?> + "loghours/add_images",
+				type: "POST",
+				data: formdata,
+				processData: false,
+				contentType: false,
+				success: function (res) {
+					//
+					var obj = jQuery.parseJSON(res);	
+					for(var i =0; i<obj.length;i++){
+					var url = <?php echo $this->webroot;?> + 'img/log_hours/' + obj[i].image;
+					$('#image_'+ (i + 1)).html("<img src='" + url + "' width='100' height='100'>");
+					$('#response2').append("<input type='hidden' name='data[LogHourImage][id][]' value='" +  obj[i].id + "'>");
+					$('#upl_pics').remove();
+					$('#response').text('Images successfully uploaded');
+					}				
+				}
+			});
+		}
+		else{
+			$('#response').text('No Images to upload');
+		}
+	});
+	
+}());
+
+</script>
