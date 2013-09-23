@@ -460,7 +460,7 @@ input{ width:200px;height:25px;background-color:#EBF6FC; border:none; margin-lef
 .contact_form label{color: #333333;float: left;text-align: right;text-transform: uppercase;width: 175px;margin-right:15px;font-size:15px;}
 .contact_form label span{color: #333333;float: left;text-align: right;text-transform: capitalize;margin-right:15px;font-size:11px;width: 175px;}
 .contact_form input[type="text"],.contact_form input[type="password"]{width:350px;background-color: #EBF6FC; border: solid #999 1px; border-radius:3px; height: 25px;margin:0px;}
-.contact_form textarea{width:350px;background-color: #EBF6FC; border: solid #999 1px; height: 150px;border-radius:3px;}
+.contact_form textarea{width:350px;background-color: #EBF6FC; border: solid #999 1px; height: 150px;border-radius:3px;font-size:13px;}
 .save_button{background: url("../img/send.png") no-repeat scroll 0 0 transparent; border-radius: 4px; height: 40px; margin-bottom: 10px; margin-left: 100px; margin-top: 10px; width: 160px;}
 .save_active{background: url("../img/send_hover.png") no-repeat scroll 0 0 transparent;}
 .orange_text span{background:url("../img/orange_arrow.png") no-repeat scroll -3px ;width:20px;height:20px;display:block;float:left;}

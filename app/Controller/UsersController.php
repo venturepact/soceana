@@ -22,7 +22,7 @@ class UsersController extends AppController{
     public function login(){        
         $this->layout = 'login';
         $this->set('title_for_layout','Soceana - User Login');
-        if($this->request->is('post')){            
+        if($this->request->is('post')){           
             if($this->Auth->login()){
                 // allowing specific user type from specific form
                 if($this->request->data['User']['role'] != $this->Auth->user('role'))
@@ -38,6 +38,20 @@ class UsersController extends AppController{
                 }
                 else
                 {
+                    if ($this->request->data['User']['rememberMe'] == 1) {
+                    // After what time frame should the cookie expire
+                    $cookieTime = "14 days"; // You can do e.g: 1 week, 17 weeks, 14 days
+ 
+                    // remove "remember me checkbox"
+                    unset($this->request->data['User']['rememberMe']);
+                 
+                    // hash the user's password
+                    $this->request->data['User']['password'] = $this->Auth->password($this->request->data['User']['password']);
+                 
+                    // write the cookie
+                    $this->Cookie->write('rememberMe', $this->request->data['User'], true, $cookieTime);
+                    }
+                    
                     $this->Session->write('User',$this->Auth->user());                
                     $this->redirect(array('controller'=>'pages','action'=>'display'));
                     //$this->redirect('/');
@@ -56,6 +70,7 @@ class UsersController extends AppController{
     public function logout(){
         $this->Session->delete('User');
         $this->Session->delete('page_limit');
+        $this->Cookie->delete('rememberMe');
         $this->Auth->logout();
         $this->redirect(array('controller'=>'users','action'=>'login'));
     }   
@@ -468,7 +483,13 @@ class UsersController extends AppController{
         $this->set('skillset_results',$this->paginate());
         $this->set('skill_sets',$this->SkillSet->find('all',array('order'=>'id','fields'=>array('id','name','picture_url'))));
     }
-    
-    
+	
+	function gallery_images(){
+	$this->layout = '';
+	$images = $this->User->query('SELECT images.picture_url FROM log_hour_images AS images, log_hours AS lh WHERE lh.id = images.log_hour_id AND lh.user_id = '. $this->Session->read('User.id').' AND lh.status = 1 ORDER BY rand() LIMIT 5 ');
+	return $images;
+	$this->autoRender = false;
+	}
+	    
 }
 ?>

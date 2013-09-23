@@ -12,7 +12,7 @@ class LogHoursController extends AppController {
          $this->loadModel('ServiceType');
          $this->loadModel('Category');
          if($this->request->is('post')){
-          //  pr($this->request->data);die;
+           // pr($this->request->data);die;
             $this->request->data['LogHour']['user_id'] = $this->Session->read('User.id');
           
             if($this->LogHour->save($this->request->data)){
@@ -28,9 +28,23 @@ class LogHoursController extends AppController {
             $this->Session->setFlash('Log hours have been saved successfully');
             $this->redirect('/');            
             }else{
-            $this->loadModel('User');
+			$this->loadModel('User');
+			$this->loadModel('LogHourImage');
             $conditions = array('role'=>'organizations');            
             $this->set('organizations',$this->User->find('list',array('conditions'=>$conditions,'fields'=>array('id','organization_name'))));
+			
+			//getting temporary images and removing temp images and their database record
+			$temp_images = $this->LogHourImage->find('all',array(
+														'conditions' => array('temp_session'=> $this->Session->read('User.id')),
+														'fields'=> array('id','picture_url')
+													 ));
+			if(sizeof($temp_images) > 0){
+				foreach($temp_images as $log_image){				
+					$this->_remove_images($log_image['LogHourImage']['picture_url']);
+					$this->LogHourImage->delete($log_image['LogHourImage']['id']);
+				}
+			}
+														
             $this->request->data['LogHour']['full_name'] = $this->Session->read('User.first_name') . ' '. $this->Session->read('User.last_name');
             $this->request->data['LogHour']['email'] = $this->Session->read('User.email_id');
             $this->request->data['LogHour']['location'] = $this->Session->read('User.location');
@@ -39,6 +53,13 @@ class LogHoursController extends AppController {
         $this->set('service_types',$this->ServiceType->find('all',array('order'=>'id','fields'=>array('id','name','picture_url'))));
         $this->set('categories',$this->Category->find('list',array('order'=>'id','fields'=>array('id','category_name'))));      
     }
+	
+	public function _remove_images($image_name){
+		$upload_dir = WWW_ROOT.str_replace("/", DS, '/img/log_hours/');
+        $upload_path = $upload_dir.DS.$image_name;
+		unlink($upload_path);
+		return true;	
+	}
     
     public function add_images(){
         $this->layout = '';
@@ -54,6 +75,7 @@ class LogHoursController extends AppController {
                 $file_ext = substr($name, strrpos($name, ".") + 1);
                 $new_name = time()."_".$this->Session->read('User.id')."_$key.".$file_ext;
                 if(move_uploaded_file( $_FILES["images"]["tmp_name"][$key], $upload_path.$new_name)){
+					chmod ($upload_path.$new_name , 0777);
                     if(isset($_REQUEST['caption_'.$key]))
                     $caption = $_REQUEST['caption_'.$key];
                     else $caption = '';
@@ -420,6 +442,15 @@ class LogHoursController extends AppController {
         $this->request->data['LogHour']['status'] = $record['LogHour']['status'];
         
         $this->loadModel('ServiceType');
+		
+		$this->loadModel('LogHourImage');
+		
+		//getting temporary images and removing temp images and their database record
+		$this->set('log_images', $this->LogHourImage->find('all',array(
+														'conditions' => array('log_hour_id'=> $id),
+														'fields'=> array('picture_url')
+													 )));
+			
         $this->set('service_types',$this->ServiceType->find('all',array('order'=>'id','fields'=>array('id','name','picture_url'))));        
         
     }

@@ -33,12 +33,34 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
     
-    public $components = array('Session','Auth');    
+    public $components = array('Session','Auth','Cookie');    
    
     
     public function beforeFilter(){
+        
+        // new code
+        $this->Cookie->httpOnly = true;       
+        
         $this->Auth->authenticate = array('Form'=> array('fields' => array('username' => 'email_id')));     
         $this->Auth->allow('index','view');
         $this->Auth->authError = " ";
+        
+        if (!$this->Auth->loggedIn() && $this->Cookie->read('rememberMe')) {
+                
+                $cookie = $this->Cookie->read('rememberMe');
+    
+                $this->loadModel('User'); // If the User model is not loaded already
+                
+                $user = $this->User->find('first', array(
+                       'conditions' => array(
+                           'User.username' => $cookie['username'],
+                           'User.password' => $cookie['password']
+                       )
+                ));
+        
+            if ($user && !$this->Auth->login($user['User'])) {
+                   $this->redirect('/users/logout'); // destroy session & cookie
+            }
+        }
     }  
 }

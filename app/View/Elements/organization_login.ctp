@@ -9,10 +9,17 @@
                     <input type="button" name="login" value="" class="sign_up cursor_grid" onclick="document.location.href='<?php echo $this->webroot;?>users/add/organizations';" />
                 </div>
                 <div class="clr"></div>
-                <div class="remember">
+                <!--<div class="remember">
                      <input type="checkbox" id="c3" name="remeber" checked="checked" />
                      <label for="c3" class="checkbox-label"><span></span></label>
                      <label class="intern">Remember my password</label>
+                    <a href="javascript:void(0);" class="forget_password pop">Forget Password?</a>
+                </div>-->
+		<div class="remember">
+		     <input type="hidden" value="0" id="UserRememberMe_" name="data[User][rememberMe]">
+                     <input type="checkbox" id="c3" value="1" name="data[User][rememberMe]" />
+                     <label for="c3" class="checkbox-label"><span></span></label>
+                     <label class="intern">Remember me</label>
                     <a href="javascript:void(0);" class="forget_password pop">Forget Password?</a>
                 </div>
                 <div class="mb10">&nbsp;</div>

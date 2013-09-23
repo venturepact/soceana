@@ -433,7 +433,7 @@ OF PHILADELPHIA
 					var obj = jQuery.parseJSON(res);	
 					for(var i =0; i<obj.length;i++){
 					var url = <?php echo $this->webroot;?> + 'img/log_hours/' + obj[i].image;
-					$('#image_'+ (i + 1)).html("<img src='" + url + "' width='100' height='100'>");
+					$('#image_'+ (i + 1)).html("<img src='" + url + "' width='90' height='90'>");
 					$('#response2').append("<input type='hidden' name='data[LogHourImage][id][]' value='" +  obj[i].id + "'>");
 					$('#upl_pics').remove();
 					$('#response').text('Images successfully uploaded');

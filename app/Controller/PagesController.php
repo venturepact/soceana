@@ -104,27 +104,61 @@ class PagesController extends AppController {
 	
 	/* @ function for vision page */
 	public function vision(){
-	     $this->layout = 'default2';
+	    if($this->Session->read('User.role') != '')$this->layout = 'default';
+		else $this->layout = 'default2';
 	}
 	
 	/* @ function for management page */
 	public function management(){
-	     $this->layout = 'default2';
+	    if($this->Session->read('User.role') != '')$this->layout = 'default';
+		else $this->layout = 'default2';
 	}
 	
 	/* @ function for faq page */
 	public function faq(){
-	     $this->layout = 'default2';
+	     if($this->Session->read('User.role') != '')$this->layout = 'default';
+		else $this->layout = 'default2';
 	}
 	
 	/* @ function for contact page */
 	public function contact(){
-	    $this->layout = 'default2';
+	     if($this->Session->read('User.role') != '')$this->layout = 'default';
+		else $this->layout = 'default2';
+		 if($this->request->is('post') || $this->request->is('put')){
+			  $name = $this->request->data['Contact']['name'];
+			  $email_id = $this->request->data['Contact']['email_id'];
+			  $company = $this->request->data['Contact']['company'];
+			  $message = $this->request->data['Contact']['message'];
+			 
+			  $details = '<div style="float:left;background:#e7e7e7;min-height:200px;width:800px;font-family:Verdana, Geneva, sans-serif"><p>&nbsp;</p><div style="margin:0px 10px"><p>Details of New Enquiry recieved from Soceana</p><p>Name : '.$name.'</p><p>E-Mail: '.$email_id.'</p><p>Company: '.$company.'</p><p>Message : '.$message.'</p></div><p style="margin:15px 10px">&nbsp;</p><p>&nbsp;</p><div style="margin:0px 10px">Thanks,<br /><h2 style="margin:0px">Soceana</h2>Generating Social Good</div><p>&nbsp;</p></div>';
+                
+              $subject = 'Soceana - New Enquiry recieved from '.$name;
+              
+			  $to = 'inderjit.singh@venturepact.com';
+			  				
+              $this->_sendMail($email_id,$to,$subject,$details);
+			  
+			  $this->Session->setFlash('Your Enquiry has been successfully recieved.We will reach you shortly.');
+			  
+			  unset($this->request->data);
+		 }
 	}
+	
+	 /* @ function for sending Email */
+    function _sendMail( $from , $to , $subject , $message ){
+        App::uses('CakeEmail', 'Network/Email');        
+        $email = new CakeEmail('gmail');
+        $email->from($from);
+        $email->to($to);
+        $email->subject($subject);
+        $email->emailFormat('both');
+        $email->send($message);
+    }
 	
 	/* @ function for aboutus page */
 	public function about(){
-	    $this->layout = 'default2';
+	    if($this->Session->read('User.role') != '')$this->layout = 'default';
+		else $this->layout = 'default2';
 	}
 	
 	public function messages(){

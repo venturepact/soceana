@@ -9,13 +9,21 @@
                     	    <input type="button" name="signup" value="" class="sign_up cursor_grid" onclick="document.location.href='<?php echo $this->webroot;?>users/add/user';" />
                 		</div>
                 		<div class="clr"></div>
-                        <div class="remember">
+                        <!--<div class="remember">
                 			 <input type="checkbox" id="c2" name="remeber" checked="checked" />
                              <label for="c2" class="checkbox-label"><span></span></label>
                              <label class="intern">Remember my password</label>                             
                     		<a href="javascript:void(0);" class="forget_password pop">Forget Password?</a>
+                        </div>-->
+                        <div class="remember">
+                             <input type="hidden" value="0" id="UserRememberMe_" name="data[User][rememberMe]">
+                	     <input type="checkbox" id="c2" value="1" name="data[User][rememberMe]">
+                             <label class="checkbox-label" for="c2"><span></span></label>
+                             <label class="intern">Remember me</label>                             
+                    		<a class="forget_password pop" href="javascript:void(0);">Forget Password?</a>
                         </div>
                         <div class="clr"></div>
+                        <?php //echo $this->Form->input('rememberMe', array('type' => 'checkbox', 'label' => 'Remember me')); ?>
 <?php echo $this->Form->end();?>
 <script>
 $().ready(function() {

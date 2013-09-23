@@ -130,13 +130,35 @@ $(function() {
                     	<label name="name" class="label_size">PHOTOS:
                        </label>
                         <ul>
+                      <?php
+					    
+					    if(sizeof($log_images) > 0){
+							$j = 0;						
+							foreach($log_images as $log_image){			
+								?>
+                                <li <?php if($j==0)echo 'class="first"';?>><span><img src="<?php echo $this->webroot;?>img/log_hours/<?php echo $log_image['LogHourImage']['picture_url'];?>" width="90" height="90" /></span>
+                            </li>
+                                <?php	
+								$j++;							
+							}	
+							$extra = 3 - sizeof($log_images);
+							for($i=1;$i<=$extra;$i++){
+								?>
+                                 <li><span><img src="<?php echo $this->webroot;?>img/add.png" /></span>
+                                <?php								
+							}
+						}else{
+							?>
                         	<li class="first">
-                            	<span><img src="<?php echo $this->webroot;?>img/hands.png" /></span>
+                            	<span><img src="<?php echo $this->webroot;?>img/add.png" /></span>
                             </li>
                             <li><span><img src="<?php echo $this->webroot;?>img/add.png" /></span>
                             </li>
                             <li><span><img src="<?php echo $this->webroot;?>img/add.png" /></span>
                             </li>
+                            <?php
+						}
+						?>
                         </ul>
                     </div>
                     <div class="clr"></div>
