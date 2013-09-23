@@ -587,9 +587,9 @@ input{ width:200px;height:25px;background-color:#EBF6FC; border:none; margin-lef
 {
     float: left;
     list-style: none outside none;
-    margin-left: 15px;
+    margin-left: 10px;
     margin-top: 10px;
-    width: 90px;
+    width: 95px;
 }
 .vol_table .signup_form_blue ul li input[type="checkbox"] 
 {
