@@ -1,5 +1,5 @@
- <?php
- App::uses('Component', 'Controller');
+<?php
+App::uses('Component', 'Controller');
 class JqImgcropComponent extends Component {
 
     function uploadImage($uploadedInfo, $uploadTo, $imageName){
@@ -113,4 +113,4 @@ $ext = strtolower(substr(basename($image), strrpos(basename($image), ".") + 1));
    
     
 }
-?> 
+?>

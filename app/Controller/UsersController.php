@@ -51,8 +51,12 @@ class UsersController extends AppController{
                     // write the cookie
                     $this->Cookie->write('rememberMe', $this->request->data['User'], true, $cookieTime);
                     }
-                    
-                    $this->Session->write('User',$this->Auth->user());                
+                   
+                    $this->Session->write('User',$this->Auth->user());  
+					$data['User']['id'] = $this->Session->read('User.id');
+					$data['User']['last_login'] = date('Y-m-d H:i:s') ;
+					$this->User->save($data); 
+					    
                     $this->redirect(array('controller'=>'pages','action'=>'display'));
                     //$this->redirect('/');
                 }

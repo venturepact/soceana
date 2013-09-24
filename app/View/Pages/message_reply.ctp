@@ -1,10 +1,18 @@
 <?php
+function get_hours($time1,$time2){
+	$hourdiff = round((strtotime($time1) - strtotime($time2))/3600, 1);
+	return $hourdiff;		
+}
 foreach($mess as $mes)
 {
 ?>
 <!--Single Client Outer-->
         <div class="client_outer">
-        <div class="status_sign"><img src="<?php echo $this->webroot;?>img/active.png" alt="" /></div>
+        <div class="status_sign"><?php 
+		   if(($mes['User']['last_login'] != '0000-00-00 00:00:00') && get_hours(date('Y-m-d H:i:s'),$mes['User']['last_login']) < 24)
+		   echo '<img src="'.$this->webroot.'img/active.png" alt="" />';
+		   else echo '<img src="'.$this->webroot.'img/busy.png" alt="" />';
+		   ?>   </div>
         <div class="client_img_outer_f"><img src="<?php echo $this->webroot;?>img/client_img_outer_b.png" alt="" /></div>
         <div class="client_img_outer">
             <?php

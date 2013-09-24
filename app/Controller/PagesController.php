@@ -46,11 +46,32 @@ class PagesController extends AppController {
 		else $limit = 5;
 		
 		if($this->Session->read('User.role') == 'organizations'){
-			$this->set('loghours',$this->_organizationGridData($limit));	
+			$this->set('loghours',$this->_organizationGridData($limit));
+			
+			$this->loadModel('LogHour');
+			//$this->LogHour->recursive = -1;
+			$this->set('total_hours',$this->LogHour->find('first',array(
+											     'conditions'=>array(
+												 				'organization'=>$this->Session->read('User.id'),
+																'LogHour.status' => 1
+																),
+												 'fields'=>array('sum(hours) as total_hours')
+			)));
+				
 		}
 		else{
 			$this->set('loghours',$this->_volunteerGridData($limit));	
+			$this->loadModel('LogHour');
+			//$this->LogHour->recursive = -1;
+			$this->set('total_hours',$this->LogHour->find('first',array(
+											     'conditions'=>array(
+												 				'user_id'=>$this->Session->read('User.id'),
+																'LogHour.status' => 1
+																),
+												 'fields'=>array('sum(hours) as total_hours')
+			)));
 		}
+		
 		//pr($this->_messages());die;
 		//$this->set('messages',$this->_messages());
 		
@@ -164,31 +185,9 @@ class PagesController extends AppController {
 	public function messages(){
 		$this->layout = 'ajax';
 		
-		$this->loadModel('Message');
+		$this->loadModel('Message');		
 		
-		/*$this->Message->bindModel(
-			array('belongsTo' => array(					
-					'User'        =>  array('className' => 'User',
-								'joinTable' => 'users',
-								'foreignKey' => 'message_from',
-								'fields'=>array('first_name','last_name','thumb_image'),
-								)
-				)
-			),false
-		);
-		
-		$conditions = array('message_to'=>$this->Session->read('User.id'),
-				    'Message.id'=>'MAX(Message.id)'
-				    );
-		
-		
-		$records = $this->Message->find('all',array('conditions'=>$conditions,							    
-							    'order'=>'Message.id DESC',
-							    'Message.id'=>
-							    'group'=>'reference_id'));
-		*/
-		
-		$records = $this->Message->query('SELECT Message.* , User.first_name, User.last_name,User.thumb_image FROM messages AS Message, users User WHERE Message.id IN ( SELECT max( id ) FROM messages WHERE message_to ='.$this->Session->read('User.id').' GROUP BY reference_id ) AND Message.message_from = User.id and Message.from_deleted = 0 order by Message.id desc');
+		$records = $this->Message->query('SELECT Message.* , User.first_name, User.last_name,User.thumb_image,User.last_login FROM messages AS Message, users User WHERE Message.id IN ( SELECT max( id ) FROM messages WHERE message_to ='.$this->Session->read('User.id').' GROUP BY reference_id ) AND Message.message_from = User.id and Message.from_deleted = 0 order by Message.id desc');
 
 		$this->set('messages',$records);		
 	}
@@ -230,7 +229,7 @@ class PagesController extends AppController {
 		
 		$this->Message->bindModel(
 			array('belongsTo' => array(					
-					'User'        =>  array('className' => 'User','joinTable' => 'users','foreignKey' => 'message_from','fields'=>array('first_name','last_name','thumb_image'))
+					'User'        =>  array('className' => 'User','joinTable' => 'users','foreignKey' => 'message_from','fields'=>array('first_name','last_name','thumb_image','last_login'))
 				)
 			),false
 		);	

@@ -3,11 +3,27 @@
 <script type="text/javascript" src="<?php echo $this->webroot;?>assets/ui/js/json2.js"></script>
 <script type="text/javascript" src="<?php echo $this->webroot;?>assets/ui/js/lib.js" ></script>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>  
+ <?php
+			function get_info($hours){
+				$minutes = $hours * 60;
+				//
+				// Assuming that your minutes value is $minutes
+				//
+				$temp['days'] = floor ($minutes / 1440);
+				$temp['hours'] = floor (($minutes - $temp['days'] * 1440) / 60);
+				$temp['minutes'] = $minutes - ($temp['days'] * 1440) - ($temp['hours'] * 60);
+				//
+				// Then you can output it like so...
+				//
+				//echo "{$minutes} min converts to {$d}d {$h}h {$m}m";
+				return $temp;
+			}			
+			?>
 <?php
 /* @ check if the role of current logged in user is organzation or normal volunteer
  *  @ set dashboard accordingly
  */
-if($this->Session->read('User.role') == 'organizations') {
+if($this->Session->read('User.role') == 'organizations') {	
 ?>
 <div class="top_heading">
    <h1>ANALYTICS DASHBOARD</h1>
@@ -120,8 +136,12 @@ if($this->Session->read('User.role') == 'organizations') {
           <div class="wrapper_mid_border"></div>              
      <div class="wrapper_right_section">
         <div class="time_outer">
-            <div class="top_section"><h4>TOTAL HOURS VOLUNTEERED</h4></div>
-              <div class="mid_section"><span class="large_font">115:21:24</span></div>
+            <div class="top_section"><h4>TOTAL HOURS VOLUNTEERED</h4></div>           
+              <div class="mid_section"><span class="large_font"><?php if($total_hours[0]['total_hours']!=NULL){
+				$info = get_info($total_hours[0]['total_hours']);
+				echo $info['days'].':'.$info['hours'].':'.$info['minutes'];
+			}
+			else echo '0:0:0';?></span></div>
                  <div class="fields">
                     <div class="small_font_time"><span >DAYS</span><span class="space1"> HOURS</span> MINUTES</div>
                      </div>                      
@@ -269,7 +289,11 @@ else{
          <div class="wrapper_right_section">
         <div class="time_outer2">
             <div class="top_section"><h4>TOTAL HOURS VOLUNTEERED</h4></div>
-              <div class="mid_section"><span class="large_font">115:21:24</span></div>
+              <div class="mid_section"><span class="large_font"><?php if($total_hours[0]['total_hours']!=NULL){
+				$info = get_info($total_hours[0]['total_hours']);
+				echo $info['days'].':'.$info['hours'].':'.$info['minutes'];
+			}
+			else echo '0:0:0';?></span></div>
                  <div class="fields">
                     <div class="small_font_time"><span >DAYS</span><span class="space1"> HOURS</span> MINUTES</div>
                      </div>                      
