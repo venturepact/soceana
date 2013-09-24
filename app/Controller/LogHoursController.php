@@ -18,12 +18,14 @@ class LogHoursController extends AppController {
             if($this->LogHour->save($this->request->data)){
                 $this->loadModel('LogHourImage');
                 $id = $this->LogHour->id;
+				if(isset($this->request->data['LogHourImage']['id'])){
                 foreach($this->request->data['LogHourImage']['id'] as $image_id){
                     $data['LogHourImage']['id'] = $image_id;
                     $data['LogHourImage']['log_hour_id'] = $id;
                     $data['LogHourImage']['temp_session'] = '';
                     $this->LogHourImage->save($data);
-                }
+                	}
+				}
             }                        
             $this->Session->setFlash('Log hours have been saved successfully');
             $this->redirect('/');            

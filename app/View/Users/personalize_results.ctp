@@ -90,7 +90,7 @@ $().ready(function() {
 </script>
                 
                <div class="result_section">
-                 <h1>RESULT</h1>
+                 <h1>RESULTS</h1>
                  <?php
 				 //pr($skillset_results);
 				 foreach($skillset_results as $sk_result){

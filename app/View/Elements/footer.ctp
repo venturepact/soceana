@@ -4,12 +4,13 @@
                 <div class="footer_block_heading">SOCEANA <br />
                 <span>GENERATING SOCIAL GOOD</span></div>
                 <ul class="footer_nav">
-                    <li ><a href="<?php echo $this->webroot;?>" class="active">Home</a></li>
-                    <li><a href="<?php echo $this->webroot;?>pages/about">About Us</a></li>
-                    <li><a href="<?php echo $this->webroot;?>pages/faq">Faq's</a></li>
-                    <li><a href="<?php echo $this->webroot;?>pages/vision">Vision</a></li>
+                    <li><a href="<?php echo $this->webroot;?>pages/about">About</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="<?php echo $this->webroot;?>pages/faq">FAQ</a></li>
+                    <li><a href="<?php echo $this->webroot;?>pages/vision">Vision / Tenets</a></li>
                     <li><a href="<?php echo $this->webroot;?>pages/management">Management</a></li>
-		    <li><a href="<?php echo $this->webroot;?>pages/contact">Contact Us</a></li>
+                    <li><a href="#">Jobs</a></li>
+   		            <li><a href="<?php echo $this->webroot;?>pages/contact">Contact Us</a></li>
                 </ul>
             </div>
     
