@@ -423,7 +423,7 @@ OF PHILADELPHIA
 	
 		if (imgcount > 0) {
 			$.ajax({
-				url: <?php echo $this->webroot;?> + "loghours/add_images",
+				url: '<?php echo $this->webroot;?>' + "loghours/add_images",
 				type: "POST",
 				data: formdata,
 				processData: false,
@@ -432,7 +432,7 @@ OF PHILADELPHIA
 					//
 					var obj = jQuery.parseJSON(res);	
 					for(var i =0; i<obj.length;i++){
-					var url = <?php echo $this->webroot;?> + 'img/log_hours/' + obj[i].image;
+					var url = '<?php echo $this->webroot;?>' + 'img/log_hours/' + obj[i].image;
 					$('#image_'+ (i + 1)).html("<img src='" + url + "' width='90' height='90'>");
 					$('#response2').append("<input type='hidden' name='data[LogHourImage][id][]' value='" +  obj[i].id + "'>");
 					$('#upl_pics').remove();
