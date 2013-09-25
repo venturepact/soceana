@@ -179,6 +179,25 @@ $(function() {
         
 	</div></div>
     <?php echo $this->element('footer');?>
+    <script type="text/javascript">
+   var _usersnapconfig = {
+       apiKey: '6365b0be-a9d7-4f13-a288-c7ec7afe03fd',
+       valign: 'bottom',
+       halign: 'right',
+       tools: ["pen", "highlight", "note"],
+       lang: 'en',
+       commentBox: true,
+       emailBox: true
+   }; 
+   (function() {
+       var s = document.createElement('script');
+       s.type = 'text/javascript';
+       s.async = true;
+       s.src = '//api.usersnap.com/usersnap.js';
+       var x = document.getElementsByTagName('head')[0];
+       x.appendChild(s);
+   })();
+</script>
 </body>
 </html>
 <?php print $this->Session->flash("flash", array("element" => "alert"));?>

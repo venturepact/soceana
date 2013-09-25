@@ -1,3 +1,38 @@
+/*fonts*/
+
+@font-face {
+	font-family: 'futura';
+	src: url('../fonts/futura.ttf');
+	src: local('?'), url('../fonts/futura.woff') format('woff'),url('../fonts/futura.eot') format('truetype'), url('../fonts/futura.ttf') format('truetype'), url('../fonts/futura.ttf') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'futura';
+	src: url('../fonts/futura.eot');
+	src: local('â˜º'), url('../fonts/futura.eot') format('woff'), url('../fonts/futura.eot') format('truetype'), url('../fonts/futura.ttf') format('ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Futura_LT_Book';
+	src: url('../fonts/Futura_LT_Book.ttf');
+	src: local('?'), url('../fonts/Futura_LT_Book.woff') format('woff'), url('../fonts/Futura_LT_Book.ttf') format('truetype'), url('../fonts/Futura_LT_Book.ttf') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Futura_LT_Book';
+	src: url('../fonts/Futura_LT_Book.eot');
+	src: local('â˜º'), url('../fonts/Futura_LT_Book.eot') format('woff'), url('../fonts/Futura_LT_Book.eot') format('truetype'), url('../fonts/Futura_LT_Book.eot') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
 *{ margin:0; padding:0px; }
 body {
 	font-family: Arial, Helvetica, sans-serif;
@@ -76,12 +111,12 @@ font-size:1.5em; color:#efefef; line-height:100%;   }
 .box_border_right{ border:1px solid #d7d7d7; border-top:none;}
 .box_border_right1{ border:1px solid #d7d7d7; border-top:none; border-right:none;}
 .gray_text{width:100%;
-	font-family: 'FuturaLT', Sans-Serif;
+	font-family: 'Futura', Sans-Serif;
 	font-size: 0.8em;
 	 color:#858585; font-weight:normal;
 	 }
 .gray_text1{ float:left; width:75%; margin-top:10px;margin-bottom:5px;
-	font-family: 'FuturaLT', Sans-Serif;
+	font-family: 'Futura', Sans-Serif;
 	font-size: 1em;
 	 color:#858585;
 	 
@@ -106,21 +141,21 @@ font-size:1.5em; color:#efefef; line-height:100%;   }
 
 .graph_section{ float:left; width:97%; margin-left:10px; margin-top:20px;}
 .graph_text{ width:98%;
-	font-family: 'FuturaLT', Sans-Serif;
+	font-family: 'Futura', Sans-Serif;
 	font-size: 16px;
 	 color:#666; line-height:50px;
 	 
 	font-weight:normal;
 }
 .graph_text1{ width:98%;
-	font-family: 'FuturaLT', Sans-Serif;
+	font-family: 'Futura', Sans-Serif;
 	font-size: 16px;
 	 color:#666; line-height:20px;
 	 
 	font-weight:normal;
 }
 .graph_text2{ float:left; width:98%;
-	font-family: 'FuturaLT', Sans-Serif;
+	font-family: 'Futura', Sans-Serif;
 	font-size: 16px;
 	 color:#666; line-height:20px; margin-top:8px;
 	 
@@ -133,7 +168,7 @@ font-size:1.5em; color:#efefef; line-height:100%;   }
 .graph_2_outer{ float:left; width:100%; margin-top:10px;}
 .graph_3_outer{ float:left; width:100%; margin-top:10px;}
 .small_graph_text{ float:left; width:98%;
-	font-family: 'FuturaLT', Sans-Serif;
+	font-family: 'Futura', Sans-Serif;
 	font-size: 13px;
 	 color:#999; line-height:20px; margin-top:8px;
 	 
@@ -157,12 +192,12 @@ font-size:1.5em; color:#efefef; line-height:100%;   }
 .time_outer2 .top_section{ float:left; width:95%; padding:3%; height:5%; text-align:center;   }
 .time_outer2 .mid_section{ float:left; width:95%; padding:3%; padding-top:5%;  text-align:center;   }
 
-.large_font{ float:left; width:98%; font-family: 'FuturaLT', Sans-Serif;
+.large_font{ float:left; width:98%; font-family: 'Futura', Sans-Serif;
 	font-size: 3.8em; letter-spacing:3px;
 	line-height: 35px; color:#fff;font-weight:bolder ;
 }
 .fields{ float:left; width:75%; margin-left:15%; margin-bottom:1%;   }
-.fields .small_font_time{   font-family: 'FuturaLT', Sans-Serif;
+.fields .small_font_time{   font-family: 'Futura', Sans-Serif;
 	font-size: 1em; 
 	 color:#fff; text-align:center;
 	 
@@ -177,13 +212,13 @@ font-size:1.5em; color:#efefef; line-height:100%;   }
 .add_section .section1{ float:left; width:65%; padding:1.5%;}
 .add_section .section2{ float:left; width:30%; height:auto;   }
 .black_text{
-	font-family: 'FuturaLT', Sans-Serif;
+	font-family: 'Futura', Sans-Serif;
 	font-size: 1.1em;
 	 color: #333;	 
 	font-weight:bolder ;
 }
 .black_text_thin{ 
-	font-family: 'FuturaLT', Sans-Serif;
+	font-family: 'Futura', Sans-Serif;
 	font-size: 1em;
 	 color: #333;	 
 	font-weight:normal ;
@@ -191,7 +226,7 @@ font-size:1.5em; color:#efefef; line-height:100%;   }
 .orange_butt{ float:left; background:#fb7e00; margin-top:2%;  padding:1.5%; padding-left:2%; padding-right:2%; text-align:center; color:#FFF; text-decoration:none;  -moz-border-radius: 5px; border-radius: 5px; font-size:0.7em; font-weight:bold;   }
 .orange_butt:hover{background:#fa9f43;}
 .add_img_outer{ float:left; width:100%; margin-top:3%;}
-.add_text{ float:right; width:140px; margin-right:10px;font-family: 'FuturaLT', Sans-Serif;
+.add_text{ float:right; width:140px; margin-right:10px;font-family: 'Futura', Sans-Serif;
 	font-size: 13px;
 	line-height: 20px;
 	color:#666;
@@ -222,10 +257,10 @@ z-index:-1;}
 
 .footer_inner {margin:0 auto;margin-top:70px;width:75%; padding-left:6%;}
 .footer_first_block{color:#FFF;float:left;width:18%; margin-top:30px; margin-left:-2%;}
-.footer_first_block .footer_block_heading{font-family:'FuturaLT', Sans-Serif;  font-size:18px; line-height:20px; }
+.footer_first_block .footer_block_heading{font-family:'Futura', Sans-Serif;  font-size:18px; line-height:20px; }
 .footer_first_block .footer_block_heading span{font-family:'Futura', Sans-Serif;font-weight:normal;font-size: 13px;font-weight: normal;}
 .footer_first_block ul {margin-top:40px;}
-.footer_first_block ul li{width:150px;line-height:20px;list-style:none;font-family: 'FuturaLT', Sans-Serif;font-weight:bold;font-size:14px;}
+.footer_first_block ul li{width:150px;line-height:20px;list-style:none;font-family: 'Futura', Sans-Serif;font-weight:bold;font-size:14px;}
 .footer_first_block ul li.active{color:#ff8000;}
 
 .footer_second_block{float:left;color:#FFF;width:19%;  margin-top:30px; margin-left:1%;}
@@ -240,24 +275,24 @@ z-index:-1;}
 .footer_2last_block{float:left;color:#FFF;width:7.5%; background:url(../img/white_bg.png) repeat; padding-left:10px; margin-left:1%; padding-top:10px;   }
 .footer_2last_block ul li{list-style:none;}
 
-.footer_block2nd_heading{font-family:'FuturaLT', Sans-Serif;  font-size:18px; line-height:20px; padding-left:8%;  }
+.footer_block2nd_heading{font-family:'Futura', Sans-Serif;  font-size:18px; line-height:20px; padding-left:8%;  }
 
 .footer_block_heading,.footer_2last_block ul li h3{font-family:'Futura', Sans-Serif;font-weight:normal;color:#FFF;font-size:16px;}
 
 .footer_last_block{float:left;color:#FFF;width:35%; margin-left:1%;  min-height:50px; margin-top:25px}
-.footer_last_head{ float:right;font-family:'FuturaLT', Sans-Serif;  font-size:18px; line-height:20px;}
-.footer_last_head .normal_text{ float:right;font-family:'FuturaLT', Sans-Serif;  font-size:16px; line-height:30px;}
+.footer_last_head{ float:right;font-family:'Futura', Sans-Serif;  font-size:18px; line-height:20px;}
+.footer_last_head .normal_text{ float:right;font-family:'Futura', Sans-Serif;  font-size:16px; line-height:30px;}
 .tweet_outer{ float:left; width:100%; margin-top:7%; }
 .tweet_text_outer{ float:right; width:79%; height:94px;  -webkit-border-radius: 5px;-moz-border-radius: 5px; border-radius: 5px; background:#fff; z-index:2;       }
 .tweet_tip{  background:url(../img/tweet_tip.png) no-repeat; width:14px; height:21px; position:absolute; margin-left:20.8%;  z-index:-20;}
-.tweet_text{ float:left; width:89%; padding:5px; color:#333; text-align:right; margin:5px; font-size:0.8em; font-family:'FuturaLT', Sans-Serif;  }
+.tweet_text{ float:left; width:89%; padding:5px; color:#333; text-align:right; margin:5px; font-size:0.8em; font-family:'Futura', Sans-Serif;  }
 .tweet_img_outer{ float:right; width:16%; margin-left:5%;  }
 .blue_text{ color:#1d6be8}
 
 
 
 
-.footer_nav{ margin:0; padding:0; font-family: 'FuturaLT', Sans-Serif;  }
+.footer_nav{ margin:0; padding:0; font-family: 'Futura', Sans-Serif;  }
 .footer_nav li{ float:left; display:block; font-size:18px; color:#fff;  }
 .footer_nav li a{ text-decoration:none; color:#fff; }
 .footer_nav li a.active, .footer_nav li a:hover{ color:#F60;}
@@ -270,7 +305,7 @@ z-index:-1;}
 .tab_outer_right{ float:left; margin-top:319px; width:100%;   }
 .right_text_tab{ float:left; width:88%;  background:#a0a0a0; text-decoration:none; border-bottom:2px solid #FFF; margin-bottom:1px; padding:10px 10px 10px 10px; font-size:18px; color:#efefef; text-align:center;   }
 .tab_font{
-	font-family: 'FuturaLT', Sans-Serif;
+	font-family: 'Futura', Sans-Serif;
 	font-size: 1.2em;
 	line-height: 24px;
 	color:#efefef;
@@ -280,7 +315,7 @@ z-index:-1;}
 
 .right_text_tab_small{ float:left; width:83%;  background:#a0a0a0; text-decoration:none; border-bottom:2px solid #FFF; margin-bottom:1px; padding:5px 5px 5px 5px; color:#efefef; text-align:center;   }	
 .small_font{width:100%;
-	font-family: 'FuturaLT', Sans-Serif;
+	font-family: 'Futura', Sans-Serif;
 	font-size: 1em;
 	line-height: 12px; color:#fff;
 	 
@@ -300,19 +335,21 @@ z-index:-1;}
 
 
 
-/*fonts*/
+ 
 
-@font-face {
-	font-family: 'FuturaLT';
-	src: url('../fonts/FuturaLT.ttf');
-	src: local('?'), url('../fonts/avantga5.woff') format('woff'), url('../fonts/FuturaLT.ttf') format('truetype'), url('../fonts/FuturaLT.ttf') format('svg');
+
+
+/*@font-face {
+	font-family: 'Futura';
+	src: url('../fonts/Futura.ttf');
+	src: local('?'), url('../fonts/avantga5.woff') format('woff'), url('../fonts/Futura.ttf') format('truetype'), url('../fonts/Futura.ttf') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
 @font-face {
-	font-family: 'FuturaLT';
-	src: url('../fonts/FuturaLT.eot');
-	src: local('☺'), url('../fonts/FuturaLT.eot') format('woff'), url('../fonts/FuturaLT.eot') format('truetype'), url('../fonts/FuturaLT.eot') format('svg');
+	font-family: 'Futura';
+	src: url('../fonts/Futura.eot');
+	src: local('☺'), url('../fonts/Futura.eot') format('woff'), url('../fonts/Futura.eot') format('truetype'), url('../fonts/Futura.eot') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -324,14 +361,14 @@ z-index:-1;}
 	font-weight: normal;
 	font-style: normal;
 }
-@font-face {font-family: 'Futura_LT_Book';src:url('../fonts/Futura_LT_Book.eot');src: local('☺'), url('../fonts/Futura_LT_Book.eot') format('woff'), url('../fonts/Futura_LT_Book.eot') format('truetype'), url('../fonts/Futura_LT_Book.eot') format('svg');	font-weight: normal;font-style: normal;}
-h2 {font-family: 'FuturaLT', Sans-Serif;font-size: 0.9em;color:#efefef;font-weight: bold;}
-h1 {font-family: 'FuturaLT', Sans-Serif;font-size: 2.3em;line-height: 35px; color:#333;font-weight:normal ;}
+@font-face {font-family: 'Futura_LT_Book';src:url('../fonts/Futura_LT_Book.eot');src: local('☺'), url('../fonts/Futura_LT_Book.eot') format('woff'), url('../fonts/Futura_LT_Book.eot') format('truetype'), url('../fonts/Futura_LT_Book.eot') format('svg');	font-weight: normal;font-style: normal;}*/
+h2 {font-family: 'Futura', Sans-Serif;font-size: 0.9em;color:#efefef;font-weight: bold;}
+h1 {font-family: 'Futura', Sans-Serif;font-size: 2.3em;line-height: 35px; color:#333;font-weight:normal ;}
 h3 { width:100%;font-family: 'Futura_LT_Book', Sans-Serif;font-size: 18px;line-height: 38px; color:#333;font-weight:normal;}
-h4 { width:100%;font-family: 'FuturaLT', Sans-Serif;font-size: 1.3em;line-height: 30px; color:#fff;font-weight:normal ;}
-h5 { width:100%;font-family: 'FuturaLT', Sans-Serif;font-size: 14px;color:#666;font-weight:normal ;}
-h6 { width:100%;font-family: 'FuturaLT', Sans-Serif;font-size: 0.7em;color:#fff;font-weight:normal;}
-h7 { width:100%;font-family: 'FuturaLT', Sans-Serif;font-size: 12px;color: #999;font-weight:normal ;}
+h4 { width:100%;font-family: 'Futura', Sans-Serif;font-size: 1.3em;line-height: 30px; color:#fff;font-weight:normal ;}
+h5 { width:100%;font-family: 'Futura', Sans-Serif;font-size: 14px;color:#666;font-weight:normal ;}
+h6 { width:100%;font-family: 'Futura', Sans-Serif;font-size: 0.7em;color:#fff;font-weight:normal;}
+h7 { width:100%;font-family: 'Futura', Sans-Serif;font-size: 12px;color: #999;font-weight:normal ;}
 
 /* message system css */
 .upper_box{ border:1px solid #ccc; position:fixed; bottom:0; right:0; height:400px; width:420px;   box-shadow: 1px 1px 3px #333; -moz-border-radius: 5px; border-radius: 5px; background:#fff; margin-right:2%; z-index:2;    }
@@ -353,10 +390,10 @@ border-bottom-left-radius: 5px;}
 .client_img_outer{ float:left; width:20%;}
 .client_img_outer_f{ position:absolute; z-index:18; } 
 .status_sign{ margin-left:18%; position:absolute; z-index:20; }
-.client_detail{ float:left; margin-left:4%;  width:62%;font-family: 'FuturaLT', Sans-Serif;}
+.client_detail{ float:left; margin-left:4%;  width:62%;font-family: 'Futura', Sans-Serif;}
 .client_detail span {float: left;font-size: 24px;padding-top: 9px;}
 span.required{color:#ff0000;}
-.light_gray{ float:left; font-size:15px;  font-family: 'FuturaLT', Sans-Serif; color:#999;  }
+.light_gray{ float:left; font-size:15px;  font-family: 'Futura', Sans-Serif; color:#999;  }
 .client_outer p{ padding-top:12px; padding-right:5px;}
 
 input[type=checkbox].css-checkbox {
@@ -410,7 +447,7 @@ input[type=checkbox].css-checkbox {
 .p10{padding:10px;}
 .container{width:100%;min-height: 700px;}
 .section,.profile_content_main {font-family: 'Futura_LT_Book', Sans-Serif;position:relative; margin-top: 20px;font-size: 1em;line-height: 25px;}
-.section h1{font-family: 'FuturaLT', Sans-Serif;text-transform:uppercase;margin-bottom:10px;}
+.section h1{font-family: 'Futura', Sans-Serif;text-transform:uppercase;margin-bottom:10px;}
 .section .login_green_button{background: url("../img/login_green.png") no-repeat scroll 0 0 transparent;display: block;float: right;height: 50px; margin-right: 10px;position: absolute;right: 0;top: 0; width: 200px;}
 .section .login_orange_button{background:url("../img/signup_orange.png") no-repeat scroll 0 0 transparent;display: block;float: right;height: 50px; margin-right: 10px;position: absolute;right: 0;top: 0; width: 200px;}
 .section .login_blue_button{background: url("../img/register_blue.png") no-repeat scroll 0 0 transparent; display: block;float: right;height: 50px; margin-right: 10px;position: absolute;right: 0;top: 0; width: 200px;}
@@ -427,22 +464,22 @@ input[type=checkbox].css-checkbox {
 .top_form .password{background-image:url(../img/pass_top_icon.png);background-repeat:no-repeat;margin-left: 50px;margin-top:20px;height:35px;}
 .top_form .user_name input,.top_form .password input{border: 1px solid #BDCED6;border-radius: 3px;height: 35px;width:250px; margin-left: 50px;}
 .top_form .remember{margin-left:50px;}
-.top_form .remember .intern{float: left;font-family: 'FuturaLT', Sans-Serif; color:#fff;margin-top: 3px;}
+.top_form .remember .intern{float: left;font-family: 'Futura', Sans-Serif; color:#fff;margin-top: 3px;}
 .top_form .checkbox-label{float:left;margin-top:2px;margin-top: 0;width: 25px;}
 .top_form input[type="checkbox"] {display:none;}
 .top_form input[type="checkbox"] + label span {background: url("../img/check_radio_sheet.png") no-repeat scroll left top transparent;cursor: pointer;display: inline-block;height: 19px;margin: -1px 4px 0 0;vertical-align: middle;width: 18px;}
 .top_form input[type="checkbox"]:checked + label span {background: url("../img/check_radio_sheet.png") no-repeat scroll -19px top transparent;}
-.top_form .remember .forget_password{ color: #fff;font-family: 'FuturaLT', Sans-Serif;float: right;margin-right: 30px;margin-top: 0;text-decoration: underline;}
+.top_form .remember .forget_password{ color: #fff;font-family: 'Futura', Sans-Serif;float: right;margin-right: 30px;margin-top: 0;text-decoration: underline;}
 .top_form .remember a:hover{text-decoration:none;}
 .top_form .sign_up{ background: url("../img/sign_top_up.png") no-repeat scroll 0 0 transparent; border-radius: 4px; height: 45px; margin-bottom: 10px; margin-left: 0px; margin-top: 10px; width: 150px;}
 .top_form .login_now{ background: url("../img/login_top_button.png") no-repeat scroll 0 0 transparent; height: 45px;width: 150px;margin-bottom: 10px; margin-left: 5px; margin-top: 10px; }
 .top_form .login_buttons{ margin-top:10px;margin-left:45px;}
-.top_form h3{font-family: 'FuturaLT', Sans-Serif; color:#fff;margin-left:50px; }
+.top_form h3{font-family: 'Futura', Sans-Serif; color:#fff;margin-left:50px; }
 .login_slider{width:100%;margin-top:30px;height:225px;}
 .login_bottom{margin-top:50px;}
-.section_login_left{float:left; width:70%; float:left;font-family: 'FuturaLT', Sans-Serif;}
+.section_login_left{float:left; width:70%; float:left;font-family: 'Futura', Sans-Serif;}
 .section_login_left h1{font-family: 'Futura', Sans-Serif;text-transform:uppercase;}
-.section_login_left p{color: #181818;font-family: 'FuturaLT',Sans-Serif;line-height: 20px;margin-top: 10px;padding-right: 20px;text-align: justify;}
+.section_login_left p{color: #181818;font-family: 'Futura',Sans-Serif;line-height: 20px;margin-top: 10px;padding-right: 20px;text-align: justify;}
 .section_login_right{float:left; width:280px; background-color:#D5E6F0; }
 .section_login_right h2{float:left; width:100%; text-align:center; padding:10px 0;background-color:#589CC1; color:#FFF;text-transform:uppercase;border-radius:3px 3px 0 0; font-family: 'Futura', Sans-Serif;font-weight: normal;}
 input{ width:200px;height:25px;background-color:#EBF6FC; border:none; margin-left: 35px;}
@@ -454,8 +491,8 @@ input{ width:200px;height:25px;background-color:#EBF6FC; border:none; margin-lef
     margin-top: 10px;}
 .section_login_right .user_name input, .section_login_right .password input{border: 1px solid #BDCED6;border-radius: 3px;height: 25px; margin-left: 35px;}
 .section_login_right .remember input[type="checkbox"]{float: left;margin-left: 10px;margin-top: 0;width: 25px;}
-.section_login_right .remember .intern{float: left;font-family: 'FuturaLT', Sans-Serif; font-size: 11px; color:#181818;margin-top: 0px;}
-.section_login_right .remember .forget_password{ color: #181818;font-family: 'FuturaLT', Sans-Serif; font-size: 11px; float: right;margin-right: 10px;margin-top: 0;text-decoration: underline;}
+.section_login_right .remember .intern{float: left;font-family: 'Futura', Sans-Serif; font-size: 11px; color:#181818;margin-top: 0px;}
+.section_login_right .remember .forget_password{ color: #181818;font-family: 'Futura', Sans-Serif; font-size: 11px; float: right;margin-right: 10px;margin-top: 0;text-decoration: underline;}
 .section_login_right .remember a:hover{text-decoration:none;}
 .section_login_right .sign_up{  background-image: url("../img/sign_up.png");background-repeat: no-repeat;height: 35px;margin-left: 10px !important;width: 111px;}
 .section_login_right .login_now{ background-image:url(../img/login_button.png); background-repeat:no-repeat;width:115px;height:35px;}
@@ -769,7 +806,7 @@ input{ width:200px;height:25px;background-color:#EBF6FC; border:none; margin-lef
 .uploads_submit:hover{ background:#9a9a9a;}
 .tip_up{ background: url("../img/tip_up.png") no-repeat scroll 0 0 transparent; height: 9px; margin-left: 16px;   margin-top: 40px; position: relative; width: 10px;}
 .submit{background: url("../img/submit1.png") repeat scroll 0 0 transparent;float: right;height: 30px;margin-top: 2px;width: 88px;}
-.sponser_inner span{color: #999999;font-family: 'FuturaLT',Sans-Serif;font-size: 12px;font-weight: normal;width: 100%;}
+.sponser_inner span{color: #999999;font-family: 'Futura',Sans-Serif;font-size: 12px;font-weight: normal;width: 100%;}
 .sponser_inner span strong{color:#666;}
 /*.submit_button3{background: url("../img/submit3.png") repeat scroll 0 0 transparent;float: left;height: 45px;margin-top: 2px;width: 192px;}
 .submit_button3:hover{background: url("../img/submit31.png") repeat scroll 0 0 transparent;}
@@ -779,7 +816,7 @@ input{ width:200px;height:25px;background-color:#EBF6FC; border:none; margin-lef
 
 
 .sponser_inner h6 { width:100%;
-	font-family: 'FuturaLT', Sans-Serif;
+	font-family: 'Futura', Sans-Serif;
 	font-size: 12px;
 	 color: #999;
 	 
@@ -1048,12 +1085,12 @@ blockquote{
     padding: 10px 10px 0 50px;
     position: relative;
     quotes: none;
-	background: url(../img/open-quote.png) 0 0 no-repeat;
+	/*background: url(../img/open-quote.png) 0 0 no-repeat;*/
     border: 0px;
 	font-size: 20px;
 	line-height: 35px;
 	font-weight:normal;
-	font-family: 'FuturaLT', Sans-Serif !important;
+	font-family: 'Futura', Sans-Serif !important;
 }
 
 .contact_form1{ float:right;width:62%;margin-right:30px;margin-top:10px;}
@@ -1176,7 +1213,7 @@ color:#f2f2f2; text-decoration:none;
 
 .star_view_outer{position:absolute; z-index:18; background:url(../img/view_star_bg.png) no-repeat; width:242px; height:162px; margin-top:-162px; margin-left:-3px; padding-left:5px;  }
 
-.star_view_outer h6 { width:100%;font-family: 'FuturaLT', Sans-Serif;color:#fff; font-size:15px; font-style:italic; margin-top:5px}
+.star_view_outer h6 { width:100%;font-family: 'Futura', Sans-Serif;color:#fff; font-size:15px; font-style:italic; margin-top:5px}
 .star_outer{ float:left; width:100%;  }
 .star_outer img{ width:15px !important; height:16px !important;}
 .table_footer_white1{ float:left; width:97%; margin-top:1px; margin-left:10px;    }
