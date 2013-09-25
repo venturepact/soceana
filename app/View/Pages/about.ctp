@@ -1,3 +1,11 @@
+<?php echo $this->Html->script('popbox');?>
+<script type='text/javascript' charset='utf-8'>
+    $(document).ready(function(){
+      $('.popbox').popbox();
+	  $('.popbox_c').popbox1();
+	  $('.popbox_n').popbox2();
+    });  
+</script>
 <style>
 .click_button{
   cursor: pointer;
@@ -6,34 +14,128 @@
 <div class="container">
         	<div class="section">
 				<h1>About us</h1>
-                <p>All of us, at some time in our lives, do social good in our world. Whether this be volunteering at a local hospital, educating children in underprivileged areas, or even providing medical support through NGOs on other continents. Doing good is inherent in our beings, and as such we all experience some form of altruism during our lives. Soceana is an attempt to push forward social good by making it more accessible and enjoyable. Through Soceana, both users and companies will have access to a simple and easy-to-use interface where they can post volunteer listings, apply for positions, and effortlessly tally how much "good" one does.</p>
+                <p>All of us, at some time in our lives, do social good in our world. Whether this be volunteering at a local hospital, educating children in underprivileged areas, or even providing medical support through NGOs on other continents. Doing good is inherent in our beings, and as such we all experience some form of altruism during our lives. Soceana is an attempt to push forward social good by making it more accessible and enjoyable. Through Soceana, both users and companies will have access to a simple and easy-to-use interface where they can post volunteer listings, apply for positions, and effortlessly tally how much “good” one does.</p>
             </div>
 			<div class="mt20"></div>
 			<div class="section">
             	<h1>BENEFITS OF USING SOCEANA</h1>
                 <p>New volunteers, current volunteers and nonprofits/organizations all gain through using Soceana as a standard.</p>
                 <div class="logo_div">
-                	<div class="hover_div">
-                    	<h2>ORGANIZATIONS</h2>
-                    	<div class="w400 p10">
-                        	<div class="fl w294">
-                            <p>lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lobortis luctus mauris, et accumsan massa blandit at.lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lobortis luctus mauris, et accumsan massa blandit at.lorem ipsum dolor sit amet, consectetur adipiscing elit. Benefits of using Soceana for your nonprofit/organization:<br /><br /><br />
-                            - Reason One<br />
-                            - Reason Two<br />
-                            - Reason Three<br />
-                            - Reason Four<br />
-                            - Reason Five<br />
-                            </p>
-                            </div>
-                            <div class="fl w100"><img src="<?php echo $this->webroot;?>img/nurse.png" alt="img" /></div>
-                        </div>
-                    </div>
+				  <img src="<?php echo $this->webroot;?>img/benefits.png" alt="in"  border="0"/>
+                  <div class='popbox'>
+    <a class='open' href='#'><img src="<?php echo $this->webroot;?>img/pop_up_base.png" alt="" > </a>
+               <div class='collapse'>
+      <div class='box'>
+        <div class='arrow'></div>
+        <div class='arrow-border'></div>
+
+        
+          <p>
+          <div class="pop_upbox">ORGANIZATIONS</div>
+            <div class="bottom_border"></div>
+             <div class="main_section">
+                <div class="left_s">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                <br/><br/>
+                <strong>- Reason One</strong><br/>
+                 <strong>- Reason Two</strong><br/>
+                  <strong>- Reason Three</strong><br/>
+                   <strong>- Reason Four</strong><br/> 
+                    <strong>- Reason Five</strong><br/>
                 </div>
+                   <div class="right_s">
+                     <img src="<?php echo $this->webroot;?>img/nurse.png" alt="" />
+                  </div>
+                </div>
+               </p>
+         
+        
+
+      </div>
+    </div>
+</div>      
+   
+<div class='popbox_c'>
+     <a class='open1' href='#'>
+       <img src="<?php echo $this->webroot;?>img/pop_up_base_green.png" alt="" width="87" />      
+       </a>
+     
+     <div class='collapse1'>
+      <div class='box1'>
+        <div class='arrow1'></div>
+        <div class='arrow-border1'></div>
+
+        
+          <p>
+          <div class="pop_upbox">CURRENT VOLUNTEERS</div>
+            <div class="bottom_border"></div>
+             <div class="main_section">
+                <div class="left_s">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                <br/><br/>
+                <strong>- Reason One</strong><br/>
+                 <strong>- Reason Two</strong><br/>
+                  <strong>- Reason Three</strong><br/>
+                   <strong>- Reason Four</strong><br/> 
+                    <strong>- Reason Five</strong><br/>
+                </div>
+                   <div class="right_s">
+                     <img src="<?php echo $this->webroot;?>img/nurse.png" alt="" />
+                  </div>
+                </div>
+               </p>
+         
+        
+
+      </div>
+    </div>
+</div>
+   
+   
+<!--pop up 3rd-->
+<div class='popbox_n'>
+     <a class='open2' href='#'>
+       <img src="<?php echo $this->webroot;?>img/pop_up_base_orange.png" alt="" width="87" />      
+       </a>
+     
+     <div class='collapse2'>
+      <div class='box2'>
+        <div class='arrow2'></div>
+        <div class='arrow-border2'></div>
+
+        
+          <p>
+          <div class="pop_upbox">NEW VOLUNTEERS</div>
+            <div class="bottom_border"></div>
+             <div class="main_section">
+                <div class="left_s">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                <br/><br/>
+                <strong>- Reason One</strong><br/>
+                 <strong>- Reason Two</strong><br/>
+                  <strong>- Reason Three</strong><br/>
+                   <strong>- Reason Four</strong><br/> 
+                    <strong>- Reason Five</strong><br/>
+                </div>
+                   <div class="right_s">
+                     <img src="<?php echo $this->webroot;?>img/nurse.png" alt="" />
+                  </div>
+                </div>
+               </p>
+         
+        
+
+      </div>
+    </div>
+</div>
+<!--pop up 3rd end-->
+</div>
             </div>
             <div class="mt50 clr"></div>
             <div class="section">
 				<h1>CURRENT VOLUNTEERS</h1>
-                <div class="login_green_button click_button" onclick="document.location.href='<?php echo $this->webroot;?>';"></div>
+                <?php if($this->Session->read('User.id')==''){?>
+                <div class="butt_outer">
+                 <a href="<?php echo $this->webroot;?>users/login" class="green_butt ">LOGIN</a>
+                </div>
+				<?php }?>
                 <div class="mt20"></div>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lobortis luctus mauris, et accumsan massa blandit at. Ut porta tempus sem, at posuere ante aliquet id. Mauris dignissim tristique erat, vel varius augue imperdiet tincidunt. Cras eu dolor arcu. Vivamus posuere ultrices ipsum ut dictum. Pellentesque et augue elementum, mattis enim vitae, lacinia sapien. Mauris convallis volutpat massa sed imperdiet. Sed volutpat nec nisl a ultricies. Morbi ornare vitae orci ut hendrerit. Praesent ac tempor eros. Proin pellentesque eu diam a mollis.</p>
                 <div class="line mt20">
@@ -45,7 +147,11 @@
 			<div class="mt50 clr"></div>
             <div class="section">
 				<h1>NEW VOLUNTEERS</h1>
-                 <div class="login_orange_button click_button" onclick="document.location.href='<?php echo $this->webroot;?>users/add/user';"></div>
+                 <?php if($this->Session->read('User.id')==''){?>
+               <div class="butt_outer">
+                 <a href="<?php echo $this->webroot;?>users/add/user" class="oran_butt ">SIGN UP NOW</a>
+                   </div>
+                 <?php }?>
                 <div class="mt20"></div>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lobortis luctus mauris, et accumsan massa blandit at. Ut porta tempus sem, at posuere ante aliquet id. Mauris dignissim tristique erat, vel varius augue imperdiet tincidunt. Cras eu dolor arcu. Vivamus posuere ultrices ipsum ut dictum. Pellentesque et augue elementum, mattis enim vitae, lacinia sapien. Mauris convallis volutpat massa sed imperdiet. Sed volutpat nec nisl a ultricies. Morbi ornare vitae orci ut hendrerit. Praesent ac tempor eros. Proin pellentesque eu diam a mollis.</p>
                 <div class="line mt20">
@@ -56,7 +162,11 @@
             <div class="mt50 clr"></div>
             <div class="section">
 				<h1>ORGANIZATIONS</h1>
-                 <div class="login_blue_button click_button" onclick="document.location.href='<?php echo $this->webroot;?>users/add/organizations';"></div>
+                 <?php if($this->Session->read('User.id')==''){?>
+                <div class="butt_outer">
+                 <a href="<?php echo $this->webroot;?>users/add/organizations" class="blue_butt ">REGISTER NOW</a>
+                   </div>
+                  <?php }?>
                 <div class="mt20"></div>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lobortis luctus mauris, et accumsan massa blandit at. Ut porta tempus sem, at posuere ante aliquet id. Mauris dignissim tristique erat, vel varius augue imperdiet tincidunt. Cras eu dolor arcu. Vivamus posuere ultrices ipsum ut dictum. Pellentesque et augue elementum, mattis enim vitae, lacinia sapien. Mauris convallis volutpat massa sed imperdiet. Sed volutpat nec nisl a ultricies. Morbi ornare vitae orci ut hendrerit. Praesent ac tempor eros. Proin pellentesque eu diam a mollis.</p>
                 <div class="line mt20">

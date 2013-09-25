@@ -148,15 +148,44 @@ $(function() {
 	<div>
 		<ul class="bxslider">
 			<li>
-				<blockquote>To See In The World Be The Change You Wish To See In The World 
+				<blockquote>Be The Change You Wish To See In The World <img src="<?php echo $this->webroot;?>img/open-quote1.png" width="37" height="41" alt="" />
 				<p style="text-align:right;margin-right:20px;">- Mahatma Gandhi</p>	
 				</blockquote>
 				</li>
 		    <li>
-             	<blockquote>In a gentle way you can shake the world
+             	<blockquote>One is not born into the world to do everything but to do something.<img src="<?php echo $this->webroot;?>img/open-quote1.png" width="37" height="41" alt="" />
+				<p style="text-align:right;margin-right:20px;">- Henry David Thoreau</p>
+				</blockquote>
+			</li>	
+              <li>
+             	<blockquote>In a gentle way you can shake the world<img src="<?php echo $this->webroot;?>img/open-quote1.png" width="37" height="41" alt="" />
 				<p style="text-align:right;margin-right:20px;">- Mahatma Gandhi</p>
 				</blockquote>
-			</li>		
+			</li>
+            <li>
+             	<blockquote >Go into the world and do well. But more importantly, go into the world and do good.<img src="<?php echo $this->webroot;?>img/open-quote1.png" width="37" height="41" alt="" />
+				<p style="text-align:right;margin-right:20px;">-  Minor Myers</p>
+				</blockquote>
+			</li>
+            
+             <li>
+             	<blockquote>The least movement is of importance to all nature. The entire ocean is affected by a pebble.<img src="<?php echo $this->webroot;?>img/open-quote1.png" width="37" height="41" alt="" />
+				<p style="text-align:right;margin-right:20px;">-  Blaise Pascal </p>
+				</blockquote>
+			</li>
+            
+             <li>
+             	<blockquote>Every drop in the ocean counts.<img src="<?php echo $this->webroot;?>img/open-quote1.png" width="37" height="41" alt="" />
+				<p style="text-align:right;margin-right:20px;">-  Yoko Ono</p>
+				</blockquote>
+			</li>
+            
+              <li>
+             	<blockquote>We can choose to be affected by the world or we can choose to affect the world.<img src="<?php echo $this->webroot;?>img/open-quote1.png" width="37" height="41" alt="" />
+				<p style="text-align:right;margin-right:20px;">-   Heidi Wills</p>
+				</blockquote>
+			</li>
+            	
 		</ul>
 	</div>
 	<!--Testimonials End-->
