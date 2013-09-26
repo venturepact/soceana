@@ -126,7 +126,7 @@ $(function() {
         <!-- forgot password popup box-->
         <div class="popup_outer">
                         <form id="overlay_form">
-                            <h2 class="popup_heading">Forget Password</h2>
+                            <h2 class="popup_heading">Forgot Password</h2>
                             <p class="popup_text">
 				That's Okey! Everone Forgets<br />
 				Just tell us the email address you used to create your account and we'll send you a new one!

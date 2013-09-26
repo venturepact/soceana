@@ -39,10 +39,11 @@
 	width: 60px;
 }		
 .top_form .user_name input, .top_form .password input {
-    height: 55px;
+    height: 52px;
     margin-left: 75px;
-    width: 410px;
+    width: 400px;
 	font-size: 20px;
+	padding-left:10px;
 }
 .top_form .password {
     background-image: url("../img/pass_top_icon_big.png");
@@ -94,7 +95,7 @@
 
 .section_login_left p {
     font-size: 20px;
-    line-height: 26px;
+    line-height: 31px;
     margin-top: 20px;
 }
 .section_login_right {
@@ -121,8 +122,9 @@
 .section_login_right .user_name input, .section_login_right .password input {
     height: 55px;
     margin-left: 80px;
-    width: 398px;
+    width: 377px;
 	font-size: 20px;
+	 padding-left:10px;
 }
 .section_login_right .mt20 .remember {
     font-size: 18px;
@@ -149,31 +151,61 @@
 .section_login_right .login_buttons {
     width: 480px;
 }
-.footer_first_block {
-    color: #FFFFFF;
-    float: left;
-    margin-left: -7%;
-    margin-top: 30px;
-    width: 20%;
-}
+.footer_first_block { margin-left: -2%;}
 
 .footer_first_block .footer_block_heading {
     font-size: 34px;
     line-height: 28px;
 }
 .footer_first_block .footer_block_heading span {
-    font-size: 22px;
+    float: left;
+    font-size: 17px;
+    margin-top: 5px;
 }
 
 .mt20 {
     margin: 20px 20px 0;
 }
-.footer_first_block ul li {
-    font-size: 14px;
-}
+.footer_first_block ul li {font-size: 15px;font-weight: normal; line-height: 24px;}
+
+/*26 sep 2013 Upadtes*/
+
+.section_login_right .remember .intern { font-size: 20px;margin-top: 0;}
+.footer_first_block ul{margin-top: 24px;}
+.footer_block2nd_heading { padding-left: 1%;}
+.footer_second_block {width: 14%;}
+.footer_third_block {margin-left: -31px;margin-right: 24px;margin-top: 12px;width: 17%;}
+.footer_2last_block { margin-right: 33px;width: 6%;} 
+.tweet_text {font-size: 15px; line-height:23px;}
+.footer_first_block ul {float: left;margin-top: 11px;}
+.section_login_right .remember .intern {font-size: 19px;margin-left: 5px;margin-top: 0;}
+.bx-wrapper .bx-pager, .bx-wrapper .bx-controls-auto {bottom: 16px;}
+.main_text p {font-size: 46px;margin-left: 9px;margin-top: -2px;}
+.news_text {font-size: 16px;line-height: 32px;min-height: 35px;}
+.gray_text {font-size: 13px;}
+h6 {color: #FFFFFF;font-size: 15px;margin-top: 3px;}
+vol_table .table_footer_white {font-size: 14px;}
+h2 {font-size: 23px;}
+.small_font {font-size: 15px;line-height: 20px;}
+.next {height: 31px;padding-left: 6px; width: 25px;}
+.prev { height: 26px;padding-left: 11px; padding-top: 5px; width: 20px;}
+.tab_font { font-size: 23px;}
+.sponsors_text {font-size: 15px;}
+.orange_butt {font-size: 17px;}
+.add_text {font-size: 16px;width: 162px;}
+.open1 img {width: 54px !important;}
+.popbox_c {left: 184px;top: 155px;}
+.popbox { right: 151px; top: 154px;}
+.popbox_n {left: 209px;top: 422px;width: 530px !important;}
+.open img {width: 55px !important;}  
+.open2 img {width: 56px !important;}
+p {font-size: 18px; line-height: 34px; text-align: justify;}
+.vol_table .signup_form ul {width: 380px;}
+.vol_table .signup_form input[type="text"], .vol_table .signup_form select {font-size: 16px; height: 31px; width: 59%;}
+.vol_table .signup_form_blue label span {float:none;margin-right: 0px;text-align: right;text-transform: capitalize;width: 0px;}
+.vol_table .signup_form_blue ul {width: 380px; margin-left:84px;}
 
 
-} 
 
 
 

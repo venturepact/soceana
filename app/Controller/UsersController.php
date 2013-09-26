@@ -258,9 +258,17 @@ class UsersController extends AppController{
     /* @ function for updating user picture */
     public function user_pic2(){        
         if($this->request->is('post') || $this->request->is('put')){
+			//pr($this->request->data);
+			if($this->request->data['User']['image']['name']!=''){
             $imageName = 'img_'.$this->Session->read('User.id');
             $uploaded = $this->JqImgcrop->uploadImage($this->request->data['User']['image'], '/img/upload/', $imageName);            
             $this->set('uploaded',$uploaded); 
+			//echo 'test';
+			}
+			else{
+				$this->Session->setFlash('Please select an image to upload');	
+				$this->redirect('/users/user_pic');
+			}
         }
     }
     

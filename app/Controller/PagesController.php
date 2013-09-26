@@ -40,16 +40,33 @@ class PagesController extends AppController {
 			 $this->Session->write('page_limit',$this->request->data['Pages']['limit']);  
 		}
 		
+		
+		
 		if($this->Session->read('page_limit') != null){
 			$limit = $this->Session->read('page_limit');			
 		}
 		else $limit = 5;
 		
 		if($this->Session->read('User.role') == 'organizations'){
-			$this->set('loghours',$this->_organizationGridData($limit));
 			
 			$this->loadModel('LogHour');
-			//$this->LogHour->recursive = -1;
+			// check for current page with page limit that record exits to show page or not
+			if(isset($this->params['named']['page']) && $this->params['named']['page'] >= 2){
+			 //echo $this->params['named']['page'];
+				
+				$start_count =  $limit * ($this->params['named']['page'] - 1) + 1 ;
+				
+			    $count = $this->LogHour->find('count',array('conditions'=>array('organization'=>$this->Session->read('User.id'))));			
+				
+				if($start_count > $count){
+					
+					$this->redirect('/');
+				}
+			 
+			}
+			
+			$this->set('loghours',$this->_organizationGridData($limit));
+
 			$this->set('total_hours',$this->LogHour->find('first',array(
 											     'conditions'=>array(
 												 				'organization'=>$this->Session->read('User.id'),
@@ -60,8 +77,25 @@ class PagesController extends AppController {
 				
 		}
 		else{
-			$this->set('loghours',$this->_volunteerGridData($limit));	
+			// case  of volunteer 
 			$this->loadModel('LogHour');
+			// check for current page with page limit that record exits to show page or not
+			if(isset($this->params['named']['page']) && $this->params['named']['page'] >= 2){
+			 //echo $this->params['named']['page'];
+				
+				$start_count =  $limit * ($this->params['named']['page'] - 1) + 1 ;
+				
+			    $count = $this->LogHour->find('count',array('conditions'=>array('user_id'=>$this->Session->read('User.id'))));			
+				
+				if($start_count > $count){
+					
+					$this->redirect('/');
+				}
+			 
+			}
+			
+			$this->set('loghours',$this->_volunteerGridData($limit));	
+			
 			//$this->LogHour->recursive = -1;
 			$this->set('total_hours',$this->LogHour->find('first',array(
 											     'conditions'=>array(
@@ -75,7 +109,7 @@ class PagesController extends AppController {
 		//pr($this->_messages());die;
 		//$this->set('messages',$this->_messages());
 		
-	}
+	}	
 	
 	/* @ function to show the Volunteer Grid Data */
 	public function _volunteerGridData($limit = 5){

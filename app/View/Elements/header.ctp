@@ -11,7 +11,7 @@ if($this->Session->read('User.role')!=''){
                                 <li><a href="<?php echo $this->webroot;?>">ANALYTICS</a></li>
                                 <li><a href="<?php echo $this->webroot;?><?php
                                 if($this->Session->read('User.role') == 'organizations'){
-                                    echo 'loghours/organization_add';
+                                    echo 'loghours/review_hours';
                                 }
                                 else echo 'loghours/add';
                                 ?>">LOG HOURS</a></li>
@@ -27,7 +27,7 @@ if($this->Session->read('User.role')!=''){
                                     echo 'users/organization_profile';
                                 }
                                 else echo 'users/user_profile';
-                                ?>"><img height="15" border="0" title="inser title here" alt="" src="/soceana/img/edit_icon.png"></a></li>
+                                ?>"><img height="15" border="0" title="inser title here" alt="" src="<?php echo $this->webroot;?>/img/edit_icon.png"></a></li>
                         </ul>
                 <div class="c_profile"><a class="link_text" href="<?php echo $this->webroot;?><?php
                                 if($this->Session->read('User.role') == 'organizations'){

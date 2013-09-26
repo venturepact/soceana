@@ -20,7 +20,7 @@
                      <input type="checkbox" id="c3" value="1" name="data[User][rememberMe]" />
                      <label for="c3" class="checkbox-label"><span></span></label>
                      <label class="intern">Remember me</label>
-                    <a href="javascript:void(0);" class="forget_password pop">Forget Password?</a>
+                    <a href="javascript:void(0);" class="forget_password pop">Forgot Password?</a>
                 </div>
                 <div class="mb10">&nbsp;</div>
                 <div class="clr"></div>

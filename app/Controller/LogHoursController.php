@@ -225,50 +225,8 @@ class LogHoursController extends AppController {
     /* @ function to get Month Name */
     public function _getMonthName($monthNum){        
         return date("F", mktime(0, 0, 0, $monthNum, 10));    
-    }
-    
-    /* @ function to get Organization chart data */
-    /*public function OrganizationChartData(){
-      
-        $this->layout = '';
-        $string = '<chart caption="Hourly Report - '.$this->Session->read('User.organization_name').'" subcaption="" lineThickness="2" showValues="0" formatNumberScale="0" anchorRadius="5"   divLineAlpha="20" divLineColor="CC3300" divLineIsDashed="1" showAlternateHGridColor="1" alternateHGridColor="CC3300" shadowAlpha="40" labelStep="2" numvdivlines="10" chartRightMargin="35" bgColor="FFFFFF,CC3300" bgAngle="270" bgAlpha="10,10" alternateHGridAlpha="5"  legendPosition ="RIGHT ">';
-        $string.= '<categories >';
-        $k = 0;
-        for($i=5;$i>=0;$i--){
-            $array = $this->_get_Month($i);
-            $month_name = $this->_getMonthName($array[0]);
-            $string.= '<category label="'.$month_name.'" />';
-            $temp[$k] = $array;
-            $k++;
-        }
-        $string.='</categories>';   
-      
-            
-            $string.='<dataset seriesName="'.$category['Category']['category_name'].'" color="F2796B" anchorBorderColor="F2796B" anchorBgColor="F2796B">';
-            foreach($temp as $tem){
-              
-                $data_array = $this->LogHour->find('first',array('fields'=>'sum(hours) as count_of_hours',
-                                                   'conditions'=>array(                                                                    
-                                                                     'organization' => $this->Session->read('User.id'),
-                                                                     'status' => 1,
-                                                                     'month(job_date)' => $tem[0],
-                                                                     'year(job_date)' => $tem[1]
-                                                   )));
-                if($data_array[0]['count_of_hours']==null){
-                    $string.='<set value="0" />';
-                }
-                else{
-                     $string.='<set value="'.$data_array[0]['count_of_hours'].'" />';
-                }                
-            }
-            $string.='</dataset>';     
-       
-        
-        $string.='<styles><definition><style name="CaptionFont" type="font" size="12"/></definition><application><apply toObject="CAPTION" styles="CaptionFont" /><apply toObject="SUBCAPTION" styles="CaptionFont" /></application></styles></chart>';
-        
-        echo $string;
-        $this->autoRender = false;
-    }*/
+    }    
+
     public function OrganizationChartData(){
       $this->layout = '';      
         $temp[0][0] = 'Months';     
@@ -298,41 +256,8 @@ class LogHoursController extends AppController {
        
         return $temp;
         $this->autoRender = false;     
-    }
-    
-    /* @ function to get Organization chart data comparison of Age*/
-    /*function OrganizationAgeChartData(){        
-        
-         $this->layout = '';
-        
-        $array = array( 0 => array('label'=>'0-12' ,'from'=>$this->_getDate(12),'to'=> $this->_getDate(0) ),
-                        1 => array('label'=>'13-17','from'=>$this->_getDate(17),'to'=> $this->_getDate(13)),
-                        2 => array('label'=>'18-24','from'=>$this->_getDate(24),'to'=> $this->_getDate(18)),
-                        3 => array('label'=>'25-44','from'=>$this->_getDate(44),'to'=> $this->_getDate(25)),
-                        4 => array('label'=>'45-65','from'=>$this->_getDate(65),'to'=> $this->_getDate(45)),
-                        5 => array('label'=>'65+'  ,'from'=>$this->_getDate(100),'to'=> $this->_getDate(65)),
-                       );
-        
-        $this->LogHour->bindModel(
-			array('belongsTo' => array(					
-					'User'        =>  array('className' => 'User','joinTable' => 'users','foreignKey' => 'user_id','fields'=>array('first_name','last_name'))
-				)
-			),false
-		);
-        $string ='<chart palette="2" caption="AGE DISTRIBUTION" xAxisName="AGE" yAxisName="HRS." labelDisplay="Rotate" showValues="0" decimals="0" formatNumberScale="0">';
-        foreach($array as $arr){
-        $loghours = $this->LogHour->find('first',array(				
-				'fields'      => 'sum( LogHour.hours ) AS total_hours',
-				'conditions'  => array("birth_date between '".$arr['from']."' and '".$arr['to']."'",
-                                                       'status'=> 1,
-                                                       'organization' => $this->Session->read('User.id'))
-			));
-        $string.='<set label="'.$arr['label'].'" value="'.$loghours[0]['total_hours'].'" />';
-        }
-        $string.='<styles><definition><style name="myAnim" type="animation" param="_yScale" start="0" duration="1"/></definition><application><apply toObject="VLINES" styles="myAnim" /></application></styles></chart>';
-        echo $string;
-        $this->autoRender = false;
-    }*/
+    }   
+
     
      function OrganizationAgeChartData(){        
         
@@ -376,18 +301,38 @@ class LogHoursController extends AppController {
     
     /* @ function to show the review hours section grid showing the complete data  */
     function review_hours(){
+		
         if($this->request->is('post')){
             $this->Session->write('page_limit',$this->request->data['Pages']['limit']);  
-	}
+		}
+	
+	
 		
-	if($this->Session->read('page_limit') != null){
-	    $limit = $this->Session->read('page_limit');			
-	}
-	else $limit = 5;	
-       
-	if($this->Session->read('User.role') == 'organizations'){
-	    $this->set('loghours',$this->_organizationGridData($limit));	
-	}
+		if($this->Session->read('page_limit') != null){
+			$limit = $this->Session->read('page_limit');			
+		}
+		else $limit = 5;	
+		
+		
+			// check for current page with page limit that record exits to show page or not
+		if(isset($this->params['named']['page']) && $this->params['named']['page'] >= 2){
+			 //echo $this->params['named']['page'];
+				$this->loadModel('LogHour');
+				
+				$start_count =  $limit * ($this->params['named']['page'] - 1) + 1 ;
+				
+			    $count = $this->LogHour->find('count',array('conditions'=>array('organization'=>$this->Session->read('User.id'))));			
+				
+				if($start_count > $count){
+					
+					$this->redirect('/loghours/review_hours');
+				}
+			 
+			}
+		   
+		if($this->Session->read('User.role') == 'organizations'){
+			$this->set('loghours',$this->_organizationGridData($limit));	
+		}
     }
     
     /* @ function to show the Organization Grid Data */
