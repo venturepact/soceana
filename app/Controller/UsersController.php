@@ -110,10 +110,14 @@ class UsersController extends AppController{
                     $subject = 'Soceana - Thanks for registration';
                 
                     $this->_sendMail('yourfriends.soceana@venturepact.com',$this->request->data['User']['email_id'],$subject,$message);
+					/*if($this->Auth->login()){
+						 $this->Session->write('User',$this->Auth->user()); 
+						 $this->redirect(array('controller'=>'pages','action'=>'display'));
+					}*/
                     
-                    $this->Session->setFlash(__('User details has been saved successfully'));
+                    //$this->Session->setFlash(__('User details has been saved successfully'));
                     
-                    $this->redirect(array('action'=>'login'));
+                   // $this->redirect(array('action'=>'login'));
                 }
                 else{
                     $this->Session->setFlash(__('User details could not be saved. Please try again.'));    
@@ -323,7 +327,7 @@ class UsersController extends AppController{
                 
                 $message = '<div style="float:left;background:#e7e7e7;min-height:200px;width:800px;font-family:Verdana, Geneva, sans-serif"><p>&nbsp;</p><div style="margin:0px 10px">Hello, <strong style="font-size:15px">'.$user['User']['first_name'].' '.$user['User']['last_name'].'</strong></div><p style="margin:15px 10px">You have requested for new password , Please click on following link to reset your password.</p><p style="margin:15px 10px"><a href="'.$mail_url.'">Click Here</a></p><p>&nbsp;</p><div style="margin:0px 10px">Thanks,<br /><h2 style="margin:0px">Soceana</h2>Generating Social Good</div><p>&nbsp;</p></div>';
                 
-                $subject = 'Soceana - Request for Forgot Password';
+                $subject = 'Soceana - Request for Password Reset';
                 
                 $this->_sendMail('yourfriends.soceana@venturepact.com',$email_id,$subject,$message);
                 
@@ -363,7 +367,7 @@ class UsersController extends AppController{
                                 $fpData['FpRequest']['status'] = 1;
                                 $this->FpRequest->save($fpData);                                
                                 unset($this->request->data);
-                                $this->Session->setFlash(__('Your password have been reseted successfully'));
+                                $this->Session->setFlash(__('Your password has been reseted successfully'));
                                 $this->redirect('/');                                
                         }
                     }

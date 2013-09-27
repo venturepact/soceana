@@ -30,9 +30,9 @@
             <div class="footer_2last_block">
             	<ul>
                 	<li><h3>CONNECT</h3></li>
-                    <li><a href="#" ><img src="<?php echo $this->webroot;?>img/facebook.png" alt="" /></a></li>
-                    <li><a href="#" ><img src="<?php echo $this->webroot;?>img/twitter.png" alt="" /></a></li>
-                    <li><a href="#" ><img src="<?php echo $this->webroot;?>img/linked_in_icon.png" alt="" /></a></li>
+                    <li><a href="https://www.facebook.com/pages/Soceana/554440111269877"><img src="<?php echo $this->webroot;?>img/facebook.png" alt="" /></a></li>
+                    <li><a href="https://twitter.com/soceanateam"><img src="<?php echo $this->webroot;?>img/twitter.png" alt="" /></a></li>
+                    <li><a href="#"><img src="<?php echo $this->webroot;?>img/linked_in_icon.png" alt="" /></a></li>
                 </ul>
             </div>
             <div class="footer_last_block">

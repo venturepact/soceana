@@ -6,7 +6,7 @@
 ?>
 <style>
     label.error{ color: #FF0000;font-size: 12px;margin: -3px 0 5px 190px;text-align: left;text-transform: none;width: 100%;}
-    ul label.error{left: -175px;position: absolute;top: 308px;width: 500px;}
+    ul label.error{left:-189px;position: absolute;top: 308px;width: 500px;}
     #flashMessage{color: #FF0000;float: left;margin: 20px 0 0 236px;}
     </style>
 <div class="container">
@@ -66,7 +66,7 @@
                         	<?php
                             $i = 1;
                             foreach($service_types as $service_type):?>
-                            <li>
+                            <li <?php if($i == 1 || $i == 6)echo 'class="first"';?>>
                             	<input type="checkbox" id="c<?php echo $i;?>" name="data[ServiceType][ServiceType][]" value="<?php echo $service_type['ServiceType']['id'];?>" />
                                 <label for="c<?php echo $i;?>" class="checkbox-label"><span><img alt="<?php echo $service_type['ServiceType']['name'];?>" src="<?php echo $this->webroot;?>img/<?php echo $service_type['ServiceType']['picture_url'];?>" /></span></label>
                             </li>                            
@@ -74,7 +74,7 @@
                             $i++;
                             endforeach;
                             ?>
-                            <li>
+                            <li class="first">
                             	<div class="grey">
                                 	<label>Other ( Please Describe )</label>
                                 	<textarea></textarea>
@@ -107,7 +107,7 @@ $().ready(function() {
     
     //validation rule for only alphabets
     $.validator.addMethod("alpha", function(value) {
-        return value == value.match(/^[a-zA-Z]*$/);    
+        return value == value.match(/^[a-z A-Z]*$/);    
     }, 'Please enter only alphabets for this field');
     
     //validation rule for valid email
@@ -237,13 +237,13 @@ $().ready(function() {
 <style>ul li label.error{left:54px;position: absolute; top: 574px;width: 500px;}</style>
 <style>
     label.error{ color: #FF0000;font-size: 12px;margin: -3px 0 5px 190px;text-align: left;text-transform: none;width: 100%;}
-    ul label.error{left: -175px;position: absolute;top: 209px;width: 500px;}
+    ul label.error{left: -189px;position: absolute;top: 209px;width: 500px;}
     #flashMessage{color: #FF0000;float: left;margin: 20px 0 0 236px;}
     </style>
 <div class="container">
         	<div class="section">
 				<h1>CREATE YOUR FREE SOCEANA ACCOUNT</h1>
-                <p>Soceana allows you to connect with organizations around the nation so you can do good, wherever and whenever. Registering with Soceana takes under five minutes and is ( and always will be)free.</p>
+                <p>Soceana allows you to connect with organizations around the nation so you can do good, wherever and whenever. Registering with Soceana takes under five minutes and is (and always will be) free.</p>
                 
             </div><?php echo $this->Session->flash(); ?>
 			<div class="mt50"></div>
@@ -284,14 +284,14 @@ $().ready(function() {
                    <div class="clr"></div>
                    <div class="mt20"></div>
                    <div class="volunteer_signup_form">
-                    	<label name="name">ORGANIZATION TYPE:<br />
+                    	<label name="name">VOLUNTEER TYPE:<br />
                         <span>(choose as many as you like)</span></label>
                         <ul>
                             <?php
                             $i = 1;
                            // pr($this->request->data);
                             foreach($service_types as $service_type):?>
-                            <li>
+                            <li <?php if($i == 1 || $i == 7)echo 'class="first"';?>>
                                 <input type="checkbox" id="c<?php echo $i;?>" name="data[ServiceType][ServiceType][]" value="<?php echo $service_type['ServiceType']['id'];?>" <?php
                                 if(isset($this->request->data['ServiceType']['ServiceType'])){
                                      if(in_array($service_type['ServiceType']['id'], $this->request->data['ServiceType']['ServiceType'])) {
@@ -362,7 +362,7 @@ $().ready(function() {
     
     //validation rule for only alphabets
     $.validator.addMethod("alpha", function(value) {
-        return value == value.match(/^[a-zA-Z]*$/);    
+        return value == value.match(/^[a-z A-Z]*$/);    
     }, 'Please enter only alphabets for this field');
     
     //validation rule for valid email
