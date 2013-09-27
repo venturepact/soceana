@@ -18,3 +18,4 @@ echo $this->Form->submit('Crop Image', array("id"=>"save_thumb",'div'=>false,'la
 echo $this->Form->end();
 ?>
 </div>
+</div>

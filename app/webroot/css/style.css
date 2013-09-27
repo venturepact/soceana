@@ -97,22 +97,23 @@ font-size:1.5em; color:#efefef; line-height:100%;   }
 	 
 	font-weight: normal ;}
 .next_preview_butt{ float:right; width:62px;  min-height:30px; margin-top:5px; margin-bottom:5px;}	
-.prev{ float:left; background:url(../img/prev.png) ; height:31px; width:31px; }
+/*.prev{ float:left; background:url(../img/prev.png) ; height:31px; width:31px; }*/
+.prev{background: url("../img/prev.png"); float: left;height: 26px;padding-left: 11px;padding-top: 5px;width: 20px;}
 .prev a{     color: #000000;
     float: left;
     font-weight: bold;
-    margin: 6px;
+   /* margin: 6px;*/
     text-align: center;
     text-decoration: none;}
-.prev:hover{ float:left; background:url(../img/prev_h.png); height:31px; width:31px; }
-.next{ float:left; background:url(../img/next.png); height:31px; width:31px; }
+.prev:hover{ float:left; background:url(../img/prev_h.png);/* height:31px; width:31px; */}
+.next{float:left; background:url(../img/next.png);height: 26px;padding-left: 6px;padding-top: 5px;width: 25px; }
 .next a{    color: #000000;
     float: left;
     font-weight: bold;
-    margin: 6px;
+    /*margin: 6px;*/
     text-align: center;
     text-decoration: none; }
-.next:hover{ float:left; background:url(../img/next_h.png); height:31px; width:31px; }
+.next:hover{ float:left; background:url(../img/next_h.png); /*height:31px; width:31px;*/ }
 
 .graph_section{ float:left; width:97%; margin-left:10px; margin-top:20px;}
 .graph_text{ width:98%;

@@ -12,8 +12,12 @@
 		     ?>" alt="<?php echo $this->Session->read('User.first_name');?>" /></div>
                 <div class="right_text_tab "><h2>STATUS</h2></div>
                 <a href="#" class="right_text_tab_small small_font">CHANGE YOUR STATUS</a>
+				<?php
+				 if(($this->params['controller'] == 'pages' && $this->params['action'] == 'display') || ( $this->params['controller'] == 'loghours' && $this->params['action'] == 'add')){
+			     ?>
                 <div class="right_img_outer">
-               <?php $array = $this -> requestAction(array(
+               <?php		   	 
+			   	   $array = $this -> requestAction(array(
 					 'controller' => 'users',
 					 'action' => 'gallery_images'
 					));
@@ -26,6 +30,7 @@
 					endforeach;
 				?>
                 </div>
+                <?php }?>
 </div>
 <?php
 //}
