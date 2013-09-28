@@ -150,21 +150,44 @@ $(function() {
                     
               <?php echo $this->Form->end();?>
 	       <script type='text/javascript' language='javascript'>
-$().ready(function() {            
+$().ready(function() { 
+
+ //validation rule for only alphabets
+    $.validator.addMethod("alpha", function(value) {
+        return value == value.match(/^[a-z A-Z]*$/);    
+    }, 'Please enter only alphabets for this field');
+	
+	
+	 //validation rule for valid email
+    $.validator.addMethod("valid_email_id", function(value) {
+        return value = value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);               
+    }, 'Please enter a valid email id'); 
+	           
         // validate signup form on keyup and submit
         $("#user_profile_update").validate({
 
             rules: {
                         "data[User][email_id]": {
                          required: true,
-                         email: true
+                         'valid_email_id':true
                         },
                         "data[User][first_name]": {
                          required: true,
+						 'alpha':true,
+						  minlength:2,
+                          maxlength:50
                          },
                          "data[User][last_name]": {
                          required: true,
-                         },                        
+						 'alpha':true,
+						  minlength:2,
+                          maxlength:50
+                         },   
+						 "data[User][location]": {                         
+                          'alpha':true,
+                          minlength:2,
+                          maxlength:60
+                         },                     
                         "data[ServiceType][ServiceType][]": {
                         required: true,
                         },
@@ -176,16 +199,24 @@ $().ready(function() {
                     }
                     ,
                 messages:{
-                    "data[User][email_id]": {
-                            required: 'Please enter your email id',
-			    email: 'Please provide a valid email id'
-			},                         
-	                "data[User][first_name]": {
+						  "data[User][email_id]": {
+						    	required: 'Please enter your email id',			  			  
+						 },                         
+	               		 "data[User][first_name]": {
                             required: 'Please enter your first name',
+                            minlength:'Please enter atleast 2 characters',
+                            maxlength:'Please enter maximum 50 characters'
                          },
                          "data[User][last_name]": {
-                            required: 'Please enter your last name',
-                         },          
+                            required: 'Please enter your first name',
+                            minlength:'Please enter atleast 2 characters',
+                            maxlength:'Please enter maximum 50 characters'
+                         },  
+						 "data[User][location]": {
+                            required: 'Please enter your location',
+                            minlength:'Please enter atleast 2 characters',
+                            maxlength:'Please enter maximum 60 characters'
+                         },           
                         "data[ServiceType][ServiceType][]": {
                             required: 'Please select atleast one volunteer type',
                         }

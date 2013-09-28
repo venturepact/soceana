@@ -232,6 +232,16 @@ label.error {font-size: 14px;margin: 3px 0 5px 190px;}
 input { color: #999999;font-size: 19px; height: 33px;}
 .t_col_1 {width: 16%;}
 .t_col_2 { width: 27%;}
+.right_plus { padding-left: 9px; width: 12%;}
+.time_outer2{ background: #f37936 url("../img/outer_bg_strip.jpg") repeat-x !important ; }
+.section, .profile_content_main {font-size: 18px; line-height: 32px; }
+.orange_text span { height: 34px;}
+.text {font-size: 20px;line-height: 35px; width: 67%;}
+.section1 .img { margin-top: -65px; }
+.section p{ font-size:20px;}
+.save_button { margin-left: 193px; }
+.signup_form label span { font-size: 13px; }
+   
 
 
 

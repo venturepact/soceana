@@ -1,3 +1,9 @@
+<style>
+    label.error{ color: #FF0000 !important;font-size: 12px !important;margin: -3px 0 5px 185px !important;text-align: left !important;text-transform: none !important;width: 100% !important;}
+    ul label.error{color: #FF0000 !important;left: -186px !important;position: absolute !important;text-transform: none !important;top: 405px !important;width: 100% !important;}
+    #flashMessage{color: #FF0000;float: left;margin: 20px 0 0 236px;}
+    .profile_top img{border: 2px solid #E7E7E7;margin-bottom: 10px;}    
+</style>
 <?php echo $this->Html->script('jquery.validate');?>
 <?php echo $this->Html->script('jquery.raty');?>
 <script type="text/javascript">
@@ -211,53 +217,84 @@
                  <div class="submit_button" id='update_profile'>
                    <input type="submit" class="submit_button5 cursor_grid" value='' />
                    <div class="clr"></div>
-                   or <a href="#">Cancel</a>
+                   or <a href="<?php echo $this->webroot;?>">Cancel</a>
                    </div>
                  </div>               
                 <?php echo $this->Form->end();?>
 		 <script type='text/javascript' language='javascript'>
-$().ready(function() {            
+$().ready(function() {   
+
+//validation rule for only alphabets
+    $.validator.addMethod("alpha", function(value) {
+        return value == value.match(/^[a-z A-Z]*$/);    
+    }, 'Please enter only alphabets for this field');
+	
+	
+	 //validation rule for valid email
+    $.validator.addMethod("valid_email_id", function(value) {
+        return value = value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);               
+    }, 'Please enter a valid email id'); 
+	
+	         
         // validate signup form on keyup and submit
         $("#organization_profile_update").validate({
 
             rules: {
                         "data[User][email_id]": {
                          required: true,
-                         email: true
+                        'valid_email_id':true
                         },
                         "data[User][first_name]": {
-                         required: true,
+                          required: true,
+						  'alpha':true,
+						  minlength:2,
+                          maxlength:50
                          },
                          "data[User][last_name]": {
                          required: true,
+						 'alpha':true,
+						  minlength:2,
+                          maxlength:50
+                         },
+						 "data[User][location]": {                         
+                          'alpha':true,
+                          minlength:2,
+                          maxlength:60
                          },                        
                         "data[ServiceType][ServiceType][]": {
                         required: true,
                         },
-			"data[SkillSet][SkillSet][]": {
-                        required: true,
-			maxlength:5
-                        }
-                        
+						"data[SkillSet][SkillSet][]": {
+						required: true,
+						maxlength:5
+						}                        
                     }
                     ,
                 messages:{
                     "data[User][email_id]": {
-                            required: 'Please enter your email id',
-			    email: 'Please provide a valid email id'
-			},                         
-	                "data[User][first_name]": {
+                            required: 'Please enter your email id',			   
+						},                         
+	                "data[User][first_name]": {                        
                             required: 'Please enter your first name',
+                            minlength:'Please enter atleast 2 characters',
+                            maxlength:'Please enter maximum 50 characters'
                          },
                          "data[User][last_name]": {
-                            required: 'Please enter your last name',
-                         },          
+                            required: 'Please enter your first name',
+                            minlength:'Please enter atleast 2 characters',
+                            maxlength:'Please enter maximum 50 characters'
+                         }, 
+						 "data[User][location]": {
+                            required: 'Please enter your location',
+                            minlength:'Please enter atleast 2 characters',
+                            maxlength:'Please enter maximum 60 characters'
+                         },         
                         "data[ServiceType][ServiceType][]": {
                             required: 'Please select atleast one volunteer type',
                         },
-			"data[SkillSet][SkillSet][]": {
+						"data[SkillSet][SkillSet][]": {
                             required: 'Please select atleast one Skill set',
-			    maxlength: 'Please select maximum three skills'
+			    			maxlength: 'Please select maximum three skills'
                         }
             },
 	    errorElement: 'label',
@@ -283,7 +320,7 @@ $().ready(function() {
            <div class="right_section_inner">  
            	  <div class="profile">
           		<div class="profile_top">
-                	  <h1>RED CROSS PA</h1>
+                	  <h1><?php echo strtoupper($this->Session->read('User.organization_name'));?></h1>
                        <div class="img_section"><?php
 	  	if(strlen($this->request->data['User']['thumb_image']) > 0 ){
 		    ?>

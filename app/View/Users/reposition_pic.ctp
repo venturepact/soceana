@@ -14,8 +14,10 @@ echo $this->Cropimage->createJavaScript($uploaded['imageWidth'],$uploaded['image
 <?php
 echo $this->Form->create('User', array('action' => 'user_pic3',"enctype" => "multipart/form-data"));    
 echo $this->Cropimage->createForm($uploaded["imagePath"], 300, 300);
-echo $this->Form->submit('Crop Image', array("id"=>"save_thumb",'div'=>false,'label'=>false));
-echo $this->Form->end();
+echo $this->Form->submit('Crop Image', array("id"=>"save_thumb",'div'=>false,'label'=>false));?>
+ <div class="clr"></div>
+                        <div style="text-align:center;width:50%;">or <a href="<?php echo $this->webroot;?>users/user_profile">Cancel</a></div>
+<?php echo $this->Form->end();
 ?>
 </div>
 </div>

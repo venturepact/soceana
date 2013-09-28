@@ -19,6 +19,8 @@ label.error{ color: #FF0000 !important;font-size: 12px !important;margin: -3px 0
     </div>
     <div class="contact_form">
         <input type='submit' value='' class='submit'>
+        <div class="clr"></div>
+                        <div style="text-align:center;width:50%;">or <a href="<?php echo $this->webroot;?>users/user_profile">Cancel</a></div>
     </div>
 <?php
     echo $this->Form->end();

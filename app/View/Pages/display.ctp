@@ -137,7 +137,7 @@ if($this->Session->read('User.role') == 'organizations') {
      <div class="wrapper_right_section">
         <div class="time_outer">
             <div class="top_section" ><h4>TOTAL HOURS VOLUNTEERED</h4></div> 
-              <div class="right_plus" style="background:#0D8677"  ><a href="#" ><img src="<?php echo $this->webroot;?>/img/icon-plus.png" border="0"></a></div>          
+              <div class="right_plus" style="background:#0D8677"  ><a href="#" ><img src="<?php echo $this->webroot;?>img/icon-plus.png" border="0"></a></div>          
               <div class="mid_section"><span class="large_font"><?php if($total_hours[0]['total_hours']!=NULL){
 				$info = get_info($total_hours[0]['total_hours']);
 				echo $info['days'].':'.$info['hours'].':'.$info['minutes'];
@@ -290,7 +290,7 @@ else{
          <div class="wrapper_right_section">
         <div class="time_outer2">
             <div class="top_section"><h4>TOTAL HOURS VOLUNTEERED</h4></div>
-             <div class="right_plus" style="background:#9A4314; padding-top:0px;"  ><a href="#" ><img src="<?php echo $this->webroot;?>/img/icon-plus.png" border="0"></a>
+             <div class="right_plus" style="background:#9A4314; padding-top:0px;"  ><a href="#" ><img src="<?php echo $this->webroot;?>img/icon-plus.png" border="0"></a>
                  </div>          
               <div class="mid_section"><span class="large_font"><?php if($total_hours[0]['total_hours']!=NULL){
 				$info = get_info($total_hours[0]['total_hours']);
