@@ -187,8 +187,8 @@ h6 {color: #FFFFFF;font-size: 15px;margin-top: 3px; padding-top:3px;}
 vol_table .table_footer_white {font-size: 14px;}
 h2 {font-size: 23px;}
 .small_font {font-size: 15px;line-height: 20px;}
-.next {height: 31px;padding-left: 6px; width: 25px;}
-.next:hover{height: 31px; width: 25px;padding-left: 6px; }
+.next {height: 26px;padding-left: 6px; width: 25px;}
+.next:hover{height: 26px; width: 25px;padding-left: 6px; }
 .prev { height: 26px;padding-left: 11px; padding-top: 5px; width: 20px;}
 .prev:hover{height: 26px;padding-left: 11px; padding-top: 5px; width: 20px;}
 .tab_font { font-size: 23px;}
@@ -210,10 +210,10 @@ p {font-size: 18px; line-height: 34px; text-align: justify;}
 .vol_table .signup_form label span {font-size: 13px;width: 236px;}
 .contact_form label {font-size: 17px;}
 .vol_table .signup_form_blue label { font-size: 17px;}
-.contact_form .submit_button {font-size: 17px;}
+.contact_form .submit_button {font-size: 17px; margin-left: 190px;}
 .gray_text1 {font-size: 15px;}
 .time_outer { background:#1fbba6 url("../img/time_outer_bg.png") repeat-x top;}
-.t_col_6 { padding-top:5px;}
+.t_col_6 { padding-top:5px; height:87%;}
 .left_top_section_p .main_text {width: 38%;}
 .left_top_section_p .news_text {padding: 2%; width: 53%;}
 .sponser_inner span {font-size: 14px;}
@@ -221,6 +221,26 @@ p {font-size: 18px; line-height: 34px; text-align: justify;}
 .text_style {font-size: 17px; padding-left: 5px; }
 .volunteer_signup_form ul { width: 56%;}
 label.error {font-size: 14px;margin: 3px 0 5px 190px;}
+.signup_form ul {width: 50%;}
+.contact_form label {width: 179px;}
+.butt_outer {font-size: 17px;}
+.popup_outer {min-height: 605px; width: 94%;}
+.popup_heading {font-family: 'Conv_FuturaLT',Sans-Serif;font-size: 32px;}
+.popup_text {font-family: 'Conv_FuturaLT',Sans-Serif;font-size: 20px;line-height: 35px;}
+#forgot_message {font-size: 18px;margin: 0 0 1% 10%;}
+.text_outer_border {border: 1px solid #CCCCCC;}
+input { color: #999999;font-size: 19px; height: 33px;}
+.t_col_1 {width: 16%;}
+.t_col_2 { width: 27%;}
+
+
+
+
+
+
+
+/*Updated 27/09/2013*/
+
 
 
 

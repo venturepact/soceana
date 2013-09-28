@@ -161,11 +161,13 @@ font-size:1.5em; color:#efefef; line-height:100%;   }
 
 .wrapper_right_section{ float:left; width:36%; padding:10px 8px 10px 8px; }
 .time_outer{ float:left; width:95%;  -webkit-border-radius: 5px;-moz-border-radius: 5px; border-radius: 5px; background:url(../img/time_outer_bg.png) repeat-x; margin-left:3%; padding-bottom:1%; margin-bottom:1%;}
-.time_outer .top_section{ float:left; width:95%; padding:3%; height:5%; text-align:center;   }
+.time_outer .top_section{ float:left; width:80%; padding:3%; height:5%; text-align:center;   }
+.right_plus{ width:14%; float:left; padding-top: 2px;  border-top-right-radius:6px;
+-webkit-border-top-right-radius:6px; }
 .time_outer .mid_section{ float:left; width:95%; padding:3%; padding-top:5%;  text-align:center;   }
 
-.time_outer2{ float:left; width:95%;  -webkit-border-radius: 5px;-moz-border-radius: 5px; border-radius: 5px; background:url(../img/time_outer_bg2.png) repeat-x; min-height:130px; margin-left:3%;}
-.time_outer2 .top_section{ float:left; width:95%; padding:3%; height:5%; text-align:center;   }
+.time_outer2{ float:left; width:95%;  -webkit-border-radius: 5px;-moz-border-radius: 5px; border-radius: 5px; background:url(../img/outer_bg_strip.jpg) repeat-x;  min-height:130px; margin-left:3%;}
+.time_outer2 .top_section{ float:left; width:80%; padding:3%; height:5%; text-align:center;   }
 .time_outer2 .mid_section{ float:left; width:95%; padding:3%; padding-top:5%;  text-align:center;   }
 
 .large_font{ float:left; width:98%; font-family: 'Conv_FuturaLT', Sans-Serif;

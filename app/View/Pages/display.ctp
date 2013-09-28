@@ -105,8 +105,8 @@ if($this->Session->read('User.role') == 'organizations') {
    <div class="table_footer_white "  >
      <div class="gray_text1"><?php echo $this->Paginator->counter('Showing {:start} to {:end} of {:count} entries');?></div>
       <div class="next_preview_butt">
-       <?php echo $this->Paginator->prev(' << ', array(), null, array('class' => 'prev'));?>
-       <?php echo $this->Paginator->next(' >> '  , array(), null, array('class' => 'next'));?>
+       <?php echo $this->Paginator->prev(' < ', array(), null, array('class' => 'prev'));?>
+       <?php echo $this->Paginator->next(' > '  , array(), null, array('class' => 'next'));?>
         </div>
     </div>
     <div class="graph_section">
@@ -136,7 +136,8 @@ if($this->Session->read('User.role') == 'organizations') {
           <div class="wrapper_mid_border"></div>              
      <div class="wrapper_right_section">
         <div class="time_outer">
-            <div class="top_section"><h4>TOTAL HOURS VOLUNTEERED</h4></div>           
+            <div class="top_section" ><h4>TOTAL HOURS VOLUNTEERED</h4></div> 
+              <div class="right_plus" style="background:#0D8677"  ><a href="#" ><img src="<?php echo $this->webroot;?>/img/icon-plus.png" border="0"></a></div>          
               <div class="mid_section"><span class="large_font"><?php if($total_hours[0]['total_hours']!=NULL){
 				$info = get_info($total_hours[0]['total_hours']);
 				echo $info['days'].':'.$info['hours'].':'.$info['minutes'];
@@ -272,8 +273,8 @@ else{
 
 
       <div class="next_preview_butt">
-       <?php echo $this->Paginator->prev(' << ', array(), null, array('class' => 'prev'));?>
-       <?php echo $this->Paginator->next(' >> '  , array(), null, array('class' => 'next'));?>        
+       <?php echo $this->Paginator->prev(' < ', array(), null, array('class' => 'prev'));?>
+       <?php echo $this->Paginator->next(' > '  , array(), null, array('class' => 'next'));?>        
         </div>
     </div>
     <div class="graph_section">
@@ -289,6 +290,8 @@ else{
          <div class="wrapper_right_section">
         <div class="time_outer2">
             <div class="top_section"><h4>TOTAL HOURS VOLUNTEERED</h4></div>
+             <div class="right_plus" style="background:#9A4314; padding-top:0px;"  ><a href="#" ><img src="<?php echo $this->webroot;?>/img/icon-plus.png" border="0"></a>
+                 </div>          
               <div class="mid_section"><span class="large_font"><?php if($total_hours[0]['total_hours']!=NULL){
 				$info = get_info($total_hours[0]['total_hours']);
 				echo $info['days'].':'.$info['hours'].':'.$info['minutes'];

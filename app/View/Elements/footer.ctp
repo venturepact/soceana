@@ -25,7 +25,7 @@
               </div>
             </div>
             <div class="footer_third_block">
-            	<img src="<?php echo $this->webroot;?>img/footer_logo.png" width="100%" height="100%" alt="img"  />
+            	<img src="<?php echo $this->webroot;?>img/footer_logo.png" width="100%"  alt="img"  />
             </div>
             <div class="footer_2last_block">
             	<ul>

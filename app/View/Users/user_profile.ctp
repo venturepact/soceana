@@ -1,6 +1,6 @@
 <style>
-    label.error{ color: #FF0000;font-size: 12px;margin: -3px 0 5px 190px;text-align: left;text-transform: none;width: 100%;}
-    ul label.error{color: #FF0000 !important;left: -322px !important;position: absolute !important;text-transform: none !important;top: 405px !important;width: 100% !important;}
+    label.error{ color: #FF0000 !important;font-size: 12px !important;margin: -3px 0 5px 185px !important;text-align: left !important;text-transform: none !important;width: 100% !important;}
+    ul label.error{color: #FF0000 !important;left: -186px !important;position: absolute !important;text-transform: none !important;top: 405px !important;width: 100% !important;}
     #flashMessage{color: #FF0000;float: left;margin: 20px 0 0 236px;}
     .profile_top img{border: 2px solid #E7E7E7;margin-bottom: 10px;}    
     </style><link type="text/css" href="<?php echo $this->webroot;?>js/datepicker/jquery.datepick.css" rel="stylesheet">
@@ -86,7 +86,7 @@ $(function() {
                   <div class="mt20"></div>
                   <div class="signup_form">
                     	<label name="dob">Date of Birth:</label>
-                       <?php echo $this->Form->input('birth_date',array('type'=>'text','div'=>false,'label'=>false,'class'=>'text_style','placeholder'=>'YYYY-MM-DD','id'=>'dob'));?>
+                       <?php echo $this->Form->input('birth_date',array('type'=>'text','div'=>false,'label'=>false,'class'=>'text_style','placeholder'=>'YYYY-MM-DD','id'=>'dob','readonly'=>'readonly'));?>
                   </div>
                   
                    <div class="clr"></div>
@@ -144,7 +144,7 @@ $(function() {
                     	<div class="submit_button">
                         <input type="submit" class="submit_button3 cursor_grid" value='' />
 						<div class="clr"></div>
-                        or <a href="#">Cancel</a>
+                        or <a href="<?php echo $this->webroot;?>">Cancel</a>
                         </div>
                     </div>
                     
@@ -167,7 +167,11 @@ $().ready(function() {
                          },                        
                         "data[ServiceType][ServiceType][]": {
                         required: true,
-                        }
+                        },
+						 "data[User][birth_date]": {
+							required: true,
+							dateISO:true
+                        },
                         
                     }
                     ,

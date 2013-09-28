@@ -162,7 +162,7 @@ class UsersController extends AppController{
             {
                 $temp[$i] = 0;
             }
-            
+            if($this->request->data['User']['birth_date'] == '0000-00-00')$this->request->data['User']['birth_date'] = '';
             $this->set('temp_types',$temp);
             $this->set('service_types',$this->ServiceType->find('all',array('order'=>'id','fields'=>array('id','name','picture_url'))));
             unset($this->request->data['User']['Password']);
