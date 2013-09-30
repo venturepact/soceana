@@ -8,7 +8,7 @@ ul.left_margin label.error{color:#ff0000;position:absolute;margin-top:5px; text-
           <!--Upper Box End-->
        <div class="top_heading">
          <h1>PERSONALIZE YOUR VOLUNTEERING EXPERIENCE</h1>
-          <h3>Filter organizations based upon skill sets they are looking for, and contact thenm to do more good.</h3>
+          <h3>Filter organizations based upon skill sets they are looking for, and contact them to do more good.</h3>
             
            </div>
        

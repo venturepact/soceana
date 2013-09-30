@@ -40,7 +40,7 @@ if($this->Session->read('User.role') == 'organizations') {
                          </div>                                        
              </div>
    <div class="top_heading_second">
-     <h1>SOCIAL TIDES CREATED</h1>
+     <h1>SOCIAL TIDES CHART</h1>
         </div>       
        <div class="table_head">
          <div class="list"><?php echo $this->Form->create('Pages');?>
@@ -290,7 +290,7 @@ else{
          <div class="wrapper_right_section">
         <div class="time_outer2">
             <div class="top_section"><h4>TOTAL HOURS VOLUNTEERED</h4></div>
-             <div class="right_plus" style="background:#9A4314; padding-top:0px;"  ><a href="#" ><img src="<?php echo $this->webroot;?>img/icon-plus.png" border="0"></a>
+             <div class="right_plus" style="background:#9A4314; padding-top:0px;"><a href="<?php echo $this->webroot;?>loghours/add"><img src="<?php echo $this->webroot;?>img/icon-plus.png" border="0"></a>
                  </div>          
               <div class="mid_section"><span class="large_font"><?php if($total_hours[0]['total_hours']!=NULL){
 				$info = get_info($total_hours[0]['total_hours']);

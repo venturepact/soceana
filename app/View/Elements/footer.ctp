@@ -19,9 +19,8 @@
                 <div class="footer_block2nd_heading">MEET THE TEAM </div>
               <div class="footer_image_outer">
                 <div class="img_outer"><img src="<?php echo $this->webroot;?>img/anil.png" width="90%" height="90%" alt="" /></div>
-                        <div class="img_outer"><img src="<?php echo $this->webroot;?>img/tass.png"width="90%" height="90%" alt="" /></div>
-                <div class="img_outer"><img src="<?php echo $this->webroot;?>img/anil.png" width="90%" height="90%" alt="" /></div>
-                <div class="img_outer"><img src="<?php echo $this->webroot;?>img/tass.png"width="90%" height="90%" alt="" /></div>
+                 <div class="img_outer"><img src="<?php echo $this->webroot;?>img/tass.png"width="90%" height="90%" alt="" /></div>
+              
               </div>
             </div>
             <div class="footer_third_block">

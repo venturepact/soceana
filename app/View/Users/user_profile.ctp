@@ -3,7 +3,8 @@
     ul label.error{color: #FF0000 !important;left: -186px !important;position: absolute !important;text-transform: none !important;top: 405px !important;width: 100% !important;}
     #flashMessage{color: #FF0000;float: left;margin: 20px 0 0 236px;}
     .profile_top img{border: 2px solid #E7E7E7;margin-bottom: 10px;}    
-    </style><link type="text/css" href="<?php echo $this->webroot;?>js/datepicker/jquery.datepick.css" rel="stylesheet">
+    </style>
+<link type="text/css" href="<?php echo $this->webroot;?>js/datepicker/jquery.datepick.css" rel="stylesheet">
 <?php echo $this->Html->script('jquery.validate');?>
 <?php echo $this->Html->script('datepicker/jquery.datepick');?>
 <script type="text/javascript">
@@ -208,7 +209,7 @@ $().ready(function() {
                             maxlength:'Please enter maximum 50 characters'
                          },
                          "data[User][last_name]": {
-                            required: 'Please enter your first name',
+                            required: 'Please enter your last name',
                             minlength:'Please enter atleast 2 characters',
                             maxlength:'Please enter maximum 50 characters'
                          },  
@@ -244,6 +245,7 @@ $().ready(function() {
              <div class="right_section_inner">  
              	<div class="profile">
           		<div class="profile_top">
+                 <h1><?php echo strtoupper($this->Session->read('User.first_name').' '.$this->Session->read('User.last_name'));?></h1>
                 	 <?php
 	  	if(strlen($this->request->data['User']['thumb_image']) > 0 ){
 		    ?>

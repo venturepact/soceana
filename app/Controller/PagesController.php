@@ -185,15 +185,15 @@ class PagesController extends AppController {
 			  $company = $this->request->data['Contact']['company'];
 			  $message = $this->request->data['Contact']['message'];
 			 
-			  $details = '<div style="float:left;background:#e7e7e7;min-height:200px;width:800px;font-family:Verdana, Geneva, sans-serif"><p>&nbsp;</p><div style="margin:0px 10px"><p>Details of New Enquiry recieved from Soceana</p><p>Name : '.$name.'</p><p>E-Mail: '.$email_id.'</p><p>Company: '.$company.'</p><p>Message : '.$message.'</p></div><p style="margin:15px 10px">&nbsp;</p><p>&nbsp;</p><div style="margin:0px 10px">Thanks,<br /><h2 style="margin:0px">Soceana</h2>Generating Social Good</div><p>&nbsp;</p></div>';
+			  $details = '<div style="float:left;background:#e7e7e7;min-height:200px;width:800px;font-family:Verdana, Geneva, sans-serif"><p>&nbsp;</p><div style="margin:0px 10px"><p>Details of New Enquiry received from Soceana</p><p>Name : '.$name.'</p><p>E-Mail: '.$email_id.'</p><p>Company: '.$company.'</p><p>Message : '.$message.'</p></div><p style="margin:15px 10px">&nbsp;</p><p>&nbsp;</p><div style="margin:0px 10px">Thanks,<br /><h2 style="margin:0px">Soceana</h2>Generating Social Good</div><p>&nbsp;</p></div>';
                 
-              $subject = 'Soceana - New Enquiry recieved from '.$name;
+              $subject = 'Soceana - New Enquiry received from '.$name;
               
 			  $to = 'inderjit.singh@venturepact.com';
 			  				
               $this->_sendMail($email_id,$to,$subject,$details);
 			  
-			  $this->Session->setFlash('Your Enquiry has been successfully recieved.We will reach you shortly.');
+			  $this->Session->setFlash('Your Enquiry has been successfully received.We will reach you shortly.');
 			  
 			  unset($this->request->data);
 		 }

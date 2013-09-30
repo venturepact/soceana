@@ -8,7 +8,7 @@ ul.left_margin label.error{color:#ff0000;position:absolute;margin-top:5px; text-
           <!--Upper Box End-->
        <div class="top_heading">
          <h1>PERSONALIZE YOUR VOLUNTEERING EXPERIENCE</h1>
-          <h3>Filter organizations based upon skill sets they are looking for, and contact thenm to do more good.</h3>
+          <h3>Filter organizations based upon skill sets they are looking for, and contact them to do more good.</h3>
             
            </div>
        
@@ -93,6 +93,7 @@ $().ready(function() {
                  <h1>RESULTS</h1>
                  <?php
 				 //pr($skillset_results);
+				 if(sizeof($skillset_results) > 0){					 
 				 foreach($skillset_results as $sk_result){
 				 ?>
                  <!--Result Single Outer -->
@@ -148,16 +149,21 @@ $().ready(function() {
                    <!--Result Single Outer End -->
                    <?php
 				 	}
+				 }else{
+				 echo '<div align="center" style="color:#ff0000">No records found</div>'; 
+				 }
 				   ?>
                    <div class="table_footer_white1">
-                   <div class="next_preview_butt">
-                       <?php echo $this->Paginator->counter('Showing {:start} to {:end} of {:count} entries');?>
+                   <div class="next_preview_butt" style="width:97%;">
+                       <div style='float:left;margin:0 10px'><?php echo $this->Paginator->counter('Showing {:start} to {:end} of {:count} entries');?></div>
                      	<?php echo $this->Paginator->prev(' << ', array(), null, array('class' => 'prev'));?>
        			<?php echo $this->Paginator->next(' >> '  , array(), null, array('class' => 'next'));?>
                    </div>
                  </div>                                                                                   
                </div> 
-               
+               <div align="center">
+            	<a href="<?php echo $this->webroot;?>users/personalize">Back</a>
+            </div> 
                
              </div>         
        </div>          
@@ -227,6 +233,7 @@ OF PHILADELPHIA
                    success: function(data){                        
 			var obj = jQuery.parseJSON(data);
 			$('#compose_to').val(obj.name.trim());
+			$('#compose_to').attr("disabled", true);
 			$('#compose_image').html('<img src='+ obj.image + ' width="69" height="69">');   
                    }
             });	   

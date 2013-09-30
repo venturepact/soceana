@@ -281,7 +281,7 @@ z-index:-1;}
 
 #right_img_section{ float:left; width:12.5%; overflow:hidden; }
 .tab_outer_right{ float:left; margin-top:319px; width:100%;   }
-.right_text_tab{ float:left; width:88%;  background:#a0a0a0; text-decoration:none; border-bottom:2px solid #FFF; margin-bottom:1px; padding:10px 10px 10px 10px; font-size:18px; color:#efefef; text-align:center;   }
+.right_text_tab{ text-transform:uppercase; float:left; width:88%;  background:#a0a0a0; text-decoration:none; border-bottom:2px solid #FFF; margin-bottom:1px; padding:10px 10px 10px 10px; font-size:18px; color:#efefef; text-align:center;   }
 .tab_font{
 	font-family: 'Conv_FuturaLT', Sans-Serif;
 	font-size: 1.2em;
@@ -442,7 +442,7 @@ input[type=checkbox].css-checkbox {
 .login_container .top_section .top_form{ position:relative;top:180px;width:380px;}
 .top_form .user_name{background-image:url(../img/login_top_icon.png);background-repeat:no-repeat;margin-left: 50px;height:35px;}
 .top_form .password{background-image:url(../img/pass_top_icon.png);background-repeat:no-repeat;margin-left: 50px;margin-top:20px;height:35px;}
-.top_form .user_name input,.top_form .password input{border: 1px solid #BDCED6;border-radius: 3px;height: 35px;width:250px; margin-left: 50px;}
+.top_form .user_name input,.top_form .password input{border: 1px solid #BDCED6;border-radius: 3px;height: 35px;width:250px; margin-left: 50px;padding-left:3px}
 .top_form .remember{margin-left:50px;}
 .top_form .remember .intern{float: left;font-family: 'Conv_FuturaLT', Sans-Serif; color:#fff;margin-top: 3px;}
 .top_form .checkbox-label{float:left;margin-top:2px;margin-top: 0;width: 25px;}
@@ -469,7 +469,7 @@ input{ width:200px;height:25px;background-color:#EBF6FC; border:none; margin-lef
     height: 25px;
     margin-left: 20px;
     margin-top: 10px;}
-.section_login_right .user_name input, .section_login_right .password input{border: 1px solid #BDCED6;border-radius: 3px;height: 25px; margin-left: 35px;}
+.section_login_right .user_name input, .section_login_right .password input{padding-left:3px;border: 1px solid #BDCED6;border-radius: 3px;height: 25px; margin-left: 35px;}
 .section_login_right .remember input[type="checkbox"]{float: left;margin-left: 10px;margin-top: 0;width: 25px;}
 .section_login_right .remember .intern{float: left;font-family: 'Conv_FuturaLT', Sans-Serif; font-size: 11px; color:#181818;margin-top: 0px;}
 .section_login_right .remember .forget_password{ color: #181818;font-family: 'Conv_FuturaLT', Sans-Serif; font-size: 11px; float: right;margin-right: 10px;margin-top: 0;text-decoration: underline;}
@@ -488,7 +488,7 @@ input{ width:200px;height:25px;background-color:#EBF6FC; border:none; margin-lef
 .contact_form{width:90%;margin:auto;margin-top:10px;}
 .contact_form label{color: #333333;float: left;text-align: right;text-transform: uppercase;width: 175px;margin-right:15px;font-size:15px;}
 .contact_form label span{color: #333333;float: left;text-align: right;text-transform: capitalize;margin-right:15px;font-size:11px;width: 175px;}
-.contact_form input[type="text"],.contact_form input[type="password"]{width:350px;background-color: #EBF6FC; border: solid #999 1px; border-radius:3px; height: 25px;margin:0px;}
+.contact_form input[type="text"],.contact_form input[type="password"]{padding-left:3px;width:350px;background-color: #EBF6FC; border: solid #999 1px; border-radius:3px; height: 25px;margin:0px;}
 .contact_form textarea{width:350px;background-color: #EBF6FC; border: solid #999 1px; height: 150px;border-radius:3px;font-size:13px;}
 .save_button{background: url("../img/send.png") no-repeat scroll 0 0 transparent; border-radius: 4px; height: 40px; margin-bottom: 10px; margin-left: 100px; margin-top: 10px; width: 160px;}
 .save_active{background: url("../img/send_hover.png") no-repeat scroll 0 0 transparent;}

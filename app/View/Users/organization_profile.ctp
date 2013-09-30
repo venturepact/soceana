@@ -1,6 +1,7 @@
 <style>
     label.error{ color: #FF0000 !important;font-size: 12px !important;margin: -3px 0 5px 185px !important;text-align: left !important;text-transform: none !important;width: 100% !important;}
-    ul label.error{color: #FF0000 !important;left: -186px !important;position: absolute !important;text-transform: none !important;top: 405px !important;width: 100% !important;}
+    ul#type label.error{color: #FF0000 !important;left:0px !important;position: absolute !important;text-transform: none !important;top: 935px !important;width: 100% !important;}
+	ul#skill_set_select label.error{color: #FF0000 !important;left:0px !important;position: absolute !important;text-transform: none !important;top: 1330px !important;width: 100% !important;}
     #flashMessage{color: #FF0000;float: left;margin: 20px 0 0 236px;}
     .profile_top img{border: 2px solid #E7E7E7;margin-bottom: 10px;}    
 </style>
@@ -31,7 +32,7 @@
 </style>
 <div class="top_heading">
          <h1>ORGANIZATION PROFILE</h1>
-          <h3>View your profile and update your information, privacy settings, and more.</h3>
+          <h3>View your profile , update your information, privacy settings and more.</h3>
             
            </div>       
      <div class="wrapper_left_section">
@@ -119,7 +120,7 @@
 		 <div class="signup_form_blue">
                     	<label name="name">ORGANIZATION TYPE:<br />
                         <span>(choose as many as you like)</span></label>
-                        <ul>
+                        <ul id='type'>
                             <?php
                             $i = 1;
 			    $k = 1;
@@ -165,10 +166,11 @@
                             </li>
                         </ul>
                     </div>
-               <div class="clr"></div>
+              <div class="clr"></div>
+               <div class="mt20"></div>
                <div class="signup_form_blue">
                     	<label name="name">SKILL SET REQUIRED:<br />
-                        <span>(choose at maximum 5, and rate in order of necessily)</span></label>
+                        <span>(choose at maximum 5 and rate in order of necessily)</span></label>
                         <ul id='skill_set_select'>
                         <?php
 			//pr($temp_skills);die;
@@ -256,6 +258,11 @@ $().ready(function() {
 						  minlength:2,
                           maxlength:50
                          },
+						 "data[User][organization_name]": {
+                         required: true,
+                         minlength:2,
+                         maxlength:60
+                         },
 						 "data[User][location]": {                         
                           'alpha':true,
                           minlength:2,
@@ -280,10 +287,15 @@ $().ready(function() {
                             maxlength:'Please enter maximum 50 characters'
                          },
                          "data[User][last_name]": {
-                            required: 'Please enter your first name',
+                            required: 'Please enter your last name',
                             minlength:'Please enter atleast 2 characters',
                             maxlength:'Please enter maximum 50 characters'
                          }, 
+						  "data[User][organization_name]": {
+                            required: 'Please enter your organization name',
+                            minlength:'Please enter atleast 2 characters',
+                            maxlength:'Please enter maximum 60 characters'
+                         },
 						 "data[User][location]": {
                             required: 'Please enter your location',
                             minlength:'Please enter atleast 2 characters',
@@ -294,7 +306,7 @@ $().ready(function() {
                         },
 						"data[SkillSet][SkillSet][]": {
                             required: 'Please select atleast one Skill set',
-			    			maxlength: 'Please select maximum three skills'
+			    			maxlength: 'Please select maximum five skills'
                         }
             },
 	    errorElement: 'label',

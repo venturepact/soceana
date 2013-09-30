@@ -115,9 +115,9 @@ class UsersController extends AppController{
 						 $this->redirect(array('controller'=>'pages','action'=>'display'));
 					}*/
                     
-                    //$this->Session->setFlash(__('User details has been saved successfully'));
+                    $this->Session->setFlash(__('User details has been saved successfully'));
                     
-                   // $this->redirect(array('action'=>'login'));
+                    $this->redirect(array('action'=>'login'));
                 }
                 else{
                     $this->Session->setFlash(__('User details could not be saved. Please try again.'));    
