@@ -129,7 +129,7 @@ $(function() {
                             <li>
                             	<div class="grey">
                                 	<label>Other ( Please Describe )</label>
-                                	<textarea></textarea>
+                                	<textarea readonly="readonly"></textarea>
                                     <div class="input">
                                     <input type="button" name="cancel" class="cancel"/>
                                     </div>
@@ -188,7 +188,11 @@ $().ready(function() {
                           'alpha':true,
                           minlength:2,
                           maxlength:60
-                         },                     
+                         },
+						  "data[User][phone]": {                         
+						 	number:true,
+                          	min:1                      
+                         },						                     
                         "data[ServiceType][ServiceType][]": {
                         required: true,
                         },
@@ -217,7 +221,11 @@ $().ready(function() {
                             required: 'Please enter your location',
                             minlength:'Please enter atleast 2 characters',
                             maxlength:'Please enter maximum 60 characters'
-                         },           
+                         },   
+						 "data[User][phone]": {                         
+						 	number:'Please enter valid phone number',
+                          	min:'Please enter valid phone number'                     
+                         },        
                         "data[ServiceType][ServiceType][]": {
                             required: 'Please select atleast one volunteer type',
                         }

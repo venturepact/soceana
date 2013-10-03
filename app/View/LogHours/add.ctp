@@ -103,7 +103,7 @@ $(function() {
                <div class="clr"></div>
                <div class="signup_form">
                  <label name="name">Date</label>
-                 <?php echo $this->Form->input('job_date',array('type'=>'text','div'=>false,'label'=>false,'placeholder'=>'YYYY-MM-DD','id'=>'job_date','class'=>'text_style'));?>
+                 <?php echo $this->Form->input('job_date',array('type'=>'text','div'=>false,'label'=>false,'placeholder'=>'YYYY-MM-DD','id'=>'job_date','class'=>'text_style','readonly'=>'readonly'));?>
                </div>
                <div class="clr"></div>
                <div class="signup_form">
@@ -151,7 +151,7 @@ $(function() {
                    <li>
                      <div class="grey">
                        <label>Other ( Please Describe )</label>
-                       <textarea></textarea>
+                       <textarea readonly="readonly"></textarea>
                        <div class="input">
                          <input type="button" name="cancel" class="cancel"/>
                          </div>
@@ -211,7 +211,7 @@ $(function() {
                  <div class="submit_button">		  
                    <input type="submit" class="submit_button3 cursor_grid" value='' />
                    <div class="clr"></div>
-                   or <a href="#">Cancel</a>
+                   or <a href="<?php echo $this->webroot;?>">Cancel</a>
                    </div>
                  </div>
                
@@ -221,7 +221,7 @@ $().ready(function() {
     
     //validation rule for only alphabets
     $.validator.addMethod("alpha", function(value) {
-        return value == value.match(/^[a-zA-Z]*$/);    
+        return value == value.match(/^[a-z A-Z]*$/);    
     }, 'Please enter only alphabets for this field');    
     
     
@@ -229,67 +229,67 @@ $().ready(function() {
         $("#add_loghour").validate({
             rules: {
                         "data[LogHour][organization]": {
-                          required: true,                         
+                        	required: true,                         
                         },
                         "data[LogHour][position]": {
-                          required: true,
-                          'alpha':true,
-                          minlength:2,
-                          maxlength:75
+                         	required: true,
+                         	'alpha':true,
+	                        minlength:2,
+    	                    maxlength:75
                          },
                          "data[LogHour][location]": {
-                          required: true,                         
-                          minlength:2,
-                          maxlength:100
+                         	required: true, 
+						  	'alpha':true,                        
+	    	                 minlength:2,
+    	                     maxlength:100
                          },                         
                          "data[LogHour][hours]": {
-                         required: true,
-                         digits: true,
-			 range: [1 , 23]
+                         	required: true,
+                         	digits: true,
+			 				range: [1 , 23]
                          },
                         "data[LogHour][job_date]": {
-			required: true,
-			dateISO:true
+						 	required: true,
+						 	dateISO:true
                         },
                         "data[LogHour][service_type_id]": {
-                        required: true,
-			maxlength:1
+                       		required: true,
+							maxlength:1
                         },
-			"data[LogHour][category_id]":{
-			required:true,
-			
-			}			
+						"data[LogHour][category_id]":{
+							required:true,						
+						}			
                     }
                     ,
                 messages:{
                         "data[LogHour][organization]": {
                             required: 'Please select organization',
-			},                         
-	                "data[LogHour][position]": {
+						},                         
+	        	        "data[LogHour][position]": {
                             required: 'Please enter your position',
                             minlength:'Please enter atleast 2 characters',
                             maxlength:'Please enter maximum 75 characters'
                          },                         
-                         "data[User][location]": {
+                         "data[LogHour][location]": {
                             required: 'Please enter your location',
                             minlength:'Please enter atleast 2 characters',
                             maxlength:'Please enter maximum 100 characters'
                          },                         
                         "data[LogHour][hours]": {
                             required: 'Please enter your hours',
-			    digits:'Please enter digits for hours'
+			   			    digits:'Please enter digits for hours'
                         },
-			"data[LogHour][job_date]": {
+						"data[LogHour][job_date]": {
                             required: 'Please enter your job date',
-			    dateISO:'Please enter a valid date'
+			 				dateISO:'Please enter a valid date'
 			   
                         },
                         "data[LogHour][service_type_id]": {
                             required: 'Please select atleast one volunteer type',
-			    maxlength:'Please select only one volunteer type'
+						    maxlength:'Please select only one volunteer type'
                         },
-			"data[LogHour][category_id]":{
-			    required:'Please select category',	
+						"data[LogHour][category_id]":{
+			   				required:'Please select category',	
 			}
                 },
             errorElement: 'label',

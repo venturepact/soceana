@@ -86,8 +86,21 @@ $(function() {
                   <div class="mt20"></div>
                   <div class="signup_form">
                     	<label name="name">DATE:</label>
-                         <?php echo $this->Form->input('job_date',array('type'=>'text','div'=>false,'label'=>false,'placeholder'=>'YYYY-MM-DD','id'=>'job_date','class'=>'text_style'));?>
+                         <?php echo $this->Form->input('job_date',array('type'=>'text','div'=>false,'label'=>false,'placeholder'=>'YYYY-MM-DD','id'=>'job_date','class'=>'text_style','readonly'=>'readonly'));?>
                   </div>
+                  <div class="clr"></div>
+               <div class="signup_form">
+                 <label name="name">Category</label>                 
+		 <?php echo $this->Form->input('category_id',array(
+							       'type' => 'select',
+							       'div' => false,
+							       'label' => false,
+							       'options' => $categories,
+							       'empty' => 'Select Category',							      
+							       'class'=>'text_style',
+								   'disabled'=>'disabled'						       
+		 ));?>
+               </div>
                   
                   
                    <div class="clr"></div>
@@ -114,7 +127,7 @@ $(function() {
                             <li class="last">
                             	<div class="grey">
                                 	<label>Other ( Please Describe )</label>
-                                	<textarea></textarea>
+                                	<textarea readonly="readonly"></textarea>
                                     <div class="input">
                                     <input type="button" name="cancel" class="cancel"/>
                                     </div>
@@ -170,8 +183,8 @@ $(function() {
                         if($this->request->data['LogHour']['status'] == 0)
                         {
                         ?>
-                        <a href="<?php echo $this->webroot;?>loghours/approve_hours/<?php echo $this->request->data['LogHour']['id'];?>" class="green_b">CONFIRM HOURS<img src="<?php echo $this->webroot;?>img/butt_arrow.png"  alt="" class="butt_icon" /></a>
-                        <a href="<?php echo $this->webroot;?>loghours/reject_hours/<?php echo $this->request->data['LogHour']['id'];?>" class="red_b">REJECT</a>
+                        <a href="<?php echo $this->webroot;?>loghours/approve_hours/<?php echo $this->request->data['LogHour']['id'];?>" class="green_b" id='approve_hours'>CONFIRM HOURS<img src="<?php echo $this->webroot;?>img/butt_arrow.png"  alt="" class="butt_icon" /></a>
+                        <a href="<?php echo $this->webroot;?>loghours/reject_hours/<?php echo $this->request->data['LogHour']['id'];?>" class="red_b" id='reject_hours'>REJECT</a>
                         <?php    
                         }
                         ?>                  
@@ -237,3 +250,13 @@ OF PHILADELPHIA
            <div class="clr"></div>
                
            </div>
+<script>
+$(function() {
+    $('#approve_hours').click(function() {
+        return confirm('Are you sure you want to confim hours');
+    });
+	$('#reject_hours').click(function() {
+        return confirm('Are you sure you want to reject hours');
+    });
+});
+</script>

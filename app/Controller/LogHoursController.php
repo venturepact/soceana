@@ -387,8 +387,10 @@ class LogHoursController extends AppController {
         $this->request->data['LogHour']['job_date'] = $record['LogHour']['job_date'];
         $this->request->data['LogHour']['service_type_id'] = $record['LogHour']['service_type_id'];
         $this->request->data['LogHour']['status'] = $record['LogHour']['status'];
-        
+        $this->request->data['LogHour']['category_id'] = $record['LogHour']['category_id'];
+		
         $this->loadModel('ServiceType');
+		$this->loadModel('Category');
 		
 		$this->loadModel('LogHourImage');
 		
@@ -397,7 +399,7 @@ class LogHoursController extends AppController {
 														'conditions' => array('log_hour_id'=> $id),
 														'fields'=> array('picture_url')
 													 )));
-			
+		$this->set('categories',$this->Category->find('list',array('order'=>'id','fields'=>array('id','category_name'))));	
         $this->set('service_types',$this->ServiceType->find('all',array('order'=>'id','fields'=>array('id','name','picture_url'))));        
         
     }

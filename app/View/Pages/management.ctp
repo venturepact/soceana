@@ -43,7 +43,7 @@
             	<h1>JOBS</h1>
                 <div class="clr"></div>
                 <p class="em2">Soceana is looking for qualified and driven individuals to contribute to its initial launch and future
-development. Please inquire further by emailing jobs@soceana.com.</p>
+development. Please inquire further by emailing <a href="mailto:jobs@soceana.com">jobs@soceana.com</a>.</p>
             </div>
             
             <div class="mt50"></div>

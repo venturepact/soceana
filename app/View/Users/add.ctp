@@ -1,23 +1,22 @@
 <?php echo $this->Html->script('jquery.validate');?>
-<?php echo $this->Form->create('User',array('id'=>'user_signup'));?>
-<?php echo $this->Form->input('role',array('type'=>'hidden','value'=>$type));?>
 <?php
  if($type == 'organizations') {
 ?>
 <style>
     label.error{ color: #FF0000;font-size: 12px;margin: -3px 0 5px 190px;text-align: left;text-transform: none;width: 100%;}
-    ul label.error{left:-189px;position: absolute;top: 308px;width: 500px;}
-    #flashMessage{color: #FF0000;float: left;margin: 20px 0 0 236px;}
+    ul label.error{left:-189px !important;position: absolute !important;top: 308px !important;color: #FF0000 !important;}
+	#flashMessage{color: #FF0000;float: left;margin: 20px 0 0 236px;}
     </style>
 <div class="container">
+<?php echo $this->Form->create('User',array('id'=>'user_signup'));?>
+<?php echo $this->Form->input('role',array('type'=>'hidden','value'=>$type));?>
         	<div class="section">
 				<h1>REGISTER YOUR ORGANIZATION WITH SOCEANA</h1>
                 <p>Soceana offers organizations with features to connect with portential volunteers and to network with their specific region. Registering an organization with Soceana is a cinch, and will always be free.</p>
                 <?php echo $this->Session->flash(); ?>
             </div>
 			<div class="mt50"></div>
-			<div class="section">
-            	<form action="" method="post">
+			<div class="section">            	
                 	<div class="contact_form">
                     	<label name="name">Email</label>
                         <?php echo $this->Form->input('email_id',array('type'=>'text','div'=>false,'label'=>false,'id' => 'email_id','maxlength'=>'50','class'=>'text_style'));?>
@@ -51,13 +50,6 @@
                         <?php echo $this->Form->input('confirm_password',
 						array('type'=>'password','div'=>false,'label'=>false,'maxlength'=>'15','class'=>'text_style'));?>
                     </div>
-                   <!--<div class="signup_form">
-                   	<div class="remeber">                   	
-                     <input type="checkbox" id="c0" name="remeber" checked="checked" />
-                     <label for="c0" class="checkbox-label"><span></span></label>
-                     <label class="intern">Remember my password for 2 weeks</label>
-                    </div> 
-                   </div> -->
                     <div class="clr"></div>
                     <div class="signup_form">
                     	<label name="name">ORGANIZATION TYPE:<br />
@@ -77,7 +69,7 @@
                             <li class="first">
                             	<div class="grey">
                                 	<label>Other ( Please Describe )</label>
-                                	<textarea></textarea>
+                                	<textarea readonly="readonly"></textarea>
                                     <div class="input">
                                     <input type="button" name="cancel" class="cancel"/>
                                     </div>
@@ -95,9 +87,8 @@
 						<div class="clr"></div>
                         <a href="<?php echo $this->webroot;?>">or Go Back</a>
                         </div>
-                    </div>
-                    
-                </form>
+                    </div>                  
+               
             </div>            
             <div class="mt50"></div>           
 </div>
@@ -220,13 +211,12 @@ $().ready(function() {
             errorElement: 'label',
             errorClass: 'error help-block',
             errorPlacement: function(error, element){
-                if(element.is('input[type="checkbox"]')){
+                if(element.is('input[type="checkbox"]')){								
                     error.insertAfter(element.parent());
                 } else {
                     error.insertAfter(element);
                 }
-            },
-                                   
+            },	                                    
         });                    
 });
 </script>
@@ -241,14 +231,14 @@ $().ready(function() {
     #flashMessage{color: #FF0000;float: left;margin: 20px 0 0 236px;}
     </style>
 <div class="container">
+<?php echo $this->Form->create('User',array('id'=>'user_signup'));?>
+<?php echo $this->Form->input('role',array('type'=>'hidden','value'=>$type));?>
         	<div class="section">
 				<h1>CREATE YOUR FREE SOCEANA ACCOUNT</h1>
-                <p>Soceana allows you to connect with organizations around the nation so you can do good, wherever and whenever. Registering with Soceana takes under five minutes and is (and always will be) free.</p>
-                
+                <p>Soceana allows you to connect with organizations around the nation so you can do good, wherever and whenever. Registering with Soceana takes under five minutes and is (and always will be) free.</p>                
             </div><?php echo $this->Session->flash(); ?>
 			<div class="mt50"></div>
-			<div class="section">
-            	<form action="" method="post">
+			<div class="section">            	 
                 	<div class="contact_form">
                     	<label name="name">Email</label>
                          <?php echo $this->Form->input('email_id',array('type'=>'text','div'=>false,'label'=>false,'maxlength'=>'50','class'=>'text_style'));?>
@@ -273,14 +263,7 @@ $().ready(function() {
                     	<label name="name">CONFIRM PASSWORD:</label>
                         <?php echo $this->Form->input('confirm_password',
 						array('type'=>'password','div'=>false,'label'=>false,'maxlength'=>'15','class'=>'text_style'));?>
-                    </div>
-                  <!-- <div class="volunteer_signup_form">
-                   	<div class="remeber">                   	
-                     <input type="checkbox" id="c0" name="remeber" checked="checked" />
-                     <label for="c0" class="checkbox-label"><span></span></label>
-                     <label class="intern">Remember my password for 2 weeks</label>
-                    </div> 
-                   </div> -->
+                    </div>                 
                    <div class="clr"></div>
                    <div class="mt20"></div>
                    <div class="volunteer_signup_form">
@@ -308,7 +291,7 @@ $().ready(function() {
                             <li>
                             	<div class="grey">
                                 	<label>Other ( Please Describe )</label>
-                                	<textarea></textarea>
+                                	<textarea readonly="readonly"></textarea>
                                     <div class="input">
                                     <input type="button" name="cancel" class="cancel"/>
                                     </div>
@@ -322,42 +305,18 @@ $().ready(function() {
                     </div>
                     <div class="clr"></div>
                     <div class="contact_form">
-                    	<div class="submit_button">
-                        <!--<input type="submit" class="join_button2" value='' onclick='return check_typecount();' />-->
+                    	<div class="submit_button">                        
                         <input type="submit" class="join_button2 cursor_grid" value='' />
 						<div class="clr"></div>
                         <a href="<?php echo $this->webroot;?>">or Go Back</a>
                         </div>
-                    </div>
-                    
-                </form>
+                    </div>                   
+            
             </div>            
             <div class="mt50"></div>           
 </div> 
  <?php echo $this->Form->end();?>
  <script type='text/javascript' language='javascript'>
-/*$('.join_button2').click(function(){
-    var len = $("input[name='data[ServiceType][ServiceType][]']:checked").length;
-    if(len > 0) {
-        $("#checkbox_error").css("display", "none");
-        return true;
-    }else {
-        $("#checkbox_error").text('Please select at least one volunteer type');
-        $("#checkbox_error").css("display", "block");
-        return false;
-    }
-});*/
-function checkboxcount_check() {
-    var len = $("input[name='data[ServiceType][ServiceType][]']:checked").length;
-    if(len > 0) {
-        $("#checkbox_error").css("display", "none");
-        return true;
-    }else {
-        $("#checkbox_error").text('Please select at least one volunteer type');
-        $("#checkbox_error").css("display", "block");
-        return false;
-    }  
-}
 $().ready(function() {
     
     //validation rule for only alphabets
@@ -408,8 +367,7 @@ $().ready(function() {
                         equalTo: "#pwd"                                            
                         },
                         "data[ServiceType][ServiceType][]": {
-                        required: true,
-                        minlength:1,
+                        required: true,                        
                         },
                     }
                     
@@ -452,7 +410,7 @@ $().ready(function() {
             errorClass: 'error help-block',
             errorPlacement: function(error, element){
                 if(element.is('input[type="checkbox"]')){
-                    error.insertAfter(element.parent());
+                    error.insertAfter(element.parent().parent());
                 } else {
                     error.insertAfter(element);
                 }

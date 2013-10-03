@@ -1,7 +1,7 @@
 <style>
     label.error{ color: #FF0000 !important;font-size: 12px !important;margin: -3px 0 5px 185px !important;text-align: left !important;text-transform: none !important;width: 100% !important;}
     ul#type label.error{color: #FF0000 !important;left:0px !important;position: absolute !important;text-transform: none !important;top: 935px !important;width: 100% !important;}
-	ul#skill_set_select label.error{color: #FF0000 !important;left:0px !important;position: absolute !important;text-transform: none !important;top: 1330px !important;width: 100% !important;}
+	ul#skill_set_select label.error{color: #FF0000 !important;left:0px !important;position: absolute !important;text-transform: none !important;top: 1325px !important;width: 100% !important;}
     #flashMessage{color: #FF0000;float: left;margin: 20px 0 0 236px;}
     .profile_top img{border: 2px solid #E7E7E7;margin-bottom: 10px;}    
 </style>
@@ -32,7 +32,7 @@
 </style>
 <div class="top_heading">
          <h1>ORGANIZATION PROFILE</h1>
-          <h3>View your profile , update your information, privacy settings and more.</h3>
+          <h3>View your profile and update your information, privacy settings, and more.</h3>
             
            </div>       
      <div class="wrapper_left_section">
@@ -155,7 +155,7 @@
                             <li>
                             	<div class="grey">
                                 	<label>Other ( Please Describe )</label>
-                                	<textarea></textarea>
+                                	<textarea readonly="readonly"></textarea>
                                     <div class="input">
                                     <input type="button" name="cancel" class="cancel"/>
                                     </div>
@@ -170,7 +170,7 @@
                <div class="mt20"></div>
                <div class="signup_form_blue">
                     	<label name="name">SKILL SET REQUIRED:<br />
-                        <span>(choose at maximum 5 and rate in order of necessily)</span></label>
+                        <span>(choose at maximum 5, and rate in order of necessily)</span></label>
                         <ul id='skill_set_select'>
                         <?php
 			//pr($temp_skills);die;
@@ -237,6 +237,9 @@ $().ready(function() {
         return value = value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);               
     }, 'Please enter a valid email id'); 
 	
+	/*$.validator.addMethod('customphone', function (value, element) {
+    return this.optional(element) || /^\d{3}-\d{3}-\d{4}$/.test(value);
+	}, "Please enter a valid phone number");*/
 	         
         // validate signup form on keyup and submit
         $("#organization_profile_update").validate({
@@ -267,7 +270,11 @@ $().ready(function() {
                           'alpha':true,
                           minlength:2,
                           maxlength:60
-                         },                        
+                         },  
+						 "data[User][phone]": {                         
+						 	number:true,
+                          	min:1                      
+                         },                      
                         "data[ServiceType][ServiceType][]": {
                         required: true,
                         },
@@ -300,13 +307,17 @@ $().ready(function() {
                             required: 'Please enter your location',
                             minlength:'Please enter atleast 2 characters',
                             maxlength:'Please enter maximum 60 characters'
-                         },         
+                         },    
+						 "data[User][phone]": {                         
+						 	number:'Please enter valid phone number',
+                          	min:'Please enter valid phone number'                     
+                         },     
                         "data[ServiceType][ServiceType][]": {
                             required: 'Please select atleast one volunteer type',
                         },
 						"data[SkillSet][SkillSet][]": {
                             required: 'Please select atleast one Skill set',
-			    			maxlength: 'Please select maximum five skills'
+			    			maxlength: 'Please select maximum three skills'
                         }
             },
 	    errorElement: 'label',
