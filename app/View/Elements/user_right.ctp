@@ -7,7 +7,7 @@
                 <div class="red_cross_outer"><img src="<?php if($this->Session->read('User.thumb_image')==''){
 			echo $this->webroot.'img/no_image.png';
 		     }else{
-			echo $this->webroot.'img/upload/'.$this->Session->read('User.thumb_image');			
+			echo $this->webroot.'img/upload/'.$this->Session->read('User.thumb_image').'?='.uniqid();			
 		     }
 		     ?>" alt="<?php echo $this->Session->read('User.first_name');?>" /></div>
                 <div class="right_text_tab "><h2>STATUS</h2></div>

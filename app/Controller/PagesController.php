@@ -221,8 +221,8 @@ class PagesController extends AppController {
 		
 		$this->loadModel('Message');		
 		
-		$records = $this->Message->query('SELECT Message.* , User.first_name, User.last_name,User.thumb_image,User.last_login FROM messages AS Message, users User WHERE Message.id IN ( SELECT max( id ) FROM messages WHERE message_to ='.$this->Session->read('User.id').' GROUP BY reference_id ) AND Message.message_from = User.id and Message.from_deleted = 0 order by Message.id desc');
-
+		$records = $this->Message->query('SELECT Message.* , User.first_name, User.last_name,User.thumb_image,User.last_login FROM messages AS Message, users as User WHERE Message.id IN ( SELECT max( id ) FROM messages WHERE message_to ='.$this->Session->read('User.id').' GROUP BY reference_id ) AND Message.message_from = User.id and Message.from_deleted = 0 order by Message.id desc');
+		
 		$this->set('messages',$records);		
 	}
 	

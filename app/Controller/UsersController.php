@@ -110,14 +110,14 @@ class UsersController extends AppController{
                     $subject = 'Soceana - Thanks for registration';
                 
                     $this->_sendMail('yourfriends.soceana@venturepact.com',$this->request->data['User']['email_id'],$subject,$message);
-					/*if($this->Auth->login()){
+					if($this->Auth->login()){
 						 $this->Session->write('User',$this->Auth->user()); 
 						 $this->redirect(array('controller'=>'pages','action'=>'display'));
-					}*/
-                    
+					}
+                    /* Older functionality commented
                     $this->Session->setFlash(__('User details has been saved successfully'));
                     
-                    $this->redirect(array('action'=>'login'));
+					$this->redirect(array('action'=>'login'));*/
                 }
                 else{
                     $this->Session->setFlash(__('User details could not be saved. Please try again.'));    
@@ -261,8 +261,7 @@ class UsersController extends AppController{
     
     /* @ function for updating user picture */
     public function user_pic2(){        
-        if($this->request->is('post') || $this->request->is('put')){
-			//pr($this->request->data);
+        if($this->request->is('post') || $this->request->is('put')){			
 			if($this->request->data['User']['image']['name']!=''){
             $imageName = 'img_'.$this->Session->read('User.id');
             $uploaded = $this->JqImgcrop->uploadImage($this->request->data['User']['image'], '/img/upload/', $imageName);            
