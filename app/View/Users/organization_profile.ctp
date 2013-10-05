@@ -347,7 +347,7 @@ $().ready(function() {
                        <div class="img_section"><?php
 	  	if(strlen($this->request->data['User']['thumb_image']) > 0 ){
 		    ?>
-		<img src="<?php echo $this->webroot;?>img/upload/<?php echo $this->request->data['User']['thumb_image'];?>"  id='prof_image' />
+		<img src="<?php echo $this->webroot;?>img/upload/<?php echo $this->request->data['User']['thumb_image'].'?='.uniqid();?>"  id='prof_image' />
 		<?php
 		}
 		else{

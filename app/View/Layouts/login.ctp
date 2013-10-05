@@ -212,7 +212,7 @@ $(function() {
    var _usersnapconfig = {
        apiKey: '6365b0be-a9d7-4f13-a288-c7ec7afe03fd',
        valign: 'bottom',
-       halign: 'right',
+       halign: 'left',
        tools: ["pen", "highlight", "note"],
        lang: 'en',
        commentBox: true,

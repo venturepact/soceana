@@ -1,10 +1,22 @@
 <style>
-    label.error{ color: #FF0000 !important;font-size: 12px !important;margin: -3px 0 5px 185px !important;text-align: left !important;text-transform: none !important;width: 100% !important;}
+    /*label.error{ color: #FF0000 !important;font-size: 12px !important;margin: -3px 0 5px 185px !important;text-align: left !important;text-transform: none !important;width: 100% !important;}
     ul label.error{left: -175px;position: absolute;top: 406px;width: 500px;}
     .vol_table .signup_form ul{position: relative;}
     #flashMessage{color: #FF0000;float: left;margin: 20px 0 0 236px;}
     .form_input{margin:10px;}
     .form_input label{float: left; width: 111px;}
+    #response{color: #FF0000;margin:0 0 6px -31px;;text-align: center;}*/
+	 label.error{ color: #FF0000 !important;font-size: 12px !important;margin: -3px 0 5px 185px !important;text-align: left !important;text-transform: none !important;width: 100% !important;}
+    ul label.error{left: -175px;position: absolute;top: 406px;width: 500px;}
+    .vol_table .signup_form ul{position: relative;}
+    #flashMessage{color: #FF0000;float: left;margin: 20px 0 0 236px;}
+	.form_input{float: left; width: 100%; margin-bottom: 10px;}
+    .form_input label {
+    float: left;
+    font-size: 12px;
+    text-transform: uppercase;
+    width: 10%;
+	}
     #response{color: #FF0000;margin:0 0 6px -31px;;text-align: center;}
 </style>
 <link type="text/css" href="<?php echo $this->webroot;?>js/datepicker/jquery.datepick.css" rel="stylesheet">
@@ -178,8 +190,8 @@ $(function() {
                  </div>
                <div class="clr"></div>
 	       <div id='response'></div><div id='response2'></div>
-	       <div style='background-color: #e7e7e7;' id='upl_pics'>
-		<h3 style='font-size: 27px;font-weight: 400;margin: 13px;'>Upload Photos</h3>
+	       <div class="add_hours" id='upl_pics'>
+		<h3>Upload Photos</h3>
 		<div class='form_input'>
 			<label>File</label>
 			<input type="file" name="images" id="images" />

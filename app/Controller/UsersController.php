@@ -139,6 +139,11 @@ class UsersController extends AppController{
         if($this->request->is('post') || $this->request->is('put')){
             //pr($this->request->data);die;
             if($this->User->save($this->request->data)){
+				 /*
+				* @  checking the new values and setting in the session
+				*/
+				$this->Session->write('User.first_name',$this->request->data['User']['first_name']);
+				$this->Session->write('User.last_name',$this->request->data['User']['last_name']);
                 $this->Session->setFlash(__('User details has been updated successfully'));
                 $this->redirect('/');
             }
@@ -189,7 +194,13 @@ class UsersController extends AppController{
                         $this->User->query("update user_skill_sets set rate ='$rate' where user_id='".$this->Session->read('User.id')."' and skill_set_id='".$skilset."'");
                     }
                 }
-                
+                /*
+				* @  checking the new values and setting in the session
+				*/
+				$this->Session->write('User.first_name',$this->request->data['User']['first_name']);
+				$this->Session->write('User.last_name',$this->request->data['User']['last_name']);
+				$this->Session->write('User.organization_name',$this->request->data['User']['organization_name']);				
+				
                 $this->Session->setFlash(__('Your details has been updated successfully'));
                 $this->redirect('/');
             }
@@ -278,8 +289,14 @@ class UsersController extends AppController{
     /* @ function for updating user picture */
     public function user_pic3(){       
         $data = $this->JqImgcrop->cropImage(170, $this->request->data['User']['x1'], $this->request->data['User']['y1'], $this->request->data['User']['x2'], $this->request->data['User']['y2'], $this->request->data['User']['w'], $this->request->data['User']['h'], $this->request->data['User']['imagePath'], $this->request->data['User']['imagePath']);
-        $this->User->id = $this->Session->read('User.id');
-        $this->User->save($data);
+        $this->User->id = $this->Session->read('User.id');		
+        if($this->User->save($data)){
+			/*
+			* @  checking the new values and setting in the session
+			*/	
+			$this->Session->write('User.image',$data['User']['image']);
+			$this->Session->write('User.thumb_image',$data['User']['thumb_image']);
+		}
         $this->Session->setFlash(__('Your profile picture saved successfully'));
         if($this->Session->read('User.role') == 'organizations'){
             $this->redirect(array('action'=>'organization_profile'));
@@ -386,8 +403,7 @@ class UsersController extends AppController{
         $email->send($message);
     }
     
-    function getusers()
-    {
+    function getusers(){
         $this->layout = 'ajax';
         $q = strtolower($_GET["q"]);
         if (!$q) return;
@@ -431,6 +447,7 @@ class UsersController extends AppController{
         $this->autoRender = false;
     }*/
     
+	/* @ function for personalize search results */
     function getdetails(){
         $this->layout = 'ajax';
         $id = $this->request->data['user_id'] ;
@@ -451,6 +468,7 @@ class UsersController extends AppController{
         $this->autoRender = false;
     }
     
+	/* @ function for personalize search page */
     public function personalize(){
         $this->loadModel('SkillSet');
          if($this->request->is('post') || $this->request->is('put')){
@@ -459,6 +477,8 @@ class UsersController extends AppController{
          }        
         $this->set('skill_sets',$this->SkillSet->find('all',array('order'=>'id','fields'=>array('id','name','picture_url'))));
     }
+	
+	/* @ function for personalize search results page */
     public function personalize_results($skillset){
         
         $this->loadModel('SkillSet');
@@ -499,7 +519,8 @@ class UsersController extends AppController{
         $this->set('skill_sets',$this->SkillSet->find('all',array('order'=>'id','fields'=>array('id','name','picture_url'))));
     }
 	
-	function gallery_images(){
+	/* @ function for gallery images */
+	public function gallery_images(){
 	$this->layout = '';
 	$images = $this->User->query('SELECT images.picture_url FROM log_hour_images AS images, log_hours AS lh WHERE lh.id = images.log_hour_id AND lh.user_id = '. $this->Session->read('User.id').' AND lh.status = 1 ORDER BY rand() LIMIT 5 ');
 	return $images;

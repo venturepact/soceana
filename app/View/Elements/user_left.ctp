@@ -9,5 +9,5 @@
 	<a href="<?php echo $this->webroot;?>users/change_password" class="text_tab"><h2>CHANGE PWD</h2></a>
     <a href="<?php echo $this->webroot;?>users/personalize" class="text_tab"><h2>PERSONALIZE</h2></a>
 	<a href="<?php echo $this->webroot;?>users/user_profile" class="text_tab_small "><h2>PROFILE</h2></a>
-    <a href="<?php echo $this->webroot;?>users/logout" class="icon_tab_small"><img src="<?php echo $this->webroot;?>img/left_tab_icon.png" height="16"  width="16" border="0" alt="" /></a>
+    <a href="<?php echo $this->webroot;?>users/logout" class="icon_tab_small"><img src="<?php echo $this->webroot;?>img/left_tab_icon.png" class="profile_icon"  alt="" /></a>
 </div>
