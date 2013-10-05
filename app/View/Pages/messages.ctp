@@ -7,7 +7,7 @@ function get_hours($time1,$time2){
          $i = 1;
          foreach($messages as $message){
          ?>
-        <div class="client_outer">
+        <div class="client_outer cursor_grid">
         <div class="status_sign">
            <?php 
 		   if(($message['User']['last_login'] != '0000-00-00 00:00:00') && get_hours(date('Y-m-d H:i:s'),$message['User']['last_login']) < 24)

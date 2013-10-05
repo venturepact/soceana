@@ -347,7 +347,7 @@ class UsersController extends AppController{
                 
                 $this->_sendMail('yourfriends.soceana@venturepact.com',$email_id,$subject,$message);
                 
-                echo '<div id="fp_message">Please check your email for reseting of password</div>';                
+                echo '<div id="fp_message">Please check your email for resetting of password</div>';                
             }
             else echo '<div id="fp_message">Email id doesn\'t exists in our database</div>';
        }

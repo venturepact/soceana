@@ -235,7 +235,20 @@ $().ready(function() {
 	 //validation rule for valid email
     $.validator.addMethod("valid_email_id", function(value) {
         return value = value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);               
-    }, 'Please enter a valid email id'); 
+    }, 'Please enter a valid email id');
+	
+	 //validation rule for rate according to SkillSet selected
+	$.validator.addMethod("skillset_rate", function() {
+		 var count = 0;		
+		$('#skill_set_select li').each(function(index, element) {
+			if($(this).find('input[type="checkbox"]').is(":checked") && $(this).find('input[type="hidden"]').val()==''){			
+				count++;
+			}
+		});		
+		if(count > 0)return false;
+		else return true;
+		
+    }, 'Please rate your selected skill'); 
 	
 	/*$.validator.addMethod('customphone', function (value, element) {
     return this.optional(element) || /^\d{3}-\d{3}-\d{4}$/.test(value);
@@ -279,8 +292,9 @@ $().ready(function() {
                         required: true,
                         },
 						"data[SkillSet][SkillSet][]": {
-						required: true,
-						maxlength:5
+							required: true,
+							maxlength:5,
+							'skillset_rate':true
 						}                        
                     }
                     ,
@@ -317,7 +331,7 @@ $().ready(function() {
                         },
 						"data[SkillSet][SkillSet][]": {
                             required: 'Please select atleast one Skill set',
-			    			maxlength: 'Please select maximum three skills'
+			    			maxlength: 'Please select maximum five skills'
                         }
             },
 	    errorElement: 'label',
@@ -356,8 +370,14 @@ $().ready(function() {
 		<?php
 		}
 		?></div>
-                    <a href="<?php echo $this->webroot;?>users/reposition_pic" class="repostive_blue">REPOSITION PIC</a>
-                    <a href="<?php echo $this->webroot;?>users/user_pic" class="uploads_blue">UPLOAD</a>
+         <?php
+	  	if(strlen($this->request->data['User']['thumb_image']) > 0 ){
+		    ?>
+                    <a href="<?php echo $this->webroot;?>users/reposition_pic" class="repostive">REPOSITION PIC</a>
+                    <?php
+		}
+		?>
+                    <a href="<?php echo $this->webroot;?>users/user_pic" class="uploads">UPLOAD</a>
                     
                 </div>
           		<div class="clr"></div>

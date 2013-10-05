@@ -364,7 +364,8 @@ border-bottom-left-radius: 5px;}
 .icon_list li a{ text-decoration:none; float:left;  margin-bottom:20px;    list-style:none; display:block;}
 
 .upper_box .right_section_upper{ float:left; width:76%;  margin-left:6px; margin-top:12px;  }
-.client_outer{ float:left; padding:5px; width:98%; margin-bottom:4px;position: relative;cursor: pointer;}
+.client_outer{ float:left; padding:5px; width:98%; margin-bottom:4px;position: relative;}
+/*#messages .client_outer{cursor: pointer;}*/
 .client_img_outer{ float:left; width:20%;}
 .client_img_outer_f{ position:absolute; z-index:18; } 
 .status_sign{ margin-left:18%; position:absolute; z-index:20; }
@@ -524,7 +525,7 @@ input{ width:200px;height:25px;background-color:#EBF6FC; border:none; margin-lef
 .save_active{background: url("../img/send_hover.png") no-repeat scroll 0 0 transparent;}
 .orange_text span{background:url("../img/orange_arrow.png") no-repeat scroll -3px ;width:20px;height:20px;display:block;float:left;}
 .orange_text a{color:#ff8000;text-decoration:none;font-weight:bold;float:left;}
-.signup_form ul {display: block;float: left;width: 67%;position: relative;}
+.signup_form ul {display: block;float: left;width: 74%;position: relative;}
 .signup_form ul li{float: left;list-style: none outside none;margin-left: 15px;margin-top: 10px;width: 90px;border-radious:3px;}
 .signup_form ul li.first{margin-left: 0px;}
 .signup_form ul li input{width:20px;}

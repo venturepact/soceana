@@ -4,7 +4,7 @@
 ?>
 <style>
     label.error{ color: #FF0000;font-size: 12px;margin: -3px 0 5px 190px;text-align: left;text-transform: none;width: 100%;}
-    ul label.error{left:-189px !important;position: absolute !important;top: 308px !important;color: #FF0000 !important;}
+    ul label.error{left:-189px !important;position: absolute !important;top: 202px !important;color: #FF0000 !important;}
 	#flashMessage{color: #FF0000;float: left;margin: 20px 0 0 236px;}
     </style>
 <div class="container">
@@ -58,7 +58,7 @@
                         	<?php
                             $i = 1;
                             foreach($service_types as $service_type):?>
-                            <li <?php if($i == 1 || $i == 6)echo 'class="first"';?>>
+                            <li <?php if($i == 1 || $i == 7)echo 'class="first"';?>>
                             	<input type="checkbox" id="c<?php echo $i;?>" name="data[ServiceType][ServiceType][]" value="<?php echo $service_type['ServiceType']['id'];?>" />
                                 <label for="c<?php echo $i;?>" class="checkbox-label"><span><img alt="<?php echo $service_type['ServiceType']['name'];?>" src="<?php echo $this->webroot;?>img/<?php echo $service_type['ServiceType']['picture_url'];?>" /></span></label>
                             </li>                            
@@ -66,7 +66,7 @@
                             $i++;
                             endforeach;
                             ?>
-                            <li class="first">
+                            <li>
                             	<div class="grey">
                                 	<label>Other ( Please Describe )</label>
                                 	<textarea readonly="readonly"></textarea>

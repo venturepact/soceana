@@ -9,7 +9,7 @@
 		     }else{
 			echo $this->webroot.'img/upload/'.$this->Session->read('User.thumb_image').'?='.uniqid();			
 		     }
-		     ?>" alt="<?php echo $this->Session->read('User.first_name');?>" /></div>
+		     ?>" alt="<?php echo $this->Session->read('User.first_name');?>" width="170" height="170" /></div>
                 <div class="right_text_tab "><h2>STATUS</h2></div>
                 <a href="#" class="right_text_tab_small small_font">CHANGE YOUR STATUS</a>
 				<?php
