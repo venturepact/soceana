@@ -373,11 +373,11 @@ $().ready(function() {
          <?php
 	  	if(strlen($this->request->data['User']['thumb_image']) > 0 ){
 		    ?>
-                    <a href="<?php echo $this->webroot;?>users/reposition_pic" class="repostive">REPOSITION PIC</a>
+                    <a href="<?php echo $this->webroot;?>users/reposition_pic" class="repostive_blue">REPOSITION PIC</a>
                     <?php
 		}
 		?>
-                    <a href="<?php echo $this->webroot;?>users/user_pic" class="uploads">UPLOAD</a>
+                    <a href="<?php echo $this->webroot;?>users/user_pic" class="uploads_blue">UPLOAD</a>
                     
                 </div>
           		<div class="clr"></div>

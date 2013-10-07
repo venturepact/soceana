@@ -1,7 +1,9 @@
 <style>
-.submit{margin: 2px 190px;float: left;}
 .contact_form{margin-top:65px;}
 label.error{ color: #FF0000 !important;font-size: 12px !important;margin: -3px 0 5px 226px !important;text-align: left !important;text-transform: none !important;width: 100% !important;}
+#save_thumb{border: 2px solid;border-radius: 7px 7px 7px 7px;color: #FFFFFF;height: 35px;margin: 20px 270px;width: 114px;}
+.blue{background-color:#04699A;}
+.orange{background-color: #FF8000;}
 </style>
 <?php echo $this->Html->script('jquery.validate');?>
 <script src="http://jquery.bassistance.de/validate/additional-methods.js"></script>
@@ -16,12 +18,22 @@ label.error{ color: #FF0000 !important;font-size: 12px !important;margin: -3px 0
     <div class="contact_form">
         <label name="name">Profile Image</label>
             <?php echo $this->Form->input('image',array("type" => "file",'div'=>false,'label'=>false,'id'=>'image-file'));?>
-    </div>
-    <div class="contact_form">
-        <input type='submit' value='' class='submit' >
-        <div class="clr"></div>
-                        <div style="text-align:center;width:50%;">or <a href="<?php echo $this->webroot;?>users/user_profile">Cancel</a></div>
-    </div>
+    </div><?php
+    if($this->Session->read('User.role') == 'organizations') $class = 'blue';else $class = 'orange';
+echo $this->Form->submit('Upload Image', array("id"=>"save_thumb",'div'=>false,'label'=>false,'class'=>$class));?>
+ 
+
+                        <div style="text-align:center;width:50%;padding-left: 62px;">or 
+                        <?php
+						if($this->Session->read('User.role') == 'organizations'){?>
+                         <a href="<?php echo $this->webroot;?>users/organization_profile">Cancel</a>
+                        <?php }else{?>
+                        <a href="<?php echo $this->webroot;?>users/user_profile">Cancel</a>
+                        <?php
+						}
+						?>
+                        </div>
+
 <?php
     echo $this->Form->end();
 ?>
