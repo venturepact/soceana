@@ -117,7 +117,7 @@ $().ready(function() {
 		   	}else{
 				echo $this->webroot.'img/upload/'.$sk_result['User']['thumb_image'];			
 		    }
-		     ?>" alt="<?php echo $sk_result['User']['organization_name'];?>" width="350" height="162"></div>
+		     ?>" alt="<?php echo $sk_result['User']['organization_name'];?>" class="personalie_result_image" ></div>
                      <div class="star_view_outer">
                      <?php
 					 foreach($sk_result['SkillSet']as $sk_set){

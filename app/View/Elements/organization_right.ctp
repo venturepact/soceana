@@ -11,7 +11,7 @@
 		     }else{
 			echo $this->webroot.'img/upload/'.$this->Session->read('User.thumb_image').'?='.uniqid();
 		     }
-		     ?>" alt="<?php echo $this->Session->read('User.organization_name');?>" width="170" height="170"  /></div>
+		     ?>" alt="<?php echo $this->Session->read('User.organization_name');?>"  class="profile_image"  /></div>
                 <div class="right_text_tab "><h2>STATUS</h2></div>
                 <a href="#" class="right_text_tab_small small_font">CHANGE YOUR STATUS</a>				
 </div>
