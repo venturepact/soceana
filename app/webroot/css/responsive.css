@@ -215,7 +215,7 @@ p {font-size: 18px; line-height: 34px; text-align: justify;}
 .vol_table .signup_form label { font-size: 15px;padding-top: 2px;}
 .vol_table .signup_form label span {font-size: 13px;width: 236px;}
 .contact_form label {font-size: 17px;}
-.vol_table .signup_form_blue label { font-size: 17px;}
+.vol_table .signup_form_blue label { font-size: 17px; margin-right: -70px;}
 .contact_form .submit_button {font-size: 17px; margin-left: 216px;}
 .gray_text1 {font-size: 15px;}
 .time_outer { background:#1fbba6 url("../img/time_outer_bg.png") repeat-x top;}
@@ -244,7 +244,7 @@ input { color: #999999;font-size: 19px; height: 33px;}
 .orange_text span { height: 34px;}
 .text {font-size: 20px;line-height: 35px; width: 67%;}
 .section1 .img { margin-top: -65px; }
-.section p{ font-size:20px;}
+.section p{ font-size:18px;}
 .save_button { margin-left: 193px; }
 .signup_form label span { font-size: 13px; }
 /* 4 oct */  
@@ -252,7 +252,7 @@ input { color: #999999;font-size: 19px; height: 33px;}
     margin-right: 31%;
     width: 34.3%;
 }
-.vol_table .signup_form ul li textarea{height:41px;}
+.vol_table .signup_form ul li textarea{height:32px;}
 ul.left_margin label.error {
     color: #FF0000;
     left: 0;
@@ -277,7 +277,19 @@ ul.left_margin label.error {
 
 /* 4 oct end */  
 
+/* 8 oct end */
 
+.volunteer_signup_form ul li textarea {height: 43px;}
+.star_view_outer {
+    background: url("../img/view_star_bg.png") repeat-y ;
+    height: 184px;}
+.add_hours .form_input input.orange_butt { font-size: 12px;	}
+
+	
+	
+	
+
+/* 8 oct end */
 
 
 
