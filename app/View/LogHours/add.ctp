@@ -197,30 +197,30 @@ $(function() {
 			<input type="file" name="images" id="images" />
 		</div><div class='form_input'>
 			<label>Caption</label>
-			<input type="text" name="caption" id="img_caption_0" class="capti" />
+			<textarea type="text" name="caption"  id="img_caption_0" class="capti caption_height" /></textarea>
+            
 		</div>
 		<div class='form_input'>
 			<label>File</label>
 			<input type="file" name="images" id="images1" />
 		</div><div class='form_input'>
 			<label>Caption</label>
-			<input type="text" name="caption" id="img_caption_1" class="capti" />
+			<textarea type="text" name="caption" id="img_caption_1" class="capti caption_height"  /></textarea>
 		</div>
 		<div class='form_input'>
 			<label>File</label>
 			  <input type="file" name="images" id="images2" />
 		</div><div class='form_input'>
 			<label>Caption</label>
-			<input type="type" name="caption" id="img_caption_2" class="capti" />
+			<textarea type="type" name="caption" id="img_caption_2" class="capti caption_height" /></textarea>
 		</div>
-		<div class='form_input'><input type="button" id="btn" value="Upload Files"></div>
-		<p>&nbsp;</p>
-		<p>&nbsp;</p>
+		<div class='form_input'><input type="button" id="btn" value="Upload Files" class="orange_butt"></div>
+		
 	       </div>
                
                
                <div class="contact_form">
-                 <div class="submit_button">		  
+                 <div class=" width_set submit_button ">		  
                    <input type="submit" class="submit_button3 cursor_grid" value='' />
                    <div class="clr"></div>
                    or <a href="<?php echo $this->webroot;?>">Cancel</a>

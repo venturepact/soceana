@@ -83,8 +83,8 @@
    <div class="table_footer_white">
      <div class="gray_text1"><?php echo $this->Paginator->counter('Showing {:start} to {:end} of {:count} entries');?></div>
        <div class="next_preview_butt">
-            <?php echo $this->Paginator->prev(' << ', array(), null, array('class' => 'prev'));?>
-            <?php echo $this->Paginator->next(' >> '  , array(), null, array('class' => 'next'));?>
+            <?php echo $this->Paginator->prev(' < ', array(), null, array('class' => 'prev'));?>
+            <?php echo $this->Paginator->next(' > '  , array(), null, array('class' => 'next'));?>
           </div>
      </div>
     </div>         

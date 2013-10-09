@@ -195,7 +195,7 @@ class PagesController extends AppController {
 			  
 			  $this->Session->setFlash('Your Enquiry has been successfully received.We will reach you shortly.');
 			  
-			  $this->redirect(array('controller'=>'users','action'=>'login'));
+			  $this->redirect(array('controller'=>'pages','action'=>'display'));
 		 }
 	}
 	

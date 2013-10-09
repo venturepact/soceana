@@ -154,11 +154,12 @@ $().ready(function() {
 				 }
 				   ?>
                    <div class="table_footer_white1">
-                   <div class="next_preview_butt" style="width:97%;">
-                       <div style='float:left;margin:0 10px'><?php echo $this->Paginator->counter('Showing {:start} to {:end} of {:count} entries');?></div>
-                     	<?php echo $this->Paginator->prev(' << ', array(), null, array('class' => 'prev'));?>
-       			<?php echo $this->Paginator->next(' >> '  , array(), null, array('class' => 'next'));?>
-                   </div>
+                   <div class="next_preview_butt1">
+                    <?php echo $this->Paginator->counter('Showing {:start} to {:end} of {:count} entries');?>,<br/>
+                 <div style="float:right;">    	<?php echo $this->Paginator->prev(' < ', array(), null, array('class' => 'prev'));?>
+       			<?php echo $this->Paginator->next(' > '  , array(), null, array('class' => 'next'));?>
+                       </div>
+                    </div>
                  </div>                                                                                   
                </div> 
                <div align="center">

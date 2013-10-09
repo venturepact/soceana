@@ -204,7 +204,7 @@
                                 if($rate_status)echo "style='display: block'";
 			        else  echo "style='display:none'";				       		        			        
                                ?> id='skil_rate_<?php echo $skill_set['SkillSet']['id'];?>'>
-           							 <div id="rate<?php echo $i;?>"></div>
+           							 <div id="rate<?php echo $i;?>" class="r2"></div>
          						</div>
                                 </li>
                             <?php
@@ -327,7 +327,7 @@ $().ready(function() {
                           	min:'Please enter valid phone number'                     
                          },     
                         "data[ServiceType][ServiceType][]": {
-                            required: 'Please select atleast one volunteer type',
+                            required: 'Please select atleast one organization type',
                         },
 						"data[SkillSet][SkillSet][]": {
                             required: 'Please select atleast one Skill set',

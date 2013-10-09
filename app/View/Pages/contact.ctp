@@ -95,7 +95,24 @@ $().ready(function() {
             <div class="mt50"></div>
             <div class="section">
             	<h1>CONTACT INFORMATION</h1>
-                <p>Phone :</p>
+              <div class="contact_d_outer">  <p><h3>Anil Chitrapu</h3>
+                 Email: anil@soceana.com <br/>
+                 Phone: 267-346-7393 <br/>
+                 Twitter: @anilchitrapu <br/>
+                 Facebook:<a href="https://www.facebook.com/anilc" target="_blank" class="contact_link"> https://www.facebook.com/anilc </a><br/> 
+                 LinkedIn:<a href="http://www.linkedin.com/in/anilchitrapu" target="_blank" class="contact_link"> http://www.linkedin.com/in/anilchitrapu</a>
+
+</p>
+</div>
+  <div class="contact_d_outer" >  <p>
+               <h3> Tess Michaels</h3>
+                Email: tess@soceana.com<br/> 
+                Phone: 972-375-8134 <br/>
+                Facebook:<a href="https://www.facebook.com/TessPMichaels" target="_blank" class="contact_link"> https://www.facebook.com/TessPMichaels</a><br/> 
+                LinkedIn:<a href="www.linkedin.com/in/tessmichaels" target="_blank" class="contact_link">www.linkedin.com/in/tessmichaels</a>
+
+</p>
+</div>
             </div>
             
             <div class="mt50"></div>

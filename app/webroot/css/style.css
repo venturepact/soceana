@@ -115,6 +115,47 @@ font-size:1.5em; color:#efefef; line-height:100%;   }
     text-decoration: none; }
 .next:hover{ float:left; background:url(../img/next_h.png); /*height:31px; width:31px;*/ }
 
+.next_preview_butt1{ float:right; width:166px;  min-height:30px; margin-top:5px; margin-bottom:5px; }
+
+.next_preview_butt1 .prev{background: url("../img/prev.png");
+float: left;
+height: 26px;
+padding-left: 11px;
+padding-bottom: 5px;
+width: 20px;
+padding-right: 1px;
+padding-top:0px;
+}
+.next_preview_butt1 .prev a{     color: #000000;
+    float: left;
+    font-weight: bold;
+   /* margin: 6px;*/
+    text-align: center;
+    text-decoration: none;}
+.next_preview_butt1 .prev:hover{ float:left; background:url(../img/prev_h.png);/* height:31px; width:31px; */}
+.next_preview_butt1 .next{float: left;
+background: url(../img/next.png);
+height: 26px;
+padding-left: 11px;
+padding-bottom: 5px;
+width: 20px; padding-top:0px; }
+.next_preview_butt1 .next a{    color: #000000;
+    float: left;
+    font-weight: bold;
+    /*margin: 6px;*/
+    text-align: center;
+    text-decoration: none; }
+.next_preview_butt1 .next:hover{ float:left; background:url(../img/next_h.png); /*height:31px; width:31px;*/ }
+
+
+
+
+
+
+
+
+
+
 .graph_section{ float:left; width:97%; margin-left:10px; margin-top:20px;}
 .graph_text{ width:98%;
 	font-family: 'Conv_FuturaLT', Sans-Serif;
@@ -201,7 +242,7 @@ font-size:1.5em; color:#efefef; line-height:100%;   }
 	 color: #333;	 
 	font-weight:normal ;
 }
-.orange_butt{ float:left; background:#fb7e00; margin-top:2%;  padding:1.5%; padding-left:5%; padding-right:5%; text-align:center; color:#FFF; text-decoration:none;  -moz-border-radius: 5px; border-radius: 5px; font-size:0.7em; font-weight:bold;   }
+.orange_butt{ float:left; background:#fb7e00; margin-top:2%;  padding:1.5%; padding-left:5%; padding-right:5%; text-align:center; color:#FFF; text-decoration:none;  -moz-border-radius: 5px; border-radius: 5px; font-size:10px;; font-weight:bold;   }
 .orange_butt:hover{background:#fa9f43;}
 .add_img_outer{ float:left; width:100%; margin-top:3%;}
 .add_text{ float:right; width:140px; margin-right:10px;font-family: 'Conv_FuturaLT', Sans-Serif;
@@ -427,7 +468,7 @@ input[type=checkbox].css-checkbox {
 .w400{width:400px;}
 .p10{padding:10px;}
 .container{width:100%;min-height: 700px;}
-.section,.profile_content_main {font-family: 'Conv_FuturaLT', Sans-Serif;position:relative; margin-top: 20px;font-size: 1em;line-height: 25px;}
+.section,.profile_content_main {font-family: 'Conv_FuturaLT', Sans-Serif;position:relative; margin-top: 20px;font-size: 14px;;line-height: 25px;}
 .section h1{font-family: 'Conv_FuturaLT', Sans-Serif;text-transform:uppercase;margin-bottom:10px;}
 .section .login_green_button{background: url("../img/login_green.png") no-repeat scroll 0 0 transparent;display: block;float: right;height: 50px; margin-right: 10px;position: absolute;right: 0;top: 0; width: 200px;}
 .section .login_orange_button{background:url("../img/signup_orange.png") no-repeat scroll 0 0 transparent;display: block;float: right;height: 50px; margin-right: 10px;position: absolute;right: 0;top: 0; width: 200px;}
@@ -460,7 +501,7 @@ input[type=checkbox].css-checkbox {
 .login_bottom{margin-top:50px;}
 .section_login_left{float:left; width:70%; float:left;font-family: 'Conv_FuturaLT', Sans-Serif;}
 .section_login_left h1{font-family: 'Conv_FuturaLT', Sans-Serif;text-transform:uppercase;}
-.section_login_left p{color: #181818;font-family: 'Conv_FuturaLT',Sans-Serif;line-height: 20px;margin-top: 10px;padding-right: 20px;text-align: justify;}
+.section_login_left p{color: #181818;font-family: 'Conv_FuturaLT',Sans-Serif;line-height: 25px; margin-top: 10px;padding-right: 20px;text-align: justify; font-size:14px; }
 .section_login_right{float:left; width:30%; background-color:#D5E6F0; }
 .section_login_right h2{float:left; width:100%; text-align:center; padding:10px 0;background-color:#589CC1; color:#FFF;text-transform:uppercase;border-radius:3px 3px 0 0; font-family: 'Conv_FuturaLT', Sans-Serif;font-weight: normal; font-size: 16px;}
 input{ width:200px;height:25px;background-color:#EBF6FC; border:none; margin-left: 35px;}
@@ -509,9 +550,10 @@ input{ width:200px;height:25px;background-color:#EBF6FC; border:none; margin-lef
 .contact_form input[type="checkbox"] {display:none;}
 .contact_form input[type="checkbox"] + label span {background-color:#579cc0;cursor: pointer;display: inline-block;height: 90px;width: 90px;border-radius: 3px;}
 .contact_form ul li input[type="checkbox"]:checked + label span {background-color:#3f3f3f;border-radius: 3px;}
-.contact_form .submit_button{ width:80%; margin-left:30%;float:left; margin-top:20px !important;  }
+.contact_form .submit_button{ width:80%; margin-left:32%;float:left; margin-top:20px !important;  }
 .contact_form .submit_button input{margin-left:0px;}
 .contact_form input[type="checkbox"] {display:none;}
+.width_set{  margin-left:30% !important;}
 
 
 
@@ -530,8 +572,8 @@ input{ width:200px;height:25px;background-color:#EBF6FC; border:none; margin-lef
 .signup_form ul li.first{margin-left: 0px;}
 .signup_form ul li input{width:20px;}
 .signup_form ul li img{width:90px;}
-.signup_form ul li .grey{background-color:#3f3f3f;width:200px;height:100px;border-radius: 3px;}
-.signup_form ul li textarea{width:170px;height:50px;margin-left:10px;float:left;}
+.signup_form ul li .grey{background-color:#3f3f3f;width:200px;height:89px;border-radius: 3px;}
+.signup_form ul li textarea{width:170px;height:41px;margin-left:10px;float:left;}
 
 .signup_form .checkbox-label{float:left;margin-top:0px;width: 20px;font-size:11px}
 .signup_form input[type="checkbox"] {visibility:hidden;position: absolute;top:-5px;height: 0px;width:auto;}
@@ -562,8 +604,8 @@ input{ width:200px;height:25px;background-color:#EBF6FC; border:none; margin-lef
 .volunteer_signup_form ul li.first{margin-left: 0px;}
 .volunteer_signup_form ul li input{width:20px;}
 .volunteer_signup_form ul li img{width:90px;}
-.volunteer_signup_form ul li .grey{background-color:#3f3f3f;width:200px;height:100px;border-radius: 3px;}
-.volunteer_signup_form ul li textarea{width:170px;height:50px;margin-left:10px;float:left;}
+.volunteer_signup_form ul li .grey{background-color:#3f3f3f;width:200px;height:89px;border-radius: 3px;}
+.volunteer_signup_form ul li textarea{width:170px;height:41px;margin-left:10px;float:left;}
 .volunteer_signup_form input[type="checkbox"] {visibility:hidden;position: absolute;top:-5px;height: 0px;width:auto;}
 .volunteer_signup_form input[type="checkbox"] + label span {background: url("../img/check_radio_sheet.png") no-repeat scroll 0px top transparent;cursor: pointer;height: 19px;margin: -1px 4px 0 0;vertical-align: middle;width: 18px;}
 .volunteer_signup_form input[type="checkbox"]:checked + label span {background: url("../img/check_radio_sheet.png") no-repeat scroll -19px top transparent;}
@@ -589,7 +631,7 @@ input{ width:200px;height:25px;background-color:#EBF6FC; border:none; margin-lef
     color: #333333;
     float: left;
     font-size: 14px;
-    margin-right: 15px;
+    margin-right: 14px;
     text-align: right;
     text-transform: uppercase;
     width: 30%;
@@ -635,12 +677,12 @@ input{ width:200px;height:25px;background-color:#EBF6FC; border:none; margin-lef
 .vol_table .signup_form_blue ul li .grey {
     background-color: #3F3F3F;
     border-radius: 3px 3px 3px 3px;
-    height: 100px;
+    height: 90px;
     width: 200px;
 }
 .vol_table .signup_form_blue ul li textarea {
     float: left;
-    height: 50px;
+    height: 41px;
     margin-left: 10px;
     width: 170px;
 }
@@ -763,7 +805,7 @@ input{ width:200px;height:25px;background-color:#EBF6FC; border:none; margin-lef
 .vol_table .signup_form input[type="text"].small{width: 30%;background-color: #EBF6FC; border: solid #999 1px; border-radius:3px; height: 25px;margin:0px;}
 
 .vol_table .signup_form textarea{width:350px;background-color: #EBF6FC; border: solid #999 1px; height: 150px;border-radius:3px;}
-.save_button{background: url("../img/send.png") no-repeat scroll 0 0 transparent; border-radius: 4px; height: 40px; margin-bottom: 10px; margin-left: 100px; margin-top: 10px; width: 160px;}
+.save_button{background: url("../img/send.png") no-repeat scroll 0 0 transparent; border-radius: 4px; height: 40px; margin-bottom: 10px; margin-left: 188px; margin-top: 10px; width: 160px;}
 .save_active{background: url("../img/send_hover.png") no-repeat scroll 0 0 transparent;}
 .orange_text span{background:url("../img/orange_arrow.png") no-repeat scroll -3px ;width:20px;height:20px;display:block;float:left;}
 .orange_text a{color:#ff8000;text-decoration:none;font-weight:bold;float:left;}
@@ -772,8 +814,8 @@ input{ width:200px;height:25px;background-color:#EBF6FC; border:none; margin-lef
 .vol_table .signup_form ul li.first{margin-left: 0px;}
 .vol_table .signup_form ul li input{width:20px;}
 .vol_table .signup_form ul li img{width:90px;}
-.vol_table .signup_form ul li .grey{background-color:#3f3f3f;width:200px;height:100px;border-radius: 3px;}
-.vol_table .signup_form ul li textarea{width:170px;height:50px;margin-left:10px;float:left;}
+.vol_table .signup_form ul li .grey{background-color:#3f3f3f;width:200px;height:90px;border-radius: 3px;}
+.vol_table .signup_form ul li textarea{width:170px;height:41px;margin-left:10px;float:left;}
 .vol_table .signup_form .checkbox-label{float:left;margin-top:0px;width: 20px;font-size:11px}
 .vol_table .signup_form input[type="checkbox"] {/*display:none;*/ visibility:hidden;}
 .vol_table .signup_form input[type="checkbox"] + label span {background: url("../img/check_radio_sheet.png") no-repeat scroll -38px top transparent;cursor: pointer;height: 19px;margin: -1px 4px 0 0;vertical-align: middle;width: 18px;}
@@ -856,9 +898,11 @@ input{ width:200px;height:25px;background-color:#EBF6FC; border:none; margin-lef
 
 .donate_button{background: url("../img/donate.png") no-repeat scroll 0 0 transparent; border-radius: 4px; height: 40px; margin-bottom: 10px; margin-left: 21%; margin-top: 10px; width: 192px;}
 .cards{width:380;margin-left:150px;}
-.text{width:50%;float:left;}
+.text{width:65%;float:left; text-align:justify;}
 .section1{font-family: 'Conv_FuturaLT',Sans-Serif;font-size: medium;line-height: 25px;margin-top: 20px;position: relative;}
-.section1 .img{width:30%;float:right;}
+.section1 .img{ float: right;
+    margin-top: -53px;
+    width: 30%;}
 .section1 .img img{width:100%;}
 .section .img img{width:70%;}
 .section1 h1{width:auto;float:left}
@@ -880,8 +924,8 @@ input{ width:200px;height:25px;background-color:#EBF6FC; border:none; margin-lef
 /*Forgot password css*/
 
 .popup_outer{ width:93%; top:2%;  position:absolute; border:1px solid #CCC; box-shadow: 1px 1px 3px #888; background:#fff; padding:15px; min-height:400px; display:none;  }
-.popup_heading{color:#666; font-family: 'Conv_FuturaLT_LT',Sans-Serif; text-transform: uppercase; font-size:2.5em; padding:6% 2px 2% 0; font-weight:normal;}
-.popup_text{padding: 3px 0px 15px 0px;color: #666;font-family: 'Conv_FuturaLT_LT',Sans-Serif; font-size: 1.5em; line-height:25px; font-weight:normal;	}
+.popup_heading{color:#666; text-transform: uppercase; font-size:2.5em; padding:6% 2px 2% 0; font-weight:normal;}
+.popup_text{padding: 3px 0px 15px 0px;color: #666; font-size: 1.5em; line-height:25px; font-weight:normal;	}
 .text_outer_border { width:70%; -webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px; border:1px solid #f1f1f1; padding-left:5px;margin-bottom:4%; margin-top:2%; }
 .lb_email{margin: 0 0 0 10% ;}
 #forgot_email_id{width:70%}
@@ -1459,6 +1503,7 @@ p{ text-align:justify;}
     margin-right: 14%;
     padding: 10px;
     width: 50%;
+	border: 1px solid #E1E0E0;
 }
 .add_hours h3{
 	font-size: 18px;
@@ -1470,11 +1515,11 @@ p{ text-align:justify;}
     box-shadow: 0 0 4px #ECECEC;
     font-size: 12px;
     height: 25px;
-    margin-left: 0;
-    padding-left: 5px;
-    width: 56%;
+    margin-left: 30px;
+    width: 78%;
 	color: #666;
 }
+.caption_height{ padding-left:5px; min-height:50px; width:77%; margin-left:28px;border: 1px solid #E1E0E0; }
 
 .add_hours .form_input input.browse_button {
     background-color: #B0B0B0;
@@ -1524,3 +1569,6 @@ p{ text-align:justify;}
 	height: 16px;
 	border: 0;
 }
+.contact_d_outer{float:left; width:46%; margin-left:2%;margin-top:15px; }
+.contact_link{ text-decoration:none; color:#F60; padding-left:5px;}
+.r2{ width:102px !important;}
