@@ -7,7 +7,7 @@ function get_hours($time1,$time2){
          $i = 1;
          foreach($messages as $message){
          ?>
-        <div class="client_outer cursor_grid">
+        <div class="client_outer cursor_grid <?php if($message['Message']['viewed_status'] == 1) echo 'read_messages_bg';else echo 'unread_messages'?>">
         <div class="status_sign">
            <?php 
 		   if(($message['User']['last_login'] != '0000-00-00 00:00:00') && get_hours(date('Y-m-d H:i:s'),$message['User']['last_login']) < 24)
@@ -16,7 +16,8 @@ function get_hours($time1,$time2){
 		   ?>            
         </div>
         <div class="client_img_outer_f">
-            <img src="<?php echo $this->webroot;?>img/client_img_outer_b.png" alt="" />
+            <img src="<?php echo $this->webroot;?>img/<?php if($message['Message']['viewed_status'] == 0) echo 'client_img_outer_b.png';
+			else echo 'client_img_outer_b_gray.png';?>" alt="" />
         </div>
         <div class="client_img_outer">
             <?php

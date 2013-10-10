@@ -257,9 +257,16 @@ class PagesController extends AppController {
 		
 		$message = $this->Message->find('first',array(
 							      'conditions'=>array('Message.id'=>$this->request->data['id']),
-							      'fields'=>array('reference_id','message_from')
+							      'fields'=>array('reference_id','message_from','viewed_status')
 							      ));
-		
+
+		// check if message is not already read then make the status of message as read
+		if($message['Message']['viewed_status'] == 0){
+			$data = array();
+			$data['Message']['id'] = $this->request->data['id'];
+			$data['Message']['viewed_status'] = 1;
+			$this->Message->save($data);
+		}
 		
 		$this->Message->bindModel(
 			array('belongsTo' => array(					

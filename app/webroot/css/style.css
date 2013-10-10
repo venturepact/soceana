@@ -1574,3 +1574,7 @@ p{ text-align:justify;}
 .r2{ width:102px !important;}
 .profile_image{width:170px;height:170px;}
 .personalie_result_image{width:350px;height:162px;}
+.read_messages_bg{background-color:#F5F5F5}
+.read_messages_bg .client_detail h3{font-size:16px;}
+.read_messages_bg .client_detail .light_gray{font-size:13px;}
+.unread_messages .client_detail h3{font-weight:bolder;}

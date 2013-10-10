@@ -286,6 +286,11 @@ ul.left_margin label.error {
 .add_hours .form_input input.orange_butt { font-size: 12px;	}
 .next_preview_butt1 { width: 211px;}
 .rating_icon { margin-top: 56px;}
+.result_outer .r_right_section .img_wrapp img {
+width: 350px;
+height: 183px;
+}
+.profile_image {width: 211px;}
 
 	
 	
