@@ -21,6 +21,7 @@ class PagesController extends AppController {
  */
 	public $uses = array('LogHour');
 
+	public $helpers = array('Sponsor');
 	
 	public $components = array('Session','Auth');    
 /**

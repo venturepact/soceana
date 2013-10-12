@@ -7,6 +7,8 @@
 */
 class LogHoursController extends AppController {
     
+	public $helpers = array('Sponsor');
+	
     /* @ function to add log hour for Volunteer */
     public function add(){
          $this->loadModel('ServiceType');

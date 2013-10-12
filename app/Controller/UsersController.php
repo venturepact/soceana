@@ -9,7 +9,7 @@ class UsersController extends AppController{
     
     var $name = 'Users';
     
-    var $helpers = array('Cropimage');
+    var $helpers = array('Cropimage','Sponsor');
     
     var $components = array('JqImgcrop');  
     

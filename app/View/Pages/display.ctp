@@ -147,43 +147,11 @@ if($this->Session->read('User.role') == 'organizations') {
                     <div class="small_font_time"><span >DAYS</span><span class="space1"> HOURS</span> MINUTES</div>
                      </div>                      
              </div>
-           <div class="right_section_inner">  
+          <div class="right_section_inner">  
              <h1>SPONSORS</h1>
-               <div class="sponser_outer">
-                  <div class="sponser_inner"><span class="sponsors_text"> Sed ultricies volutpat tempor. Cras non lacus at enim venenatis hendrerit. Morbi lacus arcu, luctus sollicitudin molestie vulputate, sagittis eget quam. Praesent eget massa purus. Mauris fermentum ante quis mauris pretium, eu interdum metus fringilla. Curabitur lacinia vulputate tincidunt.</span></div>
-                     <div class="tip"></div>
-        <div class="add_section">
-            <div class="section1">
-                <div class="black_text">
-                     THE CHILDREN’S HOSPITAL
-OF PHILADELPHIA
-                      </div>
-                    <div class="black_text_thin">3401 Civic Center Blvd. Philadelphia PA
-(215) 590-1000</div> 
-<a href="#" class="orange_butt">VOLUNTEER THROUGH SOCEANA</a> 
-                 </div>
-              <div class="section2"><img src="<?php echo $this->webroot;?>img/ch_image.png" width="100%" height="100%" alt="" /></div>
-              </div>            
-                   </div>
-                   <div class="add_img_outer"><img src="<?php echo $this->webroot;?>img/volunteer.png" width="100%" height="100%" alt="" />                  
-                 </div>
-                   
-                 <div class="sponser_outer">
-                   <div class="sponser_inner"><span class="sponsors_text"> Sed ultricies volutpat tempor. Cras non lacus at enim venenatis hendrerit. Morbi lacus arcu, luctus sollicitudin molestie vulputate, sagittis eget quam. Praesent eget massa purus. Mauris fermentum ante quis mauris pretium, eu interdum metus fringilla. Curabitur lacinia vulputate tincidunt.</span></div>
-                     <div class="tip"></div>
-        <div class="add_section">
-            <div class="section1">
-                <div class="black_text">
-                 MANNA ON MAIN STREET
-                      </div>
-                    <div class="black_text_thin">713 W. Main Street. Lansdale PA
-(215) 855-5454</div> 
-<a href="#" class="orange_butt">VOLUNTEER THROUGH SOCEANA</a> 
-                 </div>
-              <div class="section2"><img src="<?php echo $this->webroot;?>img/main_steel_img.png" width="100%" height="100%" alt="" /></div>
-              </div>          
-                   </div>                   
-             </div>
+             <?php echo $this->Sponsor->load_advertisements(); ?>
+           </div>
+
              <a href="#" class="add_text">Advertise with Soceana</a></div>
 <?php
 }
@@ -303,38 +271,10 @@ else{
              </div>
            <div class="right_section_inner">  
              <h1>SPONSORS</h1>
-               <div class="sponser_outer">
-                  <div class="sponser_inner"><span class="sponsors_text"> Sed ultricies volutpat tempor. Cras non lacus at enim venenatis hendrerit. Morbi lacus arcu, luctus sollicitudin molestie vulputate, sagittis eget quam. Praesent eget massa purus. Mauris fermentum ante quis mauris pretium, eu interdum metus fringilla. Curabitur lacinia vulputate tincidunt.</span></div>
-                     <div class="tip"></div>
-        <div class="add_section">
-            <div class="section1">
-                <div class="black_text">
-                     THE CHILDREN’S HOSPITAL OF PHILADELPHIA
-                      </div>
-                    <div class="black_text_thin">3401 Civic Center Blvd. Philadelphia PA
-(215) 590-1000</div> 
-<a href="#" class="orange_butt">VOLUNTEER THROUGH SOCEANA</a> 
-                 </div>
-              <div class="section2"><img src="<?php echo $this->webroot;?>img/ch_image.png" alt="" /></div>
-              </div>           
-                   </div>
-                   <div class="add_img_outer"><img src="<?php echo $this->webroot;?>img/volunteer.png" width="350" alt="" />                
-                 </div>                 
-                 <div class="sponser_outer">
-                   <div class="sponser_inner"><span class="sponsors_text">Sed ultricies volutpat tempor. Cras non lacus at enim venenatis hendrerit. Morbi lacus arcu, luctus sollicitudin molestie vulputate, sagittis eget quam. Praesent eget massa purus. Mauris fermentum ante quis mauris pretium, eu interdum metus fringilla. Curabitur lacinia vulputate tincidunt.</span></div>
-                     <div class="tip"></div>
-        <div class="add_section">
-            <div class="section1">
-                <div class="black_text">
-                 MANNA ON MAIN STREET
-                      </div>
-                    <div class="black_text_thin">713 W. Main Street. Lansdale PA
-(215) 855-5454</div> 
-<a href="#" class="orange_butt">VOLUNTEER THROUGH SOCEANA</a> 
-                 </div>
-              <div class="section2"><img src="<?php echo $this->webroot;?>img/main_steel_img.png" alt="" /></div>
-              </div>
-              </div></div>
+             <?php echo $this->Sponsor->load_advertisements(); ?>
+            </div>
+              
+             
              <a href="#" class="add_text">Advertise with Soceana</a>               
          <div class="clr"></div>               
          </div>
