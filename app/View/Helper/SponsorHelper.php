@@ -1,0 +1,19 @@
+ <?php
+App::uses('AppHelper', 'View/Helper');
+class SponsorHelper extends AppHelper {
+    var $helpers = array('Html');
+
+   function load_advertisements(){
+	$rand = rand(0, 1);
+	switch($rand){
+		case 0:
+			$sponsor = "<div class='add_img_outer'><img src='".$this->webroot."img/sp1.png' width='364' height='182' alt='' /></div><div class='sponser_outer'><div class='sponser_inner'><h7> Sed ultricies volutpat tempor. Cras non lacus at enim venenatis hendrerit. Morbi lacus arcu, luctus sollicitudin molestie vulputate, sagittis eget quam. Praesent eget massa purus. Mauris fermentum ante quis mauris pretium, eu interdum metus fringilla. Curabitur lacinia vulputate tincidunt.</h7></div><div class='tip'></div><div class='add_section'><div class='section1'><div class='black_text'>THE CHILDREN’S HOSPITAL OF PHILADELPHIA</div><div class='black_text_thin'>3401 Civic Center Blvd. Philadelphia PA(215) 590-1000</div><a href='#' class='orange_butt'>VOLUNTEER THROUGH SOCEANA</a></div><div class='section2'><img src='".$this->webroot."img/ch_image.png' width='100%' height='100%' alt='' /></div></div></div><div class='add_img_outer'><img src='".$this->webroot."img/sp2.png' width='364' height='182' alt='' /></div><div class='sponser_outer'><div class='sponser_inner'><h7> Sed ultricies volutpat tempor. Cras non lacus at enim venenatis hendrerit. Morbi lacus arcu, luctus sollicitudin molestie vulputate, sagittis eget quam. Praesent eget massa purus. Mauris fermentum ante quis mauris pretium, eu interdum metus fringilla. Curabitur lacinia vulputate tincidunt.</h7></div><div class='tip'></div><div class='add_section'><div class='section1'><div class='black_text'>Philadelphia Zoo</div><div class='black_text_thin'>713 W. Main Street. Lansdale PA (215) 855-5454</div><a href='#' class='orange_butt'>VOLUNTEER THROUGH SOCEANA</a></div><div class='section2'><img src='".$this->webroot."img/main_steel_img.png' width='100%' height='100%' alt='' /></div></div></div>";
+		break;
+		case 1:
+		$sponsor = "<div class='add_img_outer'><img src='".$this->webroot."img/sp3.png' width='364' height='182' alt='' /></div><div class='sponser_outer'><div class='sponser_inner'><h7>Sed ultricies volutpat tempor. Cras non lacus at enim venenatis hendrerit. Morbi lacus arcu, luctus sollicitudin molestie vulputate, sagittis eget quam. Praesent eget massa purus. Mauris fermentum ante quis mauris pretium, eu interdum metus fringilla. Curabitur lacinia vulputate tincidunt.</h7></div><div class='tip'></div><div class='add_section'><div class='section1'><div class='black_text'>MANNA ON MAIN STREET</div><div class='black_text_thin'>713 W. Main Street. Lansdale PA (215) 855-5454</div><a href='#' class='orange_butt'>VOLUNTEER THROUGH SOCEANA</a></div><div class='section2'><img src='".$this->webroot."img/main_steel_img.png' width='100%' height='100%' alt='' /></div></div></div><div class='add_img_outer'><img src='".$this->webroot."img/sp4.png' width='364' height='182' alt='' /></div><div class='sponser_outer'><div class='sponser_inner'><h7> Sed ultricies volutpat tempor. Cras non lacus at enim venenatis hendrerit. Morbi lacus arcu, luctus sollicitudin molestie vulputate, sagittis eget quam. Praesent eget massa purus. Mauris fermentum ante quis mauris pretium, eu interdum metus fringilla. Curabitur lacinia vulputate tincidunt.</h7></div><div class='tip'></div><div class='add_section'><div class='section1'><div class='black_text'>Free Library of Philadelphia</div><div class='black_text_thin'>713 W. Main Street. Lansdale PA (215) 855-5454</div><a href='#' class='orange_butt'>VOLUNTEER THROUGH SOCEANA</a></div><div class='section2'><img src='".$this->webroot."img/main_steel_img.png' width='100%' height='100%' alt='' /></div></div></div>";
+		break;
+	}
+	return $sponsor;
+}
+}
+?> 
