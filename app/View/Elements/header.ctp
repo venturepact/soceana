@@ -8,31 +8,29 @@ if($this->Session->read('User.role')!=''){
                 <a class="logo" href="<?php echo $this->webroot;?>"><img alt="Soceana Logo" src="<?php echo $this->webroot;?>img/logo.png"> </a> 
                  <div class="top_nav_outer">
                         <ul class="top_nav">
-                                <li><a href="<?php echo $this->webroot;?>">ANALYTICS</a></li>
-                                <li><a href="<?php echo $this->webroot;?><?php
-                                if($this->Session->read('User.role') == 'organizations'){
-                                    echo 'loghours/review_hours';
-                                }
-                                else echo 'loghours/add';
-                                ?>"><?php if($this->Session->read('User.role') == 'organizations')echo 'REVIEW HOURS';else echo 'LOG HOURS';?></a></li>
-                                <li><a href="#"><?php
-                                if($this->Session->read('User.role') == 'organizations'){
-                                    echo strtoupper($this->Session->read('User.organization_name'));
-                                }
+                   <li><a href="<?php echo $this->webroot;?>">ANALYTICS</a></li>
+                   <li><a href="<?php echo $this->webroot;?><?php
+                      if($this->Session->read('User.role') == 'organizations')echo 'loghours/review_hours';
+					  elseif($this->Session->read('User.role') == 'companies')echo '#';
+                      else echo 'loghours/add';
+                                ?>">
+					<?php if($this->Session->read('User.role') == 'organizations')echo 'REVIEW HOURS';
+					else echo 'LOG HOURS';?></a></li>
+                                <li><a href="#">
+					<?php
+if($this->Session->read('User.role') == ('organizations'||'companies'))echo strtoupper($this->Session->read('User.organization_name'));		
                                 else echo strtoupper($this->Session->read('User.first_name'));
                                 ?></a></li>
                                 <li><a href="<?php echo $this->webroot;?>users/logout">LOGOUT</a></li>
                                 <li><a href="<?php echo $this->webroot;?><?php
-                                if($this->Session->read('User.role') == 'organizations'){
-                                    echo 'users/organization_profile';
-                                }
+                                if($this->Session->read('User.role') == 'organizations')echo 'users/organization_profile';
+                                elseif($this->Session->read('User.role') == 'companies')echo 'users/company_profile';
                                 else echo 'users/user_profile';
                                 ?>"><img height="15" border="0" title="inser title here" alt="" src="<?php echo $this->webroot;?>img/edit_icon.png"></a></li>
                         </ul>
                 <div class="c_profile"><a class="link_text" href="<?php echo $this->webroot;?><?php
-                                if($this->Session->read('User.role') == 'organizations'){
-                                    echo 'users/organization_profile';
-                                }
+                                if($this->Session->read('User.role') == 'organizations')echo 'users/organization_profile';
+								elseif($this->Session->read('User.role') == 'companies')echo 'users/company_profile';
                                 else echo 'users/user_profile';
                                 ?>">COMPLETE YOUR PROFILE</a></div> 
                </div>    

@@ -260,6 +260,43 @@ class LogHoursController extends AppController {
         $this->autoRender = false;     
     }   
 
+	public function CompanyChartData(){
+		  $this->layout = '';      
+			$temp[0][0] = 'Months';     
+			$temp[0][1] = 'Hours';       
+			$k = 1;
+			//$c = 0;
+			for($i=5;$i>=0;$i--){
+				$array = $this->_get_Month($i);
+				$temp[$k][0] = $this->_getMonthName($array[0]);
+					
+					$this->LogHour->bindModel(
+								array('belongsTo' => array(
+										'User' =>  array('className' => 'User','joinTable' => 'users','foreignKey' => 'user_id'),
+									),
+								),false
+							);
+				
+					$data_array = $this->LogHour->find('first',array('fields'=>'sum(hours) as count_of_hours',
+													   'conditions'=>array(
+																		 'User.employer' => $this->Session->read('User.id'),                                            
+																		 'LogHour.status' => 1,
+																		 'month(job_date)' => $array[0],
+																		 'year(job_date)' => $array[1]
+													   )));
+					if($data_array[0]['count_of_hours']==null){
+						$temp[$k][1] = 0;
+					}
+					else{
+						 $temp[$k][1] = $data_array[0]['count_of_hours'];
+					}
+					$k++;  
+				}
+					   
+		   
+			return $temp;
+			$this->autoRender = false;     
+		}
     
      function OrganizationAgeChartData(){        
         

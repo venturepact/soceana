@@ -24,52 +24,74 @@ class UsersController extends AppController{
         $this->set('title_for_layout','Soceana - User Login');
         if($this->request->is('post')){           
             if($this->Auth->login()){
-                // allowing specific user type from specific form
-                if($this->request->data['User']['role'] != $this->Auth->user('role'))
-                {
-                    if($this->request->data['User']['role']=='organizations')
-                    {
-                        $message = ' an organization';
-                    }
-                    else $message = ' a volunteer';
-                    unset($this->request->data);                   
-                    $this->Auth->logout();
-                    $this->Session->setFlash(__('You are not allowed to access system as'.$message));
-                }
-                else
-                {
-                    if ($this->request->data['User']['rememberMe'] == 1) {
-                    // After what time frame should the cookie expire
-                    $cookieTime = "14 days"; // You can do e.g: 1 week, 17 weeks, 14 days
- 
-                    // remove "remember me checkbox"
-                    unset($this->request->data['User']['rememberMe']);
-                 
-                    // hash the user's password
-                    $this->request->data['User']['password'] = $this->Auth->password($this->request->data['User']['password']);
-                 
-                    // write the cookie
-                    $this->Cookie->write('rememberMe', $this->request->data['User'], true, $cookieTime);
-                    }
-                   
-                    $this->Session->write('User',$this->Auth->user());  
-					$data['User']['id'] = $this->Session->read('User.id');
-					$data['User']['last_login'] = date('Y-m-d H:i:s') ;
-					$this->User->save($data); 
-					    
-                    $this->redirect(array('controller'=>'pages','action'=>'display'));
-                    //$this->redirect('/');
-                }
-                
-            }
+				if($this->request->data['User']['role'] == 'organizations|companies'){					
+					if($this->Auth->user('role')=='user'){					
+						unset($this->request->data);                   
+						$this->Auth->logout();
+						$this->Session->setFlash(__('You are not allowed to access system as Organization / Company'));
+					}
+					else{
+						if ($this->request->data['User']['rememberMe'] == 1) {
+						// After what time frame should the cookie expire
+						$cookieTime = "14 days"; 
+	 
+						// remove "remember me checkbox"
+						unset($this->request->data['User']['rememberMe']);
+					 
+						// hash the user's password
+						$this->request->data['User']['password'] = $this->Auth->password($this->request->data['User']['password']);
+					 
+						// write the cookie
+						$this->Cookie->write('rememberMe', $this->request->data['User'], true, $cookieTime);
+						}
+					   
+						$this->Session->write('User',$this->Auth->user());  
+						$data['User']['id'] = $this->Session->read('User.id');
+						$data['User']['last_login'] = date('Y-m-d H:i:s') ;
+						$this->User->save($data); 
+							
+						$this->redirect(array('controller'=>'pages','action'=>'display'));
+						//$this->redirect('/');
+					}
+				}
+				else{
+					if($this->Auth->user('role') !='user' ){					
+						unset($this->request->data);                   
+						$this->Auth->logout();
+						$this->Session->setFlash(__('You are not allowed to access system as a Volunteer'));
+					}
+					else{
+						if ($this->request->data['User']['rememberMe'] == 1) {
+						// After what time frame should the cookie expire
+						$cookieTime = "14 days"; 
+	 
+						// remove "remember me checkbox"
+						unset($this->request->data['User']['rememberMe']);
+					 
+						// hash the user's password
+						$this->request->data['User']['password'] = $this->Auth->password($this->request->data['User']['password']);
+					 
+						// write the cookie
+						$this->Cookie->write('rememberMe', $this->request->data['User'], true, $cookieTime);
+						}
+					   
+						$this->Session->write('User',$this->Auth->user());  
+						$data['User']['id'] = $this->Session->read('User.id');
+						$data['User']['last_login'] = date('Y-m-d H:i:s') ;
+						$this->User->save($data); 
+							
+						$this->redirect(array('controller'=>'pages','action'=>'display'));
+						//$this->redirect('/');
+					}					
+				}
+			}
             else{
                 unset($this->request->data);
                 $this->Session->setFlash(__('Invalid username or password, Try again'));
             }
         }        
     }  
-    
-    
+	    
     /* @ function for logout */
     public function logout(){
         $this->Session->delete('User');
@@ -171,6 +193,12 @@ class UsersController extends AppController{
             $this->set('temp_types',$temp);
             $this->set('service_types',$this->ServiceType->find('all',array('order'=>'id','fields'=>array('id','name','picture_url'))));
             unset($this->request->data['User']['Password']);
+			
+			
+			$companies = $this->User->find('list',array('fields'=>array('id','organization_name'),'conditions'=>array('role'=>'companies')));
+			$companies[0] = 'Others';
+
+			$this->set('companies',$companies);
         }
     }
     
@@ -246,6 +274,50 @@ class UsersController extends AppController{
             $this->set('service_types',$this->ServiceType->find('all',array('order'=>'id','fields'=>array('id','name','picture_url'))));
 	    $this->set('skill_sets',$this->SkillSet->find('all',array('order'=>'id','fields'=>array('id','name','picture_url'))));
             unset($this->request->data['User']['Password']);
+        }
+    }
+	
+	  /* @ function for update profile of company */
+    public function company_profile(){
+        $this->loadModel('ServiceType');	
+        $this->User->id = $this->Session->read('User.id');
+        
+        if(!$this->User->exists()){
+            throw new NotFoundException(__('Invalid User'));       
+        }
+        if($this->request->is('post') || $this->request->is('put')){          
+          
+            if($this->User->save($this->request->data)){               
+				$this->Session->write('User.first_name',$this->request->data['User']['first_name']);
+				$this->Session->write('User.last_name',$this->request->data['User']['last_name']);
+				$this->Session->write('User.organization_name',$this->request->data['User']['organization_name']);			
+                $this->Session->setFlash(__('Your details has been updated successfully'));
+                $this->redirect('/');
+            }
+            else{
+                $this->Session->setFlash(__('Your details could not be saved. Please try again'));
+            }
+        }
+        else{
+            $this->request->data = $this->User->read(null,$this->User->id);
+            
+            // code for new array of volunteer type selection from database
+            $i = 0;
+            $temp = array();
+            if(count($this->request->data['ServiceType'])>0)
+            {
+                foreach($this->request->data['ServiceType'] as $sel_options){
+                    $temp[$i] = $sel_options['id'] ;
+                    $i++;
+                }               
+            }
+            else
+            {
+                $temp[$i] = 0;
+            }           
+         
+            $this->set('temp_types',$temp);            
+            $this->set('service_types',$this->ServiceType->find('all',array('order'=>'id','fields'=>array('id','name','picture_url'))));	    
         }
     }
     

@@ -19,14 +19,17 @@ label.error{ color: #FF0000 !important;font-size: 12px !important;margin: -3px 0
         <label name="name">Profile Image</label>
             <?php echo $this->Form->input('image',array("type" => "file",'div'=>false,'label'=>false,'id'=>'image-file'));?>
     </div><?php
-    if($this->Session->read('User.role') == 'organizations') $class = 'blue';else $class = 'orange';
+    if($this->Session->read('User.role')  == ('organizations' || 'companies')) $class = 'blue';else $class = 'orange';
 echo $this->Form->submit('Upload Image', array("id"=>"save_thumb",'div'=>false,'label'=>false,'class'=>$class));?>
  
 
                         <div style="text-align:center;width:50%;padding-left: 62px;">or 
                         <?php
-						if($this->Session->read('User.role') == 'organizations'){?>
+						if($this->Session->read('User.role')  == 'organizations'){?>
                          <a href="<?php echo $this->webroot;?>users/organization_profile">Cancel</a>
+                        <?php }
+						elseif($this->Session->read('User.role')  == 'companies'){?>
+                         <a href="<?php echo $this->webroot;?>users/company_profile">Cancel</a>
                         <?php }else{?>
                         <a href="<?php echo $this->webroot;?>users/user_profile">Cancel</a>
                         <?php

@@ -1,5 +1,5 @@
 <?php echo $this->Form->create('User',array('id'=>'login_form2','action'=>'login','url'=>'#login_form2'));?>
-<?php echo $this->Form->input('role',array('type'=>'hidden','value'=>'organizations'));?>
+<?php echo $this->Form->input('role',array('type'=>'hidden','value'=>'organizations|companies'));?>
 <div class="user_name"><?php echo $this->Form->input('email_id',array('type'=>'text','placeholder'=>"Email id",'label'=>false,'div'=>false,'id'=>'email_id','class'=>'text_style'));?></div>
 <div class="clr"></div>
 <div class="password"><?php echo $this->Form->input('password',array('type'=>'password','placeholder'=>"Password",'label'=>false,'div'=>false,'id'=>'pass','class'=>'text_style'));?></div>
@@ -17,9 +17,9 @@
                 </div>-->
 		<div class="remember">
 		     <input type="hidden" value="0" id="UserRememberMe_" name="data[User][rememberMe]">
-                     <input type="checkbox" id="c3" value="1" name="data[User][rememberMe]" />
-                     <label for="c3" class="checkbox-label"><span></span></label>
-                     <label class="intern">Remember me</label>
+             <input type="checkbox" id="c3" value="1" name="data[User][rememberMe]" />
+             <label for="c3" class="checkbox-label"><span></span></label>
+             <label class="intern">Remember me</label>
                     <a href="javascript:void(0);" class="forget_password pop">Forgot Password?</a>
                 </div>
                 <div class="mb10">&nbsp;</div>

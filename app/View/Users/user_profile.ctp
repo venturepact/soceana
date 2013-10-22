@@ -9,8 +9,24 @@
 <?php echo $this->Html->script('datepicker/jquery.datepick');?>
 <script type="text/javascript">
 $(function() {
-	$('#dob').datepick({dateFormat: 'yyyy-mm-dd',yearRange: "-80:+0", maxDate: '0'});	
+	$('#dob').datepick({dateFormat: 'yyyy-mm-dd',yearRange: "-80:+0", maxDate: '0'});
+	 $('#employer').change(function(){
+	 $('#emp_select').html('<img src="<?php echo $this->webroot;?>img/loading.gif" id="emp_img">');
+	 $('#emp_select').fadeIn();
+		var emp_id = $('#employer').val();		
+			if(emp_id == '0') {
+				$('#emp_select').fadeOut();
+				$('#emp_div').fadeIn().slow();			
+			}
+			else{
+				$('#emp_select').fadeOut();
+				$('#emp_div').fadeOut().slow();
+				
+			}
+		
+	});		
 });
+
 </script>
 <div class="top_heading">
            <h1>PROFILE</h1>
@@ -43,8 +59,15 @@ $(function() {
                   
                   <div class="mt20"></div>
                   <div class="signup_form">
-                    	<label name="name">Employer:</label>
-                       <?php echo $this->Form->input('employer',array('type'=>'text','div'=>false,'label'=>false,'class'=>'text_style'));?>
+                    	<label name="name">Employer:</label>                        
+                       <?php echo $this->Form->input('employer',array('type'=>'select','div'=>false,'label'=>false,'class'=>'text_style','options' => $companies,'empty' => 'Select Company','default' => 'empty','id'=>'employer'));?>
+                        <span id='emp_select' style='float: right;'></span> 
+                  </div>
+                  <div id='emp_div' class="signup_form" <?php if($this->request->data['User']['employer']==0)echo 'style="display:block;"';else echo 'style="display:none"';?>>
+                      <div class="clr"></div>
+                      <div class="mt20"></div>
+                 		 <label name="name">Employer Name:</label>                        
+                         <?php echo $this->Form->input('employer_name',array('type'=>'text','div'=>false,'label'=>false,'class'=>'text_style'));?>
                   </div>
                   <div class="clr"></div>
                   <div class="mt20"></div>
@@ -184,6 +207,9 @@ $().ready(function() {
 						  minlength:2,
                           maxlength:50
                          },   
+						 "data[User][employer]": {
+                         required: true,						 
+                         }, 
 						 "data[User][location]": {                         
                           'alpha':true,
                           minlength:2,
@@ -216,7 +242,10 @@ $().ready(function() {
                             required: 'Please enter your last name',
                             minlength:'Please enter atleast 2 characters',
                             maxlength:'Please enter maximum 50 characters'
-                         },  
+                         }, 
+						 "data[User][employer]": {
+                         required: 'Please select your employer',						 
+                         }, 
 						 "data[User][location]": {
                             required: 'Please enter your location',
                             minlength:'Please enter atleast 2 characters',

@@ -31,6 +31,7 @@ function show(){
 		  */
 		  if($this->Session->read('User.role')!=''){
 		  if($this->Session->read('User.role') == 'organizations') echo $this->element('organization_left');
+		  elseif($this->Session->read('User.role') == 'companies') echo $this->element('company_left');
 		  else echo $this->element('user_left');
 		  }else{ echo '&nbsp;';}
 		?>
@@ -52,6 +53,7 @@ function show(){
 		*/
 		if($this->Session->read('User.role')!=''){
 		if($this->Session->read('User.role') == 'organizations') echo $this->element('organization_right');
+		elseif($this->Session->read('User.role') == 'companies') echo $this->element('company_right');
 		else echo $this->element('user_right');
 		}else{ echo '&nbsp;';}
 		?>

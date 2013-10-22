@@ -16,12 +16,15 @@ echo $this->Cropimage->createJavaScript($uploaded['imageWidth'],$uploaded['image
 <?php
 echo $this->Form->create('User', array('action' => 'user_pic3',"enctype" => "multipart/form-data"));   
 echo $this->Cropimage->createForm($uploaded["imagePath"], 151, 151);
-if($this->Session->read('User.role') == 'organizations') $class = 'blue';else $class = 'orange';
+if($this->Session->read('User.role')  == ('organizations' || 'companies')) $class = 'blue';else $class = 'orange';
 echo $this->Form->submit('Crop Image', array("id"=>"save_thumb",'div'=>false,'label'=>false,'class'=>$class));?>
  <div class="clr"></div>
-                        <div style="text-align:center;width:50%;">or  <?php
-						if($this->Session->read('User.role') == 'organizations'){?>
+                        <div style="text-align:center;width:50%;">or   <?php
+						if($this->Session->read('User.role')  == 'organizations'){?>
                          <a href="<?php echo $this->webroot;?>users/organization_profile">Cancel</a>
+                        <?php }
+						elseif($this->Session->read('User.role')  == 'companies'){?>
+                         <a href="<?php echo $this->webroot;?>users/company_profile">Cancel</a>
                         <?php }else{?>
                         <a href="<?php echo $this->webroot;?>users/user_profile">Cancel</a>
                         <?php

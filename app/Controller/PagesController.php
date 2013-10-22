@@ -39,9 +39,7 @@ class PagesController extends AppController {
 	public function display() {		
 		if($this->request->is('post')){
 			 $this->Session->write('page_limit',$this->request->data['Pages']['limit']);  
-		}
-		
-		
+		}	
 		
 		if($this->Session->read('page_limit') != null){
 			$limit = $this->Session->read('page_limit');			
@@ -57,7 +55,7 @@ class PagesController extends AppController {
 				
 				$start_count =  $limit * ($this->params['named']['page'] - 1) + 1 ;
 				
-			    $count = $this->LogHour->find('count',array('conditions'=>array('organization'=>$this->Session->read('User.id'))));			
+				$count = $this->LogHour->find('count',array('conditions'=>array('organization'=>$this->Session->read('User.id'))));			
 				
 				if($start_count > $count){
 					
@@ -76,6 +74,41 @@ class PagesController extends AppController {
 												 'fields'=>array('sum(hours) as total_hours')
 			)));
 				
+		}
+		elseif($this->Session->read('User.role') == 'companies'){
+			$this->loadModel('LogHour');
+			// check for current page with page limit that record exits to show page or not
+			if(isset($this->params['named']['page']) && $this->params['named']['page'] >= 2){
+			 //echo $this->params['named']['page'];
+				
+				$start_count =  $limit * ($this->params['named']['page'] - 1) + 1 ;
+				
+				$this->LogHour->bindModel(
+					array('belongsTo' => array(
+							'User'        =>  array('className' => 'User','joinTable' => 'users','foreignKey' => 'user_id','fields'=>array('first_name','last_name','employer')),
+						),
+					),false
+				);
+				
+			        $count = $this->LogHour->find('count',array('conditions'=>array('employer'=>$this->Session->read('User.id'))));			
+				
+				if($start_count > $count){
+					
+					$this->redirect('/');
+				}
+			 
+			}
+			
+			$this->set('loghours',$this->_companyGridData($limit));
+			
+			//$this->LogHour->recursive = -1;
+			$this->set('total_hours',$this->LogHour->find('first',array(
+											     'conditions'=>array(
+												 				'User.employer'=>$this->Session->read('User.id'),
+																'LogHour.status' => 1
+																),
+												 'fields'=>array('sum(hours) as total_hours')
+			)));
 		}
 		else{
 			// case  of volunteer 
@@ -152,6 +185,30 @@ class PagesController extends AppController {
 					'ServiceType' =>  array('className' => 'ServiceType','joinTable' => 'service_types','foreignKey' => 'service_type_id','fields'=>array('name')),
 					'User'        =>  array('className' => 'User','joinTable' => 'users','foreignKey' => 'user_id','fields'=>array('first_name','last_name'))
 				)
+			),false
+		);
+		 
+		return $this->paginate('LogHour');
+	}
+	
+	/* @ function to show the Organization Grid Data */
+	public function _companyGridData($limit = 5){
+		$fields = array('LogHour.id','LogHour.hours','LogHour.job_date','LogHour.status','Category.category_name','ServiceType.name','User.first_name','User.last_name','Organization.organization_name');
+		
+		 $this->paginate = array(
+				'limit'       => $limit,
+				'order'       => 'LogHour.job_date DESC',
+				'fields'      => $fields,
+				'conditions'  => array( 'User.employer' => $this->Session->read('User.id'))
+			);
+		
+		$this->LogHour->bindModel(
+			array('belongsTo' => array(
+					'Category'    =>  array('className' => 'Category','joinTable' => 'categories','foreignKey' => 'category_id','fields'=>array('category_name')),
+					'ServiceType' =>  array('className' => 'ServiceType','joinTable' => 'service_types','foreignKey' => 'service_type_id','fields'=>array('name')),
+					'User'        =>  array('className' => 'User','joinTable' => 'users','foreignKey' => 'user_id','fields'=>array('first_name','last_name','employer')),
+					'Organization'=>  array('className' => 'User','joinTable' => 'users','foreignKey' => 'organization','fields'=>array('organization_name')),
+				),
 			),false
 		);
 		 

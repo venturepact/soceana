@@ -56,7 +56,7 @@ if($this->Session->read('User.role') == 'organizations') {
 							       'options' => array('5'=>'5','10'=>'10','15'=>'15','20'=>'20','25'=>'25','30'=>'30'),
 							       'default' => $limit,
 							       'id' => 'select',
-                                                               'onChange'=>'this.form.submit();'
+                                   'onChange'=>'this.form.submit();'
 							       ));?>                         
                         <?php echo $this->Form->end();?> 
              </div>                     
@@ -155,7 +155,124 @@ if($this->Session->read('User.role') == 'organizations') {
              <a href="#" class="add_text">Advertise with Soceana</a></div>
 <?php
 }
-else{
+elseif($this->Session->read('User.role') == 'companies'){	
+?>
+<div class="top_heading">
+   <h1>ANALYTICS DASHBOARD</h1>
+   <h3>View metrics and data for the social good you have done through Soceana.</h3>            
+</div>   
+          
+     <div class="wrapper_left_section">
+         <div class="left_top_section">
+             <div class="main_text">                  
+                 <p>NEWS</p></div>
+                    <div class="news_text">
+                      <span>You received a message from <strong>Karri Roman</strong> on Sunday, July 8th 2013.</span>
+                        <span>Your latest volunteer position at the <strong>Hospital of University</strong> .</span>
+                         </div>                                        
+             </div>
+   <div class="top_heading_second">
+     <h1>SOCIAL TIDES CHART</h1>
+        </div>       
+       <div class="table_head">
+         <div class="list"><?php echo $this->Form->create('Pages');?>
+                          <?php
+                          if($this->Session->read('page_limit') != null){
+                                    $limit = $this->Session->read('page_limit');			
+                            }
+                          else $limit = 5;
+                          echo $this->Form->input('limit',array(
+							       'type' => 'select',
+							       'div' => false,
+							       'label' => false,							       
+							       'options' => array('5'=>'5','10'=>'10','15'=>'15','20'=>'20','25'=>'25','30'=>'30'),
+							       'default' => $limit,
+							       'id' => 'select',
+                                   'onChange'=>'this.form.submit();'
+							       ));?>                         
+                        <?php echo $this->Form->end();?> 
+             </div>                     
+               <div class="record" ><h5>records per page</h5></div>
+             </div>
+ <!--table-->
+ <div style="float:left; width:100%;">                        
+             <div class="table_head_dark">
+                <div class="t_col_1 right_border"><h6>CATEGORY</h6></div>
+                  <div class="t_col_2 right_border"><h6>TYPE OF VOLUNTEERING</h6></div>
+                    <div class="t_col_3 right_border"><h6>VOLUNTEER</h6></div>
+                      <div class="t_col_4 right_border"><h6>HRS.</h6></div>
+                        <div class="t_col_5 right_border"><h6>DATE</h6></div>
+                          <div class="t_col_6 "><img src="<?php echo $this->webroot;?>img/logo_cert_white.png" /></div>
+                 </div>
+        <?php 
+		foreach($loghours as $log_hour){
+         ?>             
+    <div class="table_head_light">
+                <div class="t_col_1 box_border"><span class="gray_text"><?php echo $log_hour['Category']['category_name'];?></span></div>
+                  <div class="t_col_2 box_border"><span class="gray_text"><?php echo $log_hour['ServiceType']['name'];?></span></div>
+                    <div class="t_col_3 box_border"><span class="gray_text"><?php echo $log_hour['User']['first_name'].' '.$log_hour['User']['last_name'];?></span></div>
+                      <div class="t_col_4 box_border"><span class="gray_text"><?php echo $log_hour['LogHour']['hours'];?></span></div>
+                        <div class="t_col_5 box_border"><span class="gray_text"><?php echo date("m-d-Y", strtotime($log_hour['LogHour']['job_date']));?></span></div>
+                          <div class="t_col_6 box_border_right"><?php
+            switch($log_hour['LogHour']['status']){               
+                case 0:
+                  $icon = 'img/logo_cert.png';
+                  $title = 'Pending for Approval';
+                break;                
+                case 1:
+                  $icon = 'img/green_icon.png';
+                  $title = 'Approved Hours';
+                break;            
+                case 2:
+                  $icon = 'img/orange_icon.png';
+                  $title = 'Rejected Hours';
+                break;           
+            }                           
+            ?>
+            <img width="22" src="<?php echo $this->webroot.$icon;?>" title='<?php echo $title;?>'></div>
+                 </div> 
+    <?php
+     }
+    ?>
+   <div class="table_footer_white "  >
+     <div class="gray_text1"><?php echo $this->Paginator->counter('Showing {:start} to {:end} of {:count} entries');?></div>
+      <div class="next_preview_butt">
+       <?php echo $this->Paginator->prev(' < ', array(), null, array('class' => 'prev'));?>
+       <?php echo $this->Paginator->next(' > '  , array(), null, array('class' => 'next'));?>
+        </div>
+    </div>
+    <div class="graph_section">
+      <h1>ANALYTICS</h1>
+      <div class="graph_text">TIME PLOT: TOTAL VOLUNTEER HOURS VS. MONTHS</div>
+      <?php echo $this->element('company_linechart');?>            
+      </div>   
+    </div>          
+         </div>                    
+          <div class="wrapper_mid_border"></div>              
+     <div class="wrapper_right_section">
+        <div class="time_outer">
+            <div class="top_section" ><h4>TOTAL HOURS VOLUNTEERED</h4></div> 
+              <div class="right_plus" style="background:#0D8677"  ><a href="#" ><img src="<?php echo $this->webroot;?>img/icon-plus.png" border="0"></a></div>          
+              <div class="mid_section"><span class="large_font"><?php if($total_hours[0]['total_hours']!=NULL){
+				$info = get_info($total_hours[0]['total_hours']);
+				echo $info['days'].':'.$info['hours'].':'.$info['minutes'];
+			}
+			else echo '0:0:0';?></span></div>
+                 <div class="fields">
+                    <div class="small_font_time"><span >DAYS</span><span class="space1"> HOURS</span> MINUTES</div>
+                     </div>                      
+             </div>
+          <div class="right_section_inner">  
+             <h1>SPONSORS</h1>
+             <?php echo $this->Sponsor->load_advertisements(); ?>
+           </div>
+
+             <a href="#" class="add_text">Advertise with Soceana</a></div>
+<?php
+}
+else
+{
+	
 ?>
 <div class="top_heading">
    <h1>ANALYTICS DASHBOARD</h1>
