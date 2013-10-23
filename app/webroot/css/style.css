@@ -501,7 +501,7 @@ input[type=checkbox].css-checkbox {
 .login_bottom{margin-top:50px;}
 .section_login_left{float:left; width:70%; float:left;font-family: 'Conv_FuturaLT', Sans-Serif;}
 .section_login_left h1{font-family: 'Conv_FuturaLT', Sans-Serif;text-transform:uppercase;}
-.section_login_left p{color: #181818;font-family: 'Conv_FuturaLT',Sans-Serif;line-height: 25px; margin-top: 10px;padding-right: 20px;text-align: justify; font-size:14px; }
+.section_login_left p{color: #181818;font-family: 'Conv_FuturaLT',Sans-Serif;line-height: 25px; margin-top: 10px;padding-right: 20px;text-align: justify; font-size:16px; }
 .section_login_right{float:left; width:30%; background-color:#D5E6F0; }
 .section_login_right h2{float:left; width:100%; text-align:center; padding:10px 0;background-color:#589CC1; color:#FFF;text-transform:uppercase;border-radius:3px 3px 0 0; font-family: 'Conv_FuturaLT', Sans-Serif;font-weight: normal; font-size: 16px;}
 input{ width:200px;height:25px;background-color:#EBF6FC; border:none; margin-left: 35px;}

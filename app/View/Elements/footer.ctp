@@ -16,11 +16,10 @@
     
             
             <div class="footer_second_block">
-                <div class="footer_block2nd_heading">MEET THE TEAM </div>
-              <div class="footer_image_outer">
-                <div class="img_outer"><img src="<?php echo $this->webroot;?>img/anil.png" width="90%" height="90%" alt="" /></div>
-                 <div class="img_outer"><img src="<?php echo $this->webroot;?>img/tass.png"width="90%" height="90%" alt="" /></div>
-              
+                <div class="footer_block2nd_heading">MEET THE TEAM</div>
+              <div class="footer_image_outer">               
+                 <div class="img_outer"><a href="<?php echo $this->webroot;?>pages/management#tess" title="TESS MICHAELS"><img src="<?php echo $this->webroot;?>img/tass.png"width="90%" height="90%" alt="" /></a></div>
+                  <div class="img_outer"><a href="<?php echo $this->webroot;?>pages/management#anil" title="ANIL CHITRAPU"><img src="<?php echo $this->webroot;?>img/anil.png" width="90%" height="90%" alt="" /></a></div>              
               </div>
             </div>
             <div class="footer_third_block">
@@ -36,7 +35,7 @@
             </div>
             <div class="footer_last_block">
                <div class="footer_last_head">LATEST TWEETS<br/>
-                  <span class="normal_text">@ soceanateam</span>
+                  <span class="normal_text">@soceanateam</span>
                     </div>
                 <div class="tweet_outer">
                   

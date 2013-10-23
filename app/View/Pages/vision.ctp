@@ -10,9 +10,6 @@
                 <p>What SOCEANA Enables You To Do:</p>
                 <div class="img"><img src="<?php echo $this->webroot;?>img/text.jpg" /></div>
             </div>
-			<div class="mt50"></div>
-			<div class="section" align="center">
-            	<a href="<?php echo $this->webroot;?>">Back</a>
-            </div>            
-            <div class="mt50"></div>           
+			<div class="mt50"></div>			          
+            
         </div>

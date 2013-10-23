@@ -1,6 +1,6 @@
 <?php echo $this->Form->create('User',array('id'=>'login_form'));?>
 <?php echo $this->Form->input('role',array('type'=>'hidden','value'=>'user'));?>
-<div class="user_name"><?php echo $this->Form->input('email_id',array('type'=>'text','placeholder'=>"Email id",'label'=>false,'div'=>false,'id'=>'email_id','class'=>'text_style'));?></div>
+<div class="user_name"><?php echo $this->Form->input('email_id',array('type'=>'text','placeholder'=>"Email Address",'label'=>false,'div'=>false,'id'=>'email_id','class'=>'text_style'));?></div>
 <div class="clr"></div>
 <div class="password"><?php echo $this->Form->input('password',array('type'=>'password','placeholder'=>"Password",'label'=>false,'div'=>false,'id'=>'pass','class'=>'text_style'));?></div>
 <div class="clr"></div>
@@ -19,7 +19,7 @@
                              <input type="hidden" value="0" id="UserRememberMe_" name="data[User][rememberMe]">
                 	     <input type="checkbox" id="c2" value="1" name="data[User][rememberMe]">
                              <label class="checkbox-label" for="c2"><span></span></label>
-                             <label class="intern">Remember me</label>                             
+                             <label class="intern">REMEMBER ME</label>                             
                     		<a class="forget_password pop" href="javascript:void(0);">Forgot Password?</a>
                         </div>
                         <div class="clr"></div>
@@ -50,7 +50,7 @@ $().ready(function() {
 		},
                 messages:{
                     "data[User][email_id]": {
-				required: 'Please enter your email id'				
+				required: 'Please enter your email address'				
 			},
 			"data[User][password]": {
 				required: 'Please provide a password',

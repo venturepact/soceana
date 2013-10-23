@@ -18,7 +18,7 @@ if($this->Session->read('User.role')!=''){
 					else echo 'LOG HOURS';?></a></li>
                                 <li><a href="#">
 					<?php
-if($this->Session->read('User.role') == ('organizations'||'companies'))echo strtoupper($this->Session->read('User.organization_name'));		
+							if(($this->Session->read('User.role') == 'organizations')|| ($this->Session->read('User.role') =='companies')){echo strtoupper($this->Session->read('User.organization_name'));}		
                                 else echo strtoupper($this->Session->read('User.first_name'));
                                 ?></a></li>
                                 <li><a href="<?php echo $this->webroot;?>users/logout">LOGOUT</a></li>

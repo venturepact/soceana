@@ -132,7 +132,7 @@ $(function() {
 				Just tell us the email address you used to create your account and we'll send you a new one!
 				<div id='forgot_message'></div>
 			    </p>
-                            <label class="popup_text lb_email">Email: </label>
+                            <label class="popup_text lb_email">Email:</label>
 			    <?php echo $this->Form->input('User.email_id',array('type'=>'text','div'=>false,'label'=>false,'class'=>'text_outer_border','id' => 'forgot_email_id','maxlength'=>'50'));?>
                             <!--<input type="text" name="username" style="width:435px;"/>--><br /><br />
                             <img src="<?php echo $this->webroot;?>img/password_reset.png" id="forgot_submit" class='cursor_grid'/><br /><br />
@@ -144,7 +144,6 @@ $(function() {
          <!-- slider div -->
 		<!--Testimonials Start-->
 	<script src="<?php echo $this->webroot;?>rotating-testimonial/jquery.bxslider.min.js" type="text/javascript"></script>
-	
 	<div>
 		<ul class="bxslider">
 			<li>
