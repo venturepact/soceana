@@ -33,14 +33,18 @@
 		  ]);
 	
 			var options = {
-		          title: 'Hourly Report',			
+		          title: 'Volunteer Report',			
 			  vAxis: {gridlines:{color: '#1E4D6B',count:6}},
 			  hAxis: {baseline:'automatic',minorGridlines:{color: '#1E4D6B',count:10},logScale:false},	 
-			  pointSize : 8,			  
+			  pointSize : 8,			 	  
 			};
 	
 			var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
 			chart.draw(data, options);
-		  }	 
+		  }	
+$(window).resize(function(){
+	drawChart();
+	//alert('test');
+}); 
 </script>
     <div id="chart_div" style="width:100%;"></div>

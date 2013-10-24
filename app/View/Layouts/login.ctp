@@ -197,7 +197,7 @@ $(function() {
             </div>
             
             <div class="section_login_right">
-            <div><h2>ORG/COMPANY Login</h2></div>
+            <div><h2>ORGANIZATION/COMPANY Login</h2></div>
             <div class="clr"></div>
             <div class="mt20">
 		<?php echo $this->element('organization_login');?>

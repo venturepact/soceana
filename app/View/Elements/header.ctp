@@ -16,7 +16,11 @@ if($this->Session->read('User.role')!=''){
                                 ?>">
 					<?php if($this->Session->read('User.role') == 'organizations')echo 'REVIEW HOURS';
 					else echo 'LOG HOURS';?></a></li>
-                                <li><a href="#">
+                                <li><a href="<?php echo $this->webroot;?><?php
+                                if($this->Session->read('User.role') == 'organizations')echo 'users/organization_profile';
+                                elseif($this->Session->read('User.role') == 'companies')echo 'users/company_profile';
+                                else echo 'users/personalize';
+                                ?>">
 					<?php
 							if(($this->Session->read('User.role') == 'organizations')|| ($this->Session->read('User.role') =='companies')){echo strtoupper($this->Session->read('User.organization_name'));}		
                                 else echo strtoupper($this->Session->read('User.first_name'));

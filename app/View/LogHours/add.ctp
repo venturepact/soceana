@@ -176,8 +176,7 @@ $(function() {
                  </div>
                <div class="clr"></div><div class="mt20"></div>
                <div class="signup_form">
-                 <label name="name">ADD PHOTOS:<br />
-                   <span>(choose only one)</span></label>
+                 <label name="name">ADD PHOTOS:</label>
                  <ul>
                    <li class="first">
                      <span id='image_1'><img src="<?php echo $this->webroot;?>img/add.png" /></span>
@@ -292,7 +291,7 @@ $().ready(function() {
 			   			    digits:'Please enter digits for hours'
                         },
 						"data[LogHour][job_date]": {
-                            required: 'Please enter your job date',
+                            required: 'Please select your job date',
 			 				dateISO:'Please enter a valid date'
 			   
                         },

@@ -23,7 +23,7 @@
               </div>
             </div>
             <div class="footer_third_block">
-            	<img src="<?php echo $this->webroot;?>img/footer_logo.png" width="100%"  alt="img"  />
+            	<a href="<?php echo $this->webroot;?>"><img src="<?php echo $this->webroot;?>img/footer_logo.png" width="100%"  alt="img"  /></a>
             </div>
             <div class="footer_2last_block">
             	<ul>
@@ -35,7 +35,7 @@
             </div>
             <div class="footer_last_block">
                <div class="footer_last_head">LATEST TWEETS<br/>
-                  <span class="normal_text">@soceanateam</span>
+                  <span class="normal_text"><a href="https://twitter.com/soceanateam" target="_blank">@soceanateam</a></span>
                     </div>
                 <div class="tweet_outer">
                   
@@ -43,7 +43,7 @@
                      
                         <div class="tweet_text_outer">
                            <div class="tweet_text">
-                             <strong>Soceana Team</strong> said  2 mins ago
+                             <strong>Soceana Team said  2 mins ago</strong>
 Uploading our latest iteration of Soceana online. Please send us feedback and let us know what you think of it! #soceana #team </div>
                   </div>
                     </div>    

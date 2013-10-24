@@ -3,7 +3,7 @@
     ul label.error{color: #FF0000 !important;left: -186px !important;position: absolute !important;text-transform: none !important;top: 405px !important;width: 100% !important;}
     #flashMessage{color: #FF0000;float: left;margin: 20px 0 0 236px;}
     .profile_top img{border: 2px solid #E7E7E7;margin-bottom: 10px;}    
-    </style>
+</style>
 <link type="text/css" href="<?php echo $this->webroot;?>js/datepicker/jquery.datepick.css" rel="stylesheet">
 <?php echo $this->Html->script('jquery.validate');?>
 <?php echo $this->Html->script('datepicker/jquery.datepick');?>
@@ -30,7 +30,7 @@ $(function() {
 </script>
 <div class="top_heading">
            <h1>PROFILE</h1>
-            <h3>View your profile and update your information,privacy settings, and more.</h3>
+            <h3>View your profile and update your information, privacy settings, and more.</h3>
             
              </div>
        

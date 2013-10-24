@@ -5,8 +5,8 @@
 ?>
 <script type="text/javascript">
       google.load("visualization", "1", {packages:["corechart"]});
-      google.setOnLoadCallback(drawChart);
-      function drawChart() {
+      google.setOnLoadCallback(drawChart2);
+      function drawChart2() {
         var data = google.visualization.arrayToDataTable([
 		<?php
 		  $rec_count = 0;
@@ -48,5 +48,9 @@
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
         chart.draw(data, options);
       }
+$(window).resize(function(){
+	drawChart2();
+	//alert('test');
+}); 	 
 </script>
 <div id="piechart" style="width:100%;height:400px"></div>

@@ -19,7 +19,7 @@
                              <input type="hidden" value="0" id="UserRememberMe_" name="data[User][rememberMe]">
                 	     <input type="checkbox" id="c2" value="1" name="data[User][rememberMe]">
                              <label class="checkbox-label" for="c2"><span></span></label>
-                             <label class="intern">REMEMBER ME</label>                             
+                             <label class="intern">Remember Me</label>                             
                     		<a class="forget_password pop" href="javascript:void(0);">Forgot Password?</a>
                         </div>
                         <div class="clr"></div>

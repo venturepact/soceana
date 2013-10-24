@@ -5,8 +5,8 @@
 ?>
 <script type="text/javascript">	  
 	  google.load("visualization", "1", {packages:["corechart"]});
-      google.setOnLoadCallback(drawChart);
-      function drawChart() {
+      google.setOnLoadCallback(drawChart2);
+      function drawChart2() {
         var data = google.visualization.arrayToDataTable([
 		  <?php
 		  $rec_count = 0;
@@ -43,5 +43,9 @@
         var chart = new google.visualization.ColumnChart(document.getElementById('bar_chart'));
         chart.draw(data, options);
       }
+$(window).resize(function(){
+	drawChart2();
+	//alert('test');
+});
 </script>
     <div id="bar_chart" style="width:100%;"></div>
