@@ -271,9 +271,16 @@ z-index:-1;}
 
 
 /*Footer section Start*/
-#footer_outer{ float:left; width:100%; margin:0 auto; min-height:250px; background:url(../img/footer_bg.jpg) repeat-x center; margin-top:-50px; z-index:-12; position:relative;     }
 
-
+#footer_outer {
+    background: url("../img/footer_bg2.jpg") no-repeat scroll 0 0 #101010;
+    float: left;
+    margin: -70px auto 0;
+    min-height: 335px;
+    position: relative;
+    width: 100%;
+    z-index: -12;
+}
 .footer_inner {margin:0 auto;margin-top:70px;width:75%; padding-left:6%;}
 .footer_first_block{color:#FFF;float:left;width:18%; margin-top:30px; margin-left:-2%;}
 .footer_first_block .footer_block_heading{font-family:'Conv_FuturaLT', Sans-Serif;  font-size:18px; line-height:20px; }
@@ -291,7 +298,7 @@ z-index:-1;}
 .footer_image_outer .img_outer{ float:left; width:70px; height:70px;  }
 .footer_third_block{float:left;color:#FFF;width:13%; margin-top:50px;}
 .footer_third_block img{100%}
-.footer_2last_block{float:left;color:#FFF;width:7.5%; background:url(../img/white_bg.png) repeat; padding-left:10px; margin-left:1%; padding-top:10px;   }
+.footer_2last_block{float:left;color:#FFF;width:8.5%; background:url(../img/white_bg.png) repeat; padding-left:10px; margin-left:1%; padding-top:10px;   }
 .footer_2last_block ul li{list-style:none;}
 
 .footer_block2nd_heading{font-family:'Conv_FuturaLT', Sans-Serif;  font-size:18px; line-height:20px; padding-left:8%;  }
@@ -300,13 +307,13 @@ z-index:-1;}
 
 .footer_last_block{float:left;color:#FFF;width:35%; margin-left:1%;  min-height:50px; margin-top:25px}
 .footer_last_head{ float:right;font-family:'Conv_FuturaLT', Sans-Serif;  font-size:18px; line-height:20px;}
-.footer_last_head .normal_text{ float:right;font-family:'Conv_FuturaLT', Sans-Serif;  font-size:16px; line-height:30px; }
+.footer_last_head .normal_text{ float:right;font-family:'Conv_FuturaLT', Sans-Serif;  font-size:16px; line-height:30px;}
 .footer_last_head .normal_text a{ font-family:'Conv_FuturaLT', Sans-Serif;  font-size:16px; line-height:30px; color:#fff;text-decoration:none;}
 .footer_last_head .normal_text a:hover{color:#ff6600;}
 .tweet_outer{ float:left; width:100%; margin-top:7%; }
 .tweet_text_outer{ float:right; width:79%; height:94px;  -webkit-border-radius: 5px;-moz-border-radius: 5px; border-radius: 5px; background:#fff; z-index:2;       }
 .tweet_tip{  background:url(../img/tweet_tip.png) no-repeat; width:14px; height:21px; position:absolute; margin-left:20.8%;  z-index:-20;}
-.tweet_text{ float:left; width:89%; padding:5px; color:#333; text-align:right; margin:5px; font-size:13px; font-family:'Conv_FuturaLT', Sans-Serif;  }
+.tweet_text{ float:left; width:89%; padding:3px; color:#333; text-align:right; font-size:0.9em; font-family:'Conv_FuturaLT', Sans-Serif;  }
 .tweet_img_outer{ float:right; width:16%; margin-left:5%;  }
 .blue_text{ color:#1d6be8}
 
@@ -476,6 +483,7 @@ input[type=checkbox].css-checkbox {
 .section .login_orange_button{background:url("../img/signup_orange.png") no-repeat scroll 0 0 transparent;display: block;float: right;height: 50px; margin-right: 10px;position: absolute;right: 0;top: 0; width: 200px;}
 .section .login_blue_button{background: url("../img/register_blue.png") no-repeat scroll 0 0 transparent; display: block;float: right;height: 50px; margin-right: 10px;position: absolute;right: 0;top: 0; width: 200px;}
 .section .logo_div{ height: 600px;margin-left: 150px;margin-top: 50px;text-align: center;width: 70%;position:relative;}
+.section .logo_div img{ width:92%;}
 .hover_div{height: 380px;width: 475px;background:url(../img/hover_bg.png);position:absolute;left: 212px;top:-200px;display:none;}
 .hover_div h2{ height: 25px;padding: 15px;text-align:left;padding-left:30px;}
 .hover_div p{ padding-left: 20px;padding-right: 15px;text-align: justify;color:#FFF;}
@@ -506,7 +514,7 @@ input[type=checkbox].css-checkbox {
 .section_login_left p{color: #181818;font-family: 'Conv_FuturaLT',Sans-Serif;line-height: 25px; margin-top: 10px;padding-right: 20px;text-align: justify; font-size:18px; }
 .section_login_right{float:left; width:30%; background-color:#D5E6F0; }
 .section_login_right h2{float:left; width:100%; text-align:center; padding:10px 0;background-color:#589CC1; color:#FFF;text-transform:uppercase;border-radius:3px 3px 0 0; font-family: 'Conv_FuturaLT', Sans-Serif;font-weight: normal; font-size: 16px;}
-input{ width:200px;height:25px;background-color:#EBF6FC; border:none; margin-left: 35px;}
+input{ width:200px;height:25px;background-color:#fff; border:none; margin-left: 35px;}
 .section_login_right .user_name{background-image:url(../img/login_icon.png);background-repeat:no-repeat;margin-left: 20px;}
 .section_login_right .password{background-image: url("../img/pass_icon.png");
     background-repeat: no-repeat;
@@ -518,7 +526,7 @@ input{ width:200px;height:25px;background-color:#EBF6FC; border:none; margin-lef
 .section_login_right .remember .intern{float: left;font-family: 'Conv_FuturaLT', Sans-Serif; font-size: 11px; color:#181818;margin-top: 0px;}
 .section_login_right .remember .forget_password{ color: #181818;font-family: 'Conv_FuturaLT', Sans-Serif; font-size: 11px; float: right;margin-right: 10px;margin-top: 0;text-decoration: underline;}
 .section_login_right .remember a:hover{text-decoration:none;}
-.section_login_right .sign_up{  background-image: url("../img/sign_up.png");background-repeat: no-repeat;height: 35px;margin-left: 10px !important;width: 111px;}
+.section_login_right .sign_up{  background-image: url("../img/sign_up.png");background-repeat: no-repeat;height: 35px;margin-left: 10px ;width: 111px;}
 .section_login_right .login_now{ background-image:url(../img/login_button.png); background-repeat:no-repeat;width:115px;height:35px;}
 .section_login_right .login_buttons{ margin-top:10px;margin-left:20px;}
 .section_login_right .login_buttons input{ margin-left:0px;}
@@ -552,10 +560,10 @@ input{ width:200px;height:25px;background-color:#EBF6FC; border:none; margin-lef
 .contact_form input[type="checkbox"] {display:none;}
 .contact_form input[type="checkbox"] + label span {background-color:#579cc0;cursor: pointer;display: inline-block;height: 90px;width: 90px;border-radius: 3px;}
 .contact_form ul li input[type="checkbox"]:checked + label span {background-color:#3f3f3f;border-radius: 3px;}
-.contact_form .submit_button{ width:80%; margin-left:32%;float:left; margin-top:20px !important;  }
+.contact_form .submit_button{ width:80%; margin-left:32%;float:left; margin-top:20px ;  }
 .contact_form .submit_button input{margin-left:0px;}
 .contact_form input[type="checkbox"] {display:none;}
-.width_set{  margin-left:30% !important;}
+.width_set{  margin-left:30% ;}
 
 
 
@@ -881,7 +889,7 @@ input{ width:200px;height:25px;background-color:#EBF6FC; border:none; margin-lef
 .profile_top .t_col_3{ float:left; width:28%; height:25px; text-align:center;padding-top:5px;}
 .profile_top .t_col_4{ float:left; width:15%; height:25px; text-align:center;padding-top:5px;}
 
-.signup_form .radio-label{float:left;margin-top:0px;width: 20% !important;font-size:11px}
+.signup_form .radio-label{float:left;margin-top:0px;width: 20% ;font-size:11px}
 .signup_form input[type="radio"] {visibility:hidden;position: absolute;top:-5px;height: 0;width:0}
 .signup_form input[type="radio"] + label span {border-radius: 3px 3px 3px 3px;color: #000000;cursor: pointer;font-size: 1.2em;height: 30px;margin: -1px 4px 0 0;padding: 5px;text-align: center;vertical-align: middle;width: 80px;}
 .signup_form input[type="radio"]:checked + label span {background-color:#ff8000;color:#FFF;padding:5px;}
@@ -907,7 +915,7 @@ input{ width:200px;height:25px;background-color:#EBF6FC; border:none; margin-lef
     width: 30%;}
 .section1 .img img{width:100%;}
 .section .img img{width:70%;}
-.section1 h1{width:auto;float:left; font-size:28px !important;}
+.section1 h1{width:auto;float:left}
 .section1 .em2{font-size:1.3em;}
 .img ul {width:100%;}
 .img ul li{width:33%;float:left;list-style:none;height:30px;}
@@ -925,10 +933,10 @@ input{ width:200px;height:25px;background-color:#EBF6FC; border:none; margin-lef
 
 /*Forgot password css*/
 
-.popup_outer{ width:93%; top:2%;  position:absolute; border:1px solid #CCC; box-shadow: 1px 1px 3px #888; background:#fff; padding:15px; min-height:400px; display:none;  }
+.popup_outer{ width:92.2%; top:2.4%;  position:absolute; border:1px solid #CCC; box-shadow: 1px 1px 3px #888; background:#fff; padding:15px; min-height:402px; display:none;  }
 .popup_heading{color:#666; text-transform: uppercase; font-size:2.5em; padding:6% 2px 2% 0; font-weight:normal;}
 .popup_text{padding: 3px 0px 15px 0px;color: #666; font-size: 1.5em; line-height:25px; font-weight:normal;	}
-.text_outer_border { width:70%; -webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px; border:1px solid #f1f1f1; padding-left:5px;margin-bottom:4%; margin-top:2%; }
+.text_outer_border { background: #EBF6FC; width:70%; -webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px; border:1px solid #CEE3EF; padding:5px;margin-bottom:4%; margin-top:2%; }
 .lb_email{margin: 0 0 0 10% ;}
 #forgot_email_id{width:70%}
 #forgot_message{    color: #FF0000;
@@ -965,7 +973,7 @@ input{ width:200px;height:25px;background-color:#EBF6FC; border:none; margin-lef
 	border: solid #fff 0px;
 	background: #000;
 	color:#fff;
-	height:200px !important;
+	height:200px ;
 	margin-top: 20px;
 }
 
@@ -1130,7 +1138,7 @@ blockquote{
     clear: both;
     margin-left: 10px;
     margin-right: 10px;
-	margin-top:15px;
+	margin-top:20px;
     padding: 10px 10px 0 50px;
     position: relative;
     quotes: none;
