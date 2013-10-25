@@ -1,12 +1,5 @@
 <style>
-    /*label.error{ color: #FF0000 !important;font-size: 12px !important;margin: -3px 0 5px 185px !important;text-align: left !important;text-transform: none !important;width: 100% !important;}
-    ul label.error{left: -175px;position: absolute;top: 406px;width: 500px;}
-    .vol_table .signup_form ul{position: relative;}
-    #flashMessage{color: #FF0000;float: left;margin: 20px 0 0 236px;}
-    .form_input{margin:10px;}
-    .form_input label{float: left; width: 111px;}
-    #response{color: #FF0000;margin:0 0 6px -31px;;text-align: center;}*/
-	 label.error{ color: #FF0000 !important;font-size: 12px !important;margin: -3px 0 5px 185px !important;text-align: left !important;text-transform: none !important;width: 100% !important;}
+    label.error{ color: #FF0000 !important;font-size: 12px !important;margin: -3px 0 5px 185px !important;text-align: left !important;text-transform: none !important;width: 100% !important;}
     ul label.error{left: -175px;position: absolute;top: 406px;width: 500px;}
     .vol_table .signup_form ul{position: relative;}
     #flashMessage{color: #FF0000;float: left;margin: 20px 0 0 236px;}
@@ -24,7 +17,7 @@
 <?php echo $this->Html->script('datepicker/jquery.datepick');?>
 <script type="text/javascript">
 $(function() {
-    $('#job_date').datepick({dateFormat: 'yyyy-mm-dd',yearRange: "-80:+0", maxDate: '0'});
+    $('#job_date').datepick({dateFormat: 'mm-dd-yyyy',yearRange: "-80:+0", maxDate: '0'});
     $('#organization').change(function(){
 	
 	var organization_id = $('#organization').val();
@@ -115,7 +108,7 @@ $(function() {
                <div class="clr"></div>
                <div class="signup_form">
                  <label name="name">Date</label>
-                 <?php echo $this->Form->input('job_date',array('type'=>'text','div'=>false,'label'=>false,'placeholder'=>'YYYY-MM-DD','id'=>'job_date','class'=>'text_style','readonly'=>'readonly'));?>
+                 <?php echo $this->Form->input('job_date',array('type'=>'text','div'=>false,'label'=>false,'placeholder'=>'MM-DD-YYYY','id'=>'job_date','class'=>'text_style','readonly'=>'readonly'));?>
                </div>
                <div class="clr"></div>
                <div class="signup_form">
@@ -234,6 +227,8 @@ $().ready(function() {
     $.validator.addMethod("alpha", function(value) {
         return value == value.match(/^[a-z A-Z]*$/);    
     }, 'Please enter only alphabets for this field');    
+	
+	 
     
     
         // validate signup form on keyup and submit
@@ -261,7 +256,7 @@ $().ready(function() {
                          },
                         "data[LogHour][job_date]": {
 						 	required: true,
-						 	dateISO:true
+						 	//dateISO:true
                         },
                         "data[LogHour][service_type_id]": {
                        		required: true,
@@ -291,9 +286,7 @@ $().ready(function() {
 			   			    digits:'Please enter digits for hours'
                         },
 						"data[LogHour][job_date]": {
-                            required: 'Please select your job date',
-			 				dateISO:'Please enter a valid date'
-			   
+                            required: 'Please select your job date'		   
                         },
                         "data[LogHour][service_type_id]": {
                             required: 'Please select atleast one volunteer type',

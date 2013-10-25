@@ -9,7 +9,7 @@
 <?php echo $this->Html->script('datepicker/jquery.datepick');?>
 <script type="text/javascript">
 $(function() {
-	$('#dob').datepick({dateFormat: 'yyyy-mm-dd',yearRange: "-80:+0", maxDate: '0'});
+	$('#dob').datepick({dateFormat: 'mm-dd-yyyy',yearRange: "-80:+0", maxDate: '0'});
 	 $('#employer').change(function(){
 	 $('#emp_select').html('<img src="<?php echo $this->webroot;?>img/loading.gif" id="emp_img">');
 	 $('#emp_select').fadeIn();
@@ -104,13 +104,13 @@ $(function() {
                   <div class="mt20"></div>
                   <div class="signup_form">
                     	<label name="name">Phone number:</label>
-                        <?php echo $this->Form->input('phone',array('type'=>'text','div'=>false,'label'=>false,'class'=>'text_style'));?>
+                        <?php echo $this->Form->input('phone',array('type'=>'text','div'=>false,'label'=>false,'class'=>'text_style','placeholder'=>'For eg.  917-555-5555'));?>
                   </div>
                    <div class="clr"></div>
                   <div class="mt20"></div>
                   <div class="signup_form">
                     	<label name="dob">Date of Birth:</label>
-                       <?php echo $this->Form->input('birth_date',array('type'=>'text','div'=>false,'label'=>false,'class'=>'text_style','placeholder'=>'YYYY-MM-DD','id'=>'dob','readonly'=>'readonly'));?>
+                       <?php echo $this->Form->input('birth_date',array('type'=>'text','div'=>false,'label'=>false,'class'=>'text_style','placeholder'=>'MM-DD-YYYY','id'=>'dob','readonly'=>'readonly'));?>
                   </div>
                   
                    <div class="clr"></div>
@@ -186,6 +186,11 @@ $().ready(function() {
     $.validator.addMethod("valid_email_id", function(value) {
         return value = value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);               
     }, 'Please enter a valid email id'); 
+	
+	//validation rule for only alphabets value.match(phoneno)#sthash.DMSRm91G.dpuf
+    $.validator.addMethod("valid_phone", function(value) {
+        return value == value.match(/^\(?\d{3}\)? ?-? ?\d{3} ?-? ?\d{4}$/);    
+    }, 'Please enter a valid phone no');    
 	           
         // validate signup form on keyup and submit
         $("#user_profile_update").validate({
@@ -215,16 +220,14 @@ $().ready(function() {
                           minlength:2,
                           maxlength:60
                          },
-						  "data[User][phone]": {                         
-						 	number:true,
-                          	min:1                      
+						  "data[User][phone]": {					                        
+						 	'valid_phone':true                          	                
                          },						                     
                         "data[ServiceType][ServiceType][]": {
                         required: true,
                         },
 						 "data[User][birth_date]": {
-							required: true,
-							dateISO:true
+							required: true,							
                         },
                         
                     }
@@ -250,11 +253,7 @@ $().ready(function() {
                             required: 'Please enter your location',
                             minlength:'Please enter atleast 2 characters',
                             maxlength:'Please enter maximum 60 characters'
-                         },   
-						 "data[User][phone]": {                         
-						 	number:'Please enter valid phone number',
-                          	min:'Please enter valid phone number'                     
-                         },        
+                         },   						         
                         "data[ServiceType][ServiceType][]": {
                             required: 'Please select atleast one volunteer type',
                         }

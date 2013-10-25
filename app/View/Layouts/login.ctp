@@ -62,7 +62,7 @@ $(function() {
 	var forgot_email_id = $('#forgot_email_id').val();
 	
 	if (forgot_email_id == '') {
-		$('#forgot_message').html('Please enter your email id first');	
+		$('#forgot_message').html('Please enter your email address first');	
 	}
 	else{
 	    
@@ -70,7 +70,7 @@ $(function() {
 
 	    if (reg.test(forgot_email_id) == false) 
 	    {
-		$('#forgot_message').html('Please enter a valid email id');
+		$('#forgot_message').html('Please enter a valid email address');
 	    }
 	    else{
 		var new_url = "<?php echo $this->webroot;?>" + "users/forgot_password/" + forgot_email_id;

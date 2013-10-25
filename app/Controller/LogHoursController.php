@@ -14,9 +14,13 @@ class LogHoursController extends AppController {
          $this->loadModel('ServiceType');
          $this->loadModel('Category');
          if($this->request->is('post')){
-           // pr($this->request->data);die;
+            // pr($this->request->data);die;
             $this->request->data['LogHour']['user_id'] = $this->Session->read('User.id');
-          
+			// for conversion of normal date to mysql date          
+            $this->request->data['LogHour']['job_date'] = date('Y-m-d',strtotime(str_replace('-', '/', $this->request->data['LogHour']['job_date'])));
+		    // $formattedDate = date("Y-m-d", strtotime($mysqlDate));
+		  
+			
             if($this->LogHour->save($this->request->data)){
                 $this->loadModel('LogHourImage');
                 $id = $this->LogHour->id;
@@ -423,7 +427,7 @@ class LogHoursController extends AppController {
         $this->request->data['LogHour']['organization'] = $record['Organization']['organization_name'];
         $this->request->data['LogHour']['location'] = $record['LogHour']['location'];
         $this->request->data['LogHour']['hours'] = $record['LogHour']['hours'];
-        $this->request->data['LogHour']['job_date'] = $record['LogHour']['job_date'];
+        $this->request->data['LogHour']['job_date'] = date("m-d-Y", strtotime($record['LogHour']['job_date']));
         $this->request->data['LogHour']['service_type_id'] = $record['LogHour']['service_type_id'];
         $this->request->data['LogHour']['status'] = $record['LogHour']['status'];
         $this->request->data['LogHour']['category_id'] = $record['LogHour']['category_id'];

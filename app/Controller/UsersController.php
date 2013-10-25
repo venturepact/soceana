@@ -159,7 +159,9 @@ class UsersController extends AppController{
             throw new NotFoundException(__('Invalid User'));       
         }
         if($this->request->is('post') || $this->request->is('put')){
-            //pr($this->request->data);die;
+             // for conversion of normal date to mysql date          
+             $this->request->data['User']['birth_date'] = date('Y-m-d',strtotime(str_replace('-', '/', $this->request->data['User']['birth_date'])));
+			
             if($this->User->save($this->request->data)){
 				 /*
 				* @  checking the new values and setting in the session
@@ -175,6 +177,7 @@ class UsersController extends AppController{
         }
         else{
             $this->request->data = $this->User->read(null,$this->User->id);
+			
             // code for new array of volunteer type selection from database
             $i = 0;
             $temp = array();
@@ -190,6 +193,10 @@ class UsersController extends AppController{
                 $temp[$i] = 0;
             }
             if($this->request->data['User']['birth_date'] == '0000-00-00')$this->request->data['User']['birth_date'] = '';
+			else{
+				$this->request->data['User']['birth_date'] = date("m-d-Y", strtotime($this->request->data['User']['birth_date']));			
+			}
+			
             $this->set('temp_types',$temp);
             $this->set('service_types',$this->ServiceType->find('all',array('order'=>'id','fields'=>array('id','name','picture_url'))));
             unset($this->request->data['User']['Password']);

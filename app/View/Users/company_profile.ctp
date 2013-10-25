@@ -79,7 +79,7 @@
                </div>
                <div class="signup_form">
                  <label name="name">Phone #</label>
-                <?php echo $this->Form->input('phone',array('type'=>'text','div'=>false,'label'=>false,'class'=>'text_style'));?>
+                <?php echo $this->Form->input('phone',array('type'=>'text','div'=>false,'label'=>false,'class'=>'text_style','placeholder'=>'For eg.  917-555-5555'));?>
                 <img src="<?php echo $this->webroot;?>img/glob_icon.png" alt="" class="glob" />
                </div>
                <div class="signup_form">
@@ -171,9 +171,10 @@ $().ready(function() {
     }, 'Please enter a valid email id');	
 	
 	
-	/*$.validator.addMethod('customphone', function (value, element) {
-    return this.optional(element) || /^\d{3}-\d{3}-\d{4}$/.test(value);
-	}, "Please enter a valid phone number");*/
+	//validation rule for only alphabets value.match(phoneno)#sthash.DMSRm91G.dpuf
+    $.validator.addMethod("valid_phone", function(value) {
+        return value == value.match(/^\(?\d{3}\)? ?-? ?\d{3} ?-? ?\d{4}$/);    
+    }, 'Please enter a valid phone no'); 
 	         
         // validate signup form on keyup and submit
         $("#organization_profile_update").validate({
@@ -205,9 +206,8 @@ $().ready(function() {
                           minlength:2,
                           maxlength:60
                          },  
-						 "data[User][phone]": {                         
-						 	number:true,
-                          	min:1                      
+						 "data[User][phone]": {					                        
+						 	'valid_phone':true                          	                
                          },                      
                         "data[ServiceType][ServiceType][]": {
                         required: true,
@@ -237,11 +237,7 @@ $().ready(function() {
                             required: 'Please enter your location',
                             minlength:'Please enter atleast 2 characters',
                             maxlength:'Please enter maximum 60 characters'
-                         },    
-						 "data[User][phone]": {                         
-						 	number:'Please enter valid phone number',
-                          	min:'Please enter valid phone number'                     
-                         },     
+                         },						      
                         "data[ServiceType][ServiceType][]": {
                             required: 'Please select atleast one organization interest type ',
                         },						
