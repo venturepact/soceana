@@ -444,7 +444,12 @@ h3{
     margin-top: -47px;
     width: 37%;
 }
+/*28oct changes  sahil*/
+.container .volunteer_signup_form ul li {
+	margin-left: 10px;
+}
 
+/*28oct changes  sahil*/
 }
 /* 768*1024 screens start  */
 @media only screen and (min-width : 768px) and (max-width : 1023px)
@@ -615,7 +620,11 @@ blockquote {
     margin-top: -4px;
     width: 100%;
 }
-
+/*28oct changes  sahil*/
+.container .volunteer_signup_form ul li {
+	margin-left: 10px;
+}
+/*28oct changes  sahil*/
 }
 /* 768*1024 screens end  */
 
@@ -662,6 +671,16 @@ blockquote {
     margin-top: -43px;
     width: 46%;
 }
+/*28oct changes  sahil*/
+.container .volunteer_signup_form ul
+{
+	width:90%;
+}
+.container .volunteer_signup_form ul li {
+	margin-left: 10px;
+}
+	
+/*28oct changes  sahil*/
 }
 /* 600*800 screens end  */
 /* 568*320 screens start */
@@ -1073,6 +1092,20 @@ ul label.error {
     margin-top: -43px;
     width: 46%;
 }
+/*28oct changes  sahil*/
+.container .volunteer_signup_form ul li {
+    width: 80px;
+	margin-left: 10px;
+}
+.volunteer_signup_form ul li textarea
+{
+	height:30px;
+}
+.volunteer_signup_form ul li .grey
+{
+	height:79px;
+}	
+/*28oct changes  sahil*/
 }
 /* 480*320 screens start  */
 /* 380*685 android galaxy screens start  */
@@ -1468,10 +1501,20 @@ ul label.error {
 .volunteer_signup_form ul {
     width: 100%;
 }
-.volunteer_signup_form ul li {
+/*28oct changes  sahil*/
+.container .volunteer_signup_form ul li {
     width: 80px;
 	margin-left: 10px;
+}
+.volunteer_signup_form ul li textarea
+{
+	height:30px;
+}
+.volunteer_signup_form ul li .grey
+{
+	height:79px;
 }	
+/*28oct changes  sahil*/
 .profile_top {
     margin-left: 0px;
 }

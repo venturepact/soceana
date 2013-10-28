@@ -956,13 +956,14 @@ input{ width:200px;height:25px;background-color:#fff; border:none; margin-left: 
 	padding: 0;
 	*zoom: 1;
 }
-
+/*28oct changes sahil*/
 .bx-wrapper img {
 	margin-left: 10px;
     text-align: left;
+	margin-right:10px;
 	
 }
-
+/*28oct changes sahil*/
 /** THEME
 ===================================*/
 
@@ -1134,21 +1135,24 @@ input{ width:200px;height:25px;background-color:#fff; border:none; margin-left: 
 	font-size: .85em;
 	padding: 10px;
 }
+/*28oct changes sahil*/
 blockquote{
     clear: both;
     margin-left: 10px;
     margin-right: 10px;
 	margin-top:20px;
-    padding: 10px 10px 0 50px;
+    padding: 10px 10px 0 10px;
     position: relative;
     quotes: none;
-	background: url(../img/open-quote.png) 0 0 no-repeat;
+	/*background: url(../img/open-quote.png) 0 0 no-repeat;*/
     border: 0px;
 	font-size: 31px;
 	line-height: 40px;
 	font-weight:normal;
 	font-family: 'Conv_FuturaLT', Sans-Serif !important;
+	text-align:center;
 }
+/*28oct changes sahil*/
 blockquote p{ font-size:20px}
 
 

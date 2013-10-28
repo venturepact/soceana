@@ -5,7 +5,7 @@
             </div>
 			<div class="mt50"></div>
 			<div class="section1">
-				<h1 id='tess'>TESS MICHAELS,</h1> <h3>Chief Executive Officer</h3>
+				<h1 id='tess'>TESS MICHAELS,</h1> <h3>&nbsp;Chief Executive Officer</h3>
 				<div class="clr"></div>
                  <div class="mt20"></div>
                 <div>
@@ -23,7 +23,7 @@
              <div class="clr"></div>
             <div class="mt50"></div>
 			<div class="section1">
-				<h1 id='anil'>ANIL CHITRAPU,</h1> <h3>Chief Operations Officer</h3>
+				<h1 id='anil'>ANIL CHITRAPU,</h1> <h3>&nbsp;Chief Operations Officer</h3>
                  <div class="clr"></div>
                  <div class="mt20"></div>
                 <div class="text">Anil is a student at the University of Pennsylvania majoring in neuroscience and economics. He has previously worked for a communications startup based out of California that succeeded in raising $750,000 in capital. Anil currently holds leadership positions in Penn Masala, the Penn Undergraduate Biotechnology Society and South Asia Society, and is a member of the senior honors societies Omicron Delta Kappa and Mortar Board Society.</div>

@@ -3,7 +3,7 @@
 <div class="container">
         	<div class="section">
 				<h1>Contact Us</h1>
-                <p>Got inquiries? We've got answers. Drop us a line and we will get back to you as soon as possible! We look forward to hearing feedback from our clients, so please do send us a message.</p>
+                <p>Got inquiries? We've got answers. Drop us a line and we will get back to you as soon as possible! <br />We look forward to hearing feedback from our clients, so please do send us a message.</p>
             </div>
 			<div class="mt50"></div>
 			<div class="section">
@@ -109,7 +109,7 @@ $().ready(function() {
                 Email: tess@soceana.com<br/> 
                 Phone: 972-375-8134 <br/>
                 Facebook:<a href="https://www.facebook.com/TessPMichaels" target="_blank" class="contact_link"> https://www.facebook.com/TessPMichaels</a><br/> 
-                LinkedIn:<a href="www.linkedin.com/in/tessmichaels" target="_blank" class="contact_link">www.linkedin.com/in/tessmichaels</a>
+                LinkedIn:<a href="http://www.linkedin.com/in/tessmichaels" target="_blank" class="contact_link">http://www.linkedin.com/in/tessmichaels</a>
 
 </p>
 </div>

@@ -253,7 +253,7 @@ $().ready(function() {
 	//validation rule for only alphabets value.match(phoneno)#sthash.DMSRm91G.dpuf
     $.validator.addMethod("valid_phone", function(value) {
         return value == value.match(/^\(?\d{3}\)? ?-? ?\d{3} ?-? ?\d{4}$/);    
-    }, 'Please enter a valid phone no');    
+    }, 'Please enter a valid phone no for eg. 917-555-5555');    
 	
 	/*$.validator.addMethod('customphone', function (value, element) {
     return this.optional(element) || /^\d{3}-\d{3}-\d{4}$/.test(value);
@@ -380,9 +380,9 @@ $().ready(function() {
                     <a href="<?php echo $this->webroot;?>users/user_pic" class="uploads_blue">UPLOAD</a>
                     
                 </div>
-          		<div class="clr"></div>
+          		<div class="clr" id='u_status'></div>
                <div class="tip_up"></div>
-               <div class="sponser_inner" id='u_status'>
+               <div class="sponser_inner" >
                <span class="sponsors_text"><textarea name="comment" wrap="physical" rows="5" cols="32" onkeyup="limiter();" onkeypress="limiter();" onfocus="limiter();" onblur=limiter(); id="comment"><?php echo $this->Session->read('User.status_message');?></textarea></span>
                <div class="clr"></div>
                <div class="mt20"></div>
@@ -398,7 +398,7 @@ $().ready(function() {
              <h1>SPONSORS</h1>
             	 <?php echo $this->Sponsor->load_advertisements(); ?>
              </div>
-             <a href="#" class="add_text">Advertise with Soceana</a>
+             <a href="javascript:void(0);" class="add_text">Advertise with Soceana</a>
                
          <div class="clr"></div>
                

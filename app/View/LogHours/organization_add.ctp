@@ -353,7 +353,7 @@ OF PHILADELPHIA
                       </div>
                     <div class="black_text_thin">713 W. Main Street. Lansdale PA
 (215) 855-5454</div> 
-<a href="#" class="orange_butt">VOLUNTEER THROUGH SOCEANA</a> 
+<a href="javascript:void(0);" class="orange_butt">VOLUNTEER THROUGH SOCEANA</a> 
                  </div>
               <div class="section2"><img src="images/main_steel_img.png" alt="" /></div>
               </div>   

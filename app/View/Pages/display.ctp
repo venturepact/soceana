@@ -393,7 +393,7 @@ else
             </div>
               
              
-             <a href="#" class="add_text">Advertise with Soceana</a>               
+             <a href="javascript:void(0);" class="add_text">Advertise with Soceana</a>               
          <div class="clr"></div>               
          </div>
 <?php

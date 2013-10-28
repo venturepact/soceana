@@ -132,7 +132,7 @@ $(function() {
 				Just tell us the email address you used to create your account and we'll send you a new one!
 				<div id='forgot_message'></div>
 			    </p>
-                            <label class="popup_text lb_email">Email:</label>
+                            <label class="popup_text lb_email">Email Address:</label>
 			    <?php echo $this->Form->input('User.email_id',array('type'=>'text','div'=>false,'label'=>false,'class'=>'text_outer_border','id' => 'forgot_email_id','maxlength'=>'50'));?>
                             <!--<input type="text" name="username" style="width:435px;"/>--><br /><br />
                             <img src="<?php echo $this->webroot;?>img/password_reset.png" id="forgot_submit" class='cursor_grid'/><br /><br />
@@ -147,34 +147,34 @@ $(function() {
 	<div>
 		<ul class="bxslider">
 			<li>
-				<blockquote>Be The Change You Wish To See In The World <img src="<?php echo $this->webroot;?>img/open-quote1.png" width="37" height="41" alt="" />
+				<blockquote><img src="<?php echo $this->webroot;?>img/open-quote.png" width="37" height="41" alt="" />Be The Change You Wish To See In The World <img src="<?php echo $this->webroot;?>img/open-quote1.png" width="37" height="41" alt="" />
 				<p style="text-align:right;margin-right:20px;">- Mahatma Gandhi</p>	
 				</blockquote>
 				</li>
 		    <li>
-             	<blockquote>One is not born into the world to do everything but to do something.<img src="<?php echo $this->webroot;?>img/open-quote1.png" width="37" height="41" alt="" />
+             	<blockquote><img src="<?php echo $this->webroot;?>img/open-quote.png" width="37" height="41" alt="" />One is not born into the world to do everything but to do something.<img src="<?php echo $this->webroot;?>img/open-quote1.png" width="37" height="41" alt="" />
 				<p style="text-align:right;margin-right:20px;">- Henry David Thoreau</p>
 				</blockquote>
 			</li>	
               <li>
-             	<blockquote>In a gentle way you can shake the world<img src="<?php echo $this->webroot;?>img/open-quote1.png" width="37" height="41" alt="" />
+             	<blockquote><img src="<?php echo $this->webroot;?>img/open-quote.png" width="37" height="41" alt="" />In a gentle way you can shake the world<img src="<?php echo $this->webroot;?>img/open-quote1.png" width="37" height="41" alt="" />
 				<p style="text-align:right;margin-right:20px;">- Mahatma Gandhi</p>
 				</blockquote>
 			</li>
             <li>
-             	<blockquote >Go into the world and do well. But more importantly, go into the world and do good.<img src="<?php echo $this->webroot;?>img/open-quote1.png" width="37" height="41" alt="" />
+             	<blockquote ><img src="<?php echo $this->webroot;?>img/open-quote.png" width="37" height="41" alt="" />Go into the world and do well. But more importantly, go into the world and do good.<img src="<?php echo $this->webroot;?>img/open-quote1.png" width="37" height="41" alt="" />
 				<p style="text-align:right;margin-right:20px;">-  Minor Myers</p>
 				</blockquote>
 			</li>
             
              <li>
-             	<blockquote>The least movement is of importance to all nature. The entire ocean is affected by a pebble.<img src="<?php echo $this->webroot;?>img/open-quote1.png" width="37" height="41" alt="" />
+             	<blockquote><img src="<?php echo $this->webroot;?>img/open-quote.png" width="37" height="41" alt="" />The least movement is of importance to all nature. The entire ocean is affected by a pebble.<img src="<?php echo $this->webroot;?>img/open-quote1.png" width="37" height="41" alt="" />
 				<p style="text-align:right;margin-right:20px;">-  Blaise Pascal </p>
 				</blockquote>
 			</li>
             
              <li>
-             	<blockquote>Every drop in the ocean counts.<img src="<?php echo $this->webroot;?>img/open-quote1.png" width="37" height="41" alt="" />
+             	<blockquote><img src="<?php echo $this->webroot;?>img/open-quote.png" width="37" height="41" alt="" />Every drop in the ocean counts.<img src="<?php echo $this->webroot;?>img/open-quote1.png" width="37" height="41" alt="" />
 				<p style="text-align:right;margin-right:20px;">-  Yoko Ono</p>
 				</blockquote>
 			</li>
@@ -193,7 +193,7 @@ $(function() {
         <section class="mt50">
         	<div class="section_login_left">
             	<h1>ORGANIZATIONS &amp COMPANIES</h1>
-                <p>Companies and organizations that are seeking help in volunteer programs can utilize Soceana as a standardized platform to communicate with individuals who are keen to do social good. We keep a database of the hours and types of volunteering that users do; all your organization has to do is ensure their validity and they are Soceana-verified.</p>
+                <p>Companies and organizations that are seeking help in volunteer programs can utilize Soceana as a standardized platform to communicate with individuals who are keen to do social good. We keep a database of the hours and types of volunteering that users do; all your organization has to do is ensure their validity and they are Soceana-verified.<br /><br /><a href="<?php echo $this->webroot;?>users/add/companies" class="contact_link">Company's Signup</a></p>
             </div>
             
             <div class="section_login_right">
