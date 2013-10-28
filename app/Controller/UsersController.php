@@ -605,6 +605,15 @@ class UsersController extends AppController{
 	return $images;
 	$this->autoRender = false;
 	}
-	    
+	public function update_status(){
+		$this->layout='';
+		$data['User']['id'] = $this->Session->read('User.id'); 
+		$data['User']['status_message'] = $this->request->data['status'];
+		$this->Session->write('User.status_message',$this->request->data['status']);
+		$this->User->save($data);
+		$this->Session->setFlash(__('Your status has been changed successfully'));
+		echo '1';  
+		$this->autoRender = false;
+    } 
 }
 ?>

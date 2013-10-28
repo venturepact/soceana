@@ -138,8 +138,8 @@ if($this->Session->read('User.role') == 'organizations') {
         <div class="time_outer">
             <div class="top_section" ><h4>TOTAL HOURS VOLUNTEERED</h4></div> 
               <div class="right_plus" style="background:#0D8677"  ><a href="#" ><img src="<?php echo $this->webroot;?>img/icon-plus.png" border="0"></a></div>          
-              <div class="mid_section"><span class="large_font"><?php if($total_hours[0]['total_hours']!=NULL){
-				$info = get_info($total_hours[0]['total_hours']);
+              <div class="mid_section"><span class="large_font"><?php if($total_hours!=NULL){
+				$info = get_info($total_hours);
 				echo $info['days'].':'.$info['hours'].':'.$info['minutes'];
 			}
 			else echo '0:0:0';?></span></div>
@@ -253,8 +253,8 @@ elseif($this->Session->read('User.role') == 'companies'){
         <div class="time_outer">
             <div class="top_section" ><h4>TOTAL HOURS VOLUNTEERED</h4></div> 
               <div class="right_plus" style="background:#0D8677"  ><a href="#" ><img src="<?php echo $this->webroot;?>img/icon-plus.png" border="0"></a></div>          
-              <div class="mid_section"><span class="large_font"><?php if($total_hours[0]['total_hours']!=NULL){
-				$info = get_info($total_hours[0]['total_hours']);
+              <div class="mid_section"><span class="large_font"><?php if($total_hours!=NULL){
+				$info = get_info($total_hours);
 				echo $info['days'].':'.$info['hours'].':'.$info['minutes'];
 			}
 			else echo '0:0:0';?></span></div>
@@ -377,10 +377,11 @@ else
             <div class="top_section"><h4>TOTAL HOURS VOLUNTEERED</h4></div>
              <div class="right_plus" style="background:#9A4314; padding-top:0px;"><a href="<?php echo $this->webroot;?>loghours/add"><img src="<?php echo $this->webroot;?>img/icon-plus.png" border="0"></a>
                  </div>          
-              <div class="mid_section"><span class="large_font"><?php if($total_hours[0]['total_hours']!=NULL){
-				$info = get_info($total_hours[0]['total_hours']);
+              <div class="mid_section"><span class="large_font"><?php if($total_hours!=NULL){
+				$info = get_info($total_hours);
 				echo $info['days'].':'.$info['hours'].':'.$info['minutes'];
 			}
+	      
 			else echo '0:0:0';?></span></div>
                  <div class="fields">
                     <div class="small_font_time"><span >DAYS</span><span class="space1"> HOURS</span> MINUTES</div>

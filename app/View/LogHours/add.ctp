@@ -103,7 +103,42 @@ $(function() {
               
                <div class="signup_form">
                  <label name="name">Hours</label>
-                 <?php echo $this->Form->input('hours',array('type'=>'text','div'=>false,'label'=>false,'id' => 'email_id','maxlength'=>'2','class'=>'text_style'));?>
+                 <?php //echo $this->Form->input('hours',array('type'=>'text','div'=>false,'label'=>false,'id' => 'email_id','maxlength'=>'2','class'=>'text_style'));?>
+		 <?php
+		 for($i = 0;$i<24;$i++){
+		    if($i<10){
+			$hours["0$i"] = "0$i";
+		    }
+		    else $hours[$i] = $i;
+		 }
+		 
+		 echo $this->Form->input('hours',array(
+							       'type' => 'select',
+							       'div' => false,
+							       'label' => false,
+							       'options' => $hours,
+							       'empty' => 'Hours',
+							       'default' => 'empty',	
+							       'class'=>'text_style',
+							       'style'=>'width:80px;'
+		 ));?> - <?php
+		 for($i = 0;$i<60;$i++){
+		    if($i<10){
+			$minutes["0$i"] = "0$i";
+		    }
+		    else $minutes[$i] = $i;
+		 }
+		 
+		 echo $this->Form->input('minutes',array(
+							       'type' => 'select',
+							       'div' => false,
+							       'label' => false,
+							       'options' => $minutes,
+							       'empty' => 'Minutes',
+							       'default' => 'empty',	
+							       'class'=>'text_style',
+							       'style'=>'width:80px;'
+		 ));?>
                </div>
                <div class="clr"></div>
                <div class="signup_form">
@@ -250,9 +285,10 @@ $().ready(function() {
     	                     maxlength:100
                          },                         
                          "data[LogHour][hours]": {
-                         	required: true,
-                         	digits: true,
-			 				range: [1 , 23]
+                         	required: true,                         	
+                         },
+			 "data[LogHour][minutes]": {
+                         	required: true,                         	
                          },
                         "data[LogHour][job_date]": {
 						 	required: true,
@@ -282,11 +318,13 @@ $().ready(function() {
                             maxlength:'Please enter maximum 100 characters'
                          },                         
                         "data[LogHour][hours]": {
-                            required: 'Please enter your hours',
-			   			    digits:'Please enter digits for hours'
+                            required: 'Please select volunteer hours',			  
                         },
-						"data[LogHour][job_date]": {
-                            required: 'Please select your job date'		   
+			"data[LogHour][minutes]": {
+                            required: 'Please select volunteer minutes',			  
+                        },
+			"data[LogHour][job_date]": {
+                            required: 'Please select volunteer date'		   
                         },
                         "data[LogHour][service_type_id]": {
                             required: 'Please select atleast one volunteer type',

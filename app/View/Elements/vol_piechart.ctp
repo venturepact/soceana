@@ -34,7 +34,7 @@
 
 		var formatter = new google.visualization.NumberFormat({
 			suffix: ' hrs',
-			fractionDigits: 0,
+			fractionDigits: 2,
 		});
 		formatter.format(data, 1);
 		

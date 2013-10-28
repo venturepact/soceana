@@ -18,7 +18,7 @@ class LogHoursController extends AppController {
             $this->request->data['LogHour']['user_id'] = $this->Session->read('User.id');
 			// for conversion of normal date to mysql date          
             $this->request->data['LogHour']['job_date'] = date('Y-m-d',strtotime(str_replace('-', '/', $this->request->data['LogHour']['job_date'])));
-		    // $formattedDate = date("Y-m-d", strtotime($mysqlDate));
+	    $this->request->data['LogHour']['hours'] = $this->request->data['LogHour']['hours'] .':'.$this->request->data['LogHour']['minutes'];
 		  
 			
             if($this->LogHour->save($this->request->data)){
@@ -166,17 +166,50 @@ class LogHoursController extends AppController {
         $this->layout = '';
         $temp[0][0] = 'Categories';
         $temp[0][1] = 'Total Hours';
-        $array = $this->LogHour->query('select distinct(l.category_id)as cat_id ,c.category_name,(select sum(hours) from log_hours where category_id = cat_id and user_id = '.$this->Session->read('User.id').' and status = 1)as total_hours from log_hours l,categories c where l.user_id = '.$this->Session->read('User.id').' and c.id = l.category_id and l.status = 1');      
-        
-        $k = 1;
-        foreach($array as $arr){            
-            $temp[$k][0] = $arr['c']['category_name'];
-            $temp[$k][1] = $arr['0']['total_hours'];
-            $k++;
-        }
-        return $temp;             
+	$this->loadModel('Category');
+	$category = $this->Category->find('all');
+	//pr($category);die;
+	$k = 1;
+	foreach($category as $cat){
+		$temp[$k][0] = $cat['Category']['category_name'];
+		$data_array = $this->LogHour->find('all',array('fields'=>'hours',
+                                                   'conditions'=>array(
+                                                                     'user_id' => $this->Session->read('User.id'),
+                                                                     'category_id' => $cat['Category']['id'],
+                                                                     'LogHour.status' => 1,
+                                                                     
+                                                   )));
+		
+		if(count($data_array) == 0){
+                    $temp[$k][1] = 0;
+                }
+                else{	
+		
+			$ct = 0;
+			$hr_array = array();
+			foreach($data_array as $arr){
+			   $lg_hr = explode(':',$arr['LogHour']['hours']);
+			   $hr_array[$ct] = (int)$lg_hr[0];
+			   if(isset($lg_hr[1]))$min_array[$ct] = (int)$lg_hr[1];
+			   $ct++;
+			}
+			$hrs = array_sum($hr_array);
+			if(isset($min_array) && count($min_array)>0){
+				$mins = array_sum($min_array);
+				$mins_c = $mins / 60;
+				$hrs = $hrs + $mins_c;
+			}
+                        $temp[$k][1] = $hrs;
+			unset($hr_array);unset($min_array);
+                }
+		$k++;
+	}       
+       
+        return $temp ;             
         $this->autoRender = false;
-    }
+    }  
+   
+    
     public function volunteerChartData(){
         $this->layout = '';
         $this->loadModel('Category'); 
@@ -197,9 +230,14 @@ class LogHoursController extends AppController {
             $temp[$k][0] = $this->_getMonthName($array[0]);           
             
             $z = 1;
+	    
+	    $lg_hr_count = 0;
+		
+	    $lg_min_count = 0;
+	    
             foreach($cateories as $category){            
            
-                $data_array = $this->LogHour->find('first',array('fields'=>'sum(hours) as count_of_hours',
+                $data_array = $this->LogHour->find('all',array('fields'=>'hours',
                                                    'conditions'=>array(
                                                                      'user_id' => $this->Session->read('User.id'),
                                                                      'category_id' => $category['Category']['id'],
@@ -207,11 +245,29 @@ class LogHoursController extends AppController {
                                                                      'month(job_date)' => $array[0],
                                                                      'year(job_date)' => $array[1]
                                                    )));
-                if($data_array[0]['count_of_hours']==null){
+		
+                if(count($data_array) == 0){
                     $temp[$k][$z] = 0;
                 }
                 else{
-                     $temp[$k][$z] = $data_array[0]['count_of_hours'];
+			
+		
+			$ct = 0;
+			$hr_array = array();
+			foreach($data_array as $arr){
+			   $lg_hr = explode(':',$arr['LogHour']['hours']);
+			   $hr_array[$ct] = (int)$lg_hr[0];
+			   if(isset($lg_hr[1]))$min_array[$ct] = (int)$lg_hr[1];
+			   $ct++;
+			}
+			$hrs = array_sum($hr_array);
+			if(isset($min_array) && count($min_array)>0){
+				$mins = array_sum($min_array);
+				$mins_c = $mins / 60;
+				$hrs = $hrs + $mins_c;
+			}
+                        $temp[$k][$z] = $hrs;
+			unset($hr_array);unset($min_array);
                 }             
            
               $z++; 
@@ -222,6 +278,7 @@ class LogHoursController extends AppController {
         return $temp;
         $this->autoRender = false;
     }
+    
     
     /* @ function to get Month and Year */
     public function _get_Month($month_no){
@@ -243,26 +300,46 @@ class LogHoursController extends AppController {
             $array = $this->_get_Month($i);
             $temp[$k][0] = $this->_getMonthName($array[0]);
             
-                $data_array = $this->LogHour->find('first',array('fields'=>'sum(hours) as count_of_hours',
+                $data_array = $this->LogHour->find('all',array('fields'=>'hours',
                                                    'conditions'=>array(
                                                                      'organization' => $this->Session->read('User.id'),                                                                  
                                                                      'LogHour.status' => 1,
                                                                      'month(job_date)' => $array[0],
                                                                      'year(job_date)' => $array[1]
                                                    )));
-                if($data_array[0]['count_of_hours']==null){
-                    $temp[$k][1] = 0;
+		
+		if(count($data_array) == 0)
+		{
+		        $temp[$k][1] = 0;
+		}
+		else{	
+			
+			$ct = 0;
+			$hr_array = array();
+			foreach($data_array as $arr){
+			$lg_hr = explode(':',$arr['LogHour']['hours']);
+			$hr_array[$ct] = (int)$lg_hr[0];
+			if(isset($lg_hr[1]))$min_array[$ct] = (int)$lg_hr[1];
+			$ct++;
+			}
+			$hrs = array_sum($hr_array);
+			if(isset($min_array) && count($min_array)>0){
+			$mins = array_sum($min_array);
+			$mins_c = $mins / 60;
+			$hrs = $hrs + $mins_c;
+			}
+			$temp[$k][1] = $hrs;
+			unset($hr_array);unset($min_array);
+		}
+		$k++;               
+	       
                 }
-                else{
-                     $temp[$k][1] = $data_array[0]['count_of_hours'];
-                }
-                $k++;  
-            }
                    
        
         return $temp;
         $this->autoRender = false;     
-    }   
+    }
+        
 
 	public function CompanyChartData(){
 		  $this->layout = '';      
@@ -281,28 +358,54 @@ class LogHoursController extends AppController {
 								),false
 							);
 				
-					$data_array = $this->LogHour->find('first',array('fields'=>'sum(hours) as count_of_hours',
+					$data_array = $this->LogHour->find('all',array('fields'=>'hours',
 													   'conditions'=>array(
-																		 'User.employer' => $this->Session->read('User.id'),                                            
-																		 'LogHour.status' => 1,
-																		 'month(job_date)' => $array[0],
-																		 'year(job_date)' => $array[1]
+														'User.employer' => $this->Session->read('User.id'),                                            
+														'LogHour.status' => 1,
+														'month(job_date)' => $array[0],
+														'year(job_date)' => $array[1]
 													   )));
-					if($data_array[0]['count_of_hours']==null){
+					if(count($data_array) == 0){
+					    $temp[$k][1] = 0;
+					}
+					else{	
+					
+						$ct = 0;
+						$hr_array = array();
+						foreach($data_array as $arr){
+						   $lg_hr = explode(':',$arr['LogHour']['hours']);
+						   $hr_array[$ct] = (int)$lg_hr[0];
+						   if(isset($lg_hr[1]))$min_array[$ct] = (int)$lg_hr[1];
+						   $ct++;
+						}
+						$hrs = array_sum($hr_array);
+						if(isset($min_array) && count($min_array)>0){
+							$mins = array_sum($min_array);
+							$mins_c = $mins / 60;
+							$hrs = $hrs + $mins_c;
+						}
+						$temp[$k][1] = $hrs;
+						unset($hr_array);unset($min_array);
+					}
+					$k++;
+					/*if($data_array[0]['count_of_hours']==null){
 						$temp[$k][1] = 0;
 					}
 					else{
 						 $temp[$k][1] = $data_array[0]['count_of_hours'];
 					}
-					$k++;  
-				}
+					$k++;  */
+		}
 					   
 		   
 			return $temp;
 			$this->autoRender = false;     
-		}
+	}
+	
+	
     
-     function OrganizationAgeChartData(){        
+     
+    function OrganizationAgeChartData(){        
         
         $this->layout = '';
         $temp[0][0] = 'Age';     
@@ -319,24 +422,40 @@ class LogHoursController extends AppController {
         $k = 1;
         foreach($array as $arr){
         $temp[$k][0] = $arr['label'];
-        $loghours = $this->LogHour->find('first',array(				
-				'fields'      => 'sum( LogHour.hours ) AS total_hours',
+        $data_array = $this->LogHour->find('all',array(				
+				'fields'      => 'hours',
 				'conditions'  => array("birth_date between '".$arr['from']."' and '".$arr['to']."'",
                                                        'LogHour.status'=> 1,
                                                        'organization' => $this->Session->read('User.id'))
 			));
-                if($loghours[0]['total_hours']==null){
-                    $temp[$k][1] = 0;
-                }
-                else{
-                     $temp[$k][1] = $loghours[0]['total_hours'];
-                }
-        $k++;  
+                
+		if(count($data_array) == 0){
+			$temp[$k][1] = 0;
+		}
+		else{					
+			$ct = 0;
+			$hr_array = array();
+			foreach($data_array as $arr){
+				$lg_hr = explode(':',$arr['LogHour']['hours']);
+				$hr_array[$ct] = (int)$lg_hr[0];
+				if(isset($lg_hr[1]))$min_array[$ct] = (int)$lg_hr[1];
+					$ct++;
+			}
+			$hrs = array_sum($hr_array);
+			if(isset($min_array) && count($min_array)>0){
+				$mins = array_sum($min_array);
+				$mins_c = $mins / 60;
+				$hrs = $hrs + $mins_c;
+			}
+			$temp[$k][1] = $hrs;
+			unset($hr_array);unset($min_array);
+		}
+		$k++;
         }
         return $temp;
         $this->autoRender = false;
-    }
-    
+    } 
+     
     /* @ function to get the date from last years */
     function _getDate($years){
         return date('Y-m-d', strtotime("-$years years")); 

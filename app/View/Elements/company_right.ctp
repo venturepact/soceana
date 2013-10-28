@@ -12,8 +12,16 @@
 			echo $this->webroot.'img/upload/'.$this->Session->read('User.thumb_image').'?='.uniqid();
 		     }
 		     ?>" alt="<?php echo $this->Session->read('User.organization_name');?>"  class="profile_image"  /></div>
-                <div class="right_text_tab "><h2>STATUS</h2></div>
-                <a href="#" class="right_text_tab_small small_font">CHANGE YOUR STATUS</a>				
+                <div class="right_text_tab"><h2 style='text-transform:none;'><?php
+		if(strlen($this->Session->read('User.status_message')) > 0)
+		{
+		     if(strlen($this->Session->read('User.status_message'))>50){
+			echo substr($this->Session->read('User.status_message'),0,50).'..';
+		     }
+		     else echo $this->Session->read('User.status_message');
+		}else echo 'STATUS';
+		?></h2></div>
+                <a href="<?php echo $this->webroot;?>users/company_profile#u_status" class="right_text_tab_small small_font">CHANGE YOUR STATUS</a>				
 </div>
 <?php
 //}

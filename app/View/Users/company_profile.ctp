@@ -290,12 +290,12 @@ $().ready(function() {
                 </div>
           		<div class="clr"></div>
                <div class="tip_up"></div>
-               <div class="sponser_inner">
-               <span class="sponsors_text">Sed ultricies volutpat tempor. Cras non lacus at enim venenatis hendrerit. Morbi lacus arcu, luctus sollicitudin molestie vulputate, sagittis eget quam. Praesent eget massa purus. Mauris fermentum ante quis mauris pretium, eu interdum metus fringilla. Curabitur lacinia vulputate tincidunt.</span>
+               <div class="sponser_inner" id='u_status'>
+               <span class="sponsors_text"><textarea name="comment" wrap="physical" rows="5" cols="32" onkeyup="limiter();" onkeypress="limiter();" onfocus="limiter();" onblur=limiter(); id="comment"><?php echo $this->Session->read('User.status_message');?></textarea></span>
                <div class="clr"></div>
                <div class="mt20"></div>
-               <span>You have <strong>0 Characters</strong> <br />remaining</span>
-                <a href="#" class="uploads_submit">SUBMIT</a>
+               <span>You have <strong><div id='limit'>0</div> Characters</strong> <br />remaining</span><span id='status_loading'></span>
+                <a href="javascript:void(0);" class="uploads_submit" id='status_sbmt'>SUBMIT</a>
                
                </div>
                        
@@ -320,3 +320,37 @@ $().ready(function() {
 	else document.getElementById(skil_rate).style.display = 'block';
      }      
      </script>
+<script type="text/javascript">
+//Edit the counter/limiter value as your wish
+var count = "140";   
+function limiter(){
+var tex = $('#comment').val();
+var len = tex.length;
+if(len > count){
+        tex = tex.substring(0,count);
+        $('#comment').val(tex);
+        return false;
+}
+$('#comment').val(tex);
+$('#limit').text(count-len);
+}
+$(document).ready(function(){
+    var total = '140';
+    var tex = $('#comment').val();
+    var len = tex.length;
+    $('#limit').text(total - len);  
+});
+$('#status_sbmt').click(function(){
+     $("#status_loading").html('<img src="<?php echo $this->webroot;?>img/loading.gif" style="margin:-2% 3%;">');
+     $.ajax({
+                   type: "POST",
+                   url: '<?php echo $this->webroot;?>' + 'users/update_status',
+                   data:{status:$('#comment').val()},
+                   success: function(data) {
+                        if(data == '1' ){
+			    document.location.href = '<?php echo $this->webroot;?>';
+			}			    
+                   }
+            });       
+});
+</script>

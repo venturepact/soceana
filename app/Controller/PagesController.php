@@ -34,6 +34,68 @@ class PagesController extends AppController {
 		parent::beforeFilter();
 		$this->Auth->allow('vision','management','faq','contact','about','messages_delete','send_message','send_message2');
 	}
+	
+	function _getHours($userType = 'user'){
+		
+		$this->LoadModel('LogHour');
+		
+		switch($userType){
+			case 'user' :
+			$data_array = $this->LogHour->find('all',array(
+	      							        'conditions'=>array(
+									    		    'user_id'=>$this->Session->read('User.id'),
+											    'LogHour.status' => 1
+											    ),
+											    'fields'=>array('hours')
+			));	
+			break;
+			case 'organizatons' :
+			$data_array = $this->LogHour->find('all',array(
+	      							        'conditions'=>array(
+									    		  'organization'=>$this->Session->read('User.id'),
+											  'LogHour.status' => 1
+											  ),
+											'fields'=>array('hours')
+			));
+			
+			break;
+			case 'companies':
+			$data_array = $this->LogHour->find('all',array(
+	      							        'conditions'=>array(
+									    		    'User.employer'=>$this->Session->read('User.id'),
+											    'LogHour.status' => 1
+											    ),
+											    'fields'=>array('hours')
+			));	
+			break;
+			
+		}
+		
+		if(count($data_array) == 0){
+                    $hours = 0;
+                }
+                else{	
+		
+			$ct = 0;
+			$hr_array = array();
+			foreach($data_array as $arr){
+			   $lg_hr = explode(':',$arr['LogHour']['hours']);
+			   $hr_array[$ct] = (int)$lg_hr[0];
+			   if(isset($lg_hr[1]))$min_array[$ct] = (int)$lg_hr[1];
+			   $ct++;
+			}
+			$hrs = array_sum($hr_array);
+			if(isset($min_array) && count($min_array)>0){
+				$mins = array_sum($min_array);
+				$mins_c = $mins / 60;
+				$hrs = $hrs + $mins_c;
+			}
+                        $hours = $hrs;
+			unset($hr_array);unset($min_array);
+                }
+		
+		return $hours;
+	}
     
 	/* @ function to display the dashboard of the logged user */
 	public function display() {		
@@ -66,13 +128,8 @@ class PagesController extends AppController {
 			
 			$this->set('loghours',$this->_organizationGridData($limit));
 
-			$this->set('total_hours',$this->LogHour->find('first',array(
-											     'conditions'=>array(
-												 				'organization'=>$this->Session->read('User.id'),
-																'LogHour.status' => 1
-																),
-												 'fields'=>array('sum(hours) as total_hours')
-			)));
+			$this->set('total_hours' , $this->_getHours('organizatons'));
+			
 				
 		}
 		elseif($this->Session->read('User.role') == 'companies'){
@@ -101,14 +158,7 @@ class PagesController extends AppController {
 			
 			$this->set('loghours',$this->_companyGridData($limit));
 			
-			//$this->LogHour->recursive = -1;
-			$this->set('total_hours',$this->LogHour->find('first',array(
-											     'conditions'=>array(
-												 				'User.employer'=>$this->Session->read('User.id'),
-																'LogHour.status' => 1
-																),
-												 'fields'=>array('sum(hours) as total_hours')
-			)));
+			$this->set('total_hours' , $this->_getHours('companies'));
 		}
 		else{
 			// case  of volunteer 
@@ -130,14 +180,8 @@ class PagesController extends AppController {
 			
 			$this->set('loghours',$this->_volunteerGridData($limit));	
 			
-			//$this->LogHour->recursive = -1;
-			$this->set('total_hours',$this->LogHour->find('first',array(
-											     'conditions'=>array(
-												 				'user_id'=>$this->Session->read('User.id'),
-																'LogHour.status' => 1
-																),
-												 'fields'=>array('sum(hours) as total_hours')
-			)));
+			$this->set('total_hours' , $this->_getHours('user'));
+			
 		}
 		
 		//pr($this->_messages());die;
