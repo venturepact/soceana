@@ -193,7 +193,7 @@ $(function() {
         <section class="mt50">
         	<div class="section_login_left">
             	<h1>ORGANIZATIONS &amp COMPANIES</h1>
-                <p>Companies and organizations that are seeking help in volunteer programs can utilize Soceana as a standardized platform to communicate with individuals who are keen to do social good. We keep a database of the hours and types of volunteering that users do; all your organization has to do is ensure their validity and they are Soceana-verified.<br /><br /><a href="<?php echo $this->webroot;?>users/add/companies" class="contact_link">Company's Signup</a></p>
+                <p>Companies and organizations that are seeking help in volunteer programs can utilize Soceana as a standardized platform to communicate with individuals who are keen to do social good. We keep a database of the hours and types of volunteering that users do; all your organization has to do is ensure their validity and they are Soceana-verified.<br /><br /><a href="<?php echo $this->webroot;?>users/add/companies" class="contact_link"><img src="<?php echo $this->webroot;?>img/company_signup.png" border='0' alt="" /></a></p>
             </div>
             
             <div class="section_login_right">

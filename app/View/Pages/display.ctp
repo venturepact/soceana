@@ -35,8 +35,8 @@ if($this->Session->read('User.role') == 'organizations') {
              <div class="main_text">                  
                  <p>NEWS</p></div>
                     <div class="news_text">
-                      <span>You received a message from <strong>Karri Roman</strong> on Sunday, July 8th 2013.</span>
-                        <span>Your latest volunteer position at the <strong>Hospital of University</strong> .</span>
+                      <span>- You received a message from <strong>Karri Roman</strong> on Sunday, July 8th 2013.</span><br/>
+                        <span>- Your latest volunteer position at the <strong>Hospital of University</strong> .</span>
                          </div>                                        
              </div>
    <div class="top_heading_second">
@@ -167,8 +167,8 @@ elseif($this->Session->read('User.role') == 'companies'){
              <div class="main_text">                  
                  <p>NEWS</p></div>
                     <div class="news_text">
-                      <span>You received a message from <strong>Karri Roman</strong> on Sunday, July 8th 2013.</span>
-                        <span>Your latest volunteer position at the <strong>Hospital of University</strong> .</span>
+                      <span>- You received a message from <strong>Karri Roman</strong> on Sunday, July 8th 2013.</span><br/>
+                        <span>- Your latest volunteer position at the <strong>Hospital of University</strong> .</span>
                          </div>                                        
              </div>
    <div class="top_heading_second">
@@ -267,7 +267,7 @@ elseif($this->Session->read('User.role') == 'companies'){
              <?php echo $this->Sponsor->load_advertisements(); ?>
            </div>
 
-             <a href="#" class="add_text">Advertise with Soceana</a></div>
+             <a href="javascript:void(0);" class="add_text">Advertise with Soceana</a></div>
 <?php
 }
 else
@@ -283,8 +283,8 @@ else
              <div class="main_text">                  
                  <p>NEWS</p></div>
                     <div class="news_text">
-                      <span>You received a message from <strong>Karri Roman</strong> on Sunday, July 8th 2013.</span>
-                        <span>Your latest volunteer position at the <strong>Hospital of University</strong> .</span>
+                      <span>- You received a message from <strong>Karri Roman</strong> on Sunday, July 8th 2013.</span><br/>
+                        <span>- Your latest volunteer position at the <strong>Hospital of University</strong> .</span>
                          </div>
                 </div>
    		<div class="top_heading_second">

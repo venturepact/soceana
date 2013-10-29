@@ -223,6 +223,7 @@
                    </div>
                  </div>               
                 <?php echo $this->Form->end();?>
+         <script src="http://jquery.bassistance.de/validate/additional-methods.js"></script>
 		 <script type='text/javascript' language='javascript'>
 $().ready(function() {   
 
@@ -251,10 +252,10 @@ $().ready(function() {
     }, 'Please rate your selected skill'); 
 	
 	//validation rule for only alphabets value.match(phoneno)#sthash.DMSRm91G.dpuf
-    $.validator.addMethod("valid_phone", function(value) {
+    /*$.validator.addMethod("valid_phone", function(value) {
         return value == value.match(/^\(?\d{3}\)? ?-? ?\d{3} ?-? ?\d{4}$/);    
     }, 'Please enter a valid phone no for eg. 917-555-5555');    
-	
+	*/
 	/*$.validator.addMethod('customphone', function (value, element) {
     return this.optional(element) || /^\d{3}-\d{3}-\d{4}$/.test(value);
 	}, "Please enter a valid phone number");*/
@@ -289,8 +290,8 @@ $().ready(function() {
                           minlength:2,
                           maxlength:60
                          },  
-						 "data[User][phone]": {  						            
-						 	'valid_phone':true,                          	                
+						  "data[User][phone]": {					                        
+						 	phoneUS: true                 	                
                          },                      
                         "data[ServiceType][ServiceType][]": {
                         required: true,
@@ -329,6 +330,9 @@ $().ready(function() {
                         "data[ServiceType][ServiceType][]": {
                             required: 'Please select atleast one organization type',
                         },
+						"data[User][phone]": {					                        
+						 	phoneUS: 'Please enter a valid phone number like 917-555-555'                 	                
+                         },
 						"data[SkillSet][SkillSet][]": {
                             required: 'Please select atleast one Skill set',
 			    			maxlength: 'Please select maximum five skills'

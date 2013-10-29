@@ -156,6 +156,7 @@
                    </div>
                  </div>               
                 <?php echo $this->Form->end();?>
+         <script src="http://jquery.bassistance.de/validate/additional-methods.js"></script>
 		 <script type='text/javascript' language='javascript'>
 $().ready(function() {   
 
@@ -172,9 +173,9 @@ $().ready(function() {
 	
 	
 	//validation rule for only alphabets value.match(phoneno)#sthash.DMSRm91G.dpuf
-    $.validator.addMethod("valid_phone", function(value) {
+   /* $.validator.addMethod("valid_phone", function(value) {
         return value == value.match(/^\(?\d{3}\)? ?-? ?\d{3} ?-? ?\d{4}$/);    
-    }, 'Please enter a valid phone no for eg. 917-555-5555'); 
+    }, 'Please enter a valid phone no for eg. 917-555-5555'); */
 	         
         // validate signup form on keyup and submit
         $("#organization_profile_update").validate({
@@ -207,7 +208,7 @@ $().ready(function() {
                           maxlength:60
                          },  
 						 "data[User][phone]": {					                        
-						 	'valid_phone':true                          	                
+						 	phoneUS: true                 	                
                          },                      
                         "data[ServiceType][ServiceType][]": {
                         required: true,
@@ -237,7 +238,10 @@ $().ready(function() {
                             required: 'Please enter your location',
                             minlength:'Please enter atleast 2 characters',
                             maxlength:'Please enter maximum 60 characters'
-                         },						      
+                         },	
+						 "data[User][phone]": {					                        
+						 	phoneUS: 'Please enter a valid phone number like 917-555-555'                 	                
+                         },					      
                         "data[ServiceType][ServiceType][]": {
                             required: 'Please select atleast one organization interest type ',
                         },						

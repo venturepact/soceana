@@ -366,7 +366,7 @@ blockquote {
     width: 83%;
 }
 .right_plus {
-    width: 11%;
+    width: 14%;
 }
 .vol_table .signup_form label {
     width: 25%;
@@ -444,13 +444,12 @@ h3{
     margin-top: -47px;
     width: 37%;
 }
-/*28oct changes  sahil*/
+
 .container .volunteer_signup_form ul li {
 	margin-left: 10px;
+
 }
 
-/*28oct changes  sahil*/
-}
 /* 768*1024 screens start  */
 @media only screen and (min-width : 768px) and (max-width : 1023px)
 {
@@ -620,11 +619,9 @@ blockquote {
     margin-top: -4px;
     width: 100%;
 }
-/*28oct changes  sahil*/
 .container .volunteer_signup_form ul li {
 	margin-left: 10px;
 }
-/*28oct changes  sahil*/
 }
 /* 768*1024 screens end  */
 
@@ -671,7 +668,7 @@ blockquote {
     margin-top: -43px;
     width: 46%;
 }
-/*28oct changes  sahil*/
+
 .container .volunteer_signup_form ul
 {
 	width:90%;
@@ -679,8 +676,7 @@ blockquote {
 .container .volunteer_signup_form ul li {
 	margin-left: 10px;
 }
-	
-/*28oct changes  sahil*/
+
 }
 /* 600*800 screens end  */
 /* 568*320 screens start */
@@ -814,7 +810,7 @@ blockquote p {
     line-height: 20px;
 }
 .top_nav_outer {
-    width: 58%;
+    width: 60%;
 }
 .top_nav li {
     font-size: 11px;
@@ -1051,7 +1047,68 @@ ul label.error {
     margin-top: -43px;
     width: 46%;
 }
+.volunteer_signup_form ul li.first {
+    margin-left: 15px;
+}
 
+.signup_form ul li.first {
+    margin-left: 15px;
+}
+.left_top_section_p .main_text {
+    width: 30%;
+}
+.left_top_section_p .main_text p {
+    font-size: 1.1em;
+}
+.left_top_section_p .news_text {
+    width: 64%;
+}
+.vol_table .signup_form ul li .grey {
+    height: 80px;
+    width: 170px;
+}
+.vol_table .signup_form ul li textarea {
+    width: 150px;
+}
+.vol_table .grey .input {
+    display: none;
+}
+.vol_table .grey .submit2 {
+    display: none;
+}
+.volunteer_signup_form ul li .grey {
+    height: 80px;
+    width: 170px;
+}
+.volunteer_signup_form ul li textarea {
+    width: 150px;
+}
+.grey .input {
+    display: none;
+}
+.grey .submit2 {
+    display: none;
+}
+.vol_table .signup_form_blue ul li .grey {
+    height: 90px;
+    width: 195px;
+}
+.vol_table .signup_form_blue ul li textarea {
+    width: 173px;
+}
+.signup_form ul li .grey {
+    height: 90px;
+    width: 195px;
+}
+.signup_form ul li textarea {
+    width: 173px;
+}
+.grey .submit {
+    display: none;
+}
+.upper_box_wrapper {
+    display: none;
+}
 }	
 @media only screen and (min-width : 480px) and (max-width : 599px)
 {
@@ -1092,7 +1149,6 @@ ul label.error {
     margin-top: -43px;
     width: 46%;
 }
-/*28oct changes  sahil*/
 .container .volunteer_signup_form ul li {
     width: 80px;
 	margin-left: 10px;
@@ -1105,7 +1161,7 @@ ul label.error {
 {
 	height:79px;
 }	
-/*28oct changes  sahil*/
+
 }
 /* 480*320 screens start  */
 /* 380*685 android galaxy screens start  */
@@ -1351,6 +1407,28 @@ h3 {
     margin-left: 0;
     width: 100%;
 }
+.table_head_dark {
+    margin-left: 0px;
+    width: 100%;
+}
+.table_head_light {
+    margin-left: 0;
+    width: 100%;
+}
+.t_col_1 {
+    width: 18%;
+}
+.t_col_2 {
+    width: 24%;
+}
+.graph_main_section .right_side {
+	float: left;
+    padding: 5px;
+    width: 98%;
+}
+.time_outer .top_section {
+    width: 78%;
+}
 .wrapper_right_section {
     margin-left: 0;
     width: 94%;
@@ -1360,7 +1438,7 @@ h3 {
     height: 5%;
     padding: 3%;
     text-align: center;
-    width: 77%;
+    width: 78%;
 }
 h4 {
     color: #FFFFFF;
@@ -1375,7 +1453,60 @@ h4 {
     width: 90%;
 }
 .right_plus {
-    width: 17%;
+    width: 16%;
+}
+.left_top_section_p .main_text {
+    height: 47px;
+    width: 30%;
+}
+.glob {
+    height: 20px;
+    margin-top: 5px;
+    position: absolute;
+    width: 20px;
+	margin-left: 0px;
+}
+.vol_table .signup_form_blue ul li.first {
+    margin-left: 10px;
+}
+.vol_table .signup_form_blue label {
+    font-size: 12px;
+    text-align: left;
+    width: 96%;
+}
+.vol_table .signup_form_blue label span {
+    font-size: 11px;
+    text-align: left;
+}
+.vol_table .signup_form_blue ul {
+    width: 100%;
+}
+.vol_table .signup_form_blue ul li {
+    margin-left: 10px;
+    margin-top: -15px;
+    width: 80px;
+}
+.vol_table .signup_form_blue ul li .grey {
+    background-color: #3F3F3F;
+    border-radius: 3px 3px 3px 3px;
+    height: 90px;
+    margin-top: 25px;
+    width: 200px;
+}
+.signup_form_blue ul li input[type="checkbox"] + label span {
+    height: 80px;
+    width: 80px;
+}
+.vol_table .signup_form_blue ul li img {
+    width: 80px;
+}
+.left_top_section_p .main_text p {
+    font-size: 1em;
+    font-weight: bold;
+    line-height: 18px;
+}
+.left_top_section_p .news_text {
+    width: 64%;
 }
 #left_nav_section {
     display: none;
@@ -1398,25 +1529,21 @@ h6 {
 }
 .gray_text {
     font-size: 10px;
+    line-height: 12px;
 }
 .vol_table .signup_form label {
-    font-size: 9.5px;
     margin-right: 10px;
-	width: 35%;
+    text-align: left;
+    width: 90%;
 }
-.vol_table .signup_form input[type="text"], .vol_table .signup_form select{
-	width: 55%;
-}
-.vol_table .signup_form ul li .grey{
-	height: 120px;
+.vol_table .signup_form input[type="text"], .vol_table .signup_form select {
+    width: 285px;
 }
 .vol_table .signup_form textarea {
-    width: 280px;
+    width: 288px;
 }
 .vol_table .signup_form label span {
-    font-size: 9px;
-    margin-right: 10px;
-    width: 85px;
+    text-align: left;
 }
 .vol_table .signup_form ul {
     width: 100%;
@@ -1472,8 +1599,9 @@ ul label.error {
 .contact_form {
     width: 100%;
 }
-.contact_form label{
-	width: 0px;
+.contact_form label {
+    font-size: 12px;
+    text-align: left;
 }
 .contact_form input[type="text"], .contact_form input[type="password"]{
 	width: 285px;
@@ -1488,6 +1616,14 @@ ul label.error {
     margin-left: 2%;
     width: 98%;
 }
+.volunteer_signup_form label {
+    font-size: 12px;
+    text-align: left;
+}
+.volunteer_signup_form label span {
+    font-size: 11px;
+    text-align: left;
+}
 .volunteer_signup_form {
     width: 100%;
 }
@@ -1501,7 +1637,11 @@ ul label.error {
 .volunteer_signup_form ul {
     width: 100%;
 }
-/*28oct changes  sahil*/
+/*.volunteer_signup_form ul li.first {
+    margin-left: 10px;
+}
+*/
+
 .container .volunteer_signup_form ul li {
     width: 80px;
 	margin-left: 10px;
@@ -1514,16 +1654,13 @@ ul label.error {
 {
 	height:79px;
 }	
-/*28oct changes  sahil*/
+
+	
 .profile_top {
     margin-left: 0px;
 }
 .upper_box_wrapper {
-    bottom: 0;
-    margin-right: 2%;
-    position: fixed;
-    right: 0;
-    z-index: 2;
+    display: none;
 }
 .signup_form {
     margin: 10px auto auto;
@@ -1536,12 +1673,23 @@ ul label.error {
     width: 80px;
 	margin-left: 10px;
 }
+.signup_form ul li.first {
+    margin-left: 10px;
+}
 .signup_form ul li input[type="checkbox"] + label span {
     height: 80px;
     width: 80px;
 }
 .signup_form ul li img {
     width: 80px;
+}
+.signup_form label {
+    font-size: 12px;
+    text-align: left;
+}
+.signup_form label span {
+    font-size: 11px;
+    text-align: left;
 }
 .oran_butt{
 	padding: 1% 5%;
@@ -1582,9 +1730,52 @@ ul label.error {
     margin-top: -4px;
     width: 100%;
 }
-
-
-
+.vol_table .signup_form ul li.first {
+    margin-left: 10px;
+}
+.vol_table .signup_form ul li .grey {
+    height: 80px;
+    width: 170px;
+}
+.vol_table .signup_form ul li textarea {
+    width: 150px;
+}
+.vol_table .grey .input {
+    display: none;
+}
+.vol_table .grey .submit2 {
+    display: none;
+}
+.volunteer_signup_form ul li .grey {
+    height: 80px;
+    width: 170px;
+}
+.volunteer_signup_form ul li textarea {
+    width: 150px;
+}
+.grey .input {
+    display: none;
+}
+.grey .submit2 {
+    display: none;
+}
+.vol_table .signup_form_blue ul li .grey {
+    height: 80px;
+    width: 170px;
+}
+.vol_table .signup_form_blue ul li textarea {
+    width: 150px;
+}
+.signup_form ul li .grey {
+    height: 80px;
+    width: 170px;
+}
+.signup_form ul li textarea {
+    width: 150px;
+}
+.grey .submit {
+    display: none;
+}
 }
 /* 320*480 screens start  */ 
 @media only screen and (min-width : 480px) and (max-width : 567px)
@@ -1644,10 +1835,8 @@ blockquote p {
     padding-right: 0px;
 }
 .section_login_right {
-    width: 100%;
-}
-.section_login_right .user_name input, .section_login_right .password input {
-    width: 77%;
+    margin-left: 18%;
+    width: 63%;
 }
 .section_login_right .login_buttons input {
     margin-bottom: 5%;
@@ -1726,7 +1915,7 @@ blockquote p {
     height: 30px;
     padding: 5px 0;
 }
-top_nav li a {;
+top_nav li a {
     padding: 12px 5px;
 }
 .top_heading {
@@ -1812,6 +2001,9 @@ h6 {
     font-size: 9px;
     margin-right: 10px;
     width: 85px;
+}
+.vol_table .signup_form ul li.first {
+    margin-left: 0;
 }
 .vol_table .signup_form ul li {
     width: 80px;
@@ -1899,6 +2091,9 @@ ul label.error {
 .volunteer_signup_form ul {
     width: 100%;
 }
+.volunteer_signup_form ul li.first {
+    margin-left: 15px;
+}
 .volunteer_signup_form ul li {
     width: 80px;
 }
@@ -1911,5 +2106,72 @@ ul label.error {
     position: fixed;
     right: 0;
     z-index: 2;
-}	
+}
+.signup_form ul li.first {
+    margin-left: 15px;
+}
+.left_top_section_p .main_text {
+    width: 36%;
+	height: 60px;
+}
+.left_top_section_p .news_text {
+    width: 58%;
+}
+.vol_table .signup_form_blue ul {
+    width: 100%;
+}
+.vol_table .signup_form_blue ul li.first {
+    margin-left:10px;
+}
+.graph_main_section .right_side {
+    float: left;
+    padding: 5px;
+    width: 70%;
+}
+.vol_table .signup_form ul li .grey {
+    height: 80px;
+    width: 170px;
+}
+.vol_table .signup_form ul li textarea {
+    width: 150px;
+}
+.vol_table .grey .input {
+    display: none;
+}
+.vol_table .grey .submit2 {
+    display: none;
+}
+.volunteer_signup_form ul li .grey {
+    height: 80px;
+    width: 170px;
+}
+.volunteer_signup_form ul li textarea {
+    width: 150px;
+}
+.grey .input {
+    display: none;
+}
+.grey .submit2 {
+    display: none;
+}
+.vol_table .signup_form_blue ul li .grey {
+    height: 90px;
+    width: 195px;
+}
+.vol_table .signup_form_blue ul li textarea {
+    width: 173px;
+}
+.signup_form ul li .grey {
+    height: 90px;
+    width: 195px;
+}
+.signup_form ul li textarea {
+    width: 173px;
+}
+.grey .submit {
+    display: none;
+}
+.upper_box_wrapper {
+    display: none;
+}
 }

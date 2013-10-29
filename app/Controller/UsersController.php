@@ -380,6 +380,9 @@ class UsersController extends AppController{
         if($this->Session->read('User.role') == 'organizations'){
             $this->redirect(array('action'=>'organization_profile'));
         }
+		elseif($this->Session->read('User.role') == 'companies'){
+            $this->redirect(array('action'=>'company_profile'));
+        }
         else{
              $this->redirect(array('action'=>'user_profile')); 
         }        
