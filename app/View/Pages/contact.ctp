@@ -65,7 +65,7 @@ $().ready(function() {
                     },
             messages:{
                    		"data[Contact][email_id]": {
-                            required: 'Please enter your email id',			  
+                            required: 'Please enter your email address',			  
 						},
                          "data[Contact][name]":{
                             required: 'Please enter your name',                            

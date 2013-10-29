@@ -234,7 +234,7 @@ $().ready(function() {
 <?php echo $this->Form->input('role',array('type'=>'hidden','value'=>$type));?>
         	<div class="section">
 				<h1>REGISTER YOUR BUSINESS WITH SOCEANA</h1>
-                <p>Soceana offers businesses the oportunity to utilize the thousands of volunteers that are actively enagaging and making a difference every day  on our platform.Business and companies have the unique ability to partner with nonprofits to make an impact on their community - and to a much a greater scale utilizing Soceana's functionality.</p>
+                <p>Soceana offers businesses the opportunity to utilize the thousands of volunteers that are actively engaging and making a difference every day on our platform.Business and companies have the unique ability to partner with nonprofits to make an impact on their community - and to a much a greater scale utilizing Soceana's functionality.</p>
                 <?php echo $this->Session->flash(); ?>
             </div>
 			<div class="mt50"></div>
