@@ -56,9 +56,8 @@ class CropimageHelper extends AppHelper {
             $imgP =      $this->Form->hidden('imagePath', array("value" => $imagePath));
             $imgTum = $this->Html->image($imagePath.'?='.uniqid(), array('style'=>'float: left; margin-right: 10px;', 'id'=>'thumbnail', 'alt'=>'Create Thumbnail'));
             $imgTumPrev = $this->Html->image($imagePath.'?='.uniqid(), array('style'=>'position: relative;', 'id'=>'thumbnail', 'alt'=>'Thumbnail Preview'));
-            return $this->output("$imgTum
-            <div style=\"position:relative; overflow:hidden; width:".$tW."px; height:".$tH."px;\"> 
-                $imgTumPrev
+            return $this->output("Main Selection Image <br /> $imgTum
+            <div style=\"position:relative; overflow:hidden; width:".$tW."px; height:".$tH."px;\">              $imgTumPrev
             </div>
             <br style=\"clear:both;\"/>$x1 $y1 $x2 $y2 $w $h $imgP");
     } 

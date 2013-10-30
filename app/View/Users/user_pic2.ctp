@@ -9,7 +9,7 @@ echo $this->Cropimage->createJavaScript($uploaded['imageWidth'],$uploaded['image
 <div class="container">
         	<div class="section">
 				<h1>Profile Picture</h1>
-                <p>Please select the area of your image to be shown</p>
+                <p>Please select the area of your Main Selection image to be shown on the preview image.</p>
             </div>
             <div class="mt50"></div>
 	    <div class="section">

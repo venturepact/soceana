@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
 <title>Soceana</title>
  <?php echo $this->Html->css('style');?>
  <?php echo $this->Html->css('responsive');?>
@@ -9,6 +10,7 @@
  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
  <script src="http://malsup.github.com/jquery.form.js"></script>
 <link rel="shortcut icon" href="<?php echo $this->webroot;?>img/favicon.ico"/>
+
 <?php
 /* @ check if the role of current logged in user if user is not logged in
 */

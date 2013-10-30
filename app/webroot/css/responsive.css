@@ -304,6 +304,10 @@ height: 183px;
 .menagment_head {
     font-size: 23px;
 }
+.sign_up_top {
+    
+    margin-top: 100px;
+}
 
 }
 	
@@ -314,12 +318,6 @@ height: 183px;
 
 
 /*Updated 27/09/2013*/
-
-
-
-
-
-
 
 /*I-pad portrait*/
 
@@ -362,10 +360,10 @@ blockquote {
     width: 12%;
 }
 .main_text {
-    width: 12%;
+    width: 15%;
 }
 .news_text {
-    width: 82%;
+    width: 79%;
 }
 .left_top_section {
     margin-left: 2%;
@@ -376,8 +374,10 @@ blockquote {
     width: 60%;
 }
 .time_outer2 .top_section {
-    width: 83%;
+    width: 80%;
 }
+
+.wrapper_mid_border{ display:none;}
 .right_plus {
     width: 14%;
 }
@@ -643,7 +643,7 @@ blockquote {
 
 
 /* 600*800 screens end  */
-@media only screen and (min-width : 600px) and (max-width : 767px)
+@media only screen and (min-width : 640px) and (max-width : 767px)
 {
 	.section .logo_div img {
     margin-left: -189px;
@@ -1789,6 +1789,10 @@ ul label.error {
 }
 .grey .submit {
     display: none;
+}
+.sign_up_top {
+    float: left;
+    margin-top: 26px;
 }
 }
 /* 320*480 screens start  */ 

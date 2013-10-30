@@ -299,7 +299,7 @@ z-index:-1;}
 .footer_third_block{float:left;color:#FFF;width:13%; margin-top:50px;}
 .footer_third_block img{100%}
 .footer_2last_block{float:left;color:#FFF;width:8.5%; background:url(../img/white_bg.png) repeat; padding-left:10px; margin-left:1%; padding-top:10px;   }
-.footer_2last_block ul li{list-style:none;}
+.footer_2last_block ul li{list-style:none; text-align:center;}
 
 .footer_block2nd_heading{font-family:'Conv_FuturaLT', Sans-Serif;  font-size:18px; line-height:20px; padding-left:8%;  }
 
@@ -1594,3 +1594,4 @@ p{ text-align:justify;}
 .status_text{font-size: 12px; line-height: 18px;}
 .sponser_inner span textarea{ width:100%; font-size:14px; }
 .menagment_head{ font-size:22px;}
+.sign_up_top{ float:left;  margin-top:10px;}
