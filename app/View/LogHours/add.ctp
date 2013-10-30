@@ -1,5 +1,6 @@
 <style>
-    label.error{ color: #FF0000 !important;font-size: 12px !important;margin: -3px 0 5px 185px !important;text-align: left !important;text-transform: none !important;width: 100% !important;}
+
+    label.error{ color: #FF0000 !important;font-size: 12px !important;margin: -3px 0 5px 185px; text-align: left !important;text-transform: none !important;width: 100% !important;}
     ul label.error{left: -175px;position: absolute;top: 406px;width: 500px;}
     .vol_table .signup_form ul{position: relative;}
     #flashMessage{color: #FF0000;float: left;margin: 20px 0 0 236px;}
@@ -56,6 +57,7 @@ $(function() {
        <div class="vol_table">                        
            
          <div class="section">
+         <div id='add_log_hr'>
             <?php echo $this->Form->create('LogHour',array('id'=>'add_loghour','enctype'=>"multipart/form-data"));?>
                <div class="signup_form">
                  <label name="name">Organization Name</label>
@@ -255,6 +257,7 @@ $(function() {
                  </div>
                
                 <?php echo $this->Form->end();?>
+                </div>
 		 <script type='text/javascript' language='javascript'>    
 $().ready(function() {
     

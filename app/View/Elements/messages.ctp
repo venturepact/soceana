@@ -93,7 +93,7 @@ $('#message_button').click(function(){
        var username_length = $("input#hidden_to").val().length;
        var text_length = $('#compose_typed_message').val().length;
        if(( username_length > 0 ) && (text_length > 0)){             
-              $('#message_status').html('<div id="info" style="background-color:#FFFFFF;float: left;height: 27px;position: fixed;width: 299px;z-index: 500000;"><img src="<?php echo $this->webroot;?>img/loading.gif">&nbsp;Message Sent Successfully</div>');	
+              $('#message_status').html('<div id="info" style="background-color:#FFFFFF;float: left;height: 27px;position: fixed;width: 299px;z-index: 500000;"><img src="<?php echo $this->webroot;?>img/loading.gif">&nbsp;Sending Message</div>');	
               $.ajax({
                    type: "POST",
                    url: '<?php echo $this->webroot;?>' + 'pages/send_message',

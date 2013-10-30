@@ -192,7 +192,10 @@ class UsersController extends AppController{
             {
                 $temp[$i] = 0;
             }
-            if($this->request->data['User']['birth_date'] == '0000-00-00')$this->request->data['User']['birth_date'] = '';
+            if($this->request->data['User']['birth_date'] == '0000-00-00'){
+				$this->request->data['User']['birth_date'] = '';
+				$this->request->data['User']['employer'] = '';
+			}
 			else{
 				$this->request->data['User']['birth_date'] = date("m-d-Y", strtotime($this->request->data['User']['birth_date']));			
 			}

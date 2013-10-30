@@ -14,7 +14,7 @@
                       <?php echo $this->Form->input('name',array('type'=>'text','div'=>false,'label'=>false,'maxlength'=>'50','class'=>'text_style'));?>
                     </div>
                     <div class="contact_form">
-                    	<label name="name">Email</label>
+                    	<label name="name">Email Address</label>
                         <?php echo $this->Form->input('email_id',array('type'=>'text','div'=>false,'label'=>false,'id' => 'email_id','maxlength'=>'50','class'=>'text_style'));?>
                     </div>
                     <div class="contact_form">

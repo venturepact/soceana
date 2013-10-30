@@ -196,8 +196,12 @@ class LogHoursController extends AppController {
 			$hrs = array_sum($hr_array);
 			if(isset($min_array) && count($min_array)>0){
 				$mins = array_sum($min_array);
-				$mins_c = $mins / 60;
-				$hrs = $hrs + $mins_c;
+				//$mins_c = $mins / 60;
+				//$hrs = $hrs + $mins_c;
+				$mins = array_sum($min_array);				
+				$mins_c = floor($mins / 60);
+				$mins_m = $mins % 60 ;			
+				$hrs = ( $hrs + $mins_c ).'.'.$mins_m;	
 			}
                         $temp[$k][1] = $hrs;
 			unset($hr_array);unset($min_array);
@@ -262,9 +266,13 @@ class LogHoursController extends AppController {
 			}
 			$hrs = array_sum($hr_array);
 			if(isset($min_array) && count($min_array)>0){
-				$mins = array_sum($min_array);
-				$mins_c = $mins / 60;
-				$hrs = $hrs + $mins_c;
+				$mins = array_sum($min_array);				
+				$mins_c = floor($mins / 60);
+				$mins_m = $mins % 60 ;		
+				
+				
+				$hrs = ( $hrs + $mins_c ).'.'.$mins_m;				
+				//echo $hrs.'<br/>';
 			}
                         $temp[$k][$z] = $hrs;
 			unset($hr_array);unset($min_array);
@@ -325,8 +333,11 @@ class LogHoursController extends AppController {
 			$hrs = array_sum($hr_array);
 			if(isset($min_array) && count($min_array)>0){
 			$mins = array_sum($min_array);
-			$mins_c = $mins / 60;
-			$hrs = $hrs + $mins_c;
+			//$mins_c = $mins / 60;
+			//$hrs = $hrs + $mins_c;
+				$mins_c = floor($mins / 60);
+				$mins_m = $mins % 60 ;			
+				$hrs = ( $hrs + $mins_c ).'.'.$mins_m;	
 			}
 			$temp[$k][1] = $hrs;
 			unset($hr_array);unset($min_array);
@@ -381,8 +392,11 @@ class LogHoursController extends AppController {
 						$hrs = array_sum($hr_array);
 						if(isset($min_array) && count($min_array)>0){
 							$mins = array_sum($min_array);
-							$mins_c = $mins / 60;
-							$hrs = $hrs + $mins_c;
+							//$mins_c = $mins / 60;
+							//$hrs = $hrs + $mins_c;
+							$mins_c = floor($mins / 60);
+							$mins_m = $mins % 60 ;			
+							$hrs = ( $hrs + $mins_c ).'.'.$mins_m;	
 						}
 						$temp[$k][1] = $hrs;
 						unset($hr_array);unset($min_array);
@@ -444,8 +458,11 @@ class LogHoursController extends AppController {
 			$hrs = array_sum($hr_array);
 			if(isset($min_array) && count($min_array)>0){
 				$mins = array_sum($min_array);
-				$mins_c = $mins / 60;
-				$hrs = $hrs + $mins_c;
+				//$mins_c = $mins / 60;
+				//$hrs = $hrs + $mins_c;
+				$mins_c = floor($mins / 60);
+				$mins_m = $mins % 60 ;			
+				$hrs = ( $hrs + $mins_c ).'.'.$mins_m;	
 			}
 			$temp[$k][1] = $hrs;
 			unset($hr_array);unset($min_array);

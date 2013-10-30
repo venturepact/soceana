@@ -201,12 +201,12 @@ h2 {font-size: 23px;}
 .sponsors_text {font-size: 15px;}
 .orange_butt {font-size: 16px; font-weight:normal;}
 .add_text {font-size: 16px;width: 162px;}
-.open1 img {width: 54px !important;}
-.popbox_c {left: 145px;top: 155px;}
-.popbox { right: 151px; top: 154px;}
-.popbox_n {left: 209px;top: 422px;width: 530px !important;}
-.open img {width: 55px !important;}  
-.open2 img {width: 56px !important;}
+.open1 img {width: 81px !important;}
+.popbox_c {left: 91px;top: 221px;}
+.popbox { right: 82px; top: 220px;}
+.popbox_n {left: 213px;top: 607px;width: 530px !important;}
+.open img {width: 81px !important;}  
+.open2 img {width: 81px !important;}
 p {font-size: 18px; line-height: 34px; text-align: justify;}
 .vol_table .signup_form ul {width: 380px;}
 .vol_table .signup_form input[type="text"], .vol_table .signup_form select {font-size: 16px; height: 31px; width: 62%; padding-left: 5px;}
@@ -240,7 +240,11 @@ input { color: #999999;font-size: 19px; height: 33px;}
 .t_col_2 { width: 27%;}
 .right_plus { padding-left: 9px; width: 12%;}
 .time_outer2{ background: #f37936 url("../img/outer_bg_strip.jpg") repeat-x !important ; }
-.section, .profile_content_main {font-size: 18px; line-height: 32px; }
+.section, .profile_content_main {font-size: 18px; line-height: 32px;  }
+.section .logo_div {
+    float: left;
+    margin-bottom: 262px;
+}
 .orange_text span { height: 34px;}
 .text {font-size: 20px;line-height: 35px; width: 67%;}
 .section1 .img { margin-top: -65px; }
@@ -291,6 +295,15 @@ width: 350px;
 height: 183px;
 }
 .profile_image {width: 211px;}
+.status_text {
+    font-size: 17px;
+    line-height: 23px;
+}
+.sponser_inner span textarea{ width:100%; font-size:18px; }
+#add_log_hr label.error{ margin-left:270px; font-size:16px;}
+.menagment_head {
+    font-size: 23px;
+}
 
 }
 	
@@ -448,6 +461,7 @@ h3{
 .container .volunteer_signup_form ul li {
 	margin-left: 10px;
 
+}
 }
 
 /* 768*1024 screens start  */
