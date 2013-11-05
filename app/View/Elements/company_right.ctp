@@ -22,6 +22,27 @@
 		}else echo 'STATUS';
 		?></span></div>
                 <a href="<?php echo $this->webroot;?>users/company_profile#u_status" class="right_text_tab_small small_font">CHANGE YOUR STATUS</a>				
+                
+                  <?php
+				 if(($this->params['controller'] == 'pages' && $this->params['action'] == 'display')){
+			     ?>
+                <div class="right_img_outer">
+               <?php		   	 
+			   	   $array = $this -> requestAction(array(
+					 'controller' => 'users',
+					 'action' => 'gallery_images2'
+					));
+					//pr($array);
+					$i=1;
+					foreach($array as $image):
+					?>
+                        <div class="gallery_img<?php echo $i;?>"><a href="javascript:void(0);" title="<?php echo $image['UserPic']['caption'];?>"><img src="<?php echo $this->webroot;?>img/user_pics/<?php echo $image['UserPic']['picture_url'];?>" alt="" width="240px" height="175" /></a></div>                       
+                <?php
+					$i++;
+					endforeach;
+				?>
+                </div>
+                <?php }?>	
 </div>
 <?php
 //}

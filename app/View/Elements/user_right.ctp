@@ -32,7 +32,7 @@
 					$i=1;
 					foreach($array as $image):
 					?>
-                        <div class="gallery_img<?php echo $i;?>"><img src="<?php echo $this->webroot;?>img/log_hours/<?php echo $image['images']['picture_url'];?>" alt="" width="240px" height="175" /></div>                       
+                        <div class="gallery_img<?php echo $i;?>"><a href="javascript:void(0);" title="<?php echo $image['images']['caption'];?>"><img src="<?php echo $this->webroot;?>img/log_hours/<?php echo $image['images']['picture_url'];?>" alt=""  width="100%"  /></a></div>                       
                 <?php
 					$i++;
 					endforeach;

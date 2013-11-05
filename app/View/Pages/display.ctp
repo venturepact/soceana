@@ -35,8 +35,8 @@ if($this->Session->read('User.role') == 'organizations') {
              <div class="main_text">                  
                  <p>NEWS</p></div>
                     <div class="news_text">
-                      <span>- You received a message from <strong>Karri Roman</strong> on Sunday, July 8th 2013.</span><br/>
-                        <span>- Your latest volunteer position at the <strong>Hospital of University</strong> .</span>
+                      <span>- You received a message from <strong>Karri Roman</strong> on Sunday</span><br/>
+                        <span>- Your latest volunteer position at the <strong>Hospital of University</strong></span>
                          </div>                                        
              </div>
    <div class="top_heading_second">
@@ -167,8 +167,8 @@ elseif($this->Session->read('User.role') == 'companies'){
              <div class="main_text">                  
                  <p>NEWS</p></div>
                     <div class="news_text">
-                      <span>- You received a message from <strong>Karri Roman</strong> on Sunday, July 8th 2013.</span><br/>
-                        <span>- Your latest volunteer position at the <strong>Hospital of University</strong> .</span>
+                      <span>- You received a message from <strong>Karri Roman</strong> on Sunday</span><br/>
+                        <span>- Your latest volunteer position at the <strong>Hospital of University</strong></span>
                          </div>                                        
              </div>
    <div class="top_heading_second">
@@ -199,10 +199,10 @@ elseif($this->Session->read('User.role') == 'companies'){
              <div class="table_head_dark">
                 <div class="t_col_1 right_border"><h6>CATEGORY</h6></div>
                   <div class="t_col_2 right_border"><h6>TYPE OF VOLUNTEERING</h6></div>
-                    <div class="t_col_3 right_border"><h6>VOLUNTEER</h6></div>
+                    <div class="t_col_3 right_border"><h6>EMPLOYEE NAME</h6></div>
                       <div class="t_col_4 right_border"><h6>HRS.</h6></div>
                         <div class="t_col_5 right_border"><h6>DATE</h6></div>
-                          <div class="t_col_6 "><img src="<?php echo $this->webroot;?>img/logo_cert_white.png" /></div>
+                          <div class="t_col_6"><img src="<?php echo $this->webroot;?>img/logo_cert_white.png" /></div>
                  </div>
         <?php 
 		foreach($loghours as $log_hour){
@@ -243,7 +243,7 @@ elseif($this->Session->read('User.role') == 'companies'){
     </div>
     <div class="graph_section">
       <h1>ANALYTICS</h1>
-      <div class="graph_text">TIME PLOT: TOTAL VOLUNTEER HOURS VS. MONTHS</div>
+      <div class="graph_text">TIME PLOT: TOTAL EMPLOYEE HOURS VS. MONTHS</div>
       <?php echo $this->element('company_linechart');?>            
       </div>   
     </div>          
@@ -283,8 +283,8 @@ else
              <div class="main_text">                  
                  <p>NEWS</p></div>
                     <div class="news_text">
-                      <span>- You received a message from <strong>Karri Roman</strong> on Sunday, July 8th 2013.</span><br/>
-                        <span>- Your latest volunteer position at the <strong>Hospital of University</strong> .</span>
+                      <span>- You received a message from <strong>Karri Roman</strong> on Sunday</span><br/>
+                        <span>- Your latest volunteer position at the <strong>Hospital of University</strong></span>
                          </div>
                 </div>
    		<div class="top_heading_second">

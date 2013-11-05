@@ -133,7 +133,7 @@
             </div>
             <div class="mt50 clr"></div>
             <div class="section">
-				<h1>CURRENT VOLUNTEERS</h1>
+				<h1>COMPANY</h1>
                 <?php if($this->Session->read('User.id')==''){?>
                 <div class="butt_outer">
                  <a href="<?php echo $this->webroot;?>users/login" class="green_butt ">LOGIN</a>

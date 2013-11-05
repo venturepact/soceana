@@ -215,7 +215,8 @@ class UsersController extends AppController{
     /* @ function for update profile of an Organization */
     public function organization_profile(){
         $this->loadModel('ServiceType');
-	$this->loadModel('SkillSet');
+	    $this->loadModel('SkillSet');
+		$this->loadModel('UserPic');
         $this->User->id = $this->Session->read('User.id');
         
         if(!$this->User->exists()){
@@ -232,6 +233,19 @@ class UsersController extends AppController{
                         $this->User->query("update user_skill_sets set rate ='$rate' where user_id='".$this->Session->read('User.id')."' and skill_set_id='".$skilset."'");
                     }
                 }
+				
+				
+               // $id = $this->UserPic->id;
+				if(isset($this->request->data['UserPic']['id'])){
+                foreach($this->request->data['UserPic']['id'] as $image_id){
+                    $data['UserPic']['id'] = $image_id;
+                    $data['UserPic']['user_id'] = $this->Session->read('User.id');
+                    $data['UserPic']['temp_session'] = '';
+                    $this->UserPic->save($data);
+                	}
+				}
+				
+				
                 /*
 				* @  checking the new values and setting in the session
 				*/
@@ -278,7 +292,21 @@ class UsersController extends AppController{
             else
             {
                 $temp2[$i] = 0;
-            }          
+            }     
+			
+			//getting temporary images and removing temp images and their database record
+						$temp_images = $this->UserPic->find('all',array(
+														'conditions' => array('temp_session'=> $this->Session->read('User.id')),
+														'fields'=> array('id','picture_url')
+													 ));
+			if(sizeof($temp_images) > 0){
+				foreach($temp_images as $log_image){				
+					$this->_remove_images($log_image['UserPic']['picture_url']);
+					$this->UserPic->delete($log_image['UserPic']['id']);
+				}
+			}
+			// end of deletion of temporary images
+			     
             $this->set('temp_types',$temp);
             $this->set('temp_skills',$temp2);
             $this->set('service_types',$this->ServiceType->find('all',array('order'=>'id','fields'=>array('id','name','picture_url'))));
@@ -290,6 +318,7 @@ class UsersController extends AppController{
 	  /* @ function for update profile of company */
     public function company_profile(){
         $this->loadModel('ServiceType');	
+		$this->loadModel('UserPic');
         $this->User->id = $this->Session->read('User.id');
         
         if(!$this->User->exists()){
@@ -297,7 +326,17 @@ class UsersController extends AppController{
         }
         if($this->request->is('post') || $this->request->is('put')){          
           
-            if($this->User->save($this->request->data)){               
+            if($this->User->save($this->request->data)){ 
+			
+				if(isset($this->request->data['UserPic']['id'])){
+                foreach($this->request->data['UserPic']['id'] as $image_id){
+                    $data['UserPic']['id'] = $image_id;
+                    $data['UserPic']['user_id'] = $this->Session->read('User.id');
+                    $data['UserPic']['temp_session'] = '';
+                    $this->UserPic->save($data);
+                	}
+				}
+			              
 				$this->Session->write('User.first_name',$this->request->data['User']['first_name']);
 				$this->Session->write('User.last_name',$this->request->data['User']['last_name']);
 				$this->Session->write('User.organization_name',$this->request->data['User']['organization_name']);			
@@ -326,6 +365,23 @@ class UsersController extends AppController{
                 $temp[$i] = 0;
             }           
          
+		    //getting temporary images and removing temp images and their database record
+			$temp_images = $this->UserPic->find('all',array(
+														'conditions' => array(
+																			  'temp_session'=> $this->Session->read('User.id')
+																			  ),
+														'fields'=> array('id','picture_url')
+													      )
+												);
+			if(sizeof($temp_images) > 0){
+				foreach($temp_images as $log_image){				
+					$this->_remove_images($log_image['UserPic']['picture_url']);
+					$this->UserPic->delete($log_image['UserPic']['id']);
+				}
+			}
+			// end of deletion of temporary images
+		 	
+			
             $this->set('temp_types',$temp);            
             $this->set('service_types',$this->ServiceType->find('all',array('order'=>'id','fields'=>array('id','name','picture_url'))));	    
         }
@@ -607,10 +663,24 @@ class UsersController extends AppController{
 	/* @ function for gallery images */
 	public function gallery_images(){
 	$this->layout = '';
-	$images = $this->User->query('SELECT images.picture_url FROM log_hour_images AS images, log_hours AS lh WHERE lh.id = images.log_hour_id AND lh.user_id = '. $this->Session->read('User.id').' AND lh.status = 1 ORDER BY rand() LIMIT 5 ');
+	$images = $this->User->query('SELECT images.picture_url,caption FROM log_hour_images AS images, log_hours AS lh WHERE lh.id = images.log_hour_id AND lh.user_id = '. $this->Session->read('User.id').' AND lh.status = 1 ORDER BY rand() LIMIT 5 ');
 	return $images;
 	$this->autoRender = false;
 	}
+	
+	/* @ function for gallery images */
+	public function gallery_images2(){
+	$this->layout = '';
+	$this->loadModel('UserPic');
+	$images = $this->UserPic->find('all',array(
+												'conditions' => array( 'user_id' => $this->Session->read('User.id')),
+												'order'=> 'id desc',
+												'limit'=> 3
+												));
+	return $images;
+	$this->autoRender = false;
+	}
+	
 	public function update_status(){
 		$this->layout='';
 		$data['User']['id'] = $this->Session->read('User.id'); 
@@ -621,5 +691,49 @@ class UsersController extends AppController{
 		echo '1';  
 		$this->autoRender = false;
     } 
+	
+	public function add_images(){
+		$this->layout = '';
+        $upload_dir = WWW_ROOT.str_replace("/", DS, '/img/user_pics/');
+        $upload_path = $upload_dir.DS;
+        $i = 0;
+        $temp = array();       
+        $this->loadModel('UserPic');
+        $data = array();
+        foreach ($_FILES["images"]["error"] as $key => $error) {
+            if ($error == 0) {
+                $name = $_FILES["images"]["name"][$key];
+                $file_ext = substr($name, strrpos($name, ".") + 1);
+                $new_name = time()."_".$this->Session->read('User.id')."_$key.".$file_ext;
+                if( move_uploaded_file( $_FILES["images"]["tmp_name"][$key], $upload_path.$new_name ) ){
+					chmod ($upload_path.$new_name , 0777);
+                    if(isset($_REQUEST['caption_'.$key]))
+                    $caption = $_REQUEST['caption_'.$key];
+                    else $caption = '';
+                       
+                        $data['UserPic']['picture_url'] =  $new_name;
+                        $data['UserPic']['temp_session'] =  $this->Session->read('User.id');
+                        $data['UserPic']['caption'] =  $caption;
+                        if($this->UserPic->save($data)){
+                        $id = $this->UserPic->id;
+                        unset($this->UserPic->id);
+                        $temp[$i]['id'] = $id;
+                        $temp[$i]['image'] = $new_name;                       
+                        $i++;
+                        }
+                }
+            }
+        }
+        echo json_encode($temp);
+        $this->autoRender = false;
+	}
+	
+	public function _remove_images($image_name){
+		$upload_dir = WWW_ROOT.str_replace("/", DS, '/img/user_pics/');
+        $upload_path = $upload_dir.DS.$image_name;
+		unlink($upload_path);
+		return true;	
+	}
+	
 }
 ?>

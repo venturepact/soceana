@@ -3,6 +3,23 @@
 */
 if($this->Session->read('User.role')!=''){
 ?>
+<script>
+	
+<!--i-Phone nav-->
+$(document).ready(function(){
+	
+	$('.iphone_nav_outer').click(function(){
+		
+		$('.iphone_nav').slideToggle(900);
+					
+	});
+	
+});
+	
+	
+<!--i-Phone nav-->
+
+</script>
 <header>
         <div id="header">      
                 <a class="logo" href="<?php echo $this->webroot;?>"><img alt="Soceana Logo" src="<?php echo $this->webroot;?>img/logo.png"> </a> 
@@ -37,24 +54,52 @@ if($this->Session->read('User.role')!=''){
 								elseif($this->Session->read('User.role') == 'companies')echo 'users/company_profile';
                                 else echo 'users/user_profile';
                                 ?>">COMPLETE YOUR PROFILE</a></div> 
-               </div>    
-        </div> 
+               </div>
+              <!-- <div class="iphone_nav_outer"><span>Navigation</span>
+                <ul class="iphone_nav" >
+                  <li><a  href="/soceana/">ANALYTICS</a></li>
+                  <li><a  href="/soceana/loghours/add">LOG HRS.</a></li>
+                  <li><a  onclick="show()" href="javascript:void(0);">MESSAGES</a></li>
+                  <li><a  href="/soceana/users/change_password">CHANGE PWD</a></li> 
+                  <li><a  href="/soceana/users/personalize">PERSONALIZE</a></li>
+                  <li><a  href="/soceana/users/user_profile">PROFILE</a></li>
+                   </ul>
+                 </div> -->  
+               </div> 
 </header>
 <?php		
 }
 else{
 ?>
    <header>
-    <div id="header">      
+    <div id="header"> 
+         
           <a href="<?php echo $this->webroot;?>" class="logo"><img src="<?php echo $this->webroot;?>img/logo.png" alt="Soceana Logo" /> </a> 
                     <div class="top_nav_outer">
                                 <ul class="top_nav">
                                       <li><a href="<?php echo $this->webroot;?>">LOGIN</a></li>
                                       <li><a href="<?php echo $this->webroot;?>users/add/user">SIGN UP</a></li>
                                 </ul>
-                     </div>     
-         </div> 
+    
+                     </div>  
+                     
+   <!-- <div class="iphone_nav_outer"><span>Navigation</span>
+    <ul class="iphone_nav" >
+      <li><a  href="/soceana/">ANALYTICS</a></li>
+      <li><a  href="/soceana/loghours/review_hours">REVIEW HRS.</a></li>
+      <li><a  onclick="show()" href="javascript:void(0);">MESSAGES</a></li>
+      <li><a  href="/soceana/users/change_password">CHANGE PWD</a></li> 
+      <li><a  href="/soceana/users/personalize">PERSONALIZE</a></li>
+      <li><a  href="/soceana/users/user_profile">PROFILE</a></li>
+       </ul>
+     </div>  -->
+         </div>
+          
+       
 </header>
+
+
+
 <?php
 }
 ?>
