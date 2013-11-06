@@ -1769,5 +1769,5 @@ p{ text-align:justify;}
     float: left;
     height: 20px;
     width: 30px;
-
-} 
+}
+ul#skill_set_select label.error{color: #FF0000 !important;left:0px !important;position: absolute !important;text-transform: none !important;top: 1325px !important;width: 100% !important;}

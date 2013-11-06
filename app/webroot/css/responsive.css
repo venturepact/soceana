@@ -317,6 +317,10 @@ height: 183px;
 .contact_form .submit_button{
 	margin-left: 190px;
 }
+ul#skill_set_select label.error {
+    left: 70px !important;
+    top: 1373px !important;
+}
 }
 	
 	

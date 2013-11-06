@@ -7,7 +7,7 @@
             <div class="icon_list">
                <ul>
                <li><a href="javascript:void(0);" onclick="show()" ><img src="<?php echo $this->webroot;?>img/icon5.png" alt="" border="0"  /></a></li>
-                 <li><a href="javascript:void(0);" id='inbox'><img src="<?php echo $this->webroot;?>img/icon4.png" alt="" border="0"  /><span>Mail</span></a></li>
+                 <li><a href="javascript:void(0);" id='inbox'><img src="<?php echo $this->webroot;?>img/icon4.png" alt="" border="0"  /><span>Inbox</span></a></li>
                    <li><a href="javascript:void(0);" id='compose'><img src="<?php echo $this->webroot;?>img/icon1.png" alt="" border="0"  /><span>New Message</span></a></li>
                    <li><a href="javascript:void(0);" id='delete'><img src="<?php echo $this->webroot;?>img/icon2.png" alt="" border="0"  /><span>Delete</span></a></li>
                     </ul>
