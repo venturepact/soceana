@@ -688,6 +688,8 @@ input{ width:200px;height:25px;background-color:#fff; border:none; margin-left: 
    visibility: hidden;
    width:auto;
    height: 0px;
+   float:left;
+   margin-left:-10px;
 }
 
 .vol_table .signup_form_blue ul li img {

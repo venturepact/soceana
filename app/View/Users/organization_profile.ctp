@@ -1,7 +1,7 @@
 <style>
     label.error{ color: #FF0000 !important;font-size: 12px !important;margin: -3px 0 5px 185px !important;text-align: left !important;text-transform: none !important;width: 100% !important;}
     ul#type label.error{color: #FF0000 !important;left:0px !important;position: absolute !important;text-transform: none !important;top: 935px !important;width: 100% !important;}
-	ul#skill_set_select label.error{color: #FF0000 !important;left:0px !important;position: absolute !important;text-transform: none !important;top: 1325px !important;width: 100% !important;}
+	
     #flashMessage{color: #FF0000;float: left;margin: 20px 0 0 236px;}
     .profile_top img{border: 2px solid #E7E7E7;margin-bottom: 10px;}    
 </style>
