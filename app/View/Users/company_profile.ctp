@@ -150,7 +150,7 @@
                         </ul>
                     </div>
                      <div class="clr"></div>
-               <div class="mt20"></div>
+               <div class="mt50"></div>
                     <div class="signup_form">
                  <label name="name">ADD PHOTOS:</label>
                  <ul>

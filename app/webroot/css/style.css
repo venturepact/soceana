@@ -87,7 +87,7 @@ font-size:1.5em; color:#efefef; line-height:100%;   }
 .box_border_right1{ border:1px solid #d7d7d7; border-top:none; border-right:none;}
 .gray_text{width:100%;
 	font-family: 'Conv_FuturaLT', Sans-Serif;
-	font-size: 11px;
+	font-size: 10px;
 	 color:#858585; font-weight:normal;
 	 }
 .gray_text1{ float:left; width:75%; margin-top:10px;margin-bottom:5px;
@@ -684,7 +684,7 @@ input{ width:200px;height:25px;background-color:#fff; border:none; margin-left: 
 }
 .vol_table .signup_form_blue ul li input[type="checkbox"] 
 {
-   /* display: none;*/
+   display: inline-block;
    visibility: hidden;
    width:auto;
    height: 0px;
@@ -698,6 +698,7 @@ input{ width:200px;height:25px;background-color:#fff; border:none; margin-left: 
     border-radius: 3px 3px 3px 3px;
     height: 90px;
     width: 200px;
+	
 }
 .vol_table .signup_form_blue ul li textarea {
     float: left;
@@ -1684,7 +1685,6 @@ p{ text-align:justify;}
 	height: 24px;
 	right: -30px;
 	top: 4px;
-	background: transparent url(../img/orange_arrow.png) no-repeat center center;	
 }
 .ac-container input:checked + label:after{
 	background-image: url(../img/orange_downarrow.png);
@@ -1769,5 +1769,5 @@ p{ text-align:justify;}
     float: left;
     height: 20px;
     width: 30px;
-}
-ul#skill_set_select label.error{color: #FF0000 !important;left:0px !important;position: absolute !important;text-transform: none !important;top: 1325px !important;width: 100% !important;}
+
+} 
