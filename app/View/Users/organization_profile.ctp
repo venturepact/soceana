@@ -1,7 +1,7 @@
 <style>
     label.error{ color: #FF0000 !important;font-size: 12px !important;margin: -3px 0 5px 185px !important;text-align: left !important;text-transform: none !important;width: 100% !important;}
     ul#type label.error{color: #FF0000 !important;left:0px !important;position: absolute !important;text-transform: none !important;top: 935px !important;width: 100% !important;}
-	ul#skill_set_select label.error{color: #FF0000 !important;left:0px !important;position: absolute !important;text-transform: none !important;top: 1325px !important;width: 100% !important;}
+	
     #flashMessage{color: #FF0000;float: left;margin: 20px 0 0 236px;}
     .profile_top img{border: 2px solid #E7E7E7;margin-bottom: 10px;}    
 </style>
@@ -91,9 +91,7 @@
 										    '10'=>'10 +',
 										    '50'=>'50 +',
 										    '100'=>'100 +',
-										    '1000'=>'1000+',
-											'5000'=>'5000+',
-											'10000'=>'10000+'
+										    '1000'=>'1000+'
 										    ),
 								  
 			));?><img src="<?php echo $this->webroot;?>img/glob_icon.png" alt="" class="glob" />
@@ -217,50 +215,6 @@
                             ?>
                             </ul>                           
                     </div>
-                <div class="signup_form">
-                 <label name="name">ADD PHOTOS:</label>
-                 <ul>
-                   <li class="first">
-                     <span id='image_1'><img src="<?php echo $this->webroot;?>img/add.png" /></span>
-                     </li>
-                   <li><span id='image_2'><img src="<?php echo $this->webroot;?>img/add.png" /></span>
-                     </li>
-                   <li><span id='image_3'><img src="<?php echo $this->webroot;?>img/add.png" /></span>
-                     </li>
-                   </ul>
-                 </div>
-               <div class="clr"></div>
-               <div class="mt20"></div>
-	       <div id='response'></div><div id='response2'></div>
-            <div class="mt20"></div>
-            <div class="add_hours" id='upl_pics'>
-		<h3>Upload Photos</h3>
-		<div class='form_input'>
-			<label>File</label>
-			<input type="file" name="images" id="images" />
-		</div><div class='form_input'>
-			<label>Caption</label>
-			<textarea type="text" name="caption"  id="img_caption_0" class="capti caption_height" /></textarea>
-            
-		</div>
-		<div class='form_input'>
-			<label>File</label>
-			<input type="file" name="images" id="images1" />
-		</div><div class='form_input'>
-			<label>Caption</label>
-			<textarea type="text" name="caption" id="img_caption_1" class="capti caption_height"  /></textarea>
-		</div>
-		<div class='form_input'>
-			<label>File</label>
-			  <input type="file" name="images" id="images2" />
-		</div><div class='form_input'>
-			<label>Caption</label>
-			<textarea type="type" name="caption" id="img_caption_2" class="capti caption_height" /></textarea>
-		</div>
-		<div class='form_input'><input type="button" id="btn" value="Upload Files" class="orange_butt"></div>
-		
-	       </div>
-           
                <div class="contact_form">
                  <div class="submit_button" id='update_profile'>
                    <input type="submit" class="submit_button5 cursor_grid" value='' />
@@ -495,70 +449,4 @@ $('#status_sbmt').click(function(){
                    }
             });       
 });
-</script>
-<script>
-(function () {
-	var input = [document.getElementById("images"),document.getElementById("images1"),document.getElementById("images2")],formdata = false,imgcount = 0, caption = '' ;
-
-	if (window.FormData) {
-  		formdata = new FormData();  		
-	}
-	
- 	
-	
-	$('#btn').click(function(){
-		$('#response').text('Uploading . . .'); 		
-		
-		var leng=input.length;
-		
-		for(l=0;l<leng;l++){
-			
-			var i = 0, len = input[l].files.length, img, reader, file;   		   
-			for ( ; i < len; i++ ) {
-				
-				file = input[l].files[i];
-		       if(file.name != ''){
-					if (!!file.type.match(/image.*/)) {
-						
-						if (formdata) {
-							formdata.append("images[]", file);
-							imgcount++;
-						}
-					}
-			   }
-			}
-		  caption = $('#img_caption_'+l).val();
-		  formdata.append('caption_' + l,caption);
-		}
-		
-	
-		
-	
-		if (imgcount > 0) {
-			$.ajax({
-				url: '<?php echo $this->webroot;?>' + "users/add_images",
-				type: "POST",
-				data: formdata,
-				processData: false,
-				contentType: false,
-				success: function (res) {
-					//
-					var obj = jQuery.parseJSON(res);	
-					for(var i =0; i<obj.length;i++){
-					var url = '<?php echo $this->webroot;?>' + 'img/user_pics/' + obj[i].image;
-					$('#image_'+ (i + 1)).html("<img src='" + url + "' width='90' height='90'>");
-					$('#response2').append("<input type='hidden' name='data[UserPic][id][]' value='" +  obj[i].id + "'>");
-					$('#upl_pics').remove();
-					$('#response').text('Images successfully uploaded');
-					}				
-				}
-			});
-		}
-		else{
-			$('#response').text('No Images to upload');
-		}
-	});
-	
-}());
-
 </script>
