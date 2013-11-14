@@ -332,6 +332,8 @@ z-index:-1;}
 #right_img_section{ float:left; width:12.5%; overflow:hidden; }
 .tab_outer_right{ float:left; margin-top:319px; width:100%;   }
 .right_text_tab{ text-transform:uppercase; float:left; width:88%;  background:#a0a0a0; text-decoration:none; border-bottom:2px solid #FFF; margin-bottom:1px; padding:10px 10px 10px 10px; font-size:18px; color:#efefef; text-align:center;   }
+
+.right_text_tab a,a:hover{color:#efefef; text-decoration:none;}
 .tab_font{
 	font-family: 'Conv_FuturaLT', Sans-Serif;
 	font-size: 1.2em;
@@ -1773,3 +1775,63 @@ p{ text-align:justify;}
     width: 30px;
 
 } 
+/* styles for company analytics grid*/
+.accordion {
+    margin: 0;
+    padding:10px;
+    height:20px;
+    border-top:#f0f0f0 1px solid;
+    background: #cccccc;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration:none;
+    text-transform:uppercase;
+    color: #000;
+    font-size:1em;
+}
+.accordion-open {
+    background:#999;
+    color: #fff;
+}
+.accordion-open span {
+    display:block;
+    float:right;
+    padding:10px; margin-top:-18px;
+}
+.accordion-open span {
+    background:url(../img/minus.png) center center no-repeat;
+}
+.accordion-close span {
+    display:block;
+    float:right;
+    background:url(../img/plus.png) center center no-repeat;
+    padding:10px;
+	 margin-top:-18px;
+}
+div.container {
+    padding:0;
+    margin:0;
+}
+div.content {
+    background:#f0f0f0;
+    margin: 0;
+    padding:10px;
+    font-size:.9em;
+    line-height:1.5em;
+    font-family:"Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+div.content ul, div.content p {
+    padding:0;
+    margin:0;
+    padding:3px;
+}
+div.content ul li {
+    list-style-position:inside;
+    line-height:25px;
+}
+div.content ul li a {
+    color:#555555;
+}
+code {
+    overflow:auto;
+}
+/* end of styles for company analytics grid*/

@@ -625,7 +625,7 @@ $().ready(function() {
                             equalTo: "Please enter the same password for confirmation",                                            
                         },
                         "data[ServiceType][ServiceType][]":{
-                            required:'Please select atleast 1 service type',
+                            required:'Please select atleast 1 volunteer type',
                         }
                 },
             errorElement: 'label',

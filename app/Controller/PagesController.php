@@ -60,6 +60,14 @@ class PagesController extends AppController {
 			
 			break;
 			case 'companies':
+			
+			$this->LogHour->bindModel(
+					array('belongsTo' => array(
+							'User'        =>  array('className' => 'User','joinTable' => 'users','foreignKey' => 'user_id','fields'=>array('first_name','last_name','employer')),
+						),
+					),false
+				);
+			
 			$data_array = $this->LogHour->find('all',array(
 	      							        'conditions'=>array(
 									    		    'User.employer'=>$this->Session->read('User.id'),
@@ -67,6 +75,7 @@ class PagesController extends AppController {
 											    ),
 											    'fields'=>array('hours')
 			));	
+			
 			break;
 			
 		}
@@ -96,6 +105,8 @@ class PagesController extends AppController {
 		
 		return $hours;
 	}
+	
+	
     
 	/* @ function to display the dashboard of the logged user */
 	public function display() {		
@@ -133,31 +144,33 @@ class PagesController extends AppController {
 				
 		}
 		elseif($this->Session->read('User.role') == 'companies'){
-			$this->loadModel('LogHour');
-			// check for current page with page limit that record exits to show page or not
+			
 			if(isset($this->params['named']['page']) && $this->params['named']['page'] >= 2){
-			 //echo $this->params['named']['page'];
+				
+				$this->loadModel('User');
 				
 				$start_count =  $limit * ($this->params['named']['page'] - 1) + 1 ;
-				
-				$this->LogHour->bindModel(
-					array('belongsTo' => array(
-							'User'        =>  array('className' => 'User','joinTable' => 'users','foreignKey' => 'user_id','fields'=>array('first_name','last_name','employer')),
-						),
-					),false
-				);
-				
-			        $count = $this->LogHour->find('count',array('conditions'=>array('employer'=>$this->Session->read('User.id'))));			
+			
+				$this->User->unbindModel(
+											array('hasAndBelongsToMany' => array(
+																					'SkillSet','ServiceType'
+																				),				
+											));
+											
+				$count = $this->User->find('count',array( 'conditions' => array('employer'=>$this->Session->read('User.id'))));	
 				
 				if($start_count > $count){
 					
 					$this->redirect('/');
-				}
-			 
+				}						
+											
 			}
 			
-			$this->set('loghours',$this->_companyGridData($limit));
 			
+			
+			
+			$this->set('loghours',$this->_companyGridData($limit));
+			 
 			$this->set('total_hours' , $this->_getHours('companies'));
 		}
 		else{
@@ -214,7 +227,8 @@ class PagesController extends AppController {
 	
 	/* @ function to show the Organization Grid Data */
 	public function _organizationGridData($limit = 5){
-		$fields = array('LogHour.id','LogHour.hours','LogHour.job_date','LogHour.status','Category.category_name','ServiceType.name','User.first_name','User.last_name');
+		
+		$fields = array('LogHour.id','LogHour.hours','LogHour.job_date','LogHour.status','ServiceType.name','User.first_name','User.last_name','User.employer','User.employer_name');
 		
 		 $this->paginate = array(
 				'limit'       => $limit,
@@ -225,39 +239,132 @@ class PagesController extends AppController {
 		
 		 $this->LogHour->bindModel(
 			array('belongsTo' => array(
-					'Category'    =>  array('className' => 'Category','joinTable' => 'categories','foreignKey' => 'category_id','fields'=>array('category_name')),
+					/*'Category'    =>  array('className' => 'Category','joinTable' => 'categories','foreignKey' => 'category_id','fields'=>array('category_name')),*/
 					'ServiceType' =>  array('className' => 'ServiceType','joinTable' => 'service_types','foreignKey' => 'service_type_id','fields'=>array('name')),
-					'User'        =>  array('className' => 'User','joinTable' => 'users','foreignKey' => 'user_id','fields'=>array('first_name','last_name'))
+					'User'        =>  array('className' => 'User','joinTable' => 'users','foreignKey' => 'user_id','fields'=>array('first_name','last_name')),
+				
 				)
 			),false
 		);
+		
+		$loghours = $this->paginate('LogHour');
+		
+		$this->loadModel('User');
+		
+		
+		$i = 0;
+		foreach($loghours as $lg_hour){
+			
+			if($lg_hour['User']['employer']!= 0){
+			
+				$this->User->unbindModel(
+									array('hasAndBelongsToMany' => array(
+																			'SkillSet','ServiceType'
+																		),				
+			   ));
+				
+				$user = $this->User->find('first',array( 'fields' => array('organization_name'),
+													'conditions' => array('id' => $lg_hour['User']['employer']), 					
+												));				
+												
+				$loghours[$i]['emp_name'] = $user['User']['organization_name'];							
+												
+			}
+			else $loghours[$i]['emp_name'] = $lg_hour['User']['employer_name'];		
+			
+		$i++;
+		}
 		 
-		return $this->paginate('LogHour');
+		return $loghours;
 	}
 	
-	/* @ function to show the Organization Grid Data */
+	/* @ function to show the Organization Grid Data */	
 	public function _companyGridData($limit = 5){
-		$fields = array('LogHour.id','LogHour.hours','LogHour.job_date','LogHour.status','Category.category_name','ServiceType.name','User.first_name','User.last_name','Organization.organization_name');
+	
+		$this->loadModel('User');
+		$this->loadModel('LogHour');
 		
-		 $this->paginate = array(
+		$this->User->unbindModel(
+		 					    array('hasAndBelongsToMany' => array(
+																		'SkillSet','ServiceType'
+																	),				
+								));
+		
+		
+		$fields = array('first_name','last_name','id');
+		
+		$this->paginate = array(
 				'limit'       => $limit,
-				'order'       => 'LogHour.job_date DESC',
+				'order'       => 'first_name',
 				'fields'      => $fields,
-				'conditions'  => array( 'User.employer' => $this->Session->read('User.id'))
+				'conditions'  => array( 'employer' => $this->Session->read('User.id'))
 			);
 		
+		
+		
 		$this->LogHour->bindModel(
-			array('belongsTo' => array(
-					'Category'    =>  array('className' => 'Category','joinTable' => 'categories','foreignKey' => 'category_id','fields'=>array('category_name')),
-					'ServiceType' =>  array('className' => 'ServiceType','joinTable' => 'service_types','foreignKey' => 'service_type_id','fields'=>array('name')),
-					'User'        =>  array('className' => 'User','joinTable' => 'users','foreignKey' => 'user_id','fields'=>array('first_name','last_name','employer')),
-					'Organization'=>  array('className' => 'User','joinTable' => 'users','foreignKey' => 'organization','fields'=>array('organization_name')),
+			array('belongsTo' => array(				
+					'User'        =>  array('className' => 'User','joinTable' => 'users','foreignKey' => 'user_id','fields'=>array('first_name','last_name','employer')),				
 				),
 			),false
 		);
-		 
-		return $this->paginate('LogHour');
+	
+		$users = $this->paginate('User');
+		$i = 0 ;
+		foreach($users as $user){
+			
+			$this->LogHour->unbindModel(
+		 					    array('belongsTo' => array(
+																		'User'
+																	),				
+								));
+								
+			$this->LogHour->bindModel(
+					array('belongsTo' => array(
+							'Category'    =>  array('className' => 'Category','joinTable' => 'categories','foreignKey' => 'category_id','fields'=>array('category_name')),
+							'ServiceType' =>  array('className' => 'ServiceType','joinTable' => 'service_types','foreignKey' => 'service_type_id','fields'=>array('name')),
+							'User' =>  array('className' => 'User','joinTable' => 'users','foreignKey' => 'organization','fields'=>array(' 	organization_name'))
+						)
+					),false
+				);
+			$log_hours = $this->LogHour->find('all',array(
+															'fields' => array('LogHour.hours','LogHour.job_date','Category.category_name','ServiceType.name','User.organization_name'),
+															'conditions' => array('user_id'=>$user['User']['id'],'LogHour.status'=>1),
+															'order' => array('job_date desc')
+												          )
+											  );			
+			$users[$i]['lg_hour'] = $log_hours;
+			
+			if(count($log_hours) == 0){
+					    $hours = 0;
+					}
+					else{	
+					
+						$ct = 0;
+						$hr_array = array();
+						foreach($log_hours as $arr){
+						   $lg_hr = explode(':',$arr['LogHour']['hours']);
+						   $hr_array[$ct] = (int)$lg_hr[0];
+						   if(isset($lg_hr[1]))$min_array[$ct] = (int)$lg_hr[1];
+						   $ct++;
+						}
+						$hrs = array_sum($hr_array);
+						if(isset($min_array) && count($min_array)>0){
+							$mins = array_sum($min_array);							
+							$mins_c = floor($mins / 60);
+							$mins_m = $mins % 60 ;			
+							$hrs = ( $hrs + $mins_c ).':'.$mins_m;	
+						}
+						$hours = $hrs;
+						unset($hr_array);unset($min_array);
+					}
+					$users[$i]['total_hrs'] = $hours;
+					$i++;
+		}
+		
+		return $users;
 	}
+	
 	
 	/* @ function for vision page */
 	public function vision(){

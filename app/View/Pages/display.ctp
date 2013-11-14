@@ -65,7 +65,7 @@ if($this->Session->read('User.role') == 'organizations') {
  <!--table-->
  <div style="float:left; width:100%;">                        
              <div class="table_head_dark">
-                <div class="t_col_1 right_border"><h6>CATEGORY</h6></div>
+                <div class="t_col_1 right_border"><h6>COMP. NAME</h6></div>
                   <div class="t_col_2 right_border"><h6>TYPE OF VOLUNTEERING</h6></div>
                     <div class="t_col_3 right_border"><h6>VOLUNTEER</h6></div>
                       <div class="t_col_4 right_border"><h6>HRS.</h6></div>
@@ -73,10 +73,11 @@ if($this->Session->read('User.role') == 'organizations') {
                           <div class="t_col_6 "><img src="<?php echo $this->webroot;?>img/logo_cert_white.png" /></div>
                  </div>
         <?php 
+		//pr($loghours);
 		foreach($loghours as $log_hour){
          ?>             
     <div class="table_head_light">
-                <div class="t_col_1 box_border"><span class="gray_text"><?php echo $log_hour['Category']['category_name'];?></span></div>
+                <div class="t_col_1 box_border"><span class="gray_text"><?php echo $log_hour['emp_name'];?></span></div>
                   <div class="t_col_2 box_border"><span class="gray_text"><?php echo $log_hour['ServiceType']['name'];?></span></div>
                     <div class="t_col_3 box_border"><span class="gray_text"><?php echo $log_hour['User']['first_name'].' '.$log_hour['User']['last_name'];?></span></div>
                       <div class="t_col_4 box_border"><span class="gray_text"><?php echo $log_hour['LogHour']['hours'];?></span></div>
@@ -157,6 +158,47 @@ if($this->Session->read('User.role') == 'organizations') {
 }
 elseif($this->Session->read('User.role') == 'companies'){	
 ?>
+<style type="text/css">
+.table_text {
+	color: #FFF; background:#999;
+}
+.border{ border:1px solid #FFF; border-right:none; border-top:none;}
+.border1{ border:1px solid #FFF;}
+.row_text{ background:#E1E1E1; color:#666;}
+.row_text:hover{ background:#D3D3D3; color:#000; }
+.container{min-height:0}
+					
+</style>
+<script type="text/javascript" src="<?php echo $this->webroot;?>js/jquery.min.js"></script>
+<script type="text/javascript" src="<?php echo $this->webroot;?>js/highlight.pack.js"></script>
+<script type="text/javascript" src="<?php echo $this->webroot;?>js/jquery.cookie.js"></script>
+<script type="text/javascript" src="<?php echo $this->webroot;?>js/jquery.accordion.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        //syntax highlighter
+        hljs.tabReplace = '    ';
+        hljs.initHighlightingOnLoad();
+
+        $.fn.slideFadeToggle = function(speed, easing, callback) {
+            return this.animate({opacity: 'toggle', height: 'toggle'}, speed, easing, callback);
+        };
+
+        //accordion
+        $('.accordion').accordion({
+            defaultOpen: 'section1',
+            cookieName: 'accordion_nav',
+            speed: 'slow',
+            animateOpen: function (elem, opts) { //replace the standard slideUp with custom function
+                elem.next().stop(true, true).slideFadeToggle(opts.speed);
+            },
+            animateClose: function (elem, opts) { //replace the standard slideDown with custom function
+                elem.next().stop(true, true).slideFadeToggle(opts.speed);
+            }
+        });
+
+    });
+</script>
 <div class="top_heading">
    <h1>ANALYTICS DASHBOARD</h1>
    <h3>View metrics and data for the social good you have done through Soceana.</h3>            
@@ -195,46 +237,57 @@ elseif($this->Session->read('User.role') == 'companies'){
                <div class="record" ><h5>records per page</h5></div>
              </div>
  <!--table-->
- <div style="float:left; width:100%;">                        
-             <div class="table_head_dark">
-                <div class="t_col_1 right_border"><h6>CATEGORY</h6></div>
-                  <div class="t_col_2 right_border"><h6>TYPE OF VOLUNTEERING</h6></div>
-                    <div class="t_col_3 right_border"><h6>EMPLOYEE NAME</h6></div>
-                      <div class="t_col_4 right_border"><h6>HRS.</h6></div>
-                        <div class="t_col_5 right_border"><h6>DATE</h6></div>
-                          <div class="t_col_6"><img src="<?php echo $this->webroot;?>img/logo_cert_white.png" /></div>
-                 </div>
-        <?php 
+ <div style="float:left; width:98%;">
+ <?php // pr($loghours);
 		foreach($loghours as $log_hour){
-         ?>             
-    <div class="table_head_light">
-                <div class="t_col_1 box_border"><span class="gray_text"><?php echo $log_hour['Category']['category_name'];?></span></div>
-                  <div class="t_col_2 box_border"><span class="gray_text"><?php echo $log_hour['ServiceType']['name'];?></span></div>
-                    <div class="t_col_3 box_border"><span class="gray_text"><?php echo $log_hour['User']['first_name'].' '.$log_hour['User']['last_name'];?></span></div>
-                      <div class="t_col_4 box_border"><span class="gray_text"><?php echo $log_hour['LogHour']['hours'];?></span></div>
-                        <div class="t_col_5 box_border"><span class="gray_text"><?php echo date("m-d-Y", strtotime($log_hour['LogHour']['job_date']));?></span></div>
-                          <div class="t_col_6 box_border_right"><?php
-            switch($log_hour['LogHour']['status']){               
-                case 0:
-                  $icon = 'img/logo_cert.png';
-                  $title = 'Pending for Approval';
-                break;                
-                case 1:
-                  $icon = 'img/green_icon.png';
-                  $title = 'Approved Hours';
-                break;            
-                case 2:
-                  $icon = 'img/orange_icon.png';
-                  $title = 'Rejected Hours';
-                break;           
-            }                           
-            ?>
-            <img width="22" src="<?php echo $this->webroot.$icon;?>" title='<?php echo $title;?>'></div>
-                 </div> 
-    <?php
+         ?> 
+          <!-- panel -->
+<div class="accordion" id="section1"><?php echo $log_hour['User']['first_name'].' '.$log_hour['User']['last_name'];?><p style=" margin-left:400px;  margin-top:-18px;"><?php echo $log_hour['total_hrs'];?> HRS</p><span></span></div>
+<div class="container">
+    <div class="content">
+    
+       <div style="width:100%;">
+       <table width="100%" border="0" cellspacing="0" cellpadding="0"> 
+  <tr class="table_text">
+    <td width="20%" height="25" align="center" class="border">CATEGORY</td>
+    <td width="20%" height="25" align="center" class="border">TYPE OF VOLUNTEERING</td>
+    <td width="20%" height="25" align="center" class="border">ORGANIZATION NAME</td>
+    <td width="20%" height="25" align="center" class="border">HRS.</td>
+    <td width="20%" height="25" align="center"class="border">DATE</td>
+   
+  </tr>
+  <?php foreach($log_hour['lg_hour'] as $lg_hour)
+  {
+  ?>
+  <tr class="row_text">
+    <td height="25" align="center" class="border"><?php echo $lg_hour['Category']['category_name'];?></td>
+    <td height="25" align="center" class="border"><?php echo $lg_hour['ServiceType']['name'];?></td>
+    <td height="25" align="center" class="border"><?php echo $lg_hour['User']['organization_name'];?></td>
+    <td height="25" align="center" class="border"><?php echo $lg_hour['LogHour']['hours'];?></td>
+    <td height="25" align="center" class="border"><?php echo date("m-d-Y", strtotime($lg_hour['LogHour']['job_date']));?></td>   
+  </tr>
+ <?php
+  }
+  ?>
+</table>
+
+       
+       
+       </div>
+    
+    </div>
+</div>
+<?php
      }
     ?>
-   <div class="table_footer_white "  >
+<!-- end panel -->
+<!-- panel -->
+
+
+          
+          
+         </div>
+          <div class="table_footer_white"  >
      <div class="gray_text1"><?php echo $this->Paginator->counter('Showing {:start} to {:end} of {:count} entries');?></div>
       <div class="next_preview_butt">
        <?php echo $this->Paginator->prev(' < ', array(), null, array('class' => 'prev'));?>
@@ -246,8 +299,8 @@ elseif($this->Session->read('User.role') == 'companies'){
       <div class="graph_text">TIME PLOT: TOTAL EMPLOYEE HOURS VS. MONTHS</div>
       <?php echo $this->element('company_linechart');?>            
       </div>   
-    </div>          
-         </div>                    
+    
+          </div>           
           <div class="wrapper_mid_border"></div>              
      <div class="wrapper_right_section">
         <div class="time_outer">

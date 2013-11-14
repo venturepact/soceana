@@ -674,7 +674,7 @@ class UsersController extends AppController{
 	$this->loadModel('UserPic');
 	$images = $this->UserPic->find('all',array(
 												'conditions' => array( 'user_id' => $this->Session->read('User.id')),
-												'order'=> 'id desc',
+												'order'=> 'rand()',
 												'limit'=> 3
 												));
 	return $images;

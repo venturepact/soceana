@@ -16,7 +16,7 @@
 		if(strlen($this->Session->read('User.status_message')) > 0)
 		{
 		     if(strlen($this->Session->read('User.status_message'))>50){
-			echo substr($this->Session->read('User.status_message'),0,50).'..';
+			echo "<a href='javascript:void(0);' title='".$this->Session->read('User.status_message')."'>".substr($this->Session->read('User.status_message'),0,50).'..</a>';
 		     }
 		     else echo $this->Session->read('User.status_message');
 		}else echo 'STATUS';
