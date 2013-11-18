@@ -36,7 +36,7 @@
 					$i=1;
 					foreach($array as $image):
 					?>
-                        <div class="gallery_img<?php echo $i;?>"><a href="javascript:void(0);" title="<?php echo $image['UserPic']['caption'];?>"><img src="<?php echo $this->webroot;?>img/user_pics/<?php echo $image['UserPic']['picture_url'];?>" alt="" width="240px" height="175" /></a></div>                       
+                        <div class="gallery_img<?php echo $i;?>"><a href="javascript:void(0);" title="<?php echo $image['UserPic']['caption'];?>"><img src="<?php echo $this->webroot;?>img/user_pics/<?php echo $image['UserPic']['picture_url'];?>" alt="" width="240px" height="175" style='cursor:default;' /></a></div>                       
                 <?php
 					$i++;
 					endforeach;

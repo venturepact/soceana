@@ -505,4 +505,108 @@ class PagesController extends AppController {
 		$this->Message->save($data);	
 		$this->autoRender = false;
 	}
+	
+	public function gallery(){
+				
+		$limit = 9;		
+		
+		switch($this->Session->read('User.role')){
+			
+			case 'user' :
+			
+				$fields = array('LogHourImage.*');
+				
+				$this->loadModel('LogHourImage');
+				
+				$this->paginate = array(
+					'limit'       => $limit,
+					'order'       => 'LogHourImage.id DESC',
+					'fields'	  => $fields,					
+					'conditions'  => array( 'LogHour.user_id' => $this->Session->read('User.id'),'LogHour.status' => 1)
+				);
+				
+				$this->LogHourImage->bindModel(
+					array('belongsTo' => array(
+							'LogHour'    =>  array('className' => 'LogHour','joinTable' => 'log_hours','foreignKey' => 'log_hour_id'),							
+						)
+					),false
+				);
+				
+				if(isset($this->params['named']['page']) && $this->params['named']['page'] >= 2){
+			    //echo $this->params['named']['page'];
+				
+					$start_count =  $limit * ($this->params['named']['page'] - 1) + 1 ;
+					
+					$count = $this->LogHourImage->find('count',array('conditions'=>array( 'LogHour.user_id' => $this->Session->read('User.id'),'LogHour.status' => 1)));			
+					
+					if($start_count > $count){
+						
+						$this->redirect('/pages/gallery');
+					}
+			 
+				}
+				
+				$pictures = $this->paginate('LogHourImage');	
+						
+			break;
+			
+			case 'organizations' :
+			
+			   $this->loadModel('UserPic');				
+		
+			   $this->paginate = array(
+					'limit'       => $limit,
+					'order'       => 'UserPic.id DESC',					
+					'conditions'  => array( 'user_id' => $this->Session->read('User.id'))
+				);
+				
+				if(isset($this->params['named']['page']) && $this->params['named']['page'] >= 2){
+			    //echo $this->params['named']['page'];
+				
+					$start_count =  $limit * ($this->params['named']['page'] - 1) + 1 ;
+					
+					$count = $this->UserPic->find('count',array('conditions'=> array( 'user_id' => $this->Session->read('User.id'))));			
+					
+					if($start_count > $count){
+						
+						$this->redirect('/pages/gallery');
+					}
+			 
+				}
+				
+				$pictures = $this->paginate('UserPic');	
+			
+				
+			break;
+			
+			case 'companies':
+				 $this->loadModel('UserPic');				
+		
+			   $this->paginate = array(
+					'limit'       => $limit,
+					'order'       => 'UserPic.id DESC',					
+					'conditions'  => array( 'user_id' => $this->Session->read('User.id'))
+				);
+				
+				if(isset($this->params['named']['page']) && $this->params['named']['page'] >= 2){
+			    //echo $this->params['named']['page'];
+				
+					$start_count =  $limit * ($this->params['named']['page'] - 1) + 1 ;
+					
+					$count = $this->UserPic->find('count',array('conditions'=> array( 'user_id' => $this->Session->read('User.id'))));			
+					
+					if($start_count > $count){
+						
+						$this->redirect('/pages/gallery');
+					}
+			 
+				}
+				
+				$pictures = $this->paginate('UserPic');	
+				
+			break;
+			
+		}	
+		$this->set('pictures',$pictures);
+	}
 }

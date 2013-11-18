@@ -65,7 +65,7 @@ if($this->Session->read('User.role') == 'organizations') {
  <!--table-->
  <div style="float:left; width:100%;">                        
              <div class="table_head_dark">
-                <div class="t_col_1 right_border"><h6>COMP. NAME</h6></div>
+                <div class="t_col_1 right_border"><h6>COMPANY NAME</h6></div>
                   <div class="t_col_2 right_border"><h6>TYPE OF VOLUNTEERING</h6></div>
                     <div class="t_col_3 right_border"><h6>VOLUNTEER</h6></div>
                       <div class="t_col_4 right_border"><h6>HRS.</h6></div>
@@ -249,11 +249,11 @@ elseif($this->Session->read('User.role') == 'companies'){
        <div style="width:100%;">
        <table width="100%" border="0" cellspacing="0" cellpadding="0"> 
   <tr class="table_text">
-    <td width="20%" height="25" align="center" class="border">CATEGORY</td>
-    <td width="20%" height="25" align="center" class="border">TYPE OF VOLUNTEERING</td>
-    <td width="20%" height="25" align="center" class="border">ORGANIZATION NAME</td>
-    <td width="20%" height="25" align="center" class="border">HRS.</td>
-    <td width="20%" height="25" align="center"class="border">DATE</td>
+    <td width="25%" height="25" align="center" class="border">CATEGORY</td>
+    <td width="25%" height="25" align="center" class="border">TYPE OF VOLUNTEERING</td>
+    <td width="25%" height="25" align="center" class="border">ORGANIZATION NAME</td>
+    <td width="10%" height="25" align="center" class="border">HRS.</td>
+    <td width="15%" height="25" align="center"class="border">DATE</td>
    
   </tr>
   <?php foreach($log_hour['lg_hour'] as $lg_hour)

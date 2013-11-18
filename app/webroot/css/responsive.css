@@ -1,6 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
 
+
 @media only screen and (min-width:1824px) 
 {
 /*#wrapper{
@@ -322,6 +323,53 @@ ul#skill_set_select label.error {
     top: 1373px !important;
 }
 }
+
+
+@media (min-width: 1344px)
+{
+	.popbox_c {
+    top: 164px;
+    left:17px;
+}
+.popbox {
+   
+    top: 165px;
+    left: 379px ;
+}
+.popbox_n {
+  
+    top: 455px;
+    left:231px;
+}
+}
+
+/*@media only screen and (min-width : 1280px) and (max-width : 799px)
+{
+.volunteer_signup_form ul {width:76%;}	
+	.popbox_c {
+    top: 145px;
+    left:-6px;
+}
+.open1 img {
+    width: 57px !important;
+}
+.open img {
+    width: 57px !important;
+}
+.open2 img {
+    width: 57px !important;
+}
+.popbox {
+   
+    top: 146px;
+    right: 1px ;
+	
+}
+.popbox_n {  
+    top: 404px;
+    left: 193px ;
+}
+}*/
 	
 	
 
