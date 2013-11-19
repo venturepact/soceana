@@ -1835,3 +1835,18 @@ code {
     overflow:auto;
 }
 /* end of styles for company analytics grid*/
+
+
+#wrapper{min-height:625px;}
+.gallery_outer{float:left; width:100%; padding-top:10px;}
+.gallery_main{float:left;width:55%;}
+.gallery_img_display{ float:left; width:97%; padding-top:5px; padding-bottom:5px; font-size:18px; color:#000; padding-left:15px;}
+.gallery_left_img{float:left; width:97%; margin:10px; ;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px; box-shadow: 1px 1px 3px #888888;}
+.gallery_left_img img{width:100%;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;height:398px;}
+.gallery_right{float:left; width:41%; margin:10px; margin-left:5px;}
+.gallery_right .img_outer{float:left; width:30%; padding:3px; margin:3px; margin-top:0px; margin-bottom:6px; background:#e2e2e2; -webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;  }
+.gallery_right .img_outer:hover { background:#f67850;}
+.gallery_right .active  { background:#f67850;}
+.gallery_right .img_outer img { width:100%;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;height:123px; }
+.img_text_display{ float:left; width:98%; color:#666; padding:5px; font-size:16px; line-height:22px;}
+.left_arrow{ float:left; margin-left:10px; margin-right:10px; margin-top:1px;  width:16px; height:17px; }
