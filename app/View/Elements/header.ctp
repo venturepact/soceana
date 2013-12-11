@@ -55,16 +55,39 @@ $(document).ready(function(){
                                 else echo 'users/user_profile';
                                 ?>">COMPLETE YOUR PROFILE</a></div> 
                </div>
-              <!-- <div class="iphone_nav_outer"><span>Navigation</span>
-                <ul class="iphone_nav" >
-                  <li><a  href="/soceana/">ANALYTICS</a></li>
-                  <li><a  href="/soceana/loghours/add">LOG HRS.</a></li>
-                  <li><a  onclick="show()" href="javascript:void(0);">MESSAGES</a></li>
-                  <li><a  href="/soceana/users/change_password">CHANGE PWD</a></li> 
-                  <li><a  href="/soceana/users/personalize">PERSONALIZE</a></li>
-                  <li><a  href="/soceana/users/user_profile">PROFILE</a></li>
+               <div class="iphone_nav_outer"><span>Navigation</span>
+                <ul class="iphone_nav">
+                  <?php
+				   if($this->Session->read('User.role') == 'organizations'){ ?>
+                  <li><a href="<?php echo $this->webroot;?>">ANALYTICS</a></li>
+                  <li><a href="<?php echo $this->webroot;?>loghours/review_hours">REVIEW HRS.</a></li>
+                  <li><a onclick="show()" href="javascript:void(0);">MESSAGES</a></li>
+                  <li><a href="<?php echo $this->webroot;?>users/change_password">CHANGE PWD</a></li>                 
+                  <li><a href="<?php echo $this->webroot;?>pages/gallery">GALLERY</a></li>                 
+                  <li><a href="<?php echo $this->webroot;?>users/organization_profile">PROFILE</a></li>
+                  
+                  <?php }
+				  else if($this->Session->read('User.role') == 'companies')
+				  {
+				   ?>
+                  
+                   <li><a href="<?php echo $this->webroot;?>">ANALYTICS</a></li>
+                 <!-- <li><a href="<?php //echo $this->webroot;?>loghours/add">LOG HRS.</a></li>-->
+                  <li><a onclick="show()" href="javascript:void(0);">MESSAGES</a></li>
+                  <li><a href="<?php echo $this->webroot;?>users/change_password">CHANGE PWD</a></li>                   
+                  <li><a href=" <?php echo $this->webroot;?>pages/gallery">GALLERY</a></li>                 
+                  <li><a href="<?php echo $this->webroot;?>users/company_profile">PROFILE</a></li>
+                  <?php } else{?>
+                  <li><a href="<?php echo $this->webroot;?>">ANALYTICS</a></li>
+                  <li><a href="<?php echo $this->webroot;?>loghours/add">LOG HRS.</a></li>
+                  <li><a onclick="show()" href="javascript:void(0);">MESSAGES</a></li>
+                  <li><a href="<?php echo $this->webroot;?>users/change_password">CHANGE PWD</a></li> 
+                  <li><a href="<?php echo $this->webroot;?>users/personalize">PERSONALIZE</a></li>
+                  <li><a href=" <?php echo $this->webroot;?>pages/gallery">GALLERY</a></li>                 
+                  <li><a href="<?php echo $this->webroot;?>users/user_profile">PROFILE</a></li>
+                  <?php }?>
                    </ul>
-                 </div> -->  
+                 </div> 
                </div> 
 </header>
 <?php		
