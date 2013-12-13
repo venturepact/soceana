@@ -186,7 +186,7 @@ elseif($this->Session->read('User.role') == 'companies'){
 
         //accordion
         $('.accordion').accordion({
-            defaultOpen: 'section1',
+            defaultOpen: '',
             cookieName: 'accordion_nav',
             speed: 'slow',
             animateOpen: function (elem, opts) { //replace the standard slideUp with custom function

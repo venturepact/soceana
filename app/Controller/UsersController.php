@@ -154,6 +154,7 @@ class UsersController extends AppController{
     /* @ function for update profile of a Volunteer */
     public function user_profile(){
         $this->loadModel('ServiceType');
+		$this->loadModel('State');
         $this->User->id = $this->Session->read('User.id');
         if(!$this->User->exists()){
             throw new NotFoundException(__('Invalid User'));       
@@ -209,6 +210,8 @@ class UsersController extends AppController{
 			$companies[0] = 'Others';
 
 			$this->set('companies',$companies);
+			
+			$this->set('states',$this->State->find('list',array('order'=>'id','fields'=>array('id','state_name'))));
         }
     }
     
@@ -576,17 +579,6 @@ class UsersController extends AppController{
         echo $image;
         $this->autoRender = false;
     }
-    
-    /*function get_name(){
-        $this->layout = 'ajax';
-        $id = $this->request->data['user_id'] ;
-        $this->User->recursive = -1;
-        $user_data = $this->User->find('first',array('fields'=>array('first_name','last_name'),'conditions'=>array('id'=>$id)));
-        
-        echo $user_data['User']['first_name'].' '.$user_data['User']['last_name'];
-        
-        $this->autoRender = false;
-    }*/
     
 	/* @ function for personalize search results */
     function getdetails(){

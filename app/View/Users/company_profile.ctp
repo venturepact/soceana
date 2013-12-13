@@ -12,7 +12,7 @@
     #flashMessage{color: #FF0000;float: left;margin: 20px 0 0 236px;}
 </style>
 <div class="top_heading">
-         <h1>ORGANIZATION PROFILE</h1>
+         <h1>COMPANY PROFILE</h1>
           <h3>View your profile and update your information, privacy settings, and more.</h3>
             
            </div>       
@@ -168,13 +168,13 @@
 	       <div id='response'></div><div id='response2'></div>
             <div class="mt20"></div>
             <div class="add_hours" id='upl_pics'>
-		<h3>Upload Photos</h3>
+		<h3>Upload Photos <span style="font-size:10px;color:#000;font-family:Arial, Helvetica, sans-serif;"> ( MAX FILE SIZE : 2 MB)</span></h3>
 		<div class='form_input'>
 			<label>File</label>
 			<input type="file" name="images" id="images" />
 		</div><div class='form_input'>
 			<label>Caption</label>
-			<textarea type="text" name="caption"  id="img_caption_0" class="capti caption_height" /></textarea>
+			<textarea type="text" name="caption"  id="img_caption_0" class="capti caption_height" maxlength="100"  /></textarea>
             
 		</div>
 		<div class='form_input'>
@@ -182,14 +182,14 @@
 			<input type="file" name="images" id="images1" />
 		</div><div class='form_input'>
 			<label>Caption</label>
-			<textarea type="text" name="caption" id="img_caption_1" class="capti caption_height"  /></textarea>
+			<textarea type="text" name="caption" id="img_caption_1" class="capti caption_height" maxlength="100"   /></textarea>
 		</div>
 		<div class='form_input'>
 			<label>File</label>
 			  <input type="file" name="images" id="images2" />
 		</div><div class='form_input'>
 			<label>Caption</label>
-			<textarea type="type" name="caption" id="img_caption_2" class="capti caption_height" /></textarea>
+			<textarea type="type" name="caption" id="img_caption_2" class="capti caption_height" maxlength="100"  /></textarea>
 		</div>
 		<div class='form_input'><input type="button" id="btn" value="Upload Files" class="orange_butt"></div>
 		
@@ -286,7 +286,7 @@ $().ready(function() {
                             maxlength:'Please enter maximum 60 characters'
                          },	
 						 "data[User][phone]": {					                        
-						 	phoneUS: 'Please enter a valid phone number like 917-555-555'                 	                
+						 	phoneUS: 'Please enter a valid phone number like 917-555-5555'                 	                
                          },					      
                         "data[ServiceType][ServiceType][]": {
                             required: 'Please select atleast one organization interest type ',
@@ -425,6 +425,13 @@ $('#status_sbmt').click(function(){
 			for ( ; i < len; i++ ) {
 				
 				file = input[l].files[i];
+				
+				if(file.size/1024/1024 > 2){
+					$('#response').text('');
+					   alert('Please upload picture below 2 MB');
+					return false;
+				}	
+				
 		       if(file.name != ''){
 					if (!!file.type.match(/image.*/)) {
 						

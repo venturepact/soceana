@@ -24,7 +24,8 @@ $(function() {
 				
 			}
 		
-	});		
+	});	
+		
 });
 
 </script>
@@ -66,24 +67,45 @@ $(function() {
                   <div id='emp_div' class="signup_form" <?php if($this->request->data['User']['employer']==0)echo 'style="display:block;"';else echo 'style="display:none"';?>>
                       <div class="clr"></div>
                       <div class="mt20"></div>
-                 		 <label name="name">Employer Name:</label>                        
+                 		 <label name="name">Employer Name :</label>                        
                          <?php echo $this->Form->input('employer_name',array('type'=>'text','div'=>false,'label'=>false,'class'=>'text_style'));?>
                   </div>
                   <div class="clr"></div>
                   <div class="mt20"></div>
                   
                   <div class="signup_form">
-                    	<label name="name">Location:</label>
+                    	<label name="name">Address :</label>
                          <?php echo $this->Form->input('location',array('type'=>'text','div'=>false,'label'=>false,'class'=>'text_style'));?>
                   </div>
+                   <div class="clr"></div>
+                  <div class="mt20"></div>   
+                   <div class="signup_form">
+                    	<label name="name">Country :</label>                        
+                       <?php echo $this->Form->input('country',array('type'=>'select','div'=>false,'label'=>false,'class'=>'text_style','options' => array(1 =>'United States of America'),'id'=>'country'));?>
+                       
+                  </div>
                   <div class="clr"></div>
-                  <div class="mt20"></div>                  
+                  <div class="mt20"></div>   
+                  <div class="signup_form">
+                    	<label name="name">State :</label>                        
+                       <?php 
+					  echo $this->Form->input('state',array('type'=>'select','div'=>false,'label'=>false,'class'=>'text_style','options' => $states ,'empty' => 'Select State','default' => 'empty','id'=>'state'));?>
+                       <span id='state_select' style='float: right;'></span> 
+                  </div>
+                  <div class="clr"></div>
+                  <div class="mt20"></div>   
+                  <div class="signup_form" id='city_placeholder'>
+                    	<label name="name">City :</label>                        
+                       <?php 
+					  echo $this->Form->input('city',array('type'=>'select','div'=>false,'label'=>false,'class'=>'text_style','options' => array() ,'empty' => 'Select City','default' => 'empty','id'=>'city'));?>
+                        
+                  </div>
+                  <div class="clr"></div>
+                  <div class="mt20"></div>                               
                   <div class="signup_form">
                     	<label name="name">Gender:</label>			
                         <input type="radio" id="r0" name="data[User][gender]" value="M" <?php
-				//pr($this->request->data);
-                                //echo $this->request->data['User']['gender'];
-				 if(isset($this->request->data['User']['gender'])){				   
+								 if(isset($this->request->data['User']['gender'])){				   
                                      if($this->request->data['User']['gender'] == 'M') {
                                         echo "checked='checked'";
                                     } 
@@ -256,7 +278,7 @@ $().ready(function() {
                             maxlength:'Please enter maximum 60 characters'
                          },
 						 "data[User][phone]": {					                        
-						 	phoneUS: 'Please enter a valid phone number like 917-555-555'                 	                
+						 	phoneUS: 'Please enter a valid phone number like 917-555-5555'                 	                
                          },   						         
                         "data[ServiceType][ServiceType][]": {
                             required: 'Please select atleast one volunteer type',

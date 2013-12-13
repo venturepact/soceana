@@ -1,7 +1,6 @@
 <style>
 .contact_form{margin-top:65px;}
 label.error{ color: #FF0000 !important;font-size: 12px !important;margin: -3px 0 5px 226px !important;text-align: left !important;text-transform: none !important;width: 100% !important;}
-#save_thumb{border: 2px solid;border-radius: 7px 7px 7px 7px;color: #FFFFFF;height: 35px;margin: 20px 270px;width: 114px;}
 .blue{background-color:#04699A;}
 .orange{background-color: #FF8000;}
 </style>
