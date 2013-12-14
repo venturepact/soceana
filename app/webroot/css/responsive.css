@@ -190,7 +190,7 @@
 .main_text p {font-size: 46px;margin-left: 9px;margin-top: -2px;}
 .news_text {font-size: 16px;line-height: 32px;min-height: 35px;}
 .gray_text {font-size: 13px;}
-h6 {color: #FFFFFF;font-size: 15px;margin-top: 3px; padding-top:3px;}
+.star_view_outer h6 {color: #FFFFFF;font-size: 15px;}
 vol_table .table_footer_white {font-size: 14px;}
 h2 {font-size: 23px;}
 .small_font {font-size: 15px;line-height: 20px;}
@@ -203,9 +203,9 @@ h2 {font-size: 23px;}
 .orange_butt {font-size: 16px; font-weight:normal;}
 .add_text {font-size: 16px;width: 162px;}
 .open1 img {width: 81px !important;}
-.popbox_c {left: 91px;top: 221px;}
-.popbox { right: 82px; top: 220px;}
-.popbox_n {left: 213px;top: 607px;width: 530px !important;}
+.section .popbox_c {left: 91px;top: 221px;}
+.section .popbox { right: 82px; top: 220px;}
+.section .popbox_n {left: 213px;top: 607px;width: 530px !important;}
 .open img {width: 81px !important;}  
 .open2 img {width: 81px !important;}
 p {font-size: 18px; line-height: 34px; text-align: justify;}
@@ -237,11 +237,20 @@ label.error {font-size: 14px;margin: 3px 0 5px 190px;}
 #forgot_message {font-size: 18px;margin: 0 0 1% 10%;}
 .text_outer_border {border: 1px solid #CCCCCC;}
 input { color: #999999;font-size: 19px; height: 33px;}
-.t_col_1 {width: 16%;}
-.t_col_2 { width: 27%;}
+.t_col_1 {width: 21%;}
+.t_col_2 { width: 175px;}
+#save_thumb {
+    border: none;
+    border-radius: 7px;
+    color: #FFFFFF;
+    height: 35px;
+    margin: 20px 295px;
+    padding: 6px 6px 34px;
+    width: 152px;
+}
 .right_plus { padding-left: 9px; width: 12%;}
 .time_outer2{ background: #f37936 url("../img/outer_bg_strip.jpg") repeat-x !important ; }
-.section, .profile_content_main {font-size: 18px; line-height: 32px;  }
+.section, .profile_content_main {font-size: 18px; line-height: 31px;  }
 .section .logo_div {
     float: left;
     margin-bottom: 262px;
@@ -322,6 +331,10 @@ ul#skill_set_select label.error {
     left: 70px !important;
     top: 1373px !important;
 }
+.fields {    
+    margin-left: 68px;
+    width: 71%;
+}
 /*gallery_section starts here*/
 
 .gallery_main {width: 55%;
@@ -334,7 +347,7 @@ ul#skill_set_select label.error {
     width: 100% !important;
 }
 .gallery_left_img img {   
-height:auto; 
+	height:auto; 
     width: 100%;
 }
 .gallery_right {
@@ -345,24 +358,37 @@ height:auto;
 }
 
 .gallery_right .img_outer img {
-    height:auto;
+    height:130px;
 }
 /*gallery_section ends here*/
+
+/* start changes@20nov */
+
+.right_img_outer{ width:100%;height: 864px; margin-bottom: 1px; overflow: hidden; }
+.gallery_img1{ width:240px; }
+.gallery_img2{ width:240px; }
+.gallery_img3{ width:240px;}
+.gallery_img4{ width:240px; }
+.gallery_img5{ width:240px; }
+
+/* end changes@20nov */
+
+
 }
 
 
 @media (min-width: 1344px)
 {
-	.popbox_c {
+.section.popbox_c {
     top: 164px;
     left:17px;
 }
-.popbox {
+.section.popbox {
    
     top: 165px;
     left: 379px ;
 }
-.popbox_n {
+.section.popbox_n {
   
     top: 455px;
     left:231px;
@@ -855,6 +881,9 @@ height:auto;
     height:auto;
 }
 /*gallery_section ends here*/
+.gallery_main .gallery_left_img {
+    width: 96%;
+}
 }
 /* 768*1024 screens end  */
 
@@ -1704,7 +1733,7 @@ height:auto;
     height: 20%;
     margin-left: -7%;
     margin-top:0;
-    width: 50%;
+    width: 45%;
 }
 .logo img{
 	max-width: 100%;
@@ -1732,7 +1761,7 @@ height:auto;
 blockquote {
     font-size: 1.37em;
     line-height: 30px;
-	margin-top:7px;
+	margin-top:0px;
 }
 blockquote p {
     font-size: 16px;
@@ -1826,7 +1855,7 @@ blockquote p {
     line-height: 20px;
 }
 .top_nav_outer {
-    width: 60%;
+    padding-top: 6px;
 }
 .top_nav li {
     font-size: 11px;
@@ -1843,8 +1872,8 @@ h1 {
     font-size: 1.2em;
     font-weight: bold;
 }
-h3 {
-    font-size: 14px;
+.client_detail h3 {
+    font-size: 12px;
     line-height: 22px;
 }
 .wrapper_left_section {
@@ -1887,7 +1916,7 @@ h4 {
 }
 .fields {
     margin-left: 5%;
-    width: 90%;
+    width: 85%;
 }
 #left_nav_section {
     display: none;
@@ -1909,7 +1938,8 @@ h6 {
     width: 22%;
 }
 .gray_text {
-    font-size: 10px;
+    font-size: 9px;
+	line-height: 12px;
 }
 .vol_table .signup_form input[type="text"], .vol_table .signup_form select{
 	width: 55%;
@@ -2074,7 +2104,7 @@ ul label.error {
     width: 30%;
 }
 .left_top_section_p .main_text p {
-    font-size: 1.1em;
+    font-size: 1em;
 }
 .left_top_section_p .news_text {
     width: 64%;
@@ -2123,7 +2153,7 @@ ul label.error {
     display: none;
 }
 .upper_box_wrapper {
-    display: none;
+    display: block;
 }
 /*gallery_section starts here*/
 .gallery_main {width: 100%;
@@ -2136,7 +2166,7 @@ ul label.error {
     width: 93%;
 }
 .gallery_left_img img {   
-height:auto; 
+	height:auto; 
     width: 100%;
 }
 .gallery_right {
@@ -2150,9 +2180,99 @@ height:auto;
     height:auto;
 }
 /*gallery_section ends here*/
+
+.bx-wrapper img {
+    height: 26px;
+    width: 26px;
+}
+.gallery_right .img_outer img {
+    height: 100px;
+}
+.space1 {
+    margin-left: 12%;
+    margin-right: 12%;
+}
+.iphone_nav_outer{
+	display: block;
+}
+
+/* message start here */
+
+.upper_box {
+    height: 250px;
+    width: 350px;
+	margin-right: 0;
+}
+.upper_box .left_section_upper {
+    width: 50px;
+}
+.upper_box .right_section_upper{
+	width: 81%;
+}
+.icon_list li {
+    margin-bottom: 5px;
+    padding-left: 10px;
+}
+.status_sign{
+	margin-left: 12%;
+}
+.status_sign img{
+	width: 70%;
+}
+.client_detail {
+    margin-left: 5%;
+    width: 65%;
+}
+.read_messages_bg .client_detail h3 {
+    font-size: 10px;
+}
+.read_messages_bg .client_detail .light_gray {
+    font-size: 10px;
+}
+.icon_list li img{
+	width: 75%;
+}
+.icon_list li a{
+	margin-bottom: 5px;
+}
+.icon_list li a span{
+	font-size: 9px;
+}
+.client_img_outer_f img{
+	width: 62%;
+}
+.client_img_outer img{
+	width: 78%;
+	height: auto;
+}
+.client_section{
+	height: 203px;
+}
+.compose_input1{
+	width: 152px;
+}
+.message_section textarea, #messages textarea{
+	height: 80px;
+}
+.message_section .submit_butt, #messages .submit_butt{
+	width: 25%;
+}
+/* message end here */
+.top_nav li a{
+	padding: 12px 7px;
+}
+.rating_icon img {
+    width: 14px !important;
+}
+#wrapper .login_container {
+    background-image: url("../img/iphone5-ls.jpg");
+}
 }	
 @media only screen and (min-width : 480px) and (max-width : 599px)
 {
+.login_container {
+    background-image: url("../img/iphone-landscape_img.jpg");
+}
 .section .logo_div img {
     width: 249px;
 }
@@ -2181,9 +2301,7 @@ left: 198px;
 .section .logo_div {
     height: 269px;	
     margin-left: 0px;
-    width: 100%;
-	
-   
+    width: 100%;   
 }
 .butt_outer {
     float: right;
@@ -2215,7 +2333,7 @@ left: 198px;
     width: 93%;
 }
 .gallery_left_img img {   
-height:auto; 
+	height:auto; 
     width: 100%;
 }
 .gallery_right {
@@ -2226,9 +2344,73 @@ height:auto;
 }
 
 .gallery_right .img_outer img {
-    height:auto;
+     height: 100px;
 }
 /*gallery_section ends here*/
+
+/* message start here */
+
+.upper_box {
+    height: 250px;
+    width: 350px;
+	margin-right: 0;
+}
+.upper_box .left_section_upper {
+    width: 50px;
+}
+.upper_box .right_section_upper{
+	width: 81%;
+}
+.icon_list li {
+    margin-bottom: 5px;
+    padding-left: 10px;
+}
+.status_sign{
+	margin-left: 12%;
+}
+.status_sign img{
+	width: 70%;
+}
+.client_detail {
+    margin-left: 5%;
+    width: 65%;
+}
+.read_messages_bg .client_detail h3 {
+    font-size: 10px;
+}
+.read_messages_bg .client_detail .light_gray {
+    font-size: 10px;
+}
+.icon_list li img{
+	width: 75%;
+}
+.icon_list li a{
+	margin-bottom: 5px;
+}
+.icon_list li a span{
+	font-size: 9px;
+}
+.client_img_outer_f img{
+	width: 62%;
+}
+.client_img_outer img{
+	width: 78%;
+	height: auto;
+}
+.client_section{
+	height: 203px;
+}
+.compose_input1{
+	width: 152px;
+}
+.message_section textarea, #messages textarea{
+	height: 80px;
+}
+.message_section .submit_butt, #messages .submit_butt{
+	width: 25%;
+}
+/* message end here */
+
 }
 /* 480*320 screens start  */
 /* 380*685 android galaxy screens start  */
@@ -2954,13 +3136,14 @@ height:auto;
 	margin-left: 3%;
     width: 97%;
 }
-blockquote {
-    font-size: 1.37em;
-    line-height: 30px;
+.bx-wrapper .bx-viewport blockquote {
+    font-size: 0.9em;
+    line-height: 10px;
 	margin-top:0px;
+	padding: 0px;
 }
 blockquote p {
-    font-size: 16px;
+    font-size: 11px;
 	line-height: 22px;
 }
 .section_login_left {
@@ -3071,15 +3254,12 @@ blockquote p {
     font-size: 1.2em;
     line-height: 20px;
 }
-.top_nav_outer {
-    width: 53%;
-}
 .top_nav li {
-    font-size: 11px;
+    font-size: 8px;
     height: 30px;
     padding: 5px 0;
 }
-top_nav li a {;
+.top_nav li a {
     padding: 12px 5px;
 }
 .top_heading {
@@ -3129,6 +3309,7 @@ h3 {
 .table_head_dark {
     margin-left: 0px;
     width: 100%;
+	padding-bottom: 0;
 }
 .table_head_light {
     margin-left: 0;
@@ -3136,9 +3317,14 @@ h3 {
 }
 .t_col_1 {
     width: 18%;
+	height: 90%;
 }
 .t_col_2 {
     width: 24%;
+	height: 90%;
+}
+.t_col_3{
+	height: 90%;
 }
 .graph_main_section .right_side {
 	float: left;
@@ -3169,7 +3355,7 @@ h4 {
 }
 .fields {
     margin-left: 5%;
-    width: 90%;
+    width: 85%;
 }
 .right_plus {
     width: 16%;
@@ -3202,7 +3388,7 @@ h4 {
 }
 .vol_table .signup_form_blue ul li {
     margin-left: 10px;
-    margin-top: -15px;
+    margin-top: -5px;
     width: 80px;
 }
 .vol_table .signup_form_blue ul li .grey {
@@ -3220,7 +3406,7 @@ h4 {
     width: 80px;
 }
 .left_top_section_p .main_text p {
-    font-size: 1em;
+    font-size: 0.95em;
     font-weight: bold;
     line-height: 18px;
 }
@@ -3239,6 +3425,7 @@ h4 {
 }
 h6 {
     font-size: 8px;
+	line-height: 14px;
 }
 .vol_table .t_col_1 {
     width: 15%;
@@ -3380,7 +3567,7 @@ ul label.error {
     margin-left: 0px;
 }
 .upper_box_wrapper {
-    display: none;
+    display: block;
 }
 .signup_form {
     margin: 10px auto auto;
@@ -3484,6 +3671,7 @@ ul label.error {
 .vol_table .signup_form_blue ul li .grey {
     height: 80px;
     width: 170px;
+	margin-top: 11px;
 }
 .vol_table .signup_form_blue ul li textarea {
     width: 150px;
@@ -3553,10 +3741,113 @@ height:auto;
 }
 
 .gallery_right .img_outer img {
-    height:auto;
+    height:60px;
+}
+.section1_heading{
+	margin-left:190px;
+}
+div.content {
+    font-size: 0.75em;
+}
+
+.accordion {
+    font-size: 0.85em;
+}
+.bx-wrapper img {
+    height: 26px;
+    width: 26px;
+	margin: 0;
+}
+.t_col_4 {
+    width: 8%;
+	height: 90%;
+}
+.t_col_5{
+	width: 18%;
+	height: 90%;
+}
+.t_col_6{
+	height: 90%;
 }
 /*gallery_section ends here*/
+.bx-wrapper .bx-viewport{
+	height: 100px!important;
+}
+/* message start here */
 
+.upper_box {
+    width: 280px;
+	margin-right: 0%;
+	height: 425px;
+}
+.upper_box .left_section_upper{
+	width: 45px;
+}
+.icon_list li {
+    margin-bottom: 0;
+    padding-left: 8px;
+}
+.icon_list li a{
+	margin-bottom: 15px;
+}
+.upper_box .right_section_upper {
+    width: 78%;
+}
+.client_outer{
+	width: 96%;
+}
+.space1 {
+    margin-left: 13%;
+    margin-right: 13%;
+}
+.status_sign{
+	margin-left: 25%;
+}
+.client_detail{
+	margin-left: 17%;
+    width: 50%;
+}
+.unread_messages .client_detail h3{
+	font-size: 12px;
+}
+.light_gray{
+	font-size:12px;
+}
+.read_messages_bg .client_detail h3{
+	font-size: 12px;
+}
+.read_messages_bg .client_detail .light_gray{
+	font-size: 12px;
+}
+.message_outer {
+    padding: 2%;
+    width: 94%;
+}
+.message_section .submit_butt, #messages .submit_butt{
+	width: 30%;
+}
+.compose_input1 {
+    font-size: 11px;
+    width: 79px;
+}
+
+
+/* message end here */
+.result_outer a.long_blue_b{
+	font-size: 9px;
+}
+.result_outer a.long_blue_b {
+    font-size: 9px;
+    line-height: 12px;
+    padding: 5px;
+    width: 88%;
+}
+.butt_icon {
+    width: 16px;
+}
+.rating_icon img {
+    width: 12px !important;
+}
 }
 /* 320*480 screens start  */ 
 @media only screen and (min-width : 480px) and (max-width : 567px)
@@ -4001,8 +4292,14 @@ height:auto;
 .gallery_right .img_outer img {
     height:auto;
 }
-/*gallery_section ends here*/
+.section1_heading{
+	margin-left: 340px;
+}
 
+/*gallery_section ends here*/
+.upper_box_wrapper{
+	display: block;
+}
 }
 /* 384*600 screens start Android (Nexus 4) portrait */ 
 @media only screen and (min-width : 384px) and (max-width : 479px)
@@ -4202,7 +4499,7 @@ height:auto;
 }
 .gallery_left_img {
     
-    width: 93%;
+    width: 95%;
 }
 .gallery_left_img img {   
 height:auto; 
@@ -4219,6 +4516,61 @@ height:auto;
     height:auto;
 }
 /*gallery_section ends here*/
+.gallery_img1{
+	width: 73px;
+}
+.gallery_img2{
+	width: 73px;
+}
+/* message start here */
+
+.upper_box {
+    height: 300px;
+    width: 350px;
+	margin-right: 0;
+}
+.upper_box .left_section_upper {
+    width: 50px;
+}
+.upper_box .right_section_upper{
+	width: 81%;
+}
+.icon_list li {
+    margin-bottom: 10px;
+    padding-left: 10px;
+}
+.client_detail {
+    margin-left: 8%;
+    width: 60%;
+}
+.client_detail h3{
+	font-size: 13px;
+}
+.read_messages_bg .client_detail h3 {
+    font-size: 14px;
+}
+.read_messages_bg .client_detail .light_gray {
+    font-size: 12px;
+}
+.icon_list li a{
+	margin-bottom: 10px;
+}
+.icon_list li a span{
+	font-size: 9px;
+}
+.client_section{
+	height: 250px;
+}
+.compose_input1{
+	width: 152px;
+}
+.message_section textarea, #messages textarea{
+	height: 80px;
+}
+.message_section .submit_butt, #messages .submit_butt{
+	width: 25%;
+}
+/* message end here */
 
 }
 /* 240*320 screens start Crappy Android portrait */ 

@@ -212,6 +212,20 @@ class UsersController extends AppController{
 			$this->set('companies',$companies);
 			
 			$this->set('states',$this->State->find('list',array('order'=>'id','fields'=>array('id','state_name'))));
+			
+			if($this->request->data['User']['state']!='' || $this->request->data['User']['state']!= 0 )
+			{
+				$this->loadModel('City');
+				
+				$this->set('cities',$this->City->find('list',array('order'      => 'city_name',
+											    				   'fields'     => array('id','city_name'),
+									                               'conditions' => array('state_id' => $this->request->data['User']['state']),						     
+									   )
+				));
+			}
+			else{
+				$this->set('cities',array());
+			}		
         }
     }
     
@@ -220,6 +234,7 @@ class UsersController extends AppController{
         $this->loadModel('ServiceType');
 	    $this->loadModel('SkillSet');
 		$this->loadModel('UserPic');
+		$this->loadModel('State');
         $this->User->id = $this->Session->read('User.id');
         
         if(!$this->User->exists()){
@@ -315,6 +330,22 @@ class UsersController extends AppController{
             $this->set('service_types',$this->ServiceType->find('all',array('order'=>'id','fields'=>array('id','name','picture_url'))));
 	    $this->set('skill_sets',$this->SkillSet->find('all',array('order'=>'id','fields'=>array('id','name','picture_url'))));
             unset($this->request->data['User']['Password']);
+			
+			$this->set('states',$this->State->find('list',array('order'=>'id','fields'=>array('id','state_name'))));
+			
+			if($this->request->data['User']['state']!='' || $this->request->data['User']['state']!= 0 )
+			{
+				$this->loadModel('City');
+				
+				$this->set('cities',$this->City->find('list',array('order'      => 'city_name',
+											    				   'fields'     => array('id','city_name'),
+									                               'conditions' => array('state_id' => $this->request->data['User']['state']),						     
+									   )
+				));
+			}
+			else{
+				$this->set('cities',array());
+			}
         }
     }
 	
@@ -322,6 +353,7 @@ class UsersController extends AppController{
     public function company_profile(){
         $this->loadModel('ServiceType');	
 		$this->loadModel('UserPic');
+		$this->loadModel('State');
         $this->User->id = $this->Session->read('User.id');
         
         if(!$this->User->exists()){
@@ -388,6 +420,22 @@ class UsersController extends AppController{
             $this->set('temp_types',$temp);            
             $this->set('service_types',$this->ServiceType->find('all',array('order'=>'id','fields'=>array('id','name','picture_url'))));	    
         }
+		
+			$this->set('states',$this->State->find('list',array('order'=>'id','fields'=>array('id','state_name'))));
+			
+			if($this->request->data['User']['state']!='' || $this->request->data['User']['state']!= 0 )
+			{
+				$this->loadModel('City');
+				
+				$this->set('cities',$this->City->find('list',array('order'      => 'city_name',
+											    				   'fields'     => array('id','city_name'),
+									                               'conditions' => array('state_id' => $this->request->data['User']['state']),						     
+									   )
+				));
+			}
+			else{
+				$this->set('cities',array());
+			}
     }
     
     /* @ function for change password  of Volunteer / Organization */
@@ -650,8 +698,7 @@ class UsersController extends AppController{
         $this->set('skillset',$skillset);
         $this->set('skillset_results',$this->paginate());
         $this->set('skill_sets',$this->SkillSet->find('all',array('order'=>'id','fields'=>array('id','name','picture_url'))));
-    }
-	
+    }	
 	/* @ function for gallery images */
 	public function gallery_images(){
 	$this->layout = '';

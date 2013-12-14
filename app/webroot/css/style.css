@@ -500,7 +500,7 @@ input[type=checkbox].css-checkbox {
 .hover_div p{ padding-left: 20px;padding-right: 15px;text-align: justify;color:#FFF;}
 .line img{width:100%;}
 
-.login_container{width:100%; background-image:url(../img/img1.jpg);}
+.login_container{width:100%; background-image:url(../img/img-desk.png);}
 .login_container .top_section{ width:100%;height:430px;}
 .login_container .top_section .top_form{ position:relative;top:180px;width:380px;}
 .top_form .user_name{background-image:url(../img/login_top_icon.png);background-repeat:no-repeat;margin-left: 50px;height:35px;}
@@ -1851,3 +1851,7 @@ code {
 .img_text_display{ float:left; width:98%; color:#666; padding:5px; font-size:16px; line-height:22px;}
 .left_arrow{ float:left; margin-left:10px; margin-right:10px; margin-top:1px;  width:16px; height:17px; }
 #save_thumb{border: 2px solid;border-radius: 7px 7px 7px 7px;color: #FFFFFF;height: 35px;margin: 20px 270px;width: 114px;}
+.section1_heading{
+	margin-left:400px;  
+	margin-top:-18px;
+}

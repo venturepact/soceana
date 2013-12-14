@@ -1,39 +1,55 @@
 <?php echo $this->Html->script('jquery.validate');?>
 <style>
-ul.left_margin{position:relative;margin: 0 0 20px;}
-ul.left_margin label.error{color:#ff0000;position:absolute;margin-top:5px; text-transform:none;top:298px;width:auto;left:0px;}
+@media only screen and (min-width : 320px) and (max-width : 479px) {
+.signup_form_blue ul.left_margin label.error {
+	left: -88px;
+	top: 270px;
+}
+}
+@media only screen and (min-width : 568px) and (max-width : 599px) {
+.signup_form_blue ul.left_margin label.error {
+	left: -95px;
+	top: 305px;
+}
+}
+ul.left_margin {
+	position: relative;
+	margin: 0 0 20px;
+}
+ul.left_margin label.error {
+	color: #ff0000;
+	position: absolute;
+	margin-top: 5px;
+	text-transform: none;
+	top: 298px;
+	width: auto;
+	left: 0px;
+}
 </style>
- <!--Upper Box-->
-	
-          <!--Upper Box End-->
-       <div class="top_heading">
-         <h1>PERSONALIZE YOUR VOLUNTEERING EXPERIENCE</h1>
-          <h3>Filter organizations based upon skill sets they are looking for, and contact them to do more good.</h3>
-            
-           </div>
-       
-       
-     <div class="wrapper_left_section">
-         
-         
-         
-       <!--table-->
-       <div class="vol_table">                        
-           
-         <div class="section">
-              <?php echo $this->Form->create('User',array('id'=>'personalize'));?>     
-               <div class="signup_form_blue">
-                 <label name="name">SARCH SKILL SET :<br />
-                   <span>(choose maximum  3 )</span></label>
-                 <ul class="left_margin">
-                   <?php
+<!--Upper Box-->
+
+<!--Upper Box End-->
+<div class="top_heading">
+  <h1>PERSONALIZE YOUR VOLUNTEERING EXPERIENCE</h1>
+  <h3>Filter organizations based upon skill sets they are looking for, and contact them to do more good.</h3>
+</div>
+<div class="wrapper_left_section"> 
+  
+  <!--table-->
+  <div class="vol_table">
+    <div class="section"> <?php echo $this->Form->create('User',array('id'=>'personalize'));?>
+      <div class="signup_form_blue">
+        <label name="name">SARCH SKILL SET :<br />
+          <span>(choose maximum  3 )</span></label>
+        <ul class="left_margin">
+          <?php
 			//pr($temp_skills);die;
                             $i = 1;
 			    $k = 1;
                             foreach($skill_sets as $skill_set):			    
 			   			 ?>
-                        	<li <?php if($k == 1) echo 'class="first"';?>>
-                            	<input type="checkbox" id="a<?php echo $i;?>" name="data[SkillSet][SkillSet][]" value="<?php echo $skill_set['SkillSet']['id'];?>"
+          <li <?php if($k == 1) echo 'class="first"';?>>
+            <input type="checkbox" id="a<?php echo $i;?>" name="data[SkillSet][SkillSet][]" value="<?php echo $skill_set['SkillSet']['id'];?>"
 				<?php
                                 if($this->request->is('post') || $this->request->is('put')){
 				    if(isset($this->request->data['SkillSet']['SkillSet'])){
@@ -50,25 +66,24 @@ ul.left_margin label.error{color:#ff0000;position:absolute;margin-top:5px; text-
 				    }
 			       }			        
                                ?>/>
-                                <label for="a<?php echo $i;?>" class="checkbox-label"><span><img alt="<?php echo $skill_set['SkillSet']['name'];?>" src="<?php echo $this->webroot;?>img/<?php echo $skill_set['SkillSet']['picture_url'];?>" /></span></label>                               
-                            </li>
-                    <?php
+            <label for="a<?php echo $i;?>" class="checkbox-label"><span><img alt="<?php echo $skill_set['SkillSet']['name'];?>" src="<?php echo $this->webroot;?>img/<?php echo $skill_set['SkillSet']['picture_url'];?>" /></span></label>
+          </li>
+          <?php
 			    	if($k == 3) $k = 0;
 			   		$k++;
                     $i++;
                     endforeach;
-                    ?>                
-                   </ul>
-                 </div>
-               <div class="clr"></div>
-               <div class="contact_form">
-                 <div class="submit_button1">
-		    <input type="submit" class="srch_btn" value="" />             
-                   </div>
-                 
-                 </div>                 
-                <?php echo $this->Form->end();?>
-                <script type='text/javascript' language='javascript'>
+                    ?>
+        </ul>
+      </div>
+      <div class="clr"></div>
+      <div class="contact_form">
+        <div class="submit_button1">
+          <input type="submit" class="srch_btn" value="" />
+        </div>
+      </div>
+      <?php echo $this->Form->end();?> 
+      <script type='text/javascript' language='javascript'>
 $().ready(function() {            
         // validate signup form on keyup and submit
         $("#personalize").validate({
@@ -96,25 +111,15 @@ $().ready(function() {
             },                                        
         });                    
 });
-</script>
-                
-                
-               
-               
-             </div>         
-       </div>          
-       </div>
-                    
-          <div class="wrapper_mid_border"></div>
-              
-     <div class="wrapper_right_section">
-          
-          <div class="right_section_inner">  
-	          <h1>SPONSORS</h1>
-    	      <?php echo $this->Sponsor->load_advertisements(); ?>
-          </div>
-
-             <a href="javascript:void(0);" class="add_text">Advertise with Soceana</a>
-               
-         <div class="clr"></div>       
-</div>       
+</script> 
+    </div>
+  </div>
+</div>
+<div class="wrapper_mid_border"></div>
+<div class="wrapper_right_section">
+  <div class="right_section_inner">
+    <h1>SPONSORS</h1>
+    <?php echo $this->Sponsor->load_advertisements(); ?> </div>
+  <a href="javascript:void(0);" class="add_text">Advertise with Soceana</a>
+  <div class="clr"></div>
+</div>

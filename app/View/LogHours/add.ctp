@@ -1,6 +1,21 @@
 <style>
-
+@media only screen and (min-width : 320px) and (max-width : 479px)
+{
+	.signup_form ul label.error {
+    left: -3px;
+    position: absolute;
+    top: 380px;
+    width: 500px;}
+}
+@media only screen and (min-width : 568px) and (max-width : 599px)
+{
+	.signup_form ul label.error {
+    left: -100px;
+    top: 365px;
+}
+}
     label.error{ color: #FF0000 !important;font-size: 12px !important;margin: -3px 0 5px 185px; text-align: left !important;text-transform: none !important;width: 100% !important;}
+    
     ul label.error{left: -175px;position: absolute;top: 406px;width: 500px;}
     .vol_table .signup_form ul{position: relative;}
     #flashMessage{color: #FF0000;float: left;margin: 20px 0 0 236px;}

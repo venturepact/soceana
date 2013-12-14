@@ -609,4 +609,17 @@ class PagesController extends AppController {
 		}	
 		$this->set('pictures',$pictures);
 	}
+	
+	public function get_cities(){
+		$this->layout = 'ajax';
+		
+		$this->loadModel('City');
+		
+		$this->set('cities',$this->City->find('list',array('order'      => 'city_name',
+									      'fields'     => array('id','city_name'),
+									      'conditions' => array('state_id' => $this->request->data['state_id']),						     
+									   )
+						 ));
+		
+	}
 }
