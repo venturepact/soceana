@@ -651,25 +651,76 @@ class UsersController extends AppController{
     
 	/* @ function for personalize search page */
     public function personalize(){
+		
         $this->loadModel('SkillSet');
+		
+		$this->loadModel('State');
+		
          if($this->request->is('post') || $this->request->is('put')){
+			
            $skillset = implode('-',$this->request->data['SkillSet']['SkillSet']);
-           $this->redirect(array('action'=>'personalize_results',$skillset));
+		   
+		   // for country id
+		   if($this->request->data['User']['country']){
+			   
+			   $country = $this->request->data['User']['country'];
+			   
+		   } else $country = 0;
+		   
+		   // for state id
+		   if($this->request->data['User']['state']){
+			   
+			   $state = $this->request->data['User']['state'];
+			   
+		   } else $state = 0;
+		   
+		    // for city id
+		   if($this->request->data['User']['city']){
+			   
+			   $city = $this->request->data['User']['city'];
+			   
+		   } else $city = 0;		   
+		  
+           $this->redirect(array('action'=>'personalize_results',$skillset,$country,$state,$city));
          }        
         $this->set('skill_sets',$this->SkillSet->find('all',array('order'=>'id','fields'=>array('id','name','picture_url'))));
+		$this->set('states',$this->State->find('list',array('order'=>'id','fields'=>array('id','state_name'))));
     }
 	
 	/* @ function for personalize search results page */
-    public function personalize_results($skillset){
+    public function personalize_results($skillset,$country = 0, $state = 0 , $city = 0){
         
         $this->loadModel('SkillSet');
-        
+		
+        $this->loadModel('State');
+		
         $skillset = explode('-',$skillset);
         
         $limit = 6;
         
         $i = 0;
+		
+		// checking state id and binding with dropwdown selections if found other than Select State
+		if($state != 0){
+			$this->request->data['User']['state'] = $state;
+			
+			$this->loadModel('City');
+				
+			$this->set('cities',$this->City->find('list',array('order'      => 'city_name',
+											    			   'fields'     => array('id','city_name'),
+									                           'conditions' => array('state_id' => $state),						     
+									   )
+				));
+		} else {
+			$this->set('cities',array());		
+			
+		}
         
+		// checking city id and binding with dropwdown selections if found other than Select City
+		if($city != 0){			
+			$this->request->data['User']['city'] = $city;									
+		} 
+		
         foreach($skillset as $sk_set){
             $or[$i] = array('UserSkillSet.skill_set_id' => $sk_set);
             $i++;
@@ -688,7 +739,9 @@ class UsersController extends AppController{
             'limit' => $limit,           
             'conditions' => array(
                 'Or'=>$or,
-                'User.role'=>'organizations'
+                'User.role'=>'organizations',
+				'User.state'=> $state,
+				'User.city'=> $city
             ),            
             'contain' => 'UserSkillSet',
             'group'=>'User.id',
@@ -698,6 +751,8 @@ class UsersController extends AppController{
         $this->set('skillset',$skillset);
         $this->set('skillset_results',$this->paginate());
         $this->set('skill_sets',$this->SkillSet->find('all',array('order'=>'id','fields'=>array('id','name','picture_url'))));
+		$this->set('states',$this->State->find('list',array('order'=>'id','fields'=>array('id','state_name'))));
+		
     }	
 	/* @ function for gallery images */
 	public function gallery_images(){

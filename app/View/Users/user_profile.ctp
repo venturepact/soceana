@@ -59,10 +59,8 @@ $(function() {
 				   		$('#state_select').html('');						                        
                    }
               });
-	});
-		
+	});		
 });
-
 </script>
 <div class="top_heading">
   <h1>PROFILE</h1>
@@ -105,9 +103,9 @@ $(function() {
       <div class="clr"></div>
       <div class="mt20"></div>
       <div class="signup_form">
-        <label name="name">State :</label>
+        <label name="name">State : </label>
         <?php 
-					  echo $this->Form->input('state',array('type'=>'select','div'=>false,'label'=>false,'class'=>'text_style','options' => $states ,'empty' => 'Select State','default' => 'empty','id'=>'state'));?>
+		 echo $this->Form->input('state',array('type'=>'select','div'=>false,'label'=>false,'class'=>'text_style','options' => $states ,'empty' => 'Select State','default' => 'empty','id'=>'state'));?>
         <span id='state_select' style='float: right;'></span> </div>
       <div class="clr"></div>
       <div class="mt20"></div>

@@ -1,4 +1,22 @@
 <?php echo $this->Html->script('jquery.validate');?>
+<script language="javascript" type="text/javascript">
+$(function() {
+	$('#state').change(function(){
+	 $('#state_select').html('<img src="<?php echo $this->webroot;?>img/loading.gif" id="emp_img">');	 
+		 $.ajax({
+                   type: "POST",
+                   url: '<?php echo $this->webroot;?>' + 'pages/get_cities',
+                   data:{
+                        state_id : $('#state').val()                       
+                        },
+                   success: function(data) { 
+	     				$('#city_placeholder').html(data);                  
+				   		$('#state_select').html('');						                        
+                   }
+              });
+	});
+});
+</script>
 <style>
 @media only screen and (min-width : 320px) and (max-width : 479px) {
 .signup_form_blue ul.left_margin label.error {
@@ -26,9 +44,6 @@ ul.left_margin label.error {
 	left: 0px;
 }
 </style>
-<!--Upper Box-->
-
-<!--Upper Box End-->
 <div class="top_heading">
   <h1>PERSONALIZE YOUR VOLUNTEERING EXPERIENCE</h1>
   <h3>Filter organizations based upon skill sets they are looking for, and contact them to do more good.</h3>
@@ -37,16 +52,16 @@ ul.left_margin label.error {
   
   <!--table-->
   <div class="vol_table">
-    <div class="section"> <?php echo $this->Form->create('User',array('id'=>'personalize'));?>
+    <div class="section">
+	<?php echo $this->Form->create('User',array('id'=>'personalize'));?>
       <div class="signup_form_blue">
         <label name="name">SARCH SKILL SET :<br />
           <span>(choose maximum  3 )</span></label>
         <ul class="left_margin">
           <?php
-			//pr($temp_skills);die;
-                            $i = 1;
-			    $k = 1;
-                            foreach($skill_sets as $skill_set):			    
+			   $i = 1;
+			   $k = 1;
+               foreach($skill_sets as $skill_set):			    
 			   			 ?>
           <li <?php if($k == 1) echo 'class="first"';?>>
             <input type="checkbox" id="a<?php echo $i;?>" name="data[SkillSet][SkillSet][]" value="<?php echo $skill_set['SkillSet']['id'];?>"
@@ -77,12 +92,32 @@ ul.left_margin label.error {
         </ul>
       </div>
       <div class="clr"></div>
+      <div class="mt20"></div>
+      <div class="signup_form">
+        <label name="name">Country :</label>
+        <?php echo $this->Form->input('country',array('type'=>'select','div'=>false,'label'=>false,'class'=>'text_style','options' => array(1 =>'United States of America'),'id'=>'country'));?>
+     </div>
+      <div class="clr"></div>
+      <div class="mt20"></div>
+      <div class="signup_form">
+        <label name="name">State : </label>
+        <?php 
+		 echo $this->Form->input('state',array('type'=>'select','div'=>false,'label'=>false,'class'=>'text_style','options' => $states ,'empty' => 'Select State','default' => 'empty','id'=>'state'));?>
+        <span id='state_select' style='float: right;'></span>
+       </div>
+      <div class="clr"></div>
+      <div class="mt20"></div>
+      <div class="signup_form" id='city_placeholder'>
+        <label name="name">City :</label>
+        <?php 
+		echo $this->Form->input('city',array('type'=>'select','div'=>false,'label'=>false,'class'=>'text_style','options' => array(),'empty' => 'Select City','default' => 'empty','id'=>'city'));?>
+      </div>
       <div class="contact_form">
         <div class="submit_button1">
           <input type="submit" class="srch_btn" value="" />
         </div>
       </div>
-      <?php echo $this->Form->end();?> 
+   <?php echo $this->Form->end();?> 
       <script type='text/javascript' language='javascript'>
 $().ready(function() {            
         // validate signup form on keyup and submit
