@@ -32,7 +32,7 @@ class PagesController extends AppController {
  */
 	public function beforeFilter() {		
 		parent::beforeFilter();
-		$this->Auth->allow('vision','management','faq','contact','about','messages_delete','send_message','send_message2');
+		$this->Auth->allow('vision','management','faq','contact','about','messages_delete','send_message','send_message2','get_cities');
 	}
 	
 	function _getHours($userType = 'user'){

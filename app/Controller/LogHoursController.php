@@ -13,12 +13,19 @@ class LogHoursController extends AppController {
     public function add(){
          $this->loadModel('ServiceType');
          $this->loadModel('Category');
+		 $this->loadModel('State');
          if($this->request->is('post')){
-            // pr($this->request->data);die;
+            
             $this->request->data['LogHour']['user_id'] = $this->Session->read('User.id');
 			// for conversion of normal date to mysql date          
             $this->request->data['LogHour']['job_date'] = date('Y-m-d',strtotime(str_replace('-', '/', $this->request->data['LogHour']['job_date'])));
 	    $this->request->data['LogHour']['hours'] = $this->request->data['LogHour']['hours'] .':'.$this->request->data['LogHour']['minutes'];
+		  
+		  if($this->request->data['User']['city']){
+			  $this->request->data['LogHour']['city'] = $this->request->data['User']['city'];
+			  unset($this->request->data['User']['city']);
+		  }
+		  
 		  
 			
             if($this->LogHour->save($this->request->data)){
@@ -60,6 +67,7 @@ class LogHoursController extends AppController {
            
         $this->set('service_types',$this->ServiceType->find('all',array('order'=>'id','fields'=>array('id','name','picture_url'))));
         $this->set('categories',$this->Category->find('list',array('order'=>'id','fields'=>array('id','category_name'))));      
+		$this->set('states',$this->State->find('list',array('order'=>'id','fields'=>array('id','state_name'))));
     }
 	
 	public function _remove_images($image_name){
@@ -415,8 +423,6 @@ class LogHoursController extends AppController {
 			return $temp;
 			$this->autoRender = false;     
 	}
-	
-	
     
      
     function OrganizationAgeChartData(){        
@@ -567,11 +573,26 @@ class LogHoursController extends AppController {
         $this->request->data['LogHour']['service_type_id'] = $record['LogHour']['service_type_id'];
         $this->request->data['LogHour']['status'] = $record['LogHour']['status'];
         $this->request->data['LogHour']['category_id'] = $record['LogHour']['category_id'];
+		if( $record['LogHour']['state'] != 0 ){
+			$this->request->data['LogHour']['state'] = $record['LogHour']['state'];
+			$this->loadModel('City');
+			$this->set('cities',$this->City->find('list',array('order'      => 'city_name',
+											    				   'fields'     => array('id','city_name'),
+									                               'conditions' => array('state_id' => $this->request->data['LogHour']['state']),						     
+									   )
+				));
+			if( $record['LogHour']['city'] != 0 ){	
+				$this->request->data['LogHour']['city'] = $record['LogHour']['city'];
+			}
+		}
+		else{
+			$this->set('cities',array());
+		}
 		
         $this->loadModel('ServiceType');
-		$this->loadModel('Category');
-		
+		$this->loadModel('Category');		
 		$this->loadModel('LogHourImage');
+		$this->loadModel('State');
 		
 		//getting temporary images and removing temp images and their database record
 		$this->set('log_images', $this->LogHourImage->find('all',array(
@@ -579,7 +600,7 @@ class LogHoursController extends AppController {
 														'fields'=> array('picture_url')
 													 )));
 		$this->set('categories',$this->Category->find('list',array('order'=>'id','fields'=>array('id','category_name'))));	
-        $this->set('service_types',$this->ServiceType->find('all',array('order'=>'id','fields'=>array('id','name','picture_url'))));        
+        $this->set('service_types',$this->ServiceType->find('all',array('order'=>'id','fields'=>array('id','name','picture_url'))));        $this->set('states',$this->State->find('list',array('order'=>'id','fields'=>array('id','state_name'))));
         
     }
     

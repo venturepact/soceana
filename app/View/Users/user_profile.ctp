@@ -247,7 +247,7 @@ $().ready(function() {
                          required: true,						 
                          }, 
 						 "data[User][location]": {                         
-                          /*'alpha':true,*/
+                          required: true,
                           minlength:2,
                           maxlength:60
                          },						 

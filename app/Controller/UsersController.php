@@ -105,6 +105,7 @@ class UsersController extends AppController{
     public function add($type = 'user'){
         $this->layout = 'default2';
         $this->loadModel('ServiceType');
+		$this->loadModel('State');
         if($this->request->is('post')){
             
             //pr($this->request->data);die;
@@ -135,11 +136,7 @@ class UsersController extends AppController{
 					if($this->Auth->login()){
 						 $this->Session->write('User',$this->Auth->user()); 
 						 $this->redirect(array('controller'=>'pages','action'=>'display'));
-					}
-                    /* Older functionality commented
-                    $this->Session->setFlash(__('User details has been saved successfully'));
-                    
-					$this->redirect(array('action'=>'login'));*/
+					}                    
                 }
                 else{
                     $this->Session->setFlash(__('User details could not be saved. Please try again.'));    
@@ -147,7 +144,7 @@ class UsersController extends AppController{
             }
         }
         $this->set('service_types',$this->ServiceType->find('all',array('order'=>'id','fields'=>array('id','name','picture_url'))));
-        //$this->set('service_type',$this->ServiceType->find('list',array('order'=>'id')));
+        $this->set('states',$this->State->find('list',array('order'=>'id','fields'=>array('id','state_name'))));
         $this->set('type',$type);
     }
     

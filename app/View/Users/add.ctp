@@ -446,6 +446,24 @@ $().ready(function() {
  }
  else{
 ?>
+<script type="text/javascript">
+$(function() {
+	$('#state').change(function(){
+	 $('#state_select').html('<img src="<?php echo $this->webroot;?>img/loading.gif" id="emp_img">');	 
+		 $.ajax({
+                   type: "POST",
+                   url: '<?php echo $this->webroot;?>' + 'pages/get_cities',
+                   data:{
+                        state_id : $('#state').val()                       
+                        },
+                   success: function(data) { 
+	     				$('#city_placeholder').html(data);                  
+				   		$('#state_select').html('');						                        
+                   }
+              });
+	});
+});
+</script>
 <style>ul li label.error{left:54px;position: absolute; top: 574px;width: 500px;}</style>
 <style>
     label.error{ color: #FF0000;font-size: 12px;margin: -3px 0 5px 190px;text-align: left;text-transform: none;width: 100%;}
@@ -474,8 +492,22 @@ $().ready(function() {
                         <?php echo $this->Form->input('last_name',array('type'=>'text','div'=>false,'label'=>false,'maxlength'=>'50','class'=>'text_style'));?>
                     </div>
                     <div class="contact_form">
-                    	<label name="name">Location</label>
+                    	<label name="name">Address</label>
                         <?php echo $this->Form->input('location',array('type'=>'text','div'=>false,'label'=>false,'maxlength'=>'60','class'=>'text_style'));?>
+                    </div> 
+                     <div class="contact_form">
+                    	<label name="name">Country :</label>
+        				<?php echo $this->Form->input('country',array('type'=>'select','div'=>false,'label'=>false,'class'=>'text_style','options' => array(1 =>'United States of America'),'id'=>'country'));?>
+                    </div> 
+                     <div class="contact_form">
+                    	 <label name="name">State : </label>
+        				<?php echo $this->Form->input('state',array('type'=>'select','div'=>false,'label'=>false,'class'=>'text_style','options' => $states ,'empty' => 'Select State','default' => 'empty','id'=>'state'));?>
+                        <span id='state_select' style='margin-left:10px;'></span> 
+                    </div> 
+                     <div class="contact_form" id='city_placeholder'>
+                    	 <label name="name">City :</label>
+        <?php 
+					  echo $this->Form->input('city',array('type'=>'select','div'=>false,'label'=>false,'class'=>'text_style','options' => array() ,'empty' => 'Select City','default' => 'empty','id'=>'city'));?>
                     </div>                  
                    <div class="contact_form">
                     	<label name="name">PASSWORD:</label>
@@ -573,9 +605,15 @@ $().ready(function() {
                           maxlength:50
                          },
                          "data[User][location]": {                         
-                          'alpha':true,
+                          required:true,
                           minlength:2,
                           maxlength:60
+                         },
+						 "data[User][state]": {                         
+                          required: true,
+                         },
+						 "data[User][city]": {                         
+                         required: true,
                          },
                          "data[User][password]": {
                          required: true,
@@ -614,10 +652,16 @@ $().ready(function() {
                             maxlength:'Please enter maximum 15 characters'
                          },
                          "data[User][location]": {
-                            required: 'Please enter your password',
+                            required: 'Please enter your location',
                             minlength:'Please enter atleast 2 characters',
                             maxlength:'Please enter maximum 60 characters'
-                         },                         
+                         }, 
+						  "data[User][state]": {
+                            required: 'Please select your state'                         
+                         },
+						 "data[User][city]": {
+                            required: 'Please enter your city'
+                         },                        
                         "data[User][confirm_password]": {
                             required: 'Please enter your confirm password',
                             minlength: 'Your password must be at least 5 characters long',
