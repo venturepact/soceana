@@ -700,6 +700,7 @@ class UsersController extends AppController{
         
         $i = 0;
 		
+		$conditions = array();
 		// checking state id and binding with dropwdown selections if found other than Select State
 		if($state != 0){
 			$this->request->data['User']['state'] = $state;
@@ -711,6 +712,8 @@ class UsersController extends AppController{
 									                           'conditions' => array('state_id' => $state),						     
 									   )
 				));
+				$conditions['User.state'] = $state;
+				
 		} else {
 			$this->set('cities',array());		
 			
@@ -718,7 +721,8 @@ class UsersController extends AppController{
         
 		// checking city id and binding with dropwdown selections if found other than Select City
 		if($city != 0){			
-			$this->request->data['User']['city'] = $city;									
+			$this->request->data['User']['city'] = $city;
+			$conditions['User.city'] = $city;									
 		} 
 		
         foreach($skillset as $sk_set){
@@ -731,7 +735,11 @@ class UsersController extends AppController{
         
         $this->User->bindModel(
                                array(
-                                     'hasOne' => array('UserSkillSet'),                                    
+                                     'hasOne' => array('UserSkillSet'), 
+									 'belongsTo' => array(
+										'State' =>  array('className' => 'State','joinTable' => 'states','foreignKey' => 'state'),
+										'City' =>   array('className' => 'City','joinTable' => 'cities','foreignKey' => 'city')
+										)                                  
                                      ),false
                                );
 
@@ -740,14 +748,14 @@ class UsersController extends AppController{
             'conditions' => array(
                 'Or'=>$or,
                 'User.role'=>'organizations',
-				'User.state'=> $state,
-				'User.city'=> $city
+				$conditions
             ),            
             'contain' => 'UserSkillSet',
             'group'=>'User.id',
             'order'=>'SUM( UserSkillSet.rate ) DESC',
         );       
        
+	   // pr($this->paginate());
         $this->set('skillset',$skillset);
         $this->set('skillset_results',$this->paginate());
         $this->set('skill_sets',$this->SkillSet->find('all',array('order'=>'id','fields'=>array('id','name','picture_url'))));

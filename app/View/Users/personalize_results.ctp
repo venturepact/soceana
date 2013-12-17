@@ -134,8 +134,8 @@ $().ready(function() {
           <div class="r_left_section">
             <div class="r_inner_section">
               <h3><?php echo $sk_result['User']['organization_name'];?></h3>
-              <h5><?php echo $sk_result['User']['location'];?><br />
-                <br />
+              <h5><?php if($sk_result['User']['location'])echo $sk_result['User']['location'].' , ';?><br />
+              <?php if($sk_result['City']['city_name']) echo $sk_result['City']['city_name'].' , ';?> <?php if($sk_result['State']['state_name']) echo $sk_result['State']['state_name'].' , ';?><br />              
                 <?php echo $sk_result['User']['email_id'];?></h5>
             </div>
             <a href="javascript:void(0);" class="long_blue_b" onclick="load_message_to('<?php echo $sk_result['User']['id'];?>')">SEND A MESSAGE THROUGH SOCEANA <img src="<?php echo $this->webroot;?>img/b_butt_arrow.png"  alt="" class="butt_icon" /></a> </div>
