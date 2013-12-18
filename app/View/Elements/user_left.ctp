@@ -4,7 +4,7 @@
 		<a href="#" class="search_icon_outer" > </a>
 	</div>--> 
 	<a href="<?php echo $this->webroot;?>" class="text_tab"><h2>ANALYTICS</h2></a>
-	<a href="<?php echo $this->webroot;?>loghours/add" class="text_tab"><h2>LOG HRS.</h2></a>
+	<a href="<?php echo $this->webroot;?>log_hours/add" class="text_tab"><h2>LOG HRS.</h2></a>
 	<a href="javascript:void(0);" class="text_tab" onclick="show()" ><h2>MESSAGES</h2></a>
 	<a href="<?php echo $this->webroot;?>users/change_password" class="text_tab"><h2>CHANGE PWD</h2></a>
     <a href="<?php echo $this->webroot;?>users/personalize" class="text_tab"><h2>PERSONALIZE</h2></a>

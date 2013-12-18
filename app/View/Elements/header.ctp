@@ -27,9 +27,9 @@ $(document).ready(function(){
                         <ul class="top_nav">
                    <li><a href="<?php echo $this->webroot;?>">ANALYTICS</a></li>
                    <li><a href="<?php echo $this->webroot;?><?php
-                      if($this->Session->read('User.role') == 'organizations')echo 'loghours/review_hours';
+                      if($this->Session->read('User.role') == 'organizations')echo 'log_hours/review_hours';
 					  elseif($this->Session->read('User.role') == 'companies')echo '#';
-                      else echo 'loghours/add';
+                      else echo 'log_hours/add';
                                 ?>">
 					<?php if($this->Session->read('User.role') == 'organizations')echo 'REVIEW HOURS';
 					else echo 'LOG HOURS';?></a></li>
@@ -60,7 +60,7 @@ $(document).ready(function(){
                   <?php
 				   if($this->Session->read('User.role') == 'organizations'){ ?>
                   <li><a href="<?php echo $this->webroot;?>">ANALYTICS</a></li>
-                  <li><a href="<?php echo $this->webroot;?>loghours/review_hours">REVIEW HRS.</a></li>
+                  <li><a href="<?php echo $this->webroot;?>log_hours/review_hours">REVIEW HRS.</a></li>
                   <li><a onclick="show()" href="javascript:void(0);">MESSAGES</a></li>
                   <li><a href="<?php echo $this->webroot;?>users/change_password">CHANGE PWD</a></li>                 
                   <li><a href="<?php echo $this->webroot;?>pages/gallery">GALLERY</a></li>                 
@@ -72,14 +72,14 @@ $(document).ready(function(){
 				   ?>
                   
                    <li><a href="<?php echo $this->webroot;?>">ANALYTICS</a></li>
-                 <!-- <li><a href="<?php //echo $this->webroot;?>loghours/add">LOG HRS.</a></li>-->
+                 <!-- <li><a href="<?php //echo $this->webroot;?>log_hours/add">LOG HRS.</a></li>-->
                   <li><a onclick="show()" href="javascript:void(0);">MESSAGES</a></li>
                   <li><a href="<?php echo $this->webroot;?>users/change_password">CHANGE PWD</a></li>                   
                   <li><a href=" <?php echo $this->webroot;?>pages/gallery">GALLERY</a></li>                 
                   <li><a href="<?php echo $this->webroot;?>users/company_profile">PROFILE</a></li>
                   <?php } else{?>
                   <li><a href="<?php echo $this->webroot;?>">ANALYTICS</a></li>
-                  <li><a href="<?php echo $this->webroot;?>loghours/add">LOG HRS.</a></li>
+                  <li><a href="<?php echo $this->webroot;?>log_hours/add">LOG HRS.</a></li>
                   <li><a onclick="show()" href="javascript:void(0);">MESSAGES</a></li>
                   <li><a href="<?php echo $this->webroot;?>users/change_password">CHANGE PWD</a></li> 
                   <li><a href="<?php echo $this->webroot;?>users/personalize">PERSONALIZE</a></li>
@@ -109,7 +109,7 @@ else{
    <!-- <div class="iphone_nav_outer"><span>Navigation</span>
     <ul class="iphone_nav" >
       <li><a  href="/soceana/">ANALYTICS</a></li>
-      <li><a  href="/soceana/loghours/review_hours">REVIEW HRS.</a></li>
+      <li><a  href="/soceana/log_hours/review_hours">REVIEW HRS.</a></li>
       <li><a  onclick="show()" href="javascript:void(0);">MESSAGES</a></li>
       <li><a  href="/soceana/users/change_password">CHANGE PWD</a></li> 
       <li><a  href="/soceana/users/personalize">PERSONALIZE</a></li>

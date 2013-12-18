@@ -1,5 +1,5 @@
 <?php $array = $this -> requestAction(array(
- 'controller' => 'loghours',
+ 'controller' => 'log_hours',
  'action' => 'volunteerChartData'
 ));
 ?>

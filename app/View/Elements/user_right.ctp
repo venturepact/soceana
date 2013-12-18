@@ -21,7 +21,7 @@
 		?></span></div>
                 <a href="<?php echo $this->webroot;?>users/user_profile#u_status" class="right_text_tab_small small_font">CHANGE YOUR STATUS</a>
 				<?php
-				 if(($this->params['controller'] == 'pages' && $this->params['action'] == 'display') || ( $this->params['controller'] == 'loghours' && $this->params['action'] == 'add')){
+				 if(($this->params['controller'] == 'pages' && $this->params['action'] == 'display') || ( $this->params['controller'] == 'log_hours' && $this->params['action'] == 'add')){
 			     ?>
                 <div class="right_img_outer">
                <?php		   	 
