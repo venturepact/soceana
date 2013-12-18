@@ -13,7 +13,7 @@ $(function() {
 		
 	}
 	else{
-		var new_url = "<?php echo $this->webroot;?>" + "loghours/getOrganizationEmail/" + organization_id;
+		var new_url = "<?php echo $this->webroot;?>" + "log_hours/getOrganizationEmail/" + organization_id;
 		$('#org_select').html('<img src="<?php echo $this->webroot;?>img/loading.gif">');	
 		$.ajax({
 			type: "POST",
@@ -170,12 +170,12 @@ $(function() {
                         if($this->request->data['LogHour']['status'] == 0)
                         {
                         ?>
-          <a href="<?php echo $this->webroot;?>loghours/approve_hours/<?php echo $this->request->data['LogHour']['id'];?>" class="green_b" id='approve_hours'>CONFIRM HOURS<img src="<?php echo $this->webroot;?>img/butt_arrow.png"  alt="" class="butt_icon" /></a> <a href="<?php echo $this->webroot;?>loghours/reject_hours/<?php echo $this->request->data['LogHour']['id'];?>" class="red_b" id='reject_hours'>REJECT</a>
+          <a href="<?php echo $this->webroot;?>log_hours/approve_hours/<?php echo $this->request->data['LogHour']['id'];?>" class="green_b" id='approve_hours'>CONFIRM HOURS<img src="<?php echo $this->webroot;?>img/butt_arrow.png"  alt="" class="butt_icon" /></a> <a href="<?php echo $this->webroot;?>log_hours/reject_hours/<?php echo $this->request->data['LogHour']['id'];?>" class="red_b" id='reject_hours'>REJECT</a>
           <?php    
                         }
                         ?>
           <div class="clr"></div>
-          <div class="gray_link"><a href="<?php echo $this->webroot;?>loghours/review_hours" >or Go Back</a></div>
+          <div class="gray_link"><a href="<?php echo $this->webroot;?>log_hours/review_hours" >or Go Back</a></div>
         </div>
       </div>
       <?php echo $this->Form->end();?> </div>

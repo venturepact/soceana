@@ -49,12 +49,12 @@
 	foreach($loghours as $log_hour){
     ?>                
     <div class="table_head_light">
-        <div class="t_col_1 box_border cursor_grid" onclick="document.location.href='<?php echo $this->webroot;?>loghours/confirm_hours/<?php echo $log_hour['LogHour']['id'];?>';"><span class="gray_text"><?php echo $log_hour['Category']['category_name'];?></span></div>
-        <div class="t_col_2 box_border cursor_grid" onclick="document.location.href='<?php echo $this->webroot;?>loghours/confirm_hours/<?php echo $log_hour['LogHour']['id'];?>';"><span class="gray_text"><?php echo $log_hour['ServiceType']['name'];?></span></div>
-        <div class="t_col_3 box_border cursor_grid" onclick="document.location.href='<?php echo $this->webroot;?>loghours/confirm_hours/<?php echo $log_hour['LogHour']['id'];?>';"><span class="gray_text"><?php echo $log_hour['User']['first_name'].' '.$log_hour['User']['last_name'];?></span></div>
-        <div class="t_col_4 box_border cursor_grid" onclick="document.location.href='<?php echo $this->webroot;?>loghours/confirm_hours/<?php echo $log_hour['LogHour']['id'];?>';"><span class="gray_text"><?php echo $log_hour['LogHour']['hours'];?></span></div>
-        <div class="t_col_5 box_border cursor_grid" onclick="document.location.href='<?php echo $this->webroot;?>loghours/confirm_hours/<?php echo $log_hour['LogHour']['id'];?>';"><span class="gray_text"><?php echo date("m-d-Y", strtotime($log_hour['LogHour']['job_date']));?></span></div>
-        <div class="t_col_6 box_border_right cursor_grid" onclick="document.location.href='<?php echo $this->webroot;?>loghours/confirm_hours/<?php echo $log_hour['LogHour']['id'];?>';">
+        <div class="t_col_1 box_border cursor_grid" onclick="document.location.href='<?php echo $this->webroot;?>log_hours/confirm_hours/<?php echo $log_hour['LogHour']['id'];?>';"><span class="gray_text"><?php echo $log_hour['Category']['category_name'];?></span></div>
+        <div class="t_col_2 box_border cursor_grid" onclick="document.location.href='<?php echo $this->webroot;?>log_hours/confirm_hours/<?php echo $log_hour['LogHour']['id'];?>';"><span class="gray_text"><?php echo $log_hour['ServiceType']['name'];?></span></div>
+        <div class="t_col_3 box_border cursor_grid" onclick="document.location.href='<?php echo $this->webroot;?>log_hours/confirm_hours/<?php echo $log_hour['LogHour']['id'];?>';"><span class="gray_text"><?php echo $log_hour['User']['first_name'].' '.$log_hour['User']['last_name'];?></span></div>
+        <div class="t_col_4 box_border cursor_grid" onclick="document.location.href='<?php echo $this->webroot;?>log_hours/confirm_hours/<?php echo $log_hour['LogHour']['id'];?>';"><span class="gray_text"><?php echo $log_hour['LogHour']['hours'];?></span></div>
+        <div class="t_col_5 box_border cursor_grid" onclick="document.location.href='<?php echo $this->webroot;?>log_hours/confirm_hours/<?php echo $log_hour['LogHour']['id'];?>';"><span class="gray_text"><?php echo date("m-d-Y", strtotime($log_hour['LogHour']['job_date']));?></span></div>
+        <div class="t_col_6 box_border_right cursor_grid" onclick="document.location.href='<?php echo $this->webroot;?>log_hours/confirm_hours/<?php echo $log_hour['LogHour']['id'];?>';">
             <?php
             switch($log_hour['LogHour']['status']){
                

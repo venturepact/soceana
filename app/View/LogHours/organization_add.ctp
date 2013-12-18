@@ -18,7 +18,7 @@ $(function() {
 		alert('Please select volunteer first');		
 	}
 	else{
-		var new_url = "<?php echo $this->webroot;?>" + "loghours/getVolunteerEmail/" + volunteer_id;
+		var new_url = "<?php echo $this->webroot;?>" + "log_hours/getVolunteerEmail/" + volunteer_id;
 		$('#volunteer_select').html('<img src="<?php echo $this->webroot;?>img/loading.gif">');
 		$.ajax({
 			type: "POST",

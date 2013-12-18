@@ -44,7 +44,7 @@ $(function() {
 		
 	}
 	else{
-		var new_url = "<?php echo $this->webroot;?>" + "loghours/getOrganizationEmail/" + organization_id;
+		var new_url = "<?php echo $this->webroot;?>" + "log_hours/getOrganizationEmail/" + organization_id;
 		$('#org_select').html('<img src="<?php echo $this->webroot;?>img/loading.gif">');	
 		$.ajax({
 			type: "POST",
@@ -466,7 +466,7 @@ $().ready(function() {
 	
 		if (imgcount > 0) {
 			$.ajax({
-				url: '<?php echo $this->webroot;?>' + "loghours/add_images",
+				url: '<?php echo $this->webroot;?>' + "log_hours/add_images",
 				type: "POST",
 				data: formdata,
 				processData: false,
