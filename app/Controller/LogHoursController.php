@@ -510,7 +510,7 @@ class LogHoursController extends AppController {
 				
 				if($start_count > $count){
 					
-					$this->redirect('/loghours/review_hours');
+					$this->redirect('/log_hours/review_hours');
 				}
 			 
 			}
