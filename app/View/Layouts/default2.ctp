@@ -35,7 +35,7 @@ if($this->Session->read('User.role')==''){
 	<?php echo $this->fetch('content');?>
 	</div></div>
 <?php echo $this->element('footer');?>
-<script type="text/javascript">
+<!--<script type="text/javascript">
    var _usersnapconfig = {
        apiKey: '6365b0be-a9d7-4f13-a288-c7ec7afe03fd',
        valign: 'bottom',
@@ -53,6 +53,6 @@ if($this->Session->read('User.role')==''){
        var x = document.getElementsByTagName('head')[0];
        x.appendChild(s);
    })();
-</script>
+</script>-->
 </body>
 </html>

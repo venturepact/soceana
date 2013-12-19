@@ -237,7 +237,49 @@ label.error {font-size: 14px;margin: 3px 0 5px 190px;}
 #forgot_message {font-size: 18px;margin: 0 0 1% 10%;}
 .text_outer_border {border: 1px solid #CCCCCC;}
 input { color: #999999;font-size: 19px; height: 33px;}
-.t_col_1 {width: 21%;}
+.t_col_1 {width: 22%;}
+
+.vol_table .signup_form textarea {
+    width: 306px;
+}
+.vol_table .signup_form textarea {
+    background-color: #EBF6FC;
+    border: 1px solid #999999;
+    border-radius: 3px;
+    height: 150px;
+    width: 350px;
+}
+.signup_form textarea {
+    background-color: #EBF6FC;
+    border: 1px solid #999999;
+    border-radius: 3px;
+    height: 150px;
+    width: 350px;
+}
+.text_style {
+    color: #7D7D7D;
+    font-family: 'Conv_FuturaLT',Sans-Serif;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+.section, .profile_content_main {
+    font-family: 'Conv_FuturaLT',Sans-Serif;
+    font-size: 16px;
+    line-height: 25px;
+}
+body {
+    color: #333333;
+    font-family: 'Conv_FuturaLT';
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 18px;
+}
+.space1 {
+    margin-left: 6%;
+    margin-right: 7%;
+}
 .t_col_2 { width: 175px;}
 #save_thumb {
     border: none;
@@ -348,7 +390,7 @@ ul#skill_set_select label.error {
 }
 .gallery_left_img img {   
 	height:auto; 
-    width: 100%;
+    width: 100%; height:600px;
 }
 .gallery_right {
     width: 41%; margin-left:42px;
@@ -1948,7 +1990,7 @@ h6 {
 	height: 120px;
 }
 .vol_table .signup_form textarea {
-    width: 420px;
+    width: 298px;
 }
 .vol_table .signup_form label span {
     font-size: 9px;
@@ -1989,7 +2031,7 @@ h6 {
     font-size: 9px;
 }
 label.error {
-    margin: -3px 0 5px 100px !important;
+    margin: -3px 0 5px 144px !important; font-size:11px !important;
 }
 ul label.error {
     left: -60px;
@@ -2270,6 +2312,9 @@ ul label.error {
 }	
 @media only screen and (min-width : 480px) and (max-width : 599px)
 {
+	.contact_form select {
+    width: 293px !important;
+}
 .login_container {
     background-image: url("../img/iphone-landscape_img.jpg");
 }
@@ -3076,6 +3121,9 @@ height:auto;
 /* 320*480 screens start  */
 @media only screen and (min-width : 320px) and (max-width : 479px)
 {
+	.contact_form select {
+    width: 289px !important;
+}
 .logo {
     height: 20%;
     margin-left: -8%;
@@ -3443,7 +3491,8 @@ h6 {
     width: 90%;
 }
 .vol_table .signup_form input[type="text"], .vol_table .signup_form select {
-    width: 285px;
+   margin-right: 5px;
+    width: 259px;
 }
 .vol_table .signup_form textarea {
     width: 288px;
@@ -3490,7 +3539,7 @@ h6 {
     font-size: 9px;
 }
 label.error {
-    margin: -3px 0 5px 100px !important;
+    margin: -3px 0 5px 3px !important;
 }
 ul label.error {
     left: -60px;

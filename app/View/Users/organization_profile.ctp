@@ -2,13 +2,23 @@
 @media only screen and (min-width : 320px) and (max-width : 479px) {
 .signup_form_blue ul#type label.error {
 	left: -175px !important;
-	top: 1155px !important;
+	top: 1360px !important;
+}
+ul label.error {	
+	left: -175px !important;	
+	top: 1790px !important ;
+	
 }
 }
 @media only screen and (min-width : 568px) and (max-width : 599px) {
 .signup_form_blue ul#type label.error {
 	left: -8px !important;
-	top: 955px !important;
+	top: 1064px !important; font-size:12px !important;
+}
+ul label.error {	
+	left: -8px !important;	
+	top: 1465pxpx !important ;
+	
 }
 }
 label.error {
@@ -24,7 +34,7 @@ ul#type label.error {
 	left: 0px !important;
 	position: absolute !important;
 	text-transform: none !important;
-	top: 935px !important;
+	top: 1065px ;
 	width: 100% !important;
 }
 #flashMessage {
@@ -81,10 +91,10 @@ label.error {
 }
 ul label.error {
 	color: #FF0000 !important;
-	left: -378px !important;
+	left: 3px ;
 	position: absolute !important;
 	text-transform: none !important;
-	top: 831px !important;
+	top: 1465px  ;
 	width: 100% !important;
 }
 #flashMessage {
