@@ -1,5 +1,5 @@
 <style>
-#save_thumb{border: 2px solid;border-radius: 7px 7px 7px 7px;color: #FFFFFF;height: 35px;margin: 20px 102px;width: 114px;}
+/*#save_thumb{border: 2px solid;border-radius: 7px 7px 7px 7px;color: #FFFFFF;height: 35px;margin: 20px 102px;width: 114px;}*/
 .blue{background-color:#04699A;}
 .orange{background-color: #FF8000;}
 </style>

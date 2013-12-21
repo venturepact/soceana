@@ -189,7 +189,7 @@
 .bx-wrapper .bx-pager, .bx-wrapper .bx-controls-auto {bottom: 16px;}
 .main_text p {font-size: 46px;margin-left: 9px;margin-top: -2px;}
 .news_text {font-size: 16px;line-height: 32px;min-height: 35px;}
-.gray_text {font-size: 13px;}
+.gray_text {font-size: 11px;}
 .star_view_outer h6 {color: #FFFFFF;font-size: 15px;}
 vol_table .table_footer_white {font-size: 14px;}
 h2 {font-size: 23px;}
@@ -203,9 +203,9 @@ h2 {font-size: 23px;}
 .orange_butt {font-size: 16px; font-weight:normal;}
 .add_text {font-size: 16px;width: 162px;}
 .open1 img {width: 81px !important;}
-.section .popbox_c {left: 91px;top: 221px;}
+.section .popbox_c {left: 87px; top: 219px;}
 .section .popbox { right: 82px; top: 220px;}
-.section .popbox_n {left: 213px;top: 607px;width: 530px !important;}
+.section .popbox_n {left: 208px;top: 603px;width: 530px !important;}
 .open img {width: 81px !important;}  
 .open2 img {width: 81px !important;}
 p {font-size: 18px; line-height: 34px; text-align: justify;}
@@ -220,7 +220,7 @@ p {font-size: 18px; line-height: 34px; text-align: justify;}
 .contact_form .submit_button {font-size: 17px; margin-left: 233px;}
 .gray_text1 {font-size: 15px;}
 .time_outer { background:#1fbba6 url("../img/time_outer_bg.png") repeat-x top;}
-.t_col_6 { padding-top:6px; height:87%;}
+.t_col_6 { padding-top:6px; height:87%; width:8.3%;}
 .left_top_section_p .main_text {width: 38%;}
 .left_top_section_p .news_text {padding: 2%; width: 53%;}
 .sponser_inner span {font-size: 14px;}
@@ -277,8 +277,8 @@ body {
     line-height: 18px;
 }
 .space1 {
-    margin-left: 6%;
-    margin-right: 7%;
+    margin-left: 4%;
+    margin-right: 3%;
 }
 .t_col_2 { width: 175px;}
 #save_thumb {
@@ -352,7 +352,7 @@ height: 183px;
     line-height: 23px;
 }
 .sponser_inner span textarea{ width:100%; font-size:18px; }
-#add_log_hr label.error{ margin-left:270px; font-size:16px;}
+#add_log_hr label.error{ margin-left:256px; font-size:16px;}
 .menagment_head {
     font-size: 23px;
 }
@@ -371,7 +371,7 @@ height: 183px;
 }
 ul#skill_set_select label.error {
     left: 70px !important;
-    top: 1373px !important;
+    top: 1529px !important;
 }
 .fields {    
     margin-left: 68px;
@@ -406,7 +406,7 @@ ul#skill_set_select label.error {
 
 /* start changes@20nov */
 
-.right_img_outer{ width:100%;height: 864px; margin-bottom: 1px; overflow: hidden; }
+.right_img_outer{ width:100%;height: 938px; margin-bottom: 1px; overflow: hidden; }
 .gallery_img1{ width:240px; }
 .gallery_img2{ width:240px; }
 .gallery_img3{ width:240px;}
