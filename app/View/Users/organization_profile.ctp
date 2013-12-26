@@ -1,4 +1,16 @@
 <style>
+@media only screen and (min-width:1824px) 
+{
+	.signup_form_blue ul#type label.error {
+          color: #FF0000 !important;
+          left: 71px !important;
+          position: absolute !important;
+          text-transform: none !important;
+          top: 1134px;
+          width: 100% !important;
+      } 
+
+}
 @media only screen and (min-width : 320px) and (max-width : 479px) {
 .signup_form_blue ul#type label.error {
 	left: -175px !important;
@@ -31,7 +43,7 @@ label.error {
 }
 ul#type label.error {
 	color: #FF0000 !important;
-	left: 0px !important;
+	left: 0px ;
 	position: absolute !important;
 	text-transform: none !important;
 	top: 1065px ;
