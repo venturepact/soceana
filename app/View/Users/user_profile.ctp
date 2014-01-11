@@ -1,4 +1,30 @@
 <style>
+@media only screen and (min-width : 320px) and (max-width : 479px)
+{
+.vol_table .signup_form ul label.error {
+	top: 370px !important;
+	left: -175px !important;
+}
+@media only screen and (min-width : 320px) and (max-width : 567px)
+{
+.vol_table .signup_form ul label.error {
+	top: 370px !important;
+	left: -175px !important;
+}
+@media only screen and (min-width : 480px) and (max-width : 567px)
+{
+.vol_table .signup_form ul label.error {
+	top: 370px !important;
+	left: -175px !important;
+}
+}
+@media only screen and (min-width : 568px) and (max-width : 599px)
+{
+.vol_table .signup_form ul label.error {
+	left: -175px !important;
+	top: 370px !important;
+}
+}
 label.error {
 	color: #FF0000 !important;
 	font-size: 12px !important;

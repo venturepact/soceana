@@ -20,13 +20,13 @@ $(function() {
 <style>
 @media only screen and (min-width : 320px) and (max-width : 479px) {
 .signup_form_blue ul.left_margin label.error {
-	left: -88px;
+	left: 8px;
 	top: 270px;
 }
 }
 @media only screen and (min-width : 568px) and (max-width : 599px) {
 .signup_form_blue ul.left_margin label.error {
-	left: -95px;
+	left: 5px;
 	top: 305px;
 }
 }

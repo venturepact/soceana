@@ -8,7 +8,7 @@
 	padding: 30px;
 }*/
 .login_container {
-    background:url("../img/img_large.jpg") no-repeat; width: 100%;}	
+    background:url("../img/img_mac.jpg") no-repeat; width: 100%;}	
 .login_slider img{width:100%; margin-bottom:0px;}
 
 .login_container .top_section {
@@ -220,7 +220,7 @@ p {font-size: 18px; line-height: 34px; text-align: justify;}
 .contact_form .submit_button {font-size: 17px; margin-left: 233px;}
 .gray_text1 {font-size: 15px;}
 .time_outer { background:#1fbba6 url("../img/time_outer_bg.png") repeat-x top;}
-.t_col_6 { padding-top:6px; height:87%; width:8.3%;}
+.t_col_6 { padding-top:6px; height:88%; width:8.3%;}
 .left_top_section_p .main_text {width: 38%;}
 .left_top_section_p .news_text {padding: 2%; width: 53%;}
 .sponser_inner span {font-size: 14px;}
@@ -237,7 +237,7 @@ label.error {font-size: 14px;margin: 3px 0 5px 190px;}
 #forgot_message {font-size: 18px;margin: 0 0 1% 10%;}
 .text_outer_border {border: 1px solid #CCCCCC;}
 input { color: #999999;font-size: 19px; height: 33px;}
-.t_col_1 {width: 22%;}
+.t_col_3 {width: 21.8%;}
 
 .vol_table .signup_form textarea {
     width: 306px;
@@ -260,10 +260,6 @@ input { color: #999999;font-size: 19px; height: 33px;}
     color: #7D7D7D;
     font-family: 'Conv_FuturaLT',Sans-Serif;
 }
-* {
-    margin: 0;
-    padding: 0;
-}
 .section, .profile_content_main {
     font-family: 'Conv_FuturaLT',Sans-Serif;
     font-size: 16px;
@@ -277,10 +273,13 @@ body {
     line-height: 18px;
 }
 .space1 {
-    margin-left: 4%;
-    margin-right: 3%;
+    margin-left: 8%;
+    margin-right: 8%;
 }
-.t_col_2 { width: 175px;}
+.vol_table .t_col_2 { width: 21%;}
+h6{
+	font-size: 14px;
+}
 #save_thumb {
     border: none;
     border-radius: 7px;
@@ -312,7 +311,7 @@ body {
 ul.left_margin label.error {
     color: #FF0000;
     left: 0;
-    margin-left: -22px;
+    margin-left: 0px;
     margin-top: 5px;
     position: absolute;
     text-transform: none;
@@ -371,11 +370,12 @@ height: 183px;
 }
 ul#skill_set_select label.error {
     left: 70px !important;
-    top: 1529px !important;
+    top: 1530px !important;
+	font-size: 14px!important;
 }
 .fields {    
-    margin-left: 68px;
-    width: 71%;
+    margin-left: 75px;
+    width: 70%;
 }
 /*gallery_section starts here*/
 
@@ -414,8 +414,26 @@ ul#skill_set_select label.error {
 .gallery_img5{ width:240px; }
 
 /* end changes@20nov */
-
-
+.section1_heading{
+	margin-left: 630px;
+	margin-top: -25px;
+	font-size: 16px;
+}
+.accordion-close span{
+	margin-top: -28px;
+}
+.right_text_tab{
+	width: 92%;
+}
+.red_cross_outer{
+	padding: 14px;
+}
+.news_text span{
+	line-height: 24px;
+}
+.vol_table .table_head_dark{
+	height: 26px;
+}
 }
 
 
@@ -682,6 +700,11 @@ height:auto;
     height:auto;
 }
 /*gallery_section ends here*/
+.section1_heading {
+    margin-left: 580px;
+}
+
+
 }
 
 /* 768*1024 screens start  */
@@ -1329,6 +1352,10 @@ height:auto;
     height:auto;
 }
 /*gallery_section ends here*/
+.section1_heading {
+    margin-left: 290px;
+}
+
 
 }
 /* kindle landscape 1024*1024 screens start  */
@@ -1524,6 +1551,11 @@ height:auto;
     height:auto;
 }
 /*gallery_section ends here*/
+.section1_heading {
+    margin-left: 590px;
+}
+
+
 }
 
 /* 768*1024 screens start  */
@@ -2030,8 +2062,19 @@ h6 {
 .orange_butt {
     font-size: 9px;
 }
-label.error {
-    margin: -3px 0 5px 144px !important; font-size:11px !important;
+.signup_form label.error {
+    margin: -3px 0 5px 175px !important;
+    width: 68% !important;
+}
+
+.signup_form ul label.error {
+    color: #FF0000 !important;
+    font-size: 12px;
+    left: -195px !important;
+    position: absolute;
+    text-transform: none !important;
+    top: 370px !important;
+    width: 100%;
 }
 ul label.error {
     left: -60px;
@@ -2309,6 +2352,20 @@ ul label.error {
 #wrapper .login_container {
     background-image: url("../img/iphone5-ls.jpg");
 }
+.caption_height{
+	margin-left: 0px;
+}
+.next_preview_butt1{
+	float: left;
+	width: 100%;
+}
+.result_section div{
+	text-align:left;
+}
+.table_footer_white1{
+	margin-left: 0px;
+}
+
 }	
 @media only screen and (min-width : 480px) and (max-width : 599px)
 {
@@ -3488,7 +3545,8 @@ h6 {
 .vol_table .signup_form label {
     margin-right: 10px;
     text-align: left;
-    width: 90%;
+    width: auto;
+	font-size: 0.77em;
 }
 .vol_table .signup_form input[type="text"], .vol_table .signup_form select {
    margin-right: 5px;
@@ -3897,6 +3955,30 @@ div.content {
 .rating_icon img {
     width: 12px !important;
 }
+#save_thumb{
+	margin: 20px 60px;
+}
+.next_preview_butt1{
+	float: left;
+	width: 280px;
+}
+.result_section div{
+	text-align:left;
+}
+.table_footer_white1{
+	margin-left: 0px;
+}
+#thumbnail{
+	width: 100%;
+	margin-right: 0px!important;
+	margin-bottom: 10px;
+}
+#flashMessage{
+	text-align: center;
+	margin: 0px!important;
+}
+
+
 }
 /* 320*480 screens start  */ 
 @media only screen and (min-width : 480px) and (max-width : 567px)
@@ -4110,13 +4192,13 @@ h6 {
     font-size: 10px;
 }
 .vol_table .signup_form input[type="text"], .vol_table .signup_form select{
-	width: 55%;
+	width: 58%;
 }
 .vol_table .signup_form ul li .grey{
 	height: 120px;
 }
 .vol_table .signup_form textarea {
-    width: 420px;
+    width: 280px;
 }
 .vol_table .signup_form label span {
     font-size: 9px;
@@ -4147,18 +4229,19 @@ h6 {
 .add_hours .form_input input {
     background-color: #F7F7F7;
     box-shadow: none;
+	margin-left: 15px;
 }
 .add_hours .form_input input.orange_butt{
 	width: 42%;
 }
 .submit_button3 {
-    width: 80%;
+    width: 58%;
 }
 .orange_butt {
     font-size: 9px;
 }
 label.error {
-    margin: -3px 0 5px 100px !important;
+    margin: -3px 0 5px 148px !important;
 }
 ul label.error {
     left: -60px;
@@ -4178,7 +4261,10 @@ ul label.error {
     width: 125px;
 }
 .signup_form label {
-    font-size: 11px;
+    font-size: 12px!important;
+}
+.signup_form .radio-label {
+    width: 20%!important;
 }
 .signup_form label span {
     text-align: left;
@@ -4298,7 +4384,7 @@ ul label.error {
 .iphone_nav_outer{ display:block;}
 .main_text p {
  
-    font-size: 17px;
+    font-size: 17px!important;
     font-weight: normal;
     margin-left: 5%;
 }
@@ -4342,13 +4428,38 @@ height:auto;
     height:auto;
 }
 .section1_heading{
-	margin-left: 340px;
+	margin-left: 320px;
 }
 
 /*gallery_section ends here*/
 .upper_box_wrapper{
 	display: block;
 }
+.signup_form ul label.error {
+    color: #FF0000 !important;
+    font-size: 12px;
+    left: -220px !important;
+    position: absolute;
+    text-transform: none !important;
+    top: 370px !important;
+    width: 100%;
+}
+.next_preview_butt1{
+	float: left;
+	width: 100%;
+}
+.result_section div{
+	text-align:left;
+}
+.table_footer_white1{
+	margin-left: 0px;
+}
+#thumbnail{
+	width: 100%;
+	margin-right: 0px!important;
+	margin-bottom: 10px;
+}
+
 }
 /* 384*600 screens start Android (Nexus 4) portrait */ 
 @media only screen and (min-width : 384px) and (max-width : 479px)
@@ -4516,6 +4627,9 @@ height:auto;
     height:auto;
 }
 /*gallery_section ends here*/
+.section1_heading {
+    margin-left: 245px;
+}
 
 }
 /* 600*600 screens start Android (Nexus 4) landscape */ 
@@ -4620,6 +4734,9 @@ height:auto;
 	width: 25%;
 }
 /* message end here */
+.section1_heading {
+    margin-left: 290px;
+}
 
 }
 /* 240*320 screens start Crappy Android portrait */ 

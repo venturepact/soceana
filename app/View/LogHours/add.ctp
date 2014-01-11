@@ -2,16 +2,29 @@
 @media only screen and (min-width : 320px) and (max-width : 479px)
 {
 	.signup_form ul label.error {
-    left: -3px;
-    position: absolute;
-    top: 380px;
-    width: 500px;}
+    left: 7px;
+    top: 360px;
+}
 }
 @media only screen and (min-width : 568px) and (max-width : 599px)
 {
 	.signup_form ul label.error {
-    left: -100px;
+    left: -175px;
     top: 365px;
+}
+}
+@media only screen and (min-width : 480px) and (max-width : 567px)
+{
+	.signup_form ul label.error {
+    left: -150px;
+    top: 362px;
+	width: 100%!important;
+}
+}
+@media only screen and (min-width : 480px) and (max-width : 567px)
+{
+	.signup_form label.error {
+    width: 68%!important;
 }
 }
     label.error{ color: #FF0000 !important;font-size: 12px !important;margin: -3px 0 5px 185px; text-align: left !important;text-transform: none !important;width: 100% !important;}

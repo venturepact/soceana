@@ -1,3 +1,35 @@
+<style>
+@media only screen and (min-width:1824px) 
+{
+	.signup_form_blue ul#type label.error {
+          left: 70px !important;
+          top: 1145px!important;
+		  font-size: 18px!important;
+      } 
+
+}
+@media only screen and (min-width : 320px) and (max-width : 479px)
+{
+	.signup_form_blue ul#type label.error {
+          left: -175px !important;
+          top: 1430px!important;
+      } 
+
+}
+@media only screen and (min-width : 480px) and (max-width : 567px)
+{
+.signup_form_blue ul#type label.error {
+	top: 1110px !important;
+	left: -175px !important;
+}
+}
+@media only screen and (min-width : 568px) and (max-width : 599px)
+{
+.signup_form_blue ul#type label.error {
+	width: 67%!important;
+}
+}
+</style>
 <script type="text/javascript">
     $(function() {
 		$('#state').change(function(){
@@ -30,7 +62,7 @@ ul#type label.error {
 	left: 0px !important;
 	position: absolute !important;
 	text-transform: none !important;
-	top: 935px !important;
+	top: 1085px !important;
 	width: 100% !important;
 }
 ul#skill_set_select label.error {

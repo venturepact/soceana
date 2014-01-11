@@ -242,7 +242,7 @@ elseif($this->Session->read('User.role') == 'companies'){
 		foreach($loghours as $log_hour){
          ?> 
           <!-- panel -->
-<div class="accordion" id="section1"><?php echo $log_hour['User']['first_name'].' '.$log_hour['User']['last_name'];?><p style=" margin-left:400px;  margin-top:-18px;"><?php echo $log_hour['total_hrs'];?> HRS</p><span></span></div>
+<div class="accordion" id="section1"><?php echo $log_hour['User']['first_name'].' '.$log_hour['User']['last_name'];?><p class="section1_heading"><?php echo $log_hour['total_hrs'];?> HRS</p><span></span></div>
 <div class="container">
     <div class="content">
     
