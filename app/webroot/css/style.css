@@ -1342,15 +1342,15 @@ p{ text-align:justify;}
     background:linear-gradient(top,#2569aa,#e8e8e8);
     padding:8px;*/
   }
-  .open img{ width:60px !important; }
+  .open img{ width:64px !important; }
 
     .box {
      display:block;
       display:none;
       background:#2569aa;
-      border:solid 1px #BBBBBB;
+      border:1px solid #0F477B;
       border-radius:5px;
-      box-shadow:0px 0px 15px #999;
+      box-shadow:1px 1px 5px #777;
       position:absolute;
     }
 
@@ -1387,9 +1387,30 @@ p{ text-align:justify;}
       	z-index:1000;
       }
 .pop_upbox{ width:300px; text-align:left; font-size:18px;  padding-left:5px; color:#fff; height:35px; padding-top:10px;  }	  
-.bottom_border{ float:left; border-bottom:1px solid #0f477b; width:300px; }
+.bottom_border{ float:left; border-bottom:1px solid #0f477b; width:305px; }
 .main_section{ width:100%;}
-.main_section .left_s{ float:left; width:160px; padding:8px; font-size:14px; color:#fff; line-height:20px; text-align:justify;}
+.main_section .left_s{ 
+    color: #FFFFFF;
+    float: left;
+    font-family: 'Conv_FuturaLT',Sans-Serif;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 20px;
+    padding: 8px;
+    text-align: justify;
+    width: 290px;
+}
+.main_section .left_s ol{ 
+	margin: 0;
+	padding: 0 0 0 18px;
+}
+.main_section .left_s ol li {
+    font-size: 13px;
+    font-weight: normal !important;
+    line-height: 18px;
+    padding-bottom: 8px;
+    text-align: left;
+}
 .main_section .right_s{ float:left; width:128px; padding-top:10px;}
 .main_section .right_s img{width:100%;}
 
@@ -1417,15 +1438,15 @@ p{ text-align:justify;}
     background:linear-gradient(top,#2569aa,#e8e8e8);
     padding:8px;*/
   }
- .open1 img{ width:63px !important; }
+ .open1 img{ width:64px !important; }
 
     .box1 {
      display:block;
       display:none;
       background:#2569aa;
-      border:solid 1px #BBBBBB;
+      border:1px solid #0F477B;
       border-radius:5px;
-      box-shadow:0px 0px 15px #999;
+      box-shadow:1px 1px 5px #777;
       position:absolute;
     }
 
@@ -1487,9 +1508,9 @@ p{ text-align:justify;}
      display:block;
       display:none;
       background:#2569aa;
-      border:solid 1px #BBBBBB;
+      border:1px solid #0F477B;
       border-radius:5px;
-      box-shadow:0px 0px 15px #999;
+      box-shadow:1px 1px 5px #777;
       position:absolute;
     }
 

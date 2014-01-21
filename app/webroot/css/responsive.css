@@ -434,6 +434,26 @@ ul#skill_set_select label.error {
 .vol_table .table_head_dark{
 	height: 26px;
 }
+/* about popup text start */
+
+.pop_upbox{
+	font-size: 20px;
+}
+.main_section .left_s ol li{
+	font-size: 16px;
+	line-height: 20px;
+}
+
+/* about popup text end */
+/* faq text start */
+.ac-container label{
+	font-size: 22px;
+}
+.ac-container article p{
+	font-size: 20px;
+	line-height: 30px;
+}
+/* faq text start */
 }
 
 
@@ -506,17 +526,58 @@ height:auto;
     left: 193px ;
 }
 }*/
-	
-	
 
 /* 8 oct end */
-
-
 
 /*Updated 27/09/2013*/
 
 /*I-pad portrait*/
 
+/* 15inch macbook air start */
+@media (min-width: 1440px)
+{
+.popbox_c {
+    left: 15px;
+    top: 160px;
+}
+.popbox {
+    right: 18px;
+    top: 160px;
+}
+.popbox_n {
+    left: 228px;
+    top: 450px;
+}
+}
+/* 15inch macbook air end */
+
+/* 15inch w/retina display macbook air start */
+@media (min-width: 2880px)
+{
+.container .section .logo_div img {
+    width: 60%;
+}
+.section .logo_div{
+	margin-left: 250px;
+}
+.section .popbox_c {
+    left: 330px;
+    top: 213px;
+}
+.section .popbox {
+    right: 322px;
+    top: 215px;
+}
+.section .popbox_n {
+    left: 450px;
+    top: 590px;
+    width: 530px !important;
+}
+.ac-container label{
+	height: 33px;	
+}
+}
+/* 15inch w/retina display macbook air end */
 
 /* 800*600 screens start  */
 @media only screen and (min-width : 1024px) and (max-width : 1024px)
@@ -949,6 +1010,21 @@ height:auto;
 .gallery_main .gallery_left_img {
     width: 96%;
 }
+/* faq text start */
+.ac-container label {
+    font-size: 16px;
+    line-height: 18px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    width: 95%;
+}
+.ac-container article p {
+    font-size: 14px;
+    line-height: 22px;
+    top: 25px;
+}
+
+/* faq text start */
 }
 /* 768*1024 screens end  */
 
@@ -1154,7 +1230,7 @@ h2 {
     width: 100%;
 }
 h1 {
-    font-size: 24px;
+    font-size: 17px;
 }
 h3 {
     font-size: 16px;
@@ -1490,10 +1566,12 @@ h3{
     float: right;
     margin-bottom: 10px;
     margin-left: 22px;
-    margin-top: -47px;
-    width: 37%;
+    margin-top: -45px;
+    width: 32%;
 }
-
+.section h1{
+	font-size: 26px;
+}
 .container .volunteer_signup_form ul li {
 	margin-left: 10px;
 
@@ -1554,7 +1632,14 @@ height:auto;
 .section1_heading {
     margin-left: 590px;
 }
-
+/* faq text start */
+.ac-container label{
+	font-size: 15px;
+}
+.ac-container article p{
+	font-size: 14px;
+}
+/* faq text end */
 
 }
 
@@ -1722,12 +1807,15 @@ blockquote {
     width: 100%; margin-left:0px; height: 460px;
    
 }
+.section h1{
+	font-size: 20px;
+}
 .butt_outer {
-    float: left;
+    float: right;
     margin-bottom: 10px;
-    margin-left: 305px;
-    margin-top: -46px;
-    width: 50%;
+    margin-right: -20px;
+    margin-top: -43px;
+    width: 32%;
 }
 .container .volunteer_signup_form ul li {
 	margin-left: 10px;
@@ -1943,7 +2031,7 @@ top_nav li a {;
     padding-left: 0;
 }
 h1 {
-    font-size: 1.2em;
+    font-size: 1.15em;
     font-weight: bold;
 }
 .client_detail h3 {
@@ -2365,6 +2453,18 @@ ul label.error {
 .table_footer_white1{
 	margin-left: 0px;
 }
+.ac-container label {
+    font-size: 16px;
+    line-height: 18px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+	width: 95%;
+}
+.ac-container article p {
+    font-size: 13px;
+    line-height: 22px;
+	top: 25px;
+}
 
 }	
 @media only screen and (min-width : 480px) and (max-width : 599px)
@@ -2408,9 +2508,10 @@ left: 198px;
 .butt_outer {
     float: right;
     margin-bottom: 10px;
-    margin-left: 188px;
+    margin-left: 0px;
     margin-top: -43px;
-    width: 46%;
+	margin-right: -10px;
+    width: 35%;
 }
 .container .volunteer_signup_form ul li {
     width: 80px;
@@ -3977,8 +4078,61 @@ div.content {
 	text-align: center;
 	margin: 0px!important;
 }
+/* faq text start */
+.ac-container label {
+    font-size: 12px;
+    line-height: 16px;
+    padding-bottom: 8px;
+	width: 95%;
+}
+.ac-container article p {
+    font-size: 11px;
+    line-height: 18px;
+}
+.ac-container input:checked + label,
+{
+	content: '';
+	position: absolute;
+	width: 10px;
+	height: 8px;
+	right: -15px;
+	top: 5px;
+	background: transparent url(../img/s_orange_arrow.png) no-repeat center center;	
+}
+.ac-container label::after,
+.ac-container input:checked + label::after{
+	
+	content: '';
+	position: absolute;
+	width: 10px;
+	height: 8px;
+	right: -15px;
+	top: 5px;
+	background: transparent url(../img/s_orange_arrow.png) no-repeat center center;	
+}
+.ac-container label:hover:after,
+.ac-container input:checked + label:hover:after{
+	content: '';
+	position: absolute;
+	width: 10px;
+	height: 8px;
+	right: -15px;
+	top: 5px;
+}
+.ac-container input:checked + label:after{
+	background-image: url(../img/s_orange_downarrow.png);
+}
+.ac-container input:checked ~ article.ac-large {
+    height: 250px;
+}
+.ac-container input:checked ~ article.ac-medium {
+    height: 220px;
+}
+.ac-container input:checked ~ article.ac-small {
+    height: 150px;
+}
 
-
+/* faq text start */
 }
 /* 320*480 screens start  */ 
 @media only screen and (min-width : 480px) and (max-width : 567px)
@@ -4125,7 +4279,7 @@ top_nav li a {
     padding-left: 0;
 }
 h1 {
-    font-size: 1.5em;
+    font-size: 0.98em;
     font-weight: bold;
 }
 h3 {
@@ -4459,6 +4613,27 @@ height:auto;
 	margin-right: 0px!important;
 	margin-bottom: 10px;
 }
+.ac-container label {
+    font-size: 16px;
+    line-height: 18px;
+    padding-bottom: 6px;
+	padding-top: 4px;
+    width: 95%;
+}
+.ac-container article p {
+    font-size: 14px;
+    line-height: 20px;
+	top: 25px;
+}
+.ac-container input:checked ~ article.ac-large{
+	height: 250px;
+}
+.ac-container input:checked ~ article.ac-medium {
+    height: 200px;
+}
+.ac-container input:checked ~ article.ac-small {
+    height: 150px;
+}
 
 }
 /* 384*600 screens start Android (Nexus 4) portrait */ 
@@ -4737,6 +4912,30 @@ height:auto;
 .section1_heading {
     margin-left: 290px;
 }
+/* faq text start */
+.ac-container label {
+    font-size: 15px;
+    line-height: 18px;
+    padding-bottom: 8px;
+    padding-top: 5px;
+    width: 95%;
+}
+.ac-container article p {
+    font-size: 13px;
+    line-height: 22px;
+	top: 25px;
+}
+.ac-container input:checked ~ article.ac-large{
+	height: 260px;
+}
+.ac-container input:checked ~ article.ac-medium {
+    height: 210px;
+}
+.ac-container input:checked ~ article.ac-small {
+    height: 160px;
+}
+
+/* faq text start */
 
 }
 /* 240*320 screens start Crappy Android portrait */ 

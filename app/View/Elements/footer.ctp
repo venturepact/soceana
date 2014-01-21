@@ -2,7 +2,8 @@
         <div class="footer_inner">
             <div class="footer_first_block">
                 <div class="footer_block_heading">SOCEANA <br />
-                <span>GENERATING SOCIAL GOOD</span></div>
+                <span>GENERATING SOCIAL GOOD</span>
+                </div>
                 <ul class="footer_nav">
                     <li><a href="<?php echo $this->webroot;?>pages/about">About</a></li>
                     <li><a href="http://soceana.wordpress.com/" target="_blank">Blog</a></li>
