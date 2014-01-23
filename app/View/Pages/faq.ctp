@@ -4,7 +4,7 @@
 				<h1>FAQ</h1>
                 <p>Need help? Take a look at our frequently asked questions.</p>
             </div>
-			<div class="mt50"></div>
+			<div class="mt20"></div>
 			<div class="profile_content_main">
                	<section class="ac-container">
                     <div style="float:left; width:100%;">
@@ -42,7 +42,7 @@ organizations they seek to do good at, and promotes a community-build platform b
                     <div style="float:left; width:100%;">
                         <input id="ac-5" name="accordion-1" type="checkbox" />
                         <label for="ac-5">Why do I have to register as a member before I can access Soceana’s metrics and volunteer services?</label>
-                        <article class="ac-medium">
+                        <article class="ac-small">
                             <p>In order to access data, metrics and the full features of Soceana, it is required to register as a member/nonprofit/company. This allows for our technology to record and analyze the good that you are doing/propagating. Without an account, individuals won’t have tracked and recorded hours and Soceana won’t be able to provide them with the services that they are seeking.</p>
                         </article>
                     </div>
@@ -50,21 +50,22 @@ organizations they seek to do good at, and promotes a community-build platform b
                         <input id="ac-6" name="accordion-1" type="checkbox" />
                         <label for="ac-6">I haven’t received a “verification email” after I signed up.</label>
                         <article class="ac-small">
-                            <p>If you have gone through the sign-up process and still have not received a verification email, please drop us a line at feedback@soceana.com. We’ll get back to you within 48 hours.</p>
+                            <p>If you have gone through the sign-up process and still have not received a verification email, please drop us a line at 
+                            <a href="mailto:feedback@soceana.com">feedback@soceana.com</a>. We’ll get back to you within 48 hours.</p>
                         </article>
                     </div>
 				</section>
                  <div>&nbsp;</div>
                  
               </div>
-              <div class="mt20"></div>
+              <!--<div class="mt20"></div>-->
               <h1>LOGGING HOURS</h1>
               <div class="profile_content_main">
               	<section class="ac-container">
                     <div style="float:left; width:100%;">
                         <input id="ac-7" name="accordion-1" type="checkbox" />
                         <label for="ac-7">How does the approval process work for logging and validating hours?</label>
-                        <article class="ac-medium">
+                        <article class="ac-small">
                             <p>This all depends on the nonprofit that is monitoring the hours. They are required to accept/reject hours within the month that they were submitted, so there is a time limit with which they are being held accountable. That being said, approval ranges from a few hours to weeks depending on the size, scope and involvement the nonprofit has with our company.</p>
                         </article>
                     </div>
@@ -87,7 +88,7 @@ organizations they seek to do good at, and promotes a community-build platform b
                  
               </div>
               
-              <div class="mt20"></div>
+              <!--<div class="mt20"></div>-->
               <h1>SITE NAVIGATION</h1>
               <div class="profile_content_main">
 				<section class="ac-container">
@@ -116,7 +117,7 @@ primary way that others will be able to contact you.</p>
                     <div style="float:left; width:100%;"> 
                         <input id="ac-13" name="accordion-1" type="checkbox" />
                         <label for="ac-13">How do I contact a fellow volunteer, nonprofit or company?</label>
-                        <article class="ac-medium">
+                        <article class="ac-small">
                             <p>Our robust messaging platform allows for communication to thrive between individuals, nonprofits and companies. Click the “Messages” tab and a list of your messages will appear in a pop-up on the bottom of the screen. You have the option to send new messages, look at old contacts 
 and manage your Soceana inbox on the fly. </p>
                         </article>
@@ -124,16 +125,15 @@ and manage your Soceana inbox on the fly. </p>
                     <div style="float:left; width:100%;"> 
                         <input id="ac-14" name="accordion-1" type="checkbox" />
                         <label for="ac-14">What does the data that shows up on my dashboard mean?</label>
-                        <article class="ac-medium">
-                            <p>Soceana provides a summary of interactions within your social sphere. Some items include a summary of your volunteer hours and pending messages. We are always looking to improve the Soceana experience and your suggestions to improve the dashboard or any other part of the site are always welcome, please let us know at feedback@soceana.com.</p>
+                        <article class="ac-small">
+                            <p>Soceana provides a summary of interactions within your social sphere. Some items include a summary of your volunteer hours and pending messages. We are always looking to improve the Soceana experience and your suggestions to improve the dashboard or any other part of the site are always welcome, please let us know at <a href="mailto:feedback@soceana.com">feedback@soceana.com</a>.</p>
                         </article>
                     </div>
                     <div style="float:left; width:100%;"> 
                         <input id="ac-15" name="accordion-1" type="checkbox" />
                         <label for="ac-15">How do I delete my account?</label>
                         <article class="ac-small">
-                            <p>We’re sorry to see you go - but if you do wish to delete your account, please send us an email with your user information to help@soceana.com. Here we will be able to assist you in the removal process. If there’s anything we can do to improve our product, please let us know at 
-feedback@soceana.com.</p>
+                            <p>We’re sorry to see you go - but if you do wish to delete your account, please send us an email with your user information to <a href="mailto:help@soceana.com">help@soceana.com</a>. Here we will be able to assist you in the removal process. If there’s anything we can do to improve our product, please let us know at <a href="mailto:feedback@soceana.com">feedback@soceana.com</a>.</p>
                         </article>
                     </div>
                     <div style="float:left; width:100%;"> 
@@ -155,7 +155,7 @@ and register you as an employee of the company. Otherwise, when your employer si
                     <div style="float:left; width:100%;"> 
                         <input id="ac-18" name="accordion-1" type="checkbox" />
                         <label for="ac-18">How does my employer know the social good that I do?</label>
-                        <article class="ac-medium">
+                        <article class="ac-small">
                             <p>Your employer has access to a unique set of tools that allow them to analyze the individual and aggregate good that their employees do. They are able to see the individual instances of volunteering that you do, where they are and the photos that you upload. They also have the ability to see trends of their entire company and where they prefer to commit social good to, which branches are most successful, etc.</p>
                         </article>
                     </div>
@@ -169,8 +169,8 @@ and register you as an employee of the company. Otherwise, when your employer si
                     <div style="float:left; width:100%;"> 
                         <input id="ac-20" name="accordion-1" type="checkbox" />
                         <label for="ac-20">Which types of organizations can use Soceana?</label>
-                        <article class="ac-medium">
-                            <p>Contrary to popular belief, you don’t have to be a nonprofit organization in order to use Soceana. Your organization simply has to be seeking to better the world in some way in order to be considered as an acceptable facet of Soceana. If there are any questions regarding the requirements to register and utilize all that Soceana has to offer, please contact us at help@soceana.com.</p>
+                        <article class="ac-small">
+                            <p>Contrary to popular belief, you don’t have to be a nonprofit organization in order to use Soceana. Your organization simply has to be seeking to better the world in some way in order to be considered as an acceptable facet of Soceana. If there are any questions regarding the requirements to register and utilize all that Soceana has to offer, please contact us at <a href="mailto:help@soceana.com">help@soceana.com</a>.</p>
                         </article>
                     </div>
 				</section>
@@ -180,5 +180,5 @@ and register you as an employee of the company. Otherwise, when your employer si
               
               
            
-            <div class="mt50"></div>            
+            <div class="mt20"></div>            
         </div>

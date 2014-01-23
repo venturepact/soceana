@@ -1019,9 +1019,9 @@ height:auto;
     width: 95%;
 }
 .ac-container article p {
-    font-size: 14px;
-    line-height: 22px;
-    top: 25px;
+    font-size: 13px;
+    line-height:16px;
+    top: 20px;
 }
 
 /* faq text start */
@@ -1638,6 +1638,7 @@ height:auto;
 }
 .ac-container article p{
 	font-size: 14px;
+	line-height: 20px;
 }
 /* faq text end */
 
@@ -2461,10 +2462,46 @@ ul label.error {
 	width: 95%;
 }
 .ac-container article p {
-    font-size: 13px;
-    line-height: 22px;
-	top: 25px;
+    font-size: 12px;
+    line-height: 16px;
+	padding: 25px 0px;
 }
+.section, .profile_content_main{
+	margin-top: 0px;
+}
+/* about popup start */
+.section .logo_div img{
+	margin-left: 0px;
+}
+.logo_div .open img, .logo_div .open1 img, .logo_div .open2 img {
+    width: 23px !important;
+} 
+.box1 {
+    bottom: 50px !important;
+}
+.box{
+	bottom: 50px !important;
+}
+.box2 {
+    bottom: 50px !important;
+}
+.pop_upbox {
+    width: 230px;
+}
+.bottom_border {
+    width: 236px;
+}
+.main_section .left_s {
+    width: 220px;
+}
+.main_section .left_s ol li {
+    font-size: 12px;
+    line-height: 16px;
+}
+.logo_div .popbox {
+    right: 85px;
+}
+/* about popup start */
 
 }	
 @media only screen and (min-width : 480px) and (max-width : 599px)
@@ -3817,7 +3854,7 @@ ul label.error {
     width: 24px !important;
 }
 .popbox {   
-    right: -84px;
+    right: -20px;
     top: 79px;   
 }
 .open1 img {
@@ -3986,7 +4023,13 @@ div.content {
 .upper_box {
     width: 280px;
 	margin-right: 0%;
-	height: 425px;
+	height: 300px;
+}
+.client_section{
+	height: 250px;
+}
+.message_section textarea, #messages textarea{
+	height: 83px;
 }
 .upper_box .left_section_upper{
 	width: 45px;
@@ -4081,13 +4124,14 @@ div.content {
 /* faq text start */
 .ac-container label {
     font-size: 12px;
-    line-height: 16px;
-    padding-bottom: 8px;
+    line-height: 13px;
+	height: 27px;
 	width: 95%;
 }
 .ac-container article p {
-    font-size: 11px;
-    line-height: 18px;
+    font-size: 12px;
+    line-height: 20px;
+	padding: 10px 0px;
 }
 .ac-container input:checked + label,
 {
@@ -4123,16 +4167,46 @@ div.content {
 	background-image: url(../img/s_orange_downarrow.png);
 }
 .ac-container input:checked ~ article.ac-large {
-    height: 250px;
+    height: 215px;
 }
 .ac-container input:checked ~ article.ac-medium {
-    height: 220px;
+    height: 180px;
 }
 .ac-container input:checked ~ article.ac-small {
-    height: 150px;
+    height: 160px;
+}
+.section, .profile_content_main{
+	margin-top: 0px;
 }
 
-/* faq text start */
+/* faq text end */
+
+/* about popup start */
+.main_section .left_s{
+	width: 160px;
+}
+.bottom_border{
+	width: 175px;
+}
+.pop_upbox{
+	width: 170px;
+	font-size: 15px;
+}
+.main_section .left_s ol li {
+    font-size: 11px;
+    line-height: 15px;
+}
+.box1 {
+    bottom: 50px !important;
+    left: -70px !important;
+}
+.box2 {
+    bottom: 50px !important;
+}
+.box {
+    bottom: 50px !important;
+}
+/* about popup end */
 }
 /* 320*480 screens start  */ 
 @media only screen and (min-width : 480px) and (max-width : 567px)
@@ -4614,19 +4688,17 @@ height:auto;
 	margin-bottom: 10px;
 }
 .ac-container label {
-    font-size: 16px;
-    line-height: 18px;
-    padding-bottom: 6px;
-	padding-top: 4px;
+    font-size: 15px;
+    line-height: 14px;
     width: 95%;
+	padding-top: 7px;
 }
 .ac-container article p {
-    font-size: 14px;
+    font-size: 13px;
     line-height: 20px;
-	top: 25px;
 }
 .ac-container input:checked ~ article.ac-large{
-	height: 250px;
+	height: 230px;
 }
 .ac-container input:checked ~ article.ac-medium {
     height: 200px;
@@ -4634,7 +4706,73 @@ height:auto;
 .ac-container input:checked ~ article.ac-small {
     height: 150px;
 }
-
+.box1 {
+    bottom: 40px !important;
+}
+.pop_upbox {
+    width: 215px;
+}
+.bottom_border {
+    width: 220px;
+}
+.main_section .left_s {
+    width: 205px;
+}
+.main_section .left_s ol li {
+    font-size: 12px;
+    line-height: 14px;
+}
+.arrow1 {
+    border-left: 8px solid rgba(0, 0, 0, 0);
+    border-right: 8px solid rgba(0, 0, 0, 0);
+    border-top: 8px solid #2569AA;
+    bottom: -8px;
+}
+.arrow-border1 {
+    border-left: 8px solid rgba(0, 0, 0, 0);
+    border-right: 8px solid rgba(0, 0, 0, 0);
+    border-top: 8px solid #BBBBBB;
+    bottom: -10px;
+}
+.open1 img {
+    width: 23px !important;
+}
+.popbox {
+    right: 92px;
+}
+.open img {
+    width: 23px !important;
+}
+.box {
+    bottom: 40px !important;
+}
+.arrow{
+    border-left: 8px solid rgba(0, 0, 0, 0);
+    border-right: 8px solid rgba(0, 0, 0, 0);
+    border-top: 8px solid #2569AA;
+    bottom: -8px;
+}
+.arrow-border {
+    border-left: 8px solid rgba(0, 0, 0, 0);
+    border-right: 8px solid rgba(0, 0, 0, 0);
+    border-top: 8px solid #BBBBBB;
+    bottom: -10px;
+}
+.box2 {
+    bottom: 40px !important;
+}
+.arrow2{
+    border-left: 8px solid rgba(0, 0, 0, 0);
+    border-right: 8px solid rgba(0, 0, 0, 0);
+    border-top: 8px solid #2569AA;
+    bottom: -8px;
+}
+.arrow-border2 {
+    border-left: 8px solid rgba(0, 0, 0, 0);
+    border-right: 8px solid rgba(0, 0, 0, 0);
+    border-top: 8px solid #BBBBBB;
+    bottom: -10px;
+}
 }
 /* 384*600 screens start Android (Nexus 4) portrait */ 
 @media only screen and (min-width : 384px) and (max-width : 479px)
@@ -4805,7 +4943,43 @@ height:auto;
 .section1_heading {
     margin-left: 245px;
 }
-
+/* about popup start */
+.popbox .box {
+    left: -28px !important;
+}
+.popbox_c .box1 {
+    bottom: 50px !important;
+    left: -120px !important;
+}
+.popbox_n .box2 {
+    bottom: 50px !important;
+    left: -15px !important;
+}
+.pop_upbox {
+    width: 225px;
+}
+.bottom_border {
+    width: 230px;
+}
+.bottom_border {
+    border-bottom: 1px solid #0F477B;
+    float: left;
+    width: 230px;
+}
+.main_section .left_s {
+    width: 215px;
+}
+.main_section .left_s ol li {
+    font-size: 12px;
+    line-height: 15px;
+}
+.popbox {
+    right: -60px;
+}
+.logo_div .open img, .logo_div .open1 img, .logo_div .open2 img{
+	width: 27px!important;
+}
+/* about popup end */
 }
 /* 600*600 screens start Android (Nexus 4) landscape */ 
 @media only screen and (min-width : 600px) and (max-width : 600px)
@@ -4921,7 +5095,7 @@ height:auto;
     width: 95%;
 }
 .ac-container article p {
-    font-size: 13px;
+    font-size: 12px;
     line-height: 22px;
 	top: 25px;
 }
@@ -4935,7 +5109,14 @@ height:auto;
     height: 160px;
 }
 
-/* faq text start */
+/* faq text end */
+
+/* about popup start */
+.box, .box1, .box2{
+    bottom: 60px !important;
+}
+
+/* about popup end */
 
 }
 /* 240*320 screens start Crappy Android portrait */ 

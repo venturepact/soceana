@@ -405,7 +405,7 @@ h6 { width:100%;font-family: 'Conv_FuturaLT', Sans-Serif;font-size: 11px;color:#
 
 /* message system css */
 .upper_box{ border:1px solid #ccc; position:fixed; bottom:0; right:0; height:400px; width:420px;   box-shadow: 1px 1px 3px #333; -moz-border-radius: 5px; border-radius: 5px; background:#fff; margin-right:2%; z-index:2;    }
-.upper_box_wrapper{ position:fixed; right:0; bottom:0; margin-right:2%; z-index:2; }
+.upper_box_wrapper{ position:fixed; right:0; bottom:0; margin-right:2%; z-index:999; }
 .box_wrap_inner{float:left; text-align:center; height:40px; display:none;}
 .bott_margin{ margin-bottom:-3px}
 .upper_box .left_section_upper{ float:left; width:80px; padding-top:15px; padding:4px; height:98%;  background:#fa7e00;-webkit-border-top-left-radius: 5px;
@@ -1627,7 +1627,7 @@ p{ text-align:justify;}
 .read_messages_bg{background-color:#F5F5F5}
 .read_messages_bg .client_detail h3{font-size:16px;}
 .read_messages_bg .client_detail .light_gray{font-size:13px;}
-.unread_messages .client_detail h3{font-weight:bolder;}
+.unread_messages .client_detail h3{font-weight:bolder; font-size: 16px;}
 
 .status_text{font-size: 12px; line-height: 18px;}
 .sponser_inner span textarea{ width:100%; font-size:14px; }
@@ -1733,7 +1733,7 @@ p{ text-align:justify;}
 .ac-container article p{
 	color: #333333;
 	line-height: 25px;
-	padding: 20px 20px 20px 6px;
+	padding: 20px 0px;
 	position:relative;
 	top:15px;
 }
@@ -1745,16 +1745,21 @@ p{ text-align:justify;}
 	transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
 }
 .ac-container input:checked ~ article.ac-small{
-	height: 140px;
+	height: 120px;
 }
 .ac-container input:checked ~ article.ac-medium{
-	height: 180px;
+	height: 140px;
 }
 .ac-container input:checked ~ article.ac-large{
-	height: 230px;
+	height: 170px;
 }
-
-
+.ac-container article p a{
+	color: #2bacdf;
+	text-decoration: none;
+}
+.ac-container article p a:hover{
+	text-decoration: underline;
+}
 
 .orange_text
 {   
