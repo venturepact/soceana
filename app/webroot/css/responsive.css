@@ -2455,15 +2455,13 @@ ul label.error {
 	margin-left: 0px;
 }
 .ac-container label {
-    font-size: 16px;
-    line-height: 18px;
-    padding-bottom: 5px;
-    padding-top: 5px;
+    font-size: 14px;
+    line-height: 20px;
 	width: 95%;
 }
 .ac-container article p {
     font-size: 12px;
-    line-height: 16px;
+    line-height: 18px;
 	padding: 25px 0px;
 }
 .section, .profile_content_main{
@@ -4124,14 +4122,13 @@ div.content {
 /* faq text start */
 .ac-container label {
     font-size: 12px;
-    line-height: 13px;
-	height: 27px;
+    line-height: 18px;
 	width: 95%;
 }
 .ac-container article p {
     font-size: 12px;
-    line-height: 20px;
-	padding: 10px 0px;
+    line-height: 16px;
+	padding: 0px;
 }
 .ac-container input:checked + label,
 {
@@ -4167,7 +4164,7 @@ div.content {
 	background-image: url(../img/s_orange_downarrow.png);
 }
 .ac-container input:checked ~ article.ac-large {
-    height: 215px;
+    height: 250px;
 }
 .ac-container input:checked ~ article.ac-medium {
     height: 180px;
@@ -4688,14 +4685,14 @@ height:auto;
 	margin-bottom: 10px;
 }
 .ac-container label {
-    font-size: 15px;
-    line-height: 14px;
+    font-size: 14px;
+    line-height: 20px;
     width: 95%;
-	padding-top: 7px;
 }
 .ac-container article p {
-    font-size: 13px;
-    line-height: 20px;
+    font-size: 12px;
+    line-height: 18px;
+    padding: 25px 0;
 }
 .ac-container input:checked ~ article.ac-large{
 	height: 230px;

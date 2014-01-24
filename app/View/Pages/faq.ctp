@@ -30,7 +30,6 @@ organizations they seek to do good at, and promotes a community-build platform b
                         </article>
                     </div>
 				</section>
-                <div>&nbsp;</div>
                 <section class="ac-container">
                     <div style="float:left; width:100%;">
                         <input id="ac-4" name="accordion-1" type="checkbox" />

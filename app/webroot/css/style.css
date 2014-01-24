@@ -1668,7 +1668,6 @@ p{ text-align:justify;}
 	position: relative;
 	z-index: 20;
 	display: block;
-	height: 30px;
 	cursor: pointer;
 	color: #777;
 	line-height: 33px;
