@@ -2455,14 +2455,14 @@ ul label.error {
 	margin-left: 0px;
 }
 .ac-container label {
-    font-size: 14px;
+    font-size: 12px;
     line-height: 20px;
 	width: 95%;
 }
 .ac-container article p {
     font-size: 12px;
     line-height: 18px;
-	padding: 25px 0px;
+	padding: 0px;
 }
 .section, .profile_content_main{
 	margin-top: 0px;
@@ -2497,7 +2497,7 @@ ul label.error {
     line-height: 16px;
 }
 .logo_div .popbox {
-    right: 85px;
+    right:88px;
 }
 /* about popup start */
 
@@ -2524,7 +2524,7 @@ ul label.error {
     width: 22px !important;
 }
 .popbox_c {
-left: 198px;
+left: 196px;
     top: 63px;
  width:40px !important;    
 }
@@ -4164,13 +4164,13 @@ div.content {
 	background-image: url(../img/s_orange_downarrow.png);
 }
 .ac-container input:checked ~ article.ac-large {
-    height: 250px;
+    height: 220px;
 }
 .ac-container input:checked ~ article.ac-medium {
-    height: 180px;
+    height: 170px;
 }
 .ac-container input:checked ~ article.ac-small {
-    height: 160px;
+    height: 130px;
 }
 .section, .profile_content_main{
 	margin-top: 0px;
